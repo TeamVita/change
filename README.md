@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Change 
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Facilitating digital donation transactions to people in need.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > In this day and age, people are less likely to carry coins or cash, therefore less likely to donate to homeless people on the streets. This app provides a solution by facilitating digital transactions annonymously.
 
 ## Problem ##
-  > Describe the problem your product solves.
-
+  > People dont always carry cash on-hand, thus prohibiting them from making spontaneous donations.
+  
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Creating a new platform for donating in this digital age.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "No more excuses." -- Tony Stark
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Open the app; enter the pin and amount you want to donate.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > Making a difference with just a click of a button.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Donate now and make a change!
