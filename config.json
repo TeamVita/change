@@ -3,7 +3,7 @@
   "api" : {
     "host" : "api.sandbox.paypal.com",
     "port" : "",
-    "client_id" : "AYq9ZAkK-b7hk6iPatSiiGKlv5XN9uzdfIk3Qq7MU6AJBWkT93T_HAUrHrruRoUhlK-LK-rKvWxCY5Qj",
-    "client_secret" : "EHGpiXrFMe79CuKi9XnrcPtTEgIc2Sgza6XVAnZF53cWFoaStB_ynCHeGJz7_rO33kWEdD_8BoVCA8uY"
+    "client_id" : "AR1G9oyrlZw0wUZNymkbxN_XoTv-DZthfaB-MAtMEJInYIwuchASVbi4iekg6dgYmJkw5PRAW2Py1mLR",
+    "client_secret" : "EGVV0cPt36zj4qMMWhaehJYpsEwh0vJ13Mtiwo059XMCUdSxmeX0P5yRHL_u0YW6sWc8-zUR-DMrOkoS"
   }
 }

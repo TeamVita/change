@@ -20,8 +20,8 @@ var config = {};
      "payment_method": "paypal"
    },
    "redirect_urls": {
-     "return_url": "http://yoururl.com/execute",
-     "cancel_url": "http://yoururl.com/cancel"
+     "return_url": "http://localhost:3000/execute",
+     "cancel_url": "http://localhost:3000/cancel"
    },
    "transactions": [{
      "amount": {
@@ -54,6 +54,20 @@ exports.create = function(req, res){
         }
         res.redirect(redirectUrl);
       }
+    }
+  });
+};
+
+exports.execute = function(req, res){
+  var paymentId = req.session.paymentId;
+  var payerId = req.param('PayerID');
+
+  var details = { 'payer_id': payerId };
+  paypal.payment.execute(paymentId, details, function(error, payment) {
+    if (error){
+      console.log(error);
+    } else {
+      res.send('Hell yeah!');
     }
   });
 };
