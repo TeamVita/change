@@ -4,6 +4,7 @@ var Sequelize = require('sequelize')
       port:    5432, // or 5432 (for postgres)
     });
 
+//Connecting the Database
 sequelize
   .authenticate()
   .then(function(err) {
@@ -13,7 +14,7 @@ sequelize
   });
   .done();
 
-
+//Creating the User Table
 var User = orm.define('users', {
   firstName: {
     type: Sequelize.STRING,
@@ -36,7 +37,7 @@ var User = orm.define('users', {
   },
 
   totalDonations: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DECIMAL(10, 2),
     allowNull: false
   },
 
@@ -54,6 +55,7 @@ var User = orm.define('users', {
   }
 });
 
+//Creating the Donation Table
 var Donation = orm.define('donations', {
   donorId: {
     type: Sequelize.INTEGER,
@@ -70,10 +72,11 @@ var Donation = orm.define('donations', {
     allowNull: false
   },
 
-  date: {
-    type: Sequelize.DATE,
-    allowNull: false
-  },
+//dates are automatically created
+  // date: {
+  //   type: Sequelize.DATE,
+  //   allowNull: false
+  // },
 
   receipt: {
     type: Sequelize.BOOLEAN,
@@ -81,6 +84,7 @@ var Donation = orm.define('donations', {
   }
 });
 
+//Creating the Recipient Table
 var Recipient = orm.define('recipients', {
   name: {
     type: Sequelize.STRING,
@@ -92,16 +96,18 @@ var Recipient = orm.define('recipients', {
   }
 
   accountBalance: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DECIMAL(10, 2),
     defaultValue: 0
   },
 
   pinNumber: {
-    type: Sequelize.Integer,
+    type: Sequelize.INTEGER,
     allowNull: false
   }
 });
 
+
+//Creating the Purchase Table
 var Purchase = orm.define('purchases', {
   venderName: {
     type: Sequelize.STRING
@@ -112,6 +118,26 @@ var Purchase = orm.define('purchases', {
   },
 
   amount: {
-    type: Sequelize.INTEGER
+    type: Sequelize.DECIMAL(10, 2);
   }
 });
+
+var UserDonation = orm.define('userDonations', {
+
+});
+
+User.hasMany(Donation);
+Donation.hasMany(User);
+Recipient.hasMany(Donation);
+Recipient.hasMany(Purchase);
+
+// make the database
+// delete database file to clear database
+orm.sync();
+
+exports.User = User;
+exports.Donation = Donation;
+exports.Recipient = Recipient;
+exports.Purchase = Purchase;
+exports.orm = orm;
+
