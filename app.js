@@ -15,7 +15,7 @@ try {
   var configJSON = fs.readFileSync(__dirname + '/config.json');
   var config = JSON.parse(configJSON.toString());
 } catch (e) {
-  debug('File config.json not found or is invalid: ' + e.message);
+  // debug('File config.json not found or is invalid: ' + e.message);
   process.exit(1);
 }
 routes.init(config);

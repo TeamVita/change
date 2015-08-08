@@ -1,5 +1,7 @@
-var Sequalize = require('sequalize');
+// var Sequalize = require('sequalize');
 var orm = new Sequalize(process.env.DATABASE_URL || 'sqlite://ChangeDB.sqlite');
+// var sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');
+// var orm = new Sequalize(process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5432/todo');
 
 orm.authenticate()
   // .then(function() {
@@ -12,11 +14,17 @@ orm.authenticate()
 
 
 var User = orm.define('users', {
-  first_name: {
+  uid: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+
+  firstName: {
     type: Sequelize.STRING
   },
 
-  last_name: {
+  lastName: {
     type: Sequelize.STRING
   },
 
@@ -28,11 +36,11 @@ var User = orm.define('users', {
     type: Sequelize.STRING
   },
 
-  total_donations: {
-    type: Sequelize.INTEGER
+  totalDonations: {
+    type: Sequelize.DECIMAL
   },
 
-  profile_image: {
+  profileImage: {
     type: Sequelize.STRING,
     defaultValue: '/img/placeholder.jpg'
   },
@@ -47,5 +55,17 @@ var User = orm.define('users', {
 });
 
 var Donation = orm.define('donations', {
+  uid: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
 
+  fromUser: {
+    type: Sequelize.INTEGER,
+    references: 'users',
+    referencesKey: 'uid'
+  },
+
+  
 })
