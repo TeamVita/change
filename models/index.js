@@ -81,7 +81,7 @@ var Donation = orm.define('donations', {
   }
 });
 
-var Recipient = orm.define('recipient', {
+var Recipient = orm.define('recipients', {
   name: {
     type: Sequelize.STRING,
     allowNull: false
@@ -100,4 +100,18 @@ var Recipient = orm.define('recipient', {
     type: Sequelize.Integer,
     allowNull: false
   }
-})
+});
+
+var Purchase = orm.define('purchases', {
+  venderName: {
+    type: Sequelize.STRING
+  },
+
+  date: {
+    type: Sequelize.DATE
+  },
+
+  amount: {
+    type: Sequelize.INTEGER
+  }
+});
