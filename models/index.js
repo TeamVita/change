@@ -1,43 +1,51 @@
-var Sequalize = require('sequalize');
-var orm = new Sequalize(process.env.DATABASE_URL || 'sqlite://ChangeDB.sqlite');
+var Sequelize = require('sequelize')
+  , orm = new Sequelize('database_name', 'username', 'password', {
+      dialect: "postgres", // or 'sqlite', 'mysql', 'mariadb'
+      port:    5432, // or 5432 (for postgres)
+    });
 
-orm.authenticate()
-  // .then(function() {
-  //   console.log('Connection to db successful!');
-  //  })
-  .catch(function(err) {
-    console.log('Connection to db failed: ', err);
-  })
+sequelize
+  .authenticate()
+  .then(function(err) {
+    console.log('Connection has been established successfully.');
+  }, function (err) { 
+    console.log('Unable to connect to the database:', err);
+  });
   .done();
 
 
 var User = orm.define('users', {
-  first_name: {
-    type: Sequelize.STRING
+  firstName: {
+    type: Sequelize.STRING,
+    allowNull: false
   },
 
-  last_name: {
-    type: Sequelize.STRING
+  lastName: {
+    type: Sequelize.STRING,
+    allowNull: false
   },
 
   email: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
 
   password: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
 
-  total_donations: {
-    type: Sequelize.INTEGER
+  totalDonations: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   },
 
-  profile_image: {
+  profileImage: {
     type: Sequelize.STRING,
     defaultValue: '/img/placeholder.jpg'
   },
 
-  achievments: {
+  achievements: {
     type: Sequelize.INTEGER
   },
 
@@ -47,5 +55,49 @@ var User = orm.define('users', {
 });
 
 var Donation = orm.define('donations', {
+  donorId: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
 
+  recipientId: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  },
+
+  amount: {
+    type: Sequelize.Integer,
+    allowNull: false
+  },
+
+  date: {
+    type: Sequelize.DATE,
+    allowNull: false
+  },
+
+  receipt: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  }
+});
+
+var Recipient = orm.define('recipient', {
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+
+  lastName: {
+    type: Sequelize.STRING
+  }
+
+  accountBalance: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0
+  },
+
+  pinNumber: {
+    type: Sequelize.Integer,
+    allowNull: false
+  }
 })
