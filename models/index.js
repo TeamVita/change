@@ -55,12 +55,12 @@ var User = orm.define('users', {
 });
 
 var Donation = orm.define('donations', {
-  donor_id: {
+  donorId: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
 
-  recipient_id: {
+  recipientId: {
     type: Sequelize.INTEGER,
     allowNull: false
   },
