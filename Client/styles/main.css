@@ -1,0 +1,12 @@
+#login {
+	background-color: gray;
+}
+
+body {
+	background-color: blue;
+}
+
+#username{
+	display: block;
+	margin-bottom: 2%;
+};
