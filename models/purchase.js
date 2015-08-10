@@ -5,9 +5,6 @@ var purchase = {
     db.Purchase.findOrCreate({
       where: { uid: uid },
       default: {
-        // firstName: donor.firstName,
-        // lastName: donor.lastName,
-        // fbId: donor.fbId
       }
     })
     .then(function(results) {

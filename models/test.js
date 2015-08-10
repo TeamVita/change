@@ -6,7 +6,6 @@ var donorObj = {
   lastName: "Zhang",
   fbId: "SomeId"
 }
-
 // create a new user
 // database.donor.create(donorObj)
 // database.donor.create(donorObj)
