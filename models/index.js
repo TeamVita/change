@@ -56,7 +56,7 @@ var Donor = orm.define('donors', {
   },
 
   totalDonations: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.DECIMAL(10, 2)
   },
 
   profileImage: {
@@ -93,7 +93,7 @@ var Donation = orm.define('donations', {
   },
 
   amount: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.DECIMAL(10, 2)
   },
 
   timeStamp: {
@@ -117,11 +117,11 @@ var Recipient = orm.define('recipients', {
   },
 
   totalAmount: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.DECIMAL(10, 2)
   },
 
   pin: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.INTEGER
   }
 })
 
@@ -139,15 +139,22 @@ var Purchase = orm.define('purchases', {
   },
 
   amount: {
-    type: Sequelize.DECIMAL
+    type: Sequelize.DECIMAL(10, 2)
   },
 
   timeStamp: {
     type: Sequelize.DATE, defaultValue: Sequelize.NOW
   }
 
-  // other purchase information obtained from PayPal
+  // other purchase information obtained from purchase process
 });
+
+// join table definition?
+// relation mapping
+Donation.belongsTo(Donor); 
+Donation.belongsTo(Recipient);
+Purchase.belongsTo(Recipient);
+
 
 orm.sync().catch(function() {
       throw new Error('Unknown error at orm sync');
@@ -157,4 +164,4 @@ exports.Donor = Donor;
 exports.Purchase = Purchase;
 exports.Donation = Donation;
 exports.Recipient = Recipient;
-exports.orm = orm; 
+exports.orm = orm;

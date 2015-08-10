@@ -3,10 +3,14 @@ var db = require('./index.js');
 var recipient = {
   create: function(recipient) {
     db.Recipient.findOrCreate({
-      where: { uid: uid },
-      default: {
+      where: { 
+        uid: uid,
         firstName: recipient.firstName,
-        lastName: recipient.lastName
+        lastName: recipient.lastName,
+        pin: recipient.pin,
+        totalAmount: 0
+      },
+      default: {
       }
     })
     .then(function(results) {
@@ -51,6 +55,52 @@ var recipient = {
     })
     .catch(function() {
         throw new Error('Unknown error at method recipient findAll()');
+    })
+  },
+
+  updateById: function(key, value, id) {
+    // TODO: key verfication
+    var updateObj = {};
+    updateObj[key] = value;
+    db.Recipient.update(updateObj, { 
+      where : { 
+        uid: id 
+      } 
+    }).then(function(donor) { 
+       console.log("update the donor", donor);
+     })
+    .catch(function() {
+      throw new Error('Unknown error at method donor updateById()');
+    })
+  },
+
+  // TEST ONLY!
+  deleteById: function(id) {
+    db.Recipient.destroy({
+      where: {
+        uid: id
+      }
+    }).then(function(affectedRows) {
+      // console.log('')
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method recipient updateById()');
+    })
+  },
+
+  // TEST ONLY!
+  deleteAll: function() {
+    db.Recipient.findAll().then(function(recipients) {
+      for (var i = recipients.length - 1; i >= 0; i--) {
+        recipients[i].destroy().then(function() {
+
+        }).catch(function() {
+          throw new Error('Unknown error at method recipient deleteAll destroy()');
+        })
+      };
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method recipient deleteAll findAll()');
     })
   }
 }
