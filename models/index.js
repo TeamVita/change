@@ -35,6 +35,10 @@ var Donor = orm.define('donors', {
     type: Sequelize.STRING
   },
 
+  username: {
+    type: Sequelize.STRING
+  },
+  
   password: {
     type: Sequelize.STRING
   },
@@ -44,10 +48,6 @@ var Donor = orm.define('donors', {
   },
 
   lastName: {
-    type: Sequelize.STRING
-  },
-
-  password: {
     type: Sequelize.STRING
   },
 
