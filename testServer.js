@@ -27,7 +27,7 @@ app.listen(app.get('port'), function() {
 });
 
 
-app.post('/login', function (req, res) {
+app.post('/sign-up', function (req, res) {
   var data = req.body;
   res.send(data);
 });
