@@ -1,5 +1,6 @@
 var db = require('./index.js');
 
+// TODO: rename methods in CRUD pattern
 var donor = {
   create: function(donor) {
     db.Donor.findOrCreate({
@@ -46,7 +47,20 @@ var donor = {
     .catch(function() {
       throw new Error('Unknown error at method donor findAll()');
     })
-  }
+  },
+
+  updateEmail: function(email, id) {
+    db.Donor.update({ email: email }, { 
+      where : { 
+        uid: id 
+      } 
+    }).then(function(donor) { 
+       // console.log("update the donor", donor);
+     })
+    .catch(function() {
+      throw new Error('Unknown error at method donor updateEmail()');
+    })
+  } 
 }
 
 module.exports = donor;
