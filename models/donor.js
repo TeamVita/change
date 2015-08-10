@@ -14,8 +14,7 @@ var donor = {
       }
     })
     .then(function(results) {
-      console.log("return first result", results[0].get({ plain: true }))
-      return results[0].get({ plain: true });
+      // console.log("return first result", results[0].get({ plain: true }))
     })
     .catch(function() {
       throw new Error('Unknown error at method donor create()');
@@ -42,7 +41,7 @@ var donor = {
 
   findAll: function() {
     db.Donor.findAll().then(function(donors) {
-      // console.log("find all donors", donors);
+      console.log("find all donors", donors);
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findAll()');
@@ -63,7 +62,7 @@ var donor = {
   },
 
   updateById: function(key, value, id) {
-    // pre-process donor info obj
+    // TODO: key verfication
     var updateObj = {};
     updateObj[key] = value;
     db.Donor.update(updateObj, { 
@@ -75,6 +74,36 @@ var donor = {
      })
     .catch(function() {
       throw new Error('Unknown error at method donor updateById()');
+    })
+  },
+
+  // TEST ONLY!
+  deleteById: function(id) {
+    db.Donor.destroy({
+      where: {
+        uid: id
+      }
+    }).then(function(affectedRows) {
+      // console.log('')
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method donor updateById()');
+    })
+  },
+
+  // TEST ONLY!
+  deleteAll: function() {
+    db.Donor.findAll().then(function(donors) {
+      for (var i = donors.length - 1; i >= 0; i--) {
+        donors[i].destroy().then(function() {
+
+        }).catch(function() {
+          throw new Error('Unknown error at method donor deleteAll destroy()');
+        })
+      };
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method donor deleteAll findAll()');
     })
   }
 }
