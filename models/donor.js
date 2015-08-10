@@ -49,10 +49,10 @@ var donor = {
     })
   },
 
-  updateEmail: function(email, id) {
+  updateEmailById: function(email, id) {
     db.Donor.update({ email: email }, { 
       where : { 
-        uid: id 
+        uid: id
       } 
     }).then(function(donor) { 
        // console.log("update the donor", donor);
@@ -60,7 +60,23 @@ var donor = {
     .catch(function() {
       throw new Error('Unknown error at method donor updateEmail()');
     })
-  } 
+  },
+
+  updateById: function(key, value, id) {
+    // pre-process donor info obj
+    var updateObj = {};
+    updateObj[key] = value;
+    db.Donor.update(updateObj, { 
+      where : { 
+        uid: id 
+      } 
+    }).then(function(donor) { 
+       console.log("update the donor", donor);
+     })
+    .catch(function() {
+      throw new Error('Unknown error at method donor updateById()');
+    })
+  }
 }
 
 module.exports = donor;

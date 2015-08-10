@@ -10,9 +10,12 @@ var donorObj = {
 // create a new user
 // database.donor.create(donorObj);
 // database.donor.findOneByEmail(donorObj.email);
-// database.donor.findOneById(313);
+// database.donor.findOneById(1);
 // database.donor.findAll();
 
-database.donor.updateEmail("someOtherEmail", 311);
-database.donor.findOneById(311);
+// database.donor.updateEmailById("someOtherEmail", 1);
+// database.donor.findOneById(1);
 
+database.donor.updateById('email', 'testEmail', 1);
+// database.donor.updateEmailById("anotherEmail", 1);
+database.donor.findOneById(1);
