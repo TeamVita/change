@@ -1,9 +1,10 @@
-#login {
-	background-color: gray;
+#Login {
+	background-color: white;
+	width: 25%;
 }
 
 body {
-	background-color: blue;
+	background-color: #0AC92B;
 }
 
 #username{
