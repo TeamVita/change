@@ -121,6 +121,7 @@ var Recipient = orm.define('recipients', {
   },
 
   pin: {
+    // auto increment? avoid duplicate?
     type: Sequelize.INTEGER
   }
 })

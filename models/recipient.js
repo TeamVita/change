@@ -4,7 +4,6 @@ var recipient = {
   create: function(recipient) {
     db.Recipient.findOrCreate({
       where: { 
-        uid: uid,
         firstName: recipient.firstName,
         lastName: recipient.lastName,
         pin: recipient.pin,
@@ -14,10 +13,10 @@ var recipient = {
       }
     })
     .then(function(results) {
-      return results[0].get({ plain: true });
+      // console.log("return first result", results[0].get({ plain: true }))
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient create()');
+      throw new Error('Unknown error at method recipient create()');
     })
   },
 
@@ -27,7 +26,7 @@ var recipient = {
       console.log("find a recipient", recipient);
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient findOneByEmail()');
+      throw new Error('Unknown error at method recipient findOneByEmail()');
     })
   },
 
@@ -36,7 +35,7 @@ var recipient = {
       console.log("find a recipient", recipient);
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient findOneById()');
+      throw new Error('Unknown error at method recipient findOneById()');
     })
   },
 
@@ -45,7 +44,7 @@ var recipient = {
       console.log("find a recipient", recipient);
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient findOneByEmail()');
+      throw new Error('Unknown error at method recipient findOneByEmail()');
     })
   },
 
@@ -54,7 +53,7 @@ var recipient = {
       console.log("find all recipients", recipients);
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient findAll()');
+      throw new Error('Unknown error at method recipient findAll()');
     })
   },
 
@@ -68,7 +67,7 @@ var recipient = {
       } 
     }).then(function(donor) { 
        console.log("update the donor", donor);
-     })
+    })
     .catch(function() {
       throw new Error('Unknown error at method donor updateById()');
     })
@@ -81,7 +80,7 @@ var recipient = {
         uid: id
       }
     }).then(function(affectedRows) {
-      // console.log('')
+      // console.log('affectedRows', affectedRows);
     })
     .catch(function() {
       throw new Error('Unknown error at method recipient updateById()');
