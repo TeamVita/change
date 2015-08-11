@@ -31,3 +31,5 @@ var Change = React.createClass({
 	);
 	}
 });
+
+module.exports = Change;
