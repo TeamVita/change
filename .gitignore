@@ -6,3 +6,5 @@ build/
 dist/
 
 config.json
+
+testServer.js
