@@ -1,7 +1,4 @@
 var Sequelize = require('sequelize');
-// var orm = new Sequelize(process.env.DATABASE_URL || 'sqlite://ChangeDB.sqlite');
-// var sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname');
-// var orm = new Sequelize(process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5432/todo');
 
 var dbConfig = {
   host: 'localhost',
@@ -102,42 +99,19 @@ var Purchase = orm.define('purchases', {
   // other purchase information obtained from purchase process
 });
 
-// relational mapping
-// Donor.hasMany(Donation, { as: 'donation', foreignKey: 'donationId'});
-// Donation.belongsTo(Donor, { as: 'donor', foreignKey: 'donationId' });
-Donor.hasMany(Donation);
+Donor.hasMany(Donation, { as: "donation" });
 Donation.belongsTo(Donor);
-Donation.belongsTo(Recipient, { as: 'recipient', foreignKey: 'donationId' });
-Recipient.hasMany(Donation, { as: 'donation', foreignKey: 'donationId'});
-Recipient.hasMany(Purchase, { as: 'purchase', foreignKey: 'purchaseId' });
+Donation.belongsTo(Recipient, { as: 'recipient' });
+Recipient.hasMany(Donation, { as: 'donation' });
+Recipient.hasMany(Purchase, { as: 'purchase' });
 
-// Relation verfication
-User      = orm.define('User', {
-                  username: Sequelize.STRING,
-                  password: Sequelize.STRING
-                });
-
-Project   = orm.define('Project', {
-                  title: Sequelize.STRING
-                });
-
-User.hasOne(Project);
-Project.belongsTo(User);
-
-orm.sync({ force: true }).then(function() {
-  return User.create({ username: 'john', password: '1111' });
-}).then(function(user1) {
-  return User.find({ username: 'john' })
-}).then(function(user) {
-  console.log(user.get()); // Get returns a JSON representation of the user
-});
-
-orm.sync({ force: true }).then(function() { 
-  return Project.create({ title: "New title" })
-});
+// orm.sync().catch(function() {
+orm.sync({ force: true }).catch(function() {
+  throw new Error('Error at orm sync');
+})
 
 exports.Donor = Donor;
 exports.Purchase = Purchase;
 exports.Donation = Donation;
 exports.Recipient = Recipient;
-exports.orm = orm;
+exports.orm = orm;                  // return promise
