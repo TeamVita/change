@@ -10,9 +10,9 @@ var dbConfig = {
 }
 
 var connectionString = dbConfig.dialect + '://' + dbConfig.username + ':' + dbConfig.password + '@' + dbConfig.host + ':' + dbConfig.port + '/' + dbConfig.dbName;
-var orm = new Sequelize(process.env.DATABASE_URL || connectionString);
+var sequelize = new Sequelize(process.env.DATABASE_URL || connectionString);
 
-orm.authenticate()
+sequelize.authenticate()
   .then(function() {
     console.log('Connection to db successful!');
    })
@@ -21,83 +21,40 @@ orm.authenticate()
   })
   .done();
 
-var Donor = orm.define('donors', {
+var models = [
+  'Donor',
+  'Donation',
+  'Recipient',
+  'Purchase'
+];
 
-  email: Sequelize.STRING,
-
-  username: Sequelize.STRING,
-  
-  password: Sequelize.STRING,
-
-  firstName: Sequelize.STRING,
-
-  lastName: Sequelize.STRING,
-
-  fbId: Sequelize.STRING,
-
-  totalDonations: Sequelize.DECIMAL(10, 2),
-
-  profileImage: {
-    type: Sequelize.STRING
-    // defaultValue: '/img/placeholder.jpg'
-  },
-
-  achievments: Sequelize.INTEGER,
-
-  score: Sequelize.INTEGER,
+models.forEach(function(model) {
+  module.exports[model] = sequelize.import(__dirname + '/' + model);
 });
 
-var Donation = orm.define('donations', {
-  amount: Sequelize.DECIMAL(10, 2),
+(function(m) {
+  m.Donor.hasMany(m.Donation, { as: "donation" });
+  m.Donation.belongsTo(m.Donor);
+  m.Recipient.hasMany(m.Donation, { as: 'donation' });
+  m.Donation.belongsTo(m.Recipient);
+  m.Recipient.hasMany(m.Purchase, { as: 'purchase' });  
+})(module.exports);
 
-  timeStamp: {
-    type: Sequelize.DATE, defaultValue: Sequelize.NOW
-  }
-});
+// Donor.sync();
+// Donation.sync();
+// Recipient.sync();
+// Purchase.sync();
 
-var Recipient = orm.define('recipients', {
+// // sequelize.sync().catch(function() {
+// // Test Only! in production use above
+// sequelize.sync({ force: true }).catch(function() {
+//   throw new Error('Error at sequelize sync');
+// })
 
-  firstName: Sequelize.STRING,
-
-  lastName: Sequelize.STRING,
-
-  totalAmount: Sequelize.DECIMAL(10, 2),
-
-  // auto increment? avoid duplicate?
-  pin: Sequelize.INTEGER
-})
-
-var Purchase = orm.define('purchases', {
-
-  amount: Sequelize.DECIMAL(10, 2),
-
-  timeStamp: {
-    type: Sequelize.DATE, defaultValue: Sequelize.NOW
-  }
-
-  // other purchase information obtained from purchase process
-});
-
-Donor.hasMany(Donation, { as: "donation" });
-Donation.belongsTo(Donor);
-Recipient.hasMany(Donation, { as: 'donation' });
-Donation.belongsTo(Recipient);
-Recipient.hasMany(Purchase, { as: 'purchase' });
-
-Donor.sync();
-Donation.sync();
-Recipient.sync();
-Purchase.sync();
-
-// orm.sync().catch(function() {
+// sequelize.sync().catch(function() {
 // Test Only! in production use above
-orm.sync({ force: true }).catch(function() {
-  throw new Error('Error at orm sync');
+sequelize.sync({ force: true }).catch(function() {
+  throw new Error('Error at sequelize sync');
 })
 
-// return promises
-exports.Donor = Donor;
-exports.Purchase = Purchase;
-exports.Donation = Donation;
-exports.Recipient = Recipient;
-exports.orm = orm;
+module.exports.sequelize = sequelize;

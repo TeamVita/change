@@ -1,6 +1,4 @@
 var express = require('express');
-var test = require('./models/test');
-// var userRouter = require('');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
@@ -71,4 +69,6 @@ app.use(function(err, req, res, next) {
 });
 
 // database test
+app.set('models', require('./models'));
+
 module.exports = app;
