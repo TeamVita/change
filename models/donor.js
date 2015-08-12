@@ -3,18 +3,18 @@ var db = require('./index.js');
 // TODO: rename methods in CRUD pattern
 var donor = {
   create: function(donor) {
-    db.Donor.findOrCreate({
+    return db.Donor.findOrCreate({
       where: {
-        email: donor.email ,
+        email: donor.email,
         firstName: donor.firstName,
-        lastName: donor.lastName
+        lastName: donor.lastName,
+        fbId: donor.fbId
       },
       default: {
-        fbId: donor.fbId
       }
     })
     .then(function(results) {
-      // console.log("return first result", results[0].get({ plain: true }))
+      // console.log(results[0].get({ plain: true }));
       return results[0].get({ plain: true });
     })
     .catch(function() {
@@ -23,8 +23,8 @@ var donor = {
   },
 
   findOneByEmail: function(email) {
-    db.Donor.findOne({ where: { email: email } }).then(function(donor) {
-      console.log("find a donor", donor);
+    return db.Donor.findOne({ where: { email: email } }).then(function(donor) {
+      return donor;
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findOneByEmail()');
@@ -33,7 +33,7 @@ var donor = {
 
   findOneById: function(id) {
     db.Donor.findById(id).then(function(donor) {
-      console.log("find a donor", donor);
+      return donor;
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findOneById()');
@@ -41,18 +41,27 @@ var donor = {
   },
 
   findAll: function() {
-    db.Donor.findAll().then(function(donors) {
-      console.log("find all donors", donors);
+    return db.Donor.findAll().then(function(donors) {
+      // donors.forEach(function(donor) {
+        // console.log(donors);
+        return donors;
+      // });
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findAll()');
     })
   },
 
+  find: function(someStr) {
+    db.Donor.find({ email:someStr }).then(function() {
+      // console.log("I am here!!!!",someStr);
+    });
+  },
+
   updateEmailById: function(email, id) {
     db.Donor.update({ email: email }, { 
       where : { 
-        uid: id
+        id: id
       } 
     }).then(function(donor) { 
        // console.log("update the donor", donor);
@@ -68,10 +77,10 @@ var donor = {
     updateObj[key] = value;
     db.Donor.update(updateObj, { 
       where : { 
-        uid: id 
+        id: id 
       } 
     }).then(function(donor) { 
-       console.log("update the donor", donor);
+       // console.log("update the donor", donor);
      })
     .catch(function() {
       throw new Error('Unknown error at method donor updateById()');
@@ -82,7 +91,7 @@ var donor = {
   deleteById: function(id) {
     db.Donor.destroy({
       where: {
-        uid: id
+        id: id
       }
     }).then(function(affectedRows) {
       // console.log('')
@@ -95,6 +104,7 @@ var donor = {
   // TEST ONLY!
   deleteAll: function() {
     db.Donor.findAll().then(function(donors) {
+      // TODO: Right way to do for loop in promise?
       for (var i = donors.length - 1; i >= 0; i--) {
         donors[i].destroy().then(function() {
 
@@ -105,6 +115,13 @@ var donor = {
     })
     .catch(function() {
       throw new Error('Unknown error at method donor deleteAll findAll()');
+    })
+  },
+
+  find: function() {
+    db.Donor.find({ where: { email: "myEmail" } }).then(function(donor) {
+      console.log("I am here");
+      console.log(donor.get());
     })
   }
 }

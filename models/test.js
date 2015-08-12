@@ -55,25 +55,26 @@ if (RECIPIENT_TEST) {
 
 if (DONATION_TEST) {
   var obj = {
-    from: 3,
-    to: 3,
+    from: 1,
+    to: 1,
     amount: 100
-  }
+  };
 
-  // database.recipient.deleteAll();     // clear up previous record
   // database.recipient.create(recipientObj);
-
-  // database.donor.deleteAll();
+  database.donor.create(donorObj);
+  database.donor.create(donorObj);
+  database.donor.create(donorObj);
+  database.donor.create(donorObj);
+  database.donor.create(donorObj);
+  database.donor.create(donorObj).then(function(donor) {
+    
+  })
+  
+  // database.db.sync();
+  
+  // database.donor.findOneByEmail("myEmail").then(function(donor) {
+  //   console.log(donor);
+  // });
   // database.donor.create(donorObj);
-
-  // database.recipient.findAll();
-  // database.recipient.findOneByPin(1111);
-  // database.donor.findAll();
-  // database.donor.findOneByEmail("myEmail");
-  // database.donation.create(obj);
-  // database.donation.findAll();
-  // database.donor.findAll();
-  // // database.donor.findOneById(58);
-  // database.donor.findAll();
-  // database.recipient.findOneById(64);
+  // database.donor.create(donorObj);
 };

@@ -1,9 +1,9 @@
 var db = require('./index.js');
 
 var purchase = {
-  create: function(uid) {
+  create: function() {
     db.Purchase.findOrCreate({
-      where: { uid: uid },
+      where: {  },
       default: {
       }
     })

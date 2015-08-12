@@ -1,21 +1,16 @@
 var db = require('./index.js');
 
 var donation = {
-  // from donor id integer
-  // to recipient id integer
-  // amount: dollar mount
   create: function(donation) {
+    console.log("With in create function", donation.from);
     db.Donation.findOrCreate({
-      where: { 
-        // donorUid: donation.from,
-        // recipientUid: donation.to,
+      where: {
         amount: donation.amount
       },
       default: {
       }
     })
     .then(function(results) {
-      // console.log(results[0].get({ plain: true }));
       return results[0].get({ plain: true });
     })
     .catch(function() {
@@ -41,7 +36,7 @@ var donation = {
     })
   },
 
-  // FIX: recipientId or pin
+  // TODO: fix recipientId or pin
   findOneByRecipientId: function(recipientId) {
     db.Donation.findOne({ where: { toRecipient: recipientId } }).then(function(donation) {
       console.log("find a donation", donation);

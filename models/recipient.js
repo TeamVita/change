@@ -64,7 +64,7 @@ var recipient = {
     updateObj[key] = value;
     db.Recipient.update(updateObj, { 
       where : { 
-        uid: id 
+        id: id 
       } 
     }).then(function(donor) { 
        console.log("update the donor", donor);
@@ -78,7 +78,7 @@ var recipient = {
   deleteById: function(id) {
     db.Recipient.destroy({
       where: {
-        uid: id
+        id: id
       }
     }).then(function(affectedRows) {
       // console.log('affectedRows', affectedRows);

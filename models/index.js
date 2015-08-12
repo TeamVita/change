@@ -22,11 +22,6 @@ orm.authenticate()
   .done();
 
 var Donor = orm.define('donors', {
-  uid: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
 
   email: Sequelize.STRING,
 
@@ -53,12 +48,6 @@ var Donor = orm.define('donors', {
 });
 
 var Donation = orm.define('donations', {
-  uid: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-
   amount: Sequelize.DECIMAL(10, 2),
 
   timeStamp: {
@@ -67,11 +56,6 @@ var Donation = orm.define('donations', {
 });
 
 var Recipient = orm.define('recipients', {
-  uid: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
 
   firstName: Sequelize.STRING,
 
@@ -84,11 +68,6 @@ var Recipient = orm.define('recipients', {
 })
 
 var Purchase = orm.define('purchases', {
-  uid: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
 
   amount: Sequelize.DECIMAL(10, 2),
 
@@ -105,12 +84,18 @@ Recipient.hasMany(Donation, { as: 'donation' });
 Donation.belongsTo(Recipient);
 Recipient.hasMany(Purchase, { as: 'purchase' });
 
+Donor.sync();
+Donation.sync();
+Recipient.sync();
+Purchase.sync();
+
 // orm.sync().catch(function() {
+// Test Only! in production use above
 orm.sync({ force: true }).catch(function() {
   throw new Error('Error at orm sync');
 })
 
-// return promise
+// return promises
 exports.Donor = Donor;
 exports.Purchase = Purchase;
 exports.Donation = Donation;
