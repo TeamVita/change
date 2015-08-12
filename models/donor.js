@@ -4,7 +4,7 @@ var db = require('./index.js');
 var donor = {
   create: function(donor) {
     db.Donor.findOrCreate({
-      where: { 
+      where: {
         email: donor.email ,
         firstName: donor.firstName,
         lastName: donor.lastName
@@ -15,6 +15,7 @@ var donor = {
     })
     .then(function(results) {
       // console.log("return first result", results[0].get({ plain: true }))
+      return results[0].get({ plain: true });
     })
     .catch(function() {
       throw new Error('Unknown error at method donor create()');

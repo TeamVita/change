@@ -14,6 +14,7 @@ var recipient = {
     })
     .then(function(results) {
       // console.log("return first result", results[0].get({ plain: true }))
+      return results[0].get({ plain: true });
     })
     .catch(function() {
       throw new Error('Unknown error at method recipient create()');
@@ -44,7 +45,7 @@ var recipient = {
       console.log("find a recipient", recipient);
     })
     .catch(function() {
-      throw new Error('Unknown error at method recipient findOneByEmail()');
+      throw new Error('Unknown error at method recipient findOneByPin()');
     })
   },
 

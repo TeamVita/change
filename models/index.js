@@ -31,46 +31,28 @@ var Donor = orm.define('donors', {
     autoIncrement: true
   },
 
-  email: {
-    type: Sequelize.STRING
-  },
+  email: Sequelize.STRING,
 
-  username: {
-    type: Sequelize.STRING
-  },
+  username: Sequelize.STRING,
   
-  password: {
-    type: Sequelize.STRING
-  },
+  password: Sequelize.STRING,
 
-  firstName: {
-    type: Sequelize.STRING
-  },
+  firstName: Sequelize.STRING,
 
-  lastName: {
-    type: Sequelize.STRING
-  },
+  lastName: Sequelize.STRING,
 
-  fbId: {
-    type: Sequelize.STRING
-  },
+  fbId: Sequelize.STRING,
 
-  totalDonations: {
-    type: Sequelize.DECIMAL(10, 2)
-  },
+  totalDonations: Sequelize.DECIMAL(10, 2),
 
   profileImage: {
     type: Sequelize.STRING
     // defaultValue: '/img/placeholder.jpg'
   },
 
-  achievments: {
-    type: Sequelize.INTEGER
-  },
+  achievments: Sequelize.INTEGER,
 
-  score: {
-    type: Sequelize.INTEGER
-  }
+  score: Sequelize.INTEGER,
 });
 
 var Donation = orm.define('donations', {
@@ -80,21 +62,7 @@ var Donation = orm.define('donations', {
     autoIncrement: true
   },
 
-  fromDonor: {
-    type: Sequelize.INTEGER,
-    references: 'donors',
-    referencesKey: 'uid'
-  },
-
-  toRecipient: {
-    type: Sequelize.INTEGER,
-    references: 'recipients',
-    referencesKey: 'uid'
-  },
-
-  amount: {
-    type: Sequelize.DECIMAL(10, 2)
-  },
+  amount: Sequelize.DECIMAL(10, 2),
 
   timeStamp: {
     type: Sequelize.DATE, defaultValue: Sequelize.NOW
@@ -108,22 +76,14 @@ var Recipient = orm.define('recipients', {
     autoIncrement: true
   },
 
-  firstName: {
-    type: Sequelize.STRING
-  },
+  firstName: Sequelize.STRING,
 
-  lastName: {
-    type: Sequelize.STRING
-  },
+  lastName: Sequelize.STRING,
 
-  totalAmount: {
-    type: Sequelize.DECIMAL(10, 2)
-  },
+  totalAmount: Sequelize.DECIMAL(10, 2),
 
-  pin: {
-    // auto increment? avoid duplicate?
-    type: Sequelize.INTEGER
-  }
+  // auto increment? avoid duplicate?
+  pin: Sequelize.INTEGER
 })
 
 var Purchase = orm.define('purchases', {
@@ -133,15 +93,7 @@ var Purchase = orm.define('purchases', {
     autoIncrement: true
   },
 
-  fromRecipient: {
-    type: Sequelize.INTEGER,
-    references: 'recipients',
-    referencesKey: 'uid'
-  },
-
-  amount: {
-    type: Sequelize.DECIMAL(10, 2)
-  },
+  amount: Sequelize.DECIMAL(10, 2),
 
   timeStamp: {
     type: Sequelize.DATE, defaultValue: Sequelize.NOW
@@ -150,16 +102,39 @@ var Purchase = orm.define('purchases', {
   // other purchase information obtained from purchase process
 });
 
-// join table definition?
-// relation mapping
-Donation.belongsTo(Donor); 
-Donation.belongsTo(Recipient);
-Purchase.belongsTo(Recipient);
+// relational mapping
+// Donor.hasMany(Donation, { as: 'donation', foreignKey: 'donationId'});
+// Donation.belongsTo(Donor, { as: 'donor', foreignKey: 'donationId' });
+Donor.hasMany(Donation);
+Donation.belongsTo(Donor);
+Donation.belongsTo(Recipient, { as: 'recipient', foreignKey: 'donationId' });
+Recipient.hasMany(Donation, { as: 'donation', foreignKey: 'donationId'});
+Recipient.hasMany(Purchase, { as: 'purchase', foreignKey: 'purchaseId' });
 
+// Relation verfication
+User      = orm.define('User', {
+                  username: Sequelize.STRING,
+                  password: Sequelize.STRING
+                });
 
-orm.sync().catch(function() {
-      throw new Error('Unknown error at orm sync');
-    });
+Project   = orm.define('Project', {
+                  title: Sequelize.STRING
+                });
+
+User.hasOne(Project);
+Project.belongsTo(User);
+
+orm.sync({ force: true }).then(function() {
+  return User.create({ username: 'john', password: '1111' });
+}).then(function(user1) {
+  return User.find({ username: 'john' })
+}).then(function(user) {
+  console.log(user.get()); // Get returns a JSON representation of the user
+});
+
+orm.sync({ force: true }).then(function() { 
+  return Project.create({ title: "New title" })
+});
 
 exports.Donor = Donor;
 exports.Purchase = Purchase;

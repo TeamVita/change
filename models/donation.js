@@ -1,48 +1,62 @@
 var db = require('./index.js');
 
 var donation = {
-  create: function(uid) {
+  // from donor id integer
+  // to recipient id integer
+  // amount: dollar mount
+  create: function(donation) {
     db.Donation.findOrCreate({
-      where: { uid: uid },
+      where: { 
+        // donorUid: donation.from,
+        // recipientUid: donation.to,
+        amount: donation.amount
+      },
       default: {
-        // firstName: donor.firstName,
-        // lastName: donor.lastName,
-        // fbId: donor.fbId
       }
     })
     .then(function(results) {
+      // console.log(results[0].get({ plain: true }));
       return results[0].get({ plain: true });
     })
     .catch(function() {
-        throw new Error('Unknown error at method donation create()');
+      throw new Error('Unknown error at method donation create()');
     })
   },
   
   findOneById: function(id) {
-    db.Donation.findById(id).then(function(donor) {
-      console.log("find a donor", donor);
+    db.Donation.findById(id).then(function(donation) {
+      console.log("find a donation", donation);
     })
     .catch(function() {
-        throw new Error('Unknown error at method donation findOneById()');
+      throw new Error('Unknown error at method donation findOneById()');
     })
   },
 
-  // TODO: How to fix search by donor id?
-  findOneByDonor: function(donorId) {
-    // db.Donation.findOne({ where: { email: email } }).then(function(donor) {
-    //   console.log("find a donor", donor);
-    // })
-    // .catch(function() {
-    //   throw new Error('Unknown error at method donor findOneByEmail()');
-    // })
+  findOneByDonorId: function(donorId) {
+    db.Donation.findOne({ where: { fromDonor: donorId } }).then(function(donation) {
+      console.log("find a donation", donation);
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method donation findOneByEmail()');
+    })
+  },
+
+  // FIX: recipientId or pin
+  findOneByRecipientId: function(recipientId) {
+    db.Donation.findOne({ where: { toRecipient: recipientId } }).then(function(donation) {
+      console.log("find a donation", donation);
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method donation findOneByEmail()');
+    })
   },  
 
   findAll: function() {
-    db.Donation.findAll().then(function(donors) {
-      console.log("find all donors", donors);
+    db.Donation.findAll().then(function(donations) {
+      console.log("find all donations", donations);
     })
     .catch(function() {
-        throw new Error('Unknown error at method donation findAll()');
+      throw new Error('Unknown error at method donation findAll()');
     })
   }
 }

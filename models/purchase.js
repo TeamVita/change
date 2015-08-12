@@ -11,7 +11,7 @@ var purchase = {
       return results[0].get({ plain: true });
     })
     .catch(function() {
-        throw new Error('Unknown error at method donor create()');
+      throw new Error('Unknown error at method donor create()');
     })
   },
 
@@ -20,7 +20,7 @@ var purchase = {
       console.log("find a donor", donor);
     })
     .catch(function() {
-        throw new Error('Unknown error at method donor findOneByEmail()');
+      throw new Error('Unknown error at method donor findOneByEmail()');
     })
   },
 
@@ -29,7 +29,7 @@ var purchase = {
       console.log("find a donor", donor);
     })
     .catch(function() {
-        throw new Error('Unknown error at method donor findOneById()');
+      throw new Error('Unknown error at method donor findOneById()');
     })
   },
 
@@ -38,7 +38,7 @@ var purchase = {
       console.log("find all donors", donors);
     })
     .catch(function() {
-        throw new Error('Unknown error at method donor findAll()');
+      throw new Error('Unknown error at method donor findAll()');
     })
   }
 }
