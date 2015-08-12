@@ -10,6 +10,7 @@ module.exports = {
 	      type: 'POST',
 	      data: info, 
 	      success: function(data) {
+	      	console.log('Data received');
 	            Dispatcher.dispatch({
 	            	type: ActionTypes.SIGN_UP,
 	            	username: data.username, 

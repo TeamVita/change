@@ -7,10 +7,11 @@ var getPageComponent = function(page) {
 		case Pages.SIGNUP: 
 		return require('./Signup/signup');
 
-		case Pages.SIGNIN:
-		return require('./Signin/signin');
+		// case Pages.SIGNIN:
+		// return require('./Signin/signin');
 		
 		case Pages.WELCOME:
+		console.log('in welcome case')
 		return require('./Welcome/welcome');
 	}
 };
@@ -21,14 +22,19 @@ var getStateFromStores = function() {
 
 var Change = React.createClass({
 	
+	getInitialState: function() {
+		return getStateFromStores();
+	},
+
 	_onSubmit: function() {
 		this.setState(getStateFromStores());
-	}
+		console.log('in onsubmit')
+	}, 
+
 	render: function() {
 	var appState = this.state.appState;
 	var PageComponent = getPageComponent(appState.page);
 	return <PageComponent appState = {appState} />
-	);
 	}
 });
 

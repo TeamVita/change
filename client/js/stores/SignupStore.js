@@ -8,7 +8,7 @@ var CHANGE_EVENT = 'submit';
 
 
 
-var appState;
+var appState = {page: 'SIGNUP'};
 
 var reset = function() {
 	appState = {};
@@ -33,6 +33,7 @@ var SignupStore = assign({}, EventEmitter.prototype, {
 });
 
 SignupStore.dispatchToken = Dispatcher.register(function(action){
+		console.log('hello');
 	
 	switch(action.type) {
 		
