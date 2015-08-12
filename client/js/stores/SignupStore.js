@@ -33,11 +33,12 @@ var SignupStore = assign({}, EventEmitter.prototype, {
 });
 
 SignupStore.dispatchToken = Dispatcher.register(function(action){
-		console.log('hello');
 	
 	switch(action.type) {
 		
 		case ActionTypes.SIGN_UP:
+		return true;
+		break;
 
 		case ActionTypes.SWITCH_PAGE:
 		appState.page = action.page;

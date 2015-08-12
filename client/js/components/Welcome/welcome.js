@@ -16,6 +16,7 @@ var welcome = React.createClass({
   },
 
   render: function() {
+    console.log('in the welcome.js render');
     return (
       <div id = 'form'>
         <form onSubmit ={this.handleSubmit}><h1>Welcome to your account</h1>

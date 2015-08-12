@@ -26,9 +26,17 @@ var Change = React.createClass({
 		return getStateFromStores();
 	},
 
+	componentDidMount: function(){
+		SignupStore.addChangeListener(this._onSubmit);
+	},
+
+	componentWillUnmount: function() {
+		SignupStore.removeChangeListener(this._onSubmit);
+	},
+
 	_onSubmit: function() {
 		this.setState(getStateFromStores());
-		console.log('in onsubmit')
+		console.log('in _onSubmit', this.state.appState);
 	}, 
 
 	render: function() {
