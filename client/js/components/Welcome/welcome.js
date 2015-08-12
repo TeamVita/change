@@ -1,20 +1,10 @@
 var actions = require('../../actions/actions');
 var Constants = require('../../Constants/Constants.js');
-var Promise = require('promise');
 
-var Signup = React.createClass({
-
+var welcome = React.createClass({
   handleSubmit: function(event) {
-
     event.preventDefault();
-    var username = this.refs.username.getDOMNode().value.trim();
-    var pass = this.refs.pass.getDOMNode().value.trim();
-    var promise = new Promise(function (resolve, reject) {
-        actions.signUp({username: username, password: pass}, resolve);
-      });
-    promise.then(function(resp) {
-      actions.switchPage('WELCOME');
-    });
+    return true;
   },
 
   render: function() {
@@ -23,7 +13,7 @@ var Signup = React.createClass({
 
       <div id = 'form'>
 
-        <form onSubmit ={this.handleSubmit}><h1>Create your account</h1>
+        <form onSubmit ={this.handleSubmit}><h1>Welcome to your account</h1>
           <div class ='input'><input placeholder='email' type ='text' ref ='email' /></div>
           <div class ='input'><input placeholder='username' type = 'text' ref ='username' /></div>
           <div class ='input'><input type = 'password' placeholder= 'password' ref = "pass" /></div>
@@ -35,4 +25,4 @@ var Signup = React.createClass({
   }
 });
 
-module.exports = Signup;
+module.exports = welcome;

@@ -4,27 +4,30 @@ var ActionTypes = Constants.ActionTypes;
 
 module.exports = {
 
-	signUp: function(info){
+	signUp: function(info, cb){
+		console.log('in actions.signUp');
 		$.ajax({
-	      url: '/signup', 
+	      url: '/signup',
 	      type: 'POST',
-	      data: info, 
+	      data: info,
 	      success: function(data) {
 	            Dispatcher.dispatch({
 	            	type: ActionTypes.SIGN_UP,
-	            	username: data.username, 
-	            	password: data.password, 
+	            	username: data.username,
+	            	password: data.password,
 	            });
+							cb(data);
 	          }.bind(this),
 	            error: function() {
 	              console.log(error);
 	          }.bind(this)
 	    });
-	}, 
+	},
 
 	switchPage: function(page) {
+		console.log('in actions.switchPage');
 		Dispatcher.dispatch({
-			type: ActionTypes.SWITCH_PAGE, 
+			type: ActionTypes.SWITCH_PAGE,
 			page: page
 		});
 	}

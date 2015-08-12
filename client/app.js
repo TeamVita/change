@@ -1,3 +1,3 @@
-var React = require('react');
+var Change = require('./js/components/change');
 
-React.render(<SignupSubmit url ='/sign-up'/>, document.getElementById('test'));
+React.render(React.createElement(Change), document.getElementById('test'));
