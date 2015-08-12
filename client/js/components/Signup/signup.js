@@ -1,17 +1,16 @@
 var actions = require('../../actions/actions');
-var Constants = require('../../Constants/constants.js');
+var Constants = require('../../Constants/Constants.js');
 var Promise = require('promise');
 
 var Signup = React.createClass({
-  
+
   handleSubmit: function(event) {
- 
+
     event.preventDefault();
     var username = this.refs.username.getDOMNode().value.trim();
     var pass = this.refs.pass.getDOMNode().value.trim();
     var promise = new Promise(function (resolve, reject) {
-        actions.signUp({username: username, password: pass});
-        resolve();
+        actions.signUp({username: username, password: pass}, resolve);
       });
     promise.then(function(resp) {
       actions.switchPage('WELCOME');
