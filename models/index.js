@@ -101,8 +101,8 @@ var Purchase = orm.define('purchases', {
 
 Donor.hasMany(Donation, { as: "donation" });
 Donation.belongsTo(Donor);
-Donation.belongsTo(Recipient, { as: 'recipient' });
 Recipient.hasMany(Donation, { as: 'donation' });
+Donation.belongsTo(Recipient);
 Recipient.hasMany(Purchase, { as: 'purchase' });
 
 // orm.sync().catch(function() {
@@ -110,8 +110,9 @@ orm.sync({ force: true }).catch(function() {
   throw new Error('Error at orm sync');
 })
 
+// return promise
 exports.Donor = Donor;
 exports.Purchase = Purchase;
 exports.Donation = Donation;
 exports.Recipient = Recipient;
-exports.orm = orm;                  // return promise
+exports.orm = orm;
