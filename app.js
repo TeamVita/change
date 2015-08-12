@@ -1,4 +1,6 @@
 var express = require('express');
+var test = require('./models/test');
+// var userRouter = require('');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
@@ -15,7 +17,7 @@ try {
   var configJSON = fs.readFileSync(__dirname + '/config.json');
   var config = JSON.parse(configJSON.toString());
 } catch (e) {
-  debug('File config.json not found or is invalid: ' + e.message);
+  // debug('File config.json not found or is invalid: ' + e.message);
   process.exit(1);
 }
 routes.init(config);
@@ -68,5 +70,5 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
+// database test
 module.exports = app;

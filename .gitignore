@@ -5,4 +5,8 @@ bower_components/
 build/
 dist/
 
+models/test.js
+
 config.json
+
+testServer.js
