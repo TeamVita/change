@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "convert": "browserify -t reactify client/app.js -o build/js"
+    "start": "browserify -t reactify client/app.js -o client/build/build.js; node testServer.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
