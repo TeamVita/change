@@ -69,27 +69,17 @@ app.use(function(err, req, res, next) {
 });
 
 // database test
-app.set('models', require('./db/index'));
-var Donor = app.get('models').Donor;
-// var Recipient = app.get('models').Recipient;
-// var Donation = app.get('models').Donation;
-// var Purchase = app.get('models').Purchase;
+app.set('donor', require('./db/methods/donor'));
+app.set('donation', require('./db/methods/donation'));
+app.set('recipient', require('./db/methods/recipient'));
+var donor = app.get('donor');
+var donation = app.get('donation');
+var recipient = app.get('recipient');
 
-// var donor = {
-//   create: function() {
-//     Donor.create({ username: 'john', password: '1111' }).then(function(result) {
-//       // result
-//       return Promise.all(result);
-//     })
-//   },
 
-//   findAllDonors: function() {
-//     Donor.findAll().then(function(donors) {
-//       donors.forEach(function(donor) {
-//         console.log(donor.get());
-//       })
-//     })
-//   }
-// }
+// makeDonor("A", "1234");
+// makeRecipient("B", "1234");
+// return makeDonation("A", "B", 100)
+// console.log(db);
 
 module.exports = app;
