@@ -17,7 +17,7 @@ module.exports = {
         });
 				cb(data);
       }.bind(this),
-      error: function() {
+      error: function(error) {
         console.log(error);
       }.bind(this)
     });
@@ -30,13 +30,13 @@ module.exports = {
 			data: info,
 			success: function(data) {
 				Dispatcher.dispatch({
-					// TODO type: ActionTypes.???,
+					type: ActionTypes.DONATE,
 					pin: data.pin,
 					amt: data.amt
 				});
 				cb(data);
 			}.bind(this),
-			error: function() {
+			error: function(error) {
 				console.log(error);
 			}.bind(this)
 		});

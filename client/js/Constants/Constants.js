@@ -6,6 +6,7 @@ module.exports = {
   ActionTypes: keyMirror({
     SIGN_UP: null,
     LOG_IN: null,
+    DONATE: null,
     SWITCH_PAGE: null
   }),
 
