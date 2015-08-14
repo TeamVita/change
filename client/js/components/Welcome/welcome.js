@@ -2,24 +2,32 @@ var actions = require('../../actions/actions');
 var Constants = require('../../Constants/Constants.js');
 
 var welcome = React.createClass({
-  handleSubmit: function(event) {
-    event.preventDefault();
-    return true;
-  },
+
+  // handleSubmit: function(event) {
+  //   event.preventDefault();
+  //   var pin = this.refs.PIN.getDOMNode().value.trim();
+  //   var amt = this.refs.amount.getDOMNode().value.trim();
+  //   var promise = new Promise(function (resolve, reject){
+  //     actions.donate({pin: pin, amt: amt}, resolve);
+  //   });
+  //   promise.then(function(resp) {
+  //     actions.switchPage('SUCCESS');
+  //   });
+  // },
 
   render: function() {
-
+    var partial;
+    if (this.props.pane === 'success') {
+      NewPane = require('./success');
+      partial = <NewPane />;
+    } else {
+      console.log('requiring donate');
+      NewPane = require('./donate');
+      partial = <NewPane />;
+    }
     return (
-
-      <div id = 'form'>
-
-        <form onSubmit ={this.handleSubmit}><h1>Welcome to your account</h1>
-          <div class ='input'><input placeholder='email' type ='text' ref ='email' /></div>
-          <div class ='input'><input placeholder='username' type = 'text' ref ='username' /></div>
-          <div class ='input'><input type = 'password' placeholder= 'password' ref = "pass" /></div>
-          <div class ='input'><input type = 'password' placeholder= 'Re-enter password' ref = "pass" /></div>
-          <input type ="submit" />
-        </form>
+      <div>
+        {partial}
       </div>
     );
   }
