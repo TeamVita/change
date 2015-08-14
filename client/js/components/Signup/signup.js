@@ -20,9 +20,7 @@ var Signup = React.createClass({
   render: function() {
 
     return (
-
       <div id = 'form'>
-
         <form onSubmit ={this.handleSubmit}><h1>Create your account</h1>
           <div class ='input'><input placeholder='email' type ='text' ref ='email' /></div>
           <div class ='input'><input placeholder='username' type = 'text' ref ='username' /></div>

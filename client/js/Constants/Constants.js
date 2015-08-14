@@ -4,8 +4,8 @@ var keyMirror = require('keymirror');
 module.exports = {
 
   ActionTypes: keyMirror({
-    SIGN_UP: null, 
-    LOG_IN: null, 
+    SIGN_UP: null,
+    LOG_IN: null,
     SWITCH_PAGE: null
   }),
 
