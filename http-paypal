@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var http = require('http');
+var keys = require('config');
 
 /* GET home page. */
 router.get('/', function(lions, tigers, bears) {
@@ -9,7 +10,7 @@ router.get('/', function(lions, tigers, bears) {
     "actionType": "PAY",    // Specify the payment action
     "currencyCode": "USD",  // The currency of the payment
     "receiverList": {"receiver":[{
-      "amount":"1.00",                    // The payment amount
+      "amount":"1.00",  // The payment amount
       "email":"kmart@walmart.com"}]  // The payment Receiver's email address
     },
 
@@ -39,12 +40,12 @@ router.get('/', function(lions, tigers, bears) {
       'Content-Type': 'application/json',
       'Content-Length': payload.length,
       // Sandbox API credentials for the API Caller account
-      'X-PAYPAL-SECURITY-USERID': 'teamvitachange_api1.gmail.com',
-      'X-PAYPAL-SECURITY-PASSWORD': '4S3SF7GQDBCX26QR',
-      'X-PAYPAL-SECURITY-SIGNATURE': 'AiPC9BjkCyDFQXbSkoZcgqH3hpacAslINP3NnXsXzL880J59.0ev6uGB',
+      'X-PAYPAL-SECURITY-USERID': keys.paypal.userid,
+      'X-PAYPAL-SECURITY-PASSWORD': keys.paypal.password,
+      'X-PAYPAL-SECURITY-SIGNATURE': keys.paypal.signature,
 
       // Global Sandbox Application ID
-      'X-PAYPAL-APPLICATION-ID': 'APP-80W284485P519543T',
+      'X-PAYPAL-APPLICATION-ID': keys.paypal.appid,
       // 'X-PAYPAL-DEVICE-IPADDRESS': //TODO only needed for SOAP?
 
       // Input and output formats
