@@ -1,0 +1,71 @@
+var express = require('express');
+var router = express.Router();
+var http = require('http');
+
+/* GET home page. */
+router.get('/', function(lions, tigers, bears) {
+
+  var payload = {
+    "actionType": "PAY",    // Specify the payment action
+    "currencyCode": "USD",  // The currency of the payment
+    "receiverList": {"receiver":[{
+      "amount":"1.00",                    // The payment amount
+      "email":"kmart@walmart.com"}]  // The payment Receiver's email address
+    },
+
+    // PAY calls with senderEmail should be implicitly approved
+    'senderEmail': 'teamvitachange@gmail.com',
+
+    // Where the Sender is redirected to after approving a successful payment
+    // It is always required but only used if a payment requires explicit approval
+    "returnUrl": "127.0.0.1:3000",
+
+    // Where the Sender is redirected to upon a canceled payment
+    // It is always required but only used if a payment requires explicit approval
+    "cancelUrl": "127.0.0.1:3000",
+    "requestEnvelope": {
+      "errorLanguage": "en_US",    // Language used to display errors
+      "detailLevel": "ReturnAll"   // Error detail level
+    }
+  };
+
+  var options = {
+    host: 'https://svcs.sandbox.paypal.com',
+    port: '80',
+    path: '/AdaptivePayments/Pay',
+    method: 'POST',
+    headers: {
+      // I don't know if the next two lines are required or not
+      'Content-Type': 'application/json',
+      'Content-Length': payload.length,
+      // Sandbox API credentials for the API Caller account
+      'X-PAYPAL-SECURITY-USERID': 'teamvitachange_api1.gmail.com',
+      'X-PAYPAL-SECURITY-PASSWORD': '4S3SF7GQDBCX26QR',
+      'X-PAYPAL-SECURITY-SIGNATURE': 'AiPC9BjkCyDFQXbSkoZcgqH3hpacAslINP3NnXsXzL880J59.0ev6uGB',
+
+      // Global Sandbox Application ID
+      'X-PAYPAL-APPLICATION-ID': 'APP-80W284485P519543T',
+      // 'X-PAYPAL-DEVICE-IPADDRESS': //TODO only needed for SOAP?
+
+      // Input and output formats
+      'X-PAYPAL-REQUEST-DATA-FORMAT': 'JSON',
+      'X-PAYPAL-RESPONSE-DATA-FORMAT': 'JSON'
+    }
+  };
+
+
+  var req = http.request(options, function(res) {
+    console.log('Status: ' + res.statusCode);
+    console.log('Headers: ' + JSON.stringify(res.headers));
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+      console.log('Body: ' + chunk);
+    });
+  });
+
+  // write the request parameters
+  req.write(JSON.stringify(payload));
+  req.end();
+});
+
+module.exports = router;
