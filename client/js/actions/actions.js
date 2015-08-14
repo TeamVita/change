@@ -25,7 +25,7 @@ module.exports = {
 
 	donate: function(info, cb) {
 		$.ajax({
-			url: '/donate',
+			url: '/create',
 			type: 'POST',
 			data: info,
 			success: function(data) {
