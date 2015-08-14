@@ -8,5 +8,6 @@ dist/
 models/test.js
 
 config.json
+config.js
 
 testServer.js
