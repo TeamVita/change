@@ -68,35 +68,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-// database test
-app.set('db', require('./db/index'));
-var db = app.get('db');
-var donor = db.donor;
-var recipient = db.recipient;
-
-db.sequelize.sync({ force: true }).catch(function() {
-  throw new Error('Error at sequelize sync');
-})
-.then(function() {
-  return donor.create({firstName: "A", lastName: "B"})
-})
-.then(function() {
-  return recipient.create({firstName: "C", lastName: "D"});
-})
-.then(function() {
-  return db.donation.create(1, 1, 100);
-})
-.then(function() {
-  return db.donation.create(1, 1, 300);
-})
-.then(function() {
-  return db.donation.create(1, 1, 300);
-})
-.then(function() {
-  return db.donation.create(1, 1, 300);
-})
-.then(function() {
-  return db.donation.create(1, 1, 123.23);
-})
-
 module.exports = app;
