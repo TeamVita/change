@@ -1,29 +1,22 @@
-var db = require('./index.js');
+var db = require('../index');
 
-// TODO: rename methods in CRUD pattern
 var donor = {
   create: function(donor) {
-    db.Donor.findOrCreate({
-      where: { 
-        email: donor.email ,
-        firstName: donor.firstName,
-        lastName: donor.lastName
-      },
-      default: {
-        fbId: donor.fbId
-      }
-    })
-    .then(function(results) {
-      // console.log("return first result", results[0].get({ plain: true }))
-    })
-    .catch(function() {
+    return db.Donor.create({ 
+      firstName: donor.firstName, 
+      lastName: donor.lastName 
+    }).then(function(result) {
+      // return result[0].get({ plain: true });
+      return result[0];
+    }).catch(function() {
       throw new Error('Unknown error at method donor create()');
     })
   },
 
   findOneByEmail: function(email) {
-    db.Donor.findOne({ where: { email: email } }).then(function(donor) {
-      console.log("find a donor", donor);
+    return db.Donor.findOne({ where: { email: email } }).then(function(donor) {
+      // console.log("find a donor", donor);
+      return donor;
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findOneByEmail()');
@@ -31,8 +24,9 @@ var donor = {
   },
 
   findOneById: function(id) {
-    db.Donor.findById(id).then(function(donor) {
-      console.log("find a donor", donor);
+    return db.Donor.findById(id).then(function(donor) {
+      // console.log("find a donor", donor);
+      return donor;
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findOneById()');
@@ -40,8 +34,9 @@ var donor = {
   },
 
   findAll: function() {
-    db.Donor.findAll().then(function(donors) {
-      console.log("find all donors", donors);
+    return db.Donor.findAll().then(function(donors) {
+      // console.log("find all donors", donors);
+      return donors;
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findAll()');
@@ -51,11 +46,11 @@ var donor = {
   updateEmailById: function(email, id) {
     db.Donor.update({ email: email }, { 
       where : { 
-        uid: id
+        id: id
       } 
     }).then(function(donor) { 
        // console.log("update the donor", donor);
-     })
+    })
     .catch(function() {
       throw new Error('Unknown error at method donor updateEmail()');
     })
@@ -67,7 +62,7 @@ var donor = {
     updateObj[key] = value;
     db.Donor.update(updateObj, { 
       where : { 
-        uid: id 
+        id: id 
       } 
     }).then(function(donor) { 
        console.log("update the donor", donor);
@@ -81,7 +76,7 @@ var donor = {
   deleteById: function(id) {
     db.Donor.destroy({
       where: {
-        uid: id
+        id: id
       }
     }).then(function(affectedRows) {
       // console.log('')
@@ -106,6 +101,7 @@ var donor = {
       throw new Error('Unknown error at method donor deleteAll findAll()');
     })
   }
+
 }
 
 module.exports = donor;
