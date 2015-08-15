@@ -32,6 +32,7 @@ var testPayment = {
  }]
 };
 
+
 var headers = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
@@ -59,15 +60,19 @@ exports.create = function(req, res){
             redirectUrl = link.href;
           }
         }
-        res.set(headers);
-        res.redirect(redirectUrl);
+
+
+        // res.set(headers);
+        res.send(redirectUrl);
       }
     }
   });
 };
 
 exports.execute = function(req, res){
-  var paymentId = req.session.paymentId;
+  console.log('in execute');
+  // var paymentId = req.session.paymentId;
+  var paymentId = req.param('paymentId');
   var payerId = req.param('PayerID');
 
   var details = { 'payer_id': payerId };
