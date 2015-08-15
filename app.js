@@ -21,8 +21,8 @@ try {
 routes.init(config);
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -31,11 +31,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('mysecret'));
 app.use(session());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', routes.index);
+app.use('/', express.static(path.join(__dirname, './client')));
 app.get('/create', routes.create);
 app.get('/execute', routes.execute);
+app.post('/signup', function (req, res) {
+  var data = req.body;
+  res.send(data);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

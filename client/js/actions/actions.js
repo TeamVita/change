@@ -25,9 +25,9 @@ module.exports = {
 
 	donate: function(info, cb) {
 		$.ajax({
-			url: '/donate',
-			type: 'POST',
-			data: info,
+			url: '/create',
+			type: 'GET',
+			// data: info, TODO pass data in for DB entry
 			success: function(data) {
 				Dispatcher.dispatch({
 					type: ActionTypes.DONATE,
@@ -36,8 +36,8 @@ module.exports = {
 				});
 				cb(data);
 			}.bind(this),
-			error: function(error) {
-				console.log(error);
+			error: function() {
+				console.log('Failed to execute donate ajax request.');
 			}.bind(this)
 		});
 	},
