@@ -1,8 +1,8 @@
-var db = require('./index.js');
+var db = require('../index.js');
 
 var purchase = {
   create: function(uid) {
-    db.Purchase.findOrCreate({
+    return db.Purchase.findOrCreate({
       where: { uid: uid },
       default: {
       }
@@ -11,34 +11,37 @@ var purchase = {
       return results[0].get({ plain: true });
     })
     .catch(function() {
-        throw new Error('Unknown error at method donor create()');
+      throw new Error('Unknown error at method purchase create()');
     })
   },
 
   findOneByEmail: function(email) {
-    db.Purchase.findOne({ where: { email: email } }).then(function(donor) {
-      console.log("find a donor", donor);
+    return db.Purchase.findOne({ where: { email: email } }).then(function(purchase) {
+      // console.log("find a purchase", purchase);
+      return purchase;
     })
     .catch(function() {
-        throw new Error('Unknown error at method donor findOneByEmail()');
+      throw new Error('Unknown error at method purchase findOneByEmail()');
     })
   },
 
   findOneById: function(id) {
-    db.Purchase.findById(id).then(function(donor) {
-      console.log("find a donor", donor);
+    return db.Purchase.findById(id).then(function(purchase) {
+      // console.log("find a purchase", purchase);
+      return purchase;
     })
     .catch(function() {
-        throw new Error('Unknown error at method donor findOneById()');
+      throw new Error('Unknown error at method purchase findOneById()');
     })
   },
 
   findAll: function() {
-    db.Purchase.findAll().then(function(donors) {
-      console.log("find all donors", donors);
+    return db.Purchase.findAll().then(function(purchases) {
+      // console.log("find all purchases", purchases);
+      return purchases;
     })
     .catch(function() {
-        throw new Error('Unknown error at method donor findAll()');
+      throw new Error('Unknown error at method purchase findAll()');
     })
   }
 }

@@ -70,16 +70,14 @@ app.use(function(err, req, res, next) {
 
 // database test
 app.set('db', require('./db/index'));
-app.set('donor', require('./db/methods/donor'));
-app.set('recipient', require('./db/methods/recipient'));
-var donor = app.get('donor');
 var db = app.get('db');
-var recipient = app.get('recipient');
-
+var donor = db.donor;
+var recipient = db.recipient;
 
 db.sequelize.sync({ force: true }).catch(function() {
   throw new Error('Error at sequelize sync');
-}).then(function() {
+})
+.then(function() {
   return donor.create({firstName: "A", lastName: "B"})
 })
 .then(function() {

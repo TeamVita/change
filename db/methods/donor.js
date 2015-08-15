@@ -2,9 +2,6 @@ var db = require('../index');
 
 var donor = {
   create: function(donor) {
-    // db.Donation.create().then(function(something) {
-    //   console.log(something.get());
-    // });
     return db.Donor.create({ 
       firstName: donor.firstName, 
       lastName: donor.lastName 
