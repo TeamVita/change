@@ -3,34 +3,41 @@ var config = {};
 
 /*
  * GET home page
- */
+*/
 
- exports.index = function(req, res){
-   res.render('index', { title: 'Express'});
- };
+exports.index = function(req, res){
+ res.render('index', { title: 'Express'});
+};
 
 
 /*
- * SDK configuration
- */
+* SDK configuration
+*/
 
- var testPayment = {
-   "intent": "sale",
-   "payer": {
-     "payment_method": "paypal"
+var testPayment = {
+ "intent": "sale",
+ "payer": {
+   "payment_method": "paypal"
+ },
+ "redirect_urls": {
+   "return_url": "http://localhost:3000/execute",
+   "cancel_url": "http://localhost:3000/cancel"
+ },
+ "transactions": [{
+   "amount": {
+     "total": "5.00",
+     "currency": "USD"
    },
-   "redirect_urls": {
-     "return_url": "http://localhost:3000/execute",
-     "cancel_url": "http://localhost:3000/cancel"
-   },
-   "transactions": [{
-     "amount": {
-       "total": "5.00",
-       "currency": "USD"
-     },
-     "description": "My awesome payment"
-   }]
- };
+   "description": "My awesome payment"
+ }]
+};
+
+var headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "content-type, accept",
+  "access-control-max-age": 10 // Seconds.
+};
 
 exports.init = function(c){
   config = c;
@@ -52,6 +59,7 @@ exports.create = function(req, res){
             redirectUrl = link.href;
           }
         }
+        res.set(headers);
         res.redirect(redirectUrl);
       }
     }
@@ -71,5 +79,3 @@ exports.execute = function(req, res){
     }
   });
 };
-
-
