@@ -2,18 +2,24 @@ var db = require('../index');
 
 var donor = {
   create: function(donor) {
+    // db.Donation.create().then(function(something) {
+    //   console.log(something.get());
+    // });
     return db.Donor.create({ 
       firstName: donor.firstName, 
       lastName: donor.lastName 
     }).then(function(result) {
       // return result[0].get({ plain: true });
       return result[0];
+    }).catch(function() {
+      throw new Error('Unknown error at method donor create()');
     })
   },
 
   findOneByEmail: function(email) {
-    db.Donor.findOne({ where: { email: email } }).then(function(donor) {
-      console.log("find a donor", donor);
+    return db.Donor.findOne({ where: { email: email } }).then(function(donor) {
+      // console.log("find a donor", donor);
+      return donor;
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findOneByEmail()');
@@ -21,8 +27,9 @@ var donor = {
   },
 
   findOneById: function(id) {
-    db.Donor.findById(id).then(function(donor) {
-      console.log("find a donor", donor);
+    return db.Donor.findById(id).then(function(donor) {
+      // console.log("find a donor", donor);
+      return donor;
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findOneById()');
@@ -30,8 +37,9 @@ var donor = {
   },
 
   findAll: function() {
-    db.Donor.findAll().then(function(donors) {
-      console.log("find all donors", donors);
+    return db.Donor.findAll().then(function(donors) {
+      // console.log("find all donors", donors);
+      return donors;
     })
     .catch(function() {
       throw new Error('Unknown error at method donor findAll()');
@@ -45,7 +53,7 @@ var donor = {
       } 
     }).then(function(donor) { 
        // console.log("update the donor", donor);
-     })
+    })
     .catch(function() {
       throw new Error('Unknown error at method donor updateEmail()');
     })
@@ -99,4 +107,4 @@ var donor = {
 
 }
 
-module.exports.donor = donor;
+module.exports = donor;

@@ -2,8 +2,12 @@ var db = require('../index.js');
 
 var recipient = {
   create: function(recipient) {
-    db.Recipient.findOrCreate({
-      where: { firstName: recipient.firstName, lastName: recipient.lastName },
+    return db.Recipient.findOrCreate({
+      where: { 
+        firstName: recipient.firstName, 
+        lastName: recipient.lastName,
+        totalAmount: 0
+      },
       default: {
       }
     })
@@ -17,38 +21,42 @@ var recipient = {
 
   // TODO: Fix this one by only requiring one entry
   findOneByName: function(firstName, lastName) {
-    db.Recipient.findOne({ where: { firstName: firstName, lastName: lastName } }).then(function(recipient) {
-      console.log("find a recipient", recipient);
+    return db.Recipient.findOne({ where: { firstName: firstName, lastName: lastName } }).then(function(recipient) {
+      // console.log("find a recipient", recipient);
+      return recipient;
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient findOneByEmail()');
+      throw new Error('Unknown error at method recipient findOneByEmail()');
     })
   },
 
   findOneById: function(id) {
-    db.Recipient.findById(id).then(function(recipient) {
-      console.log("find a recipient", recipient);
+    return db.Recipient.findById(id).then(function(recipient) {
+      // console.log("find a recipient", recipient);
+      return recipient;
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient findOneById()');
+      throw new Error('Unknown error at method recipient findOneById()');
     })
   },
 
   findOneByPin: function(pin) {
-    db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
-      console.log("find a recipient", recipient);
+    return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
+      // console.log("find a recipient", recipient);
+      return recipient;
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient findOneByEmail()');
+      throw new Error('Unknown error at method recipient findOneByEmail()');
     })
   },
 
   findAll: function() {
-    db.Recipient.findAll().then(function(recipients) {
-      console.log("find all recipients", recipients);
+    return db.Recipient.findAll().then(function(recipients) {
+      // console.log("find all recipients", recipients);
+      return recipients;
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient findAll()');
+      throw new Error('Unknown error at method recipient findAll()');
     })
   }
 }

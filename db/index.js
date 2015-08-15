@@ -33,20 +33,17 @@ models.forEach(function(model) {
 });
 
 (function(m) {
+
   m.Donor.hasMany(m.Donation, { as: "donation" });
   m.Donation.belongsTo(m.Donor);
   m.Recipient.hasMany(m.Donation, { as: 'donation' });
   m.Donation.belongsTo(m.Recipient);
   m.Recipient.hasMany(m.Purchase, { as: 'purchase' });  
-  // m.Donor.sync();
-  // m.Donation.sync();
-  // m.Recipient.sync();
-  // m.Purchase.sync();
-  // sync after setting associations
-
-  // sequelize.sync().catch(function() {
+  // sequelize.sync({ force: true }).catch(function() {
+  sequelize.sync({ }).catch(function() {
   // Test Only! in production use above
-  sequelize.sync({ force: true }).catch(function() {
+  // sequelize.sync({ force: true }).catch(function() {
+  // sequelize.sync({ }).catch(function() {
     throw new Error('Error at sequelize sync');
   })
 })(module.exports);

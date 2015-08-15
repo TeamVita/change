@@ -71,15 +71,19 @@ app.use(function(err, req, res, next) {
 // database test
 app.set('donor', require('./db/methods/donor'));
 app.set('donation', require('./db/methods/donation'));
+app.set('db', require('./db/index'));
 app.set('recipient', require('./db/methods/recipient'));
 var donor = app.get('donor');
 var donation = app.get('donation');
+var db = app.get('db');
 var recipient = app.get('recipient');
 
-
-// makeDonor("A", "1234");
-// makeRecipient("B", "1234");
-// return makeDonation("A", "B", 100)
-// console.log(db);
+recipient.create({ firstName: "A", lastName: "B"}).then(function(_recipient) {
+    console.log("recipient", _recipient);
+    return _recipient;
+})
+.then(function() {
+  donation.create("C", "A", 100.23);
+})
 
 module.exports = app;
