@@ -60,7 +60,8 @@ exports.create = function(req, res){
           }
         }
         res.set(headers);
-        res.redirect(redirectUrl);
+        // res.redirect(redirectUrl);
+        res.send(redirectUrl);
       }
     }
   });
