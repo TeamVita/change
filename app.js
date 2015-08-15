@@ -69,21 +69,36 @@ app.use(function(err, req, res, next) {
 });
 
 // database test
-app.set('donor', require('./db/methods/donor'));
-app.set('donation', require('./db/methods/donation'));
 app.set('db', require('./db/index'));
+app.set('donor', require('./db/methods/donor'));
 app.set('recipient', require('./db/methods/recipient'));
 var donor = app.get('donor');
-var donation = app.get('donation');
 var db = app.get('db');
 var recipient = app.get('recipient');
 
-recipient.create({ firstName: "A", lastName: "B"}).then(function(_recipient) {
-    console.log("recipient", _recipient);
-    return _recipient;
+
+db.sequelize.sync({ force: true }).catch(function() {
+  throw new Error('Error at sequelize sync');
+}).then(function() {
+  return donor.create({firstName: "A", lastName: "B"})
 })
 .then(function() {
-  donation.create("C", "A", 100.23);
+  return recipient.create({firstName: "C", lastName: "D"});
+})
+.then(function() {
+  return db.donation.create(1, 1, 100);
+})
+.then(function() {
+  return db.donation.create(1, 1, 300);
+})
+.then(function() {
+  return db.donation.create(1, 1, 300);
+})
+.then(function() {
+  return db.donation.create(1, 1, 300);
+})
+.then(function() {
+  return db.donation.create(1, 1, 123.23);
 })
 
 module.exports = app;

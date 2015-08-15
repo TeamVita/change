@@ -2,11 +2,14 @@ var db = require('../index.js');
 var Promise = require('bluebird');
 
 var donation = {
-  create: function(donorName, recipientName, amount) {
+  // create: function(donorName, recipientName, amount) {
+  create: function(donorId, recipientId, amount) {
     return db.sequelize.transaction(function(t) {
       return Promise.all([
-        db.Donor.find({ where: { firstName:donorName } }, {transaction: t}),
-        db.Recipient.find({ where: { firstName:recipientName } }, {transaction: t})
+        // db.Donor.find({ where: { firstName:donorName } }, {transaction: t}),
+        db.Donor.find({ where: { id:donorId } }, {transaction: t}),
+        // db.Recipient.find({ where: { firstName:recipientName } }, {transaction: t})
+        db.Recipient.find({ where: { id:recipientId } }, {transaction: t})
       ])
       .spread(function(donor, recipient) {
         console.log("With in create() donor", donor.get());
