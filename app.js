@@ -1,11 +1,10 @@
 var express = require('express');
 // var test = require('./models/test');
-// var userRouter = require('');
 var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var fs = require('fs');
-// var session = require('express-session');
+var session = require('express-session');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -13,14 +12,14 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-// try {
-//   var configJSON = fs.readFileSync(__dirname + '/config.json');
-//   var config = JSON.parse(configJSON.toString());
-// } catch (e) {
-//   // debug('File config.json not found or is invalid: ' + e.message);
-//   process.exit(1);
-// }
-// routes.init(config);
+try {
+  var configJSON = fs.readFileSync(__dirname + '/config.json');
+  var config = JSON.parse(configJSON.toString());
+} catch (e) {
+  // debug('File config.json not found or is invalid: ' + e.message);
+  process.exit(1);
+}
+routes.init(config);
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -32,7 +31,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('mysecret'));
-// app.use(session());
+app.use(session());
 // app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', express.static(path.join(__dirname, './client')));
