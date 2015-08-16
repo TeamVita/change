@@ -31,9 +31,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('mysecret'));
 app.use(session());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
-app.use('/', express.static(path.join(__dirname, './client')));
+// app.use('/', express.static(path.join(__dirname, './client')));
 app.get('/create', routes.create);
 app.get('/execute', routes.execute);
 app.post('/signup', function (req, res) {
