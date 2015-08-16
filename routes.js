@@ -1,86 +1,24 @@
-var paypal = require('paypal-rest-sdk');
-var config = {};
 
-/*
- * GET home page
-*/
+var keys = require('./config');
+var CLIENT_ID = keys.CLIENT_ID;
+var API_KEY = keys.API_KEY;
 
-exports.index = function(req, res){
- res.render('index', { title: 'Express'});
-};
+var TOKEN_URI = 'https://connect.stripe.com/oauth/token';
+var AUTHORIZE_URI = 'https://connect.stripe.com/oauth/authorize';
 
+var qs = require('querystring');
+var request = require('request');
+var express = require('express');
 
-/*
-* SDK configuration
-*/
-
-var testPayment = {
- "intent": "sale",
- "payer": {
-   "payment_method": "paypal"
- },
- "redirect_urls": {
-   "return_url": "http://localhost:3000/execute",
-   "cancel_url": "http://localhost:3000/cancel"
- },
- "transactions": [{
-   "amount": {
-     "total": "5.00",
-     "currency": "USD"
-   },
-   "description": "My awesome payment"
- }]
-};
-
-
-var headers = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-  "Access-Control-Allow-Headers": "content-type, accept",
-  "access-control-max-age": 10 // Seconds.
-};
-
-exports.init = function(c){
-  config = c;
-  paypal.configure(c.api);
-};
+var stripe = require("stripe")(API_KEY);
 
 exports.create = function(req, res){
-  var payment = testPayment;
-  paypal.payment.create(payment, function (error, payment){
-    if (error) {
-      console.log(error);
-    } else {
-      if(payment.payer.payment_method === 'paypal') {
-        req.session.paymentId = payment.id;
-        var redirectUrl;
-        for(var i=0; i < payment.links.length; i++) {
-          var link = payment.links[i];
-          if (link.method === 'REDIRECT') {
-            redirectUrl = link.href;
-          }
-        }
-
-
-        // res.set(headers);
-        res.send(redirectUrl);
-      }
-    }
-  });
-};
-
-exports.execute = function(req, res){
-  console.log('in execute');
-  // var paymentId = req.session.paymentId;
-  var paymentId = req.param('paymentId');
-  var payerId = req.param('PayerID');
-
-  var details = { 'payer_id': payerId };
-  paypal.payment.execute(paymentId, details, function(error, payment) {
-    if (error){
-      console.log(error);
-    } else {
-      res.send('Hell yeah!');
-    }
+  stripe.accounts.create({
+    managed: true,
+    country: 'US',
+    email: 'bob@example.com'
+  }, function(err, account) {
+    // asynchronously called
+    res.send('hell yeah!');
   });
 };
