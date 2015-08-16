@@ -25,7 +25,7 @@ module.exports = {
 
 	donate: function(info, cb) {
 		$.ajax({
-			url: '/create',
+			url: '/authorize',
 			type: 'GET',
 			// data: info, TODO pass data in for DB entry
 			success: function(data) {
