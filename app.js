@@ -18,8 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('mysecret'));
 
 app.use('/', express.static(path.join(__dirname, './client')));
-app.get('/authorize', routes.authorize);
-app.get('/oauth', routes.oauth);
+app.get('/create', routes.create);
 app.post('/signup', function (req, res) {
   var data = req.body;
   res.send(data);
