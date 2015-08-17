@@ -13,18 +13,27 @@
     "express": "~4.13.1",
     "express-session": "^1.11.3",
     "flux": "^2.0.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.4",
     "jade": "~1.11.0",
     "keymirror": "~0.1.0",
     "morgan": "~1.6.1",
+    "notifier": "^0.1.7",
     "object-assign": "^3.0.0",
     "paypal-rest-sdk": "^1.6.0",
     "pg": "^4.4.1",
     "pg-hstore": "^2.3.2",
     "promise": "^7.0.4",
+    "reactify": "^1.1.1",
     "request": "^2.60.0",
     "sequelize": "^3.5.1",
     "serve-favicon": "~2.3.0",
-    "stripe": "^3.7.0"
+    "stripe": "^3.7.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.3.1"
   },
   "devDependencies": {
     "browserify": "^6.2.0",
@@ -32,6 +41,7 @@
     "jest-cli": "^0.4.3",
     "reactify": "^0.15.2",
     "uglify-js": "~2.4.15",
+    "vinyl-source-stream": "^1.1.0",
     "watchify": "^2.1.1"
   }
 }

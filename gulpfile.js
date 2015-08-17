@@ -10,6 +10,8 @@ var sass = require('gulp-sass');
 var watch = require('gulp-watch');
 var nodemon = require('gulp-nodemon');
 
+
+//sends a notification if there are any errors
 var notify = function(error) {
   var message = 'In: ';
   var title = 'Error: ';
@@ -32,6 +34,7 @@ var notify = function(error) {
   notifier.notify({title: title, message: message});
 };
 
+//watches for any changes and converts jsx back to js automatically
 var bundler = watchify(browserify({
   entries: ['./client/app.js'],
   transform: [reactify],
@@ -42,6 +45,7 @@ var bundler = watchify(browserify({
   fullPaths: true
 }));
 
+//builds the files and puts it in the build folder
 function bundle() {
   return bundler
     .bundle()
@@ -49,12 +53,16 @@ function bundle() {
     .pipe(source('build.js'))
     .pipe(gulp.dest('./client/build'))
 }
+
+//listens for any updates and will rebuild the files
 bundler.on('update', bundle)
 
+//initially builds the files
 gulp.task('build', function() {
   bundle()
 });
 
+//starts the server
 gulp.task('start', function () {
   nodemon({
     script: './bin/www'
@@ -71,9 +79,10 @@ gulp.task('start', function () {
 //     .pipe(gulp.dest('./'));
 // });
 
-//add sass to default when completed
+//start gulp
 gulp.task('default', ['build', 'start']);
 
+//will add back once we include a sass folder
 // gulp.task('watch', function () {
 //   gulp.watch('./sass/**/*.scss', ['sass']);
 // });
