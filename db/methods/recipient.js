@@ -6,12 +6,13 @@ var recipient = {
       where: { 
         firstName: recipient.firstName, 
         lastName: recipient.lastName,
-        totalAmount: 0
+        totalAmount: 0,
+        pin: recipient.pin
       },
       default: {
       }
     })
-    .then(function(results) {
+    .then(function(results, created) {
       return results[0].get({ plain: true });
     })
     .catch(function() {

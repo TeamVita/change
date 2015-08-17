@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
+var home = require('./home');
+var auth = require('./auth');
+var donor = require('./donor');
+var organization = require('./organization');
+var recipient = require('./recipient');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+module.exports.home = home;
+module.exports.auth = auth;
+module.exports.donor = donor;
+module.exports.organization = organization;
+module.exports.recipient = recipient;

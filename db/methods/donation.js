@@ -3,11 +3,11 @@ var Promise = require('bluebird');
 
 var donation = {
   // create: function(donorName, recipientName, amount) {
-  create: function(donorId, recipientId, amount) {
+  create: function(donorEmail, recipientId, amount) {
     return db.sequelize.transaction(function(t) {
       return Promise.all([
         // db.Donor.find({ where: { firstName:donorName } }, {transaction: t}),
-        db.Donor.find({ where: { id:donorId } }, {transaction: t}),
+        db.Donor.find({ where: { email:donorEmail } }, {transaction: t}),
         // db.Recipient.find({ where: { firstName:recipientName } }, {transaction: t})
         db.Recipient.find({ where: { id:recipientId } }, {transaction: t})
       ])
@@ -31,7 +31,7 @@ var donation = {
       .then(function(recipient) {
         // console.log("recipient after action", recipient.get());
         console.log("In commit", recipient.get());
-        return recipient;
+        return recipient.get();
         // t.commit();
       })
       .catch(function(err) {
