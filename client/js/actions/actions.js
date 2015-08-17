@@ -26,14 +26,14 @@ module.exports = {
 
 	donate: function(info) {
 		$.ajax({
-			url: '/create',
+			url: '/donate',
 			type: 'POST',
 			// data: info, TODO pass data in for DB entry
 			success: function(data) {
 				Dispatcher.dispatch({
 					type: ActionTypes.DONATE,
 					pin: data.pin,
-					amt: data.amt, 
+					amt: data.amt,
 					pane: 'success'
 			});
 			}.bind(this),
