@@ -26,7 +26,7 @@ module.exports = {
 	donate: function(info, cb) {
 		$.ajax({
 			url: '/create',
-			type: 'GET',
+			type: 'POST',
 			// data: info, TODO pass data in for DB entry
 			success: function(data) {
 				// Dispatcher.dispatch({
@@ -35,7 +35,6 @@ module.exports = {
 				// 	amt: data.amt
 				// });
 				// cb(data);
-				window.location = data;
 			}.bind(this),
 			error: function() {
 				console.log('Failed to execute donate ajax request.');
