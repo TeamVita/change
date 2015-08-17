@@ -12,6 +12,7 @@ var bodyParser = require('body-parser');
 var routers = require('./routes/');
 var session = require('express-session');
 var signup = require('./routes/signup');
+var login = require('./routes/login');
 var donate = require('./routes/donate');
 var sess = {
   secret: 'team vita',
@@ -32,6 +33,7 @@ app.use(cookieParser('mysecret'));
 app.use('/', express.static(path.join(__dirname, './client')));
 app.use('/donate', donate);
 app.use('/signup', signup);
+app.use('/login', login);
 
 // For testing purposes only TODO refactor path for handling signup
 app.post('/signup', function (req, res) {

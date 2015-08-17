@@ -20,4 +20,8 @@ router.post('/vendor', function(req, res) {
   createAccount(req, res);
 });
 
+router.post('/shelter', function(req, res) {
+
+});
+
 module.exports = router;
