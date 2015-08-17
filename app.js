@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // dev routers
-var routers = require('./route/');
+var routers = require('./routes/');
 
 var app = express();
 
@@ -33,6 +33,7 @@ if (env === 'development') {
   app.use('/auth', routers.auth);
 
   app.use('/donor', routers.donor);
+  app.use('/org', routers.organization);
 };
 
 // app.use(function(req, res, next) {
