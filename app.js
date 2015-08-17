@@ -11,12 +11,13 @@ var bodyParser = require('body-parser');
 // dev routers
 var routers = require('./routes/');
 var session = require('express-session');
+var create = require('./routes/newVendor');
 var sess = {
   secret: 'team vita',
   resave: false,
   saveUninitialized: true,
   cookie: { }
-}
+};
 
 var app = express();
 
@@ -28,11 +29,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('mysecret'));
 
 app.use('/', express.static(path.join(__dirname, './client')));
-app.post('/create', function(req, res){
-  var data = req.body;
-  console.log('inside of /create');
-  res.send(data);
-});
+app.use('/create', create);
+
+// For testing purposes only TODO refactor path for handling signup
+>>>>>>> [refactor] Refactor app.js routing in preparation for transaction handling from front end
 app.post('/signup', function (req, res) {
   var data = req.body;
   res.send(data);
