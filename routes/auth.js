@@ -1,42 +1,38 @@
 var express = require('express');
 var router = express.Router();
+//var auth = require('../middleware/auth');
+var utility = require('./utility/auth');
 
 /* Authentication */
-
 router.get('/', function(req, res, next) {
   res.send("Organization/Donor");
 });
 
-// Redirect
+// Redirect?
 router.post('/', function(req, res, next) {
-
+  // Sample query string:
+  // localhost:3000/auth?org=shelter1
+  // req.query['org'] --> shelter1
+  utility.createDonor(req, res, next);
+  // res.send(req.query['org']);
+  res.send(req.body);
 });
-
-router.get('/org', function(req, res, next) {
-  res.send('Dummy message for organization authentication');
-});
-
-router.get('/donor', function(req, res, next) {
-  res.send('Dummy message for donor authentication');
-});
-
-// TODO: utility functions
 
 // create?
 // TODO: refactor to use dedicated auth functions
-router.post('/org/login', function() {
+router.post('/login', function() {
 
 });
 
-router.post('/org/signup', function() {
+router.post('/signup', function() {
 
 });
 
-router.get('/donor/login', function() {
+router.get('/login', function() {
 
 });
 
-router.get('/donor/signup', function() {
+router.get('/signup', function() {
 
 });
 

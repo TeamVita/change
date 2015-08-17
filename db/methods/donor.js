@@ -1,14 +1,20 @@
 var db = require('../index');
 
+// TODO: refactor common methods
+// TODO: check if exists?
 var donor = {
   create: function(donor) {
-    return db.Donor.create({ 
-      firstName: donor.firstName, 
-      lastName: donor.lastName 
-    }).then(function(result) {
-      // return result[0].get({ plain: true });
-      return result[0];
-    }).catch(function() {
+    // TODO: verification
+    return db.Donor.findOrCreate({ where: {
+      email: donor.email} 
+    })
+    .spread(function(_donor, created) {
+      // console.log(created);
+      return _donor.get({
+        plain: true
+      });
+    })
+    .catch(function() {
       throw new Error('Unknown error at method donor create()');
     })
   },
