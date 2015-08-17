@@ -6,7 +6,7 @@ module.exports = {
 
 	signUp: function(info, cb) {
 		$.ajax({
-			url: '/signup',
+			url: '/signup/donor',
 			type: 'POST',
 			data: info,
 			success: function(data) {

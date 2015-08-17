@@ -36,6 +36,9 @@ exports.createAccount = function(req, res, callback){
     if (callback) {
       callback();
     }
+    /*purpose of this is to send a response for front end request
+    -if this breaks anything delete it - Adi */
+    res.send("Hello");
   });
 };
 
