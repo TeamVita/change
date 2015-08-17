@@ -14,7 +14,7 @@ var stripeHandler = require('../stripeHandler');
 
 // Add donor record to DB
 router.post('/donor', function(req, res) {
-
+	res.send(req.body);
 });
 
 // Create vendor stripe account and add record to DB
