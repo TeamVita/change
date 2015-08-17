@@ -16,9 +16,23 @@ exports.create = function(req, res){
   stripe.accounts.create({
     managed: true,
     country: 'US',
-    email: 'bob@example.com'
+    legal_entity: {
+      last_name: 'exampleman',
+      first_name: 'bob',
+      type: 'corporation',
+      dob: {
+        day: '21',
+        month: '12',
+        year: '1984',
+      }
+    },
+    email: 'bob@example.com',
+    tos_acceptance: {
+      date: Math.floor(Date.now() / 1000),
+      ip: req.connection.remoteAddress // Assumes you're not using a proxy
+    }
   }, function(err, account) {
-    // asynchronously called
-    res.send('hell yeah!');
+    // Add account to DB here
+    // redirect to DB query page
   });
 };
