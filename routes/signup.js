@@ -9,15 +9,15 @@ var request = require('request');
 var stripe = require("stripe")(API_KEY);
 var express = require('express');
 var router = express.Router();
-var createAccount = require('../createAccount');
+var createStripeAccount = require('../createStripeAccount');
 
 // Create vendor, add to DB, redirect user
 router.post('/donor', function(req, res) {
-  createAccount(req, res);
+  createStripeAccount(req, res);
 });
 
 router.post('/vendor', function(req, res) {
-  createAccount(req, res);
+  createStripeAccount(req, res);
 });
 
 router.post('/shelter', function(req, res) {

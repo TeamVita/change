@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-// Create vendor, add to DB, redirect user
+// Login users
 router.post('/donor', function(req, res) {
 });
 
