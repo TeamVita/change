@@ -4,8 +4,6 @@ var API_KEY = keys.API_KEY;
 var TOKEN_URI = 'https://connect.stripe.com/oauth/token';
 var AUTHORIZE_URI = 'https://connect.stripe.com/oauth/authorize';
 
-var qs = require('querystring');
-var request = require('request');
 var stripe = require("stripe")(API_KEY);
 
 // Creates Stripe account for vendors/donors
@@ -32,7 +30,6 @@ var createAccount = function(req, res, callback){
   }, function(err, account) {
     // Add account to DB here
     // then redirect usr to some other page
-    console.log('hell yeah!');
     if (callback) {
       callback();
     }
