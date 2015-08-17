@@ -35,10 +35,16 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 	switch(action.type) {
 
 		case ActionTypes.SIGN_UP:
+			appState.pane = action.pane;
 			break;
 
 		case ActionTypes.SWITCH_PAGE:
 			appState.page = action.page;
+			SignupStore.emitChange();
+			break;
+
+		case ActionTypes.DONATE:
+			appState.pane = action.pane;
 			SignupStore.emitChange();
 			break;
 	}

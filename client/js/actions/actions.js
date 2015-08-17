@@ -14,6 +14,7 @@ module.exports = {
         	type: ActionTypes.SIGN_UP,
         	username: data.username,
         	password: data.password,
+        	pane: 'donate'
         });
 				cb(data);
       }.bind(this),
@@ -29,11 +30,12 @@ module.exports = {
 			type: 'POST',
 			// data: info, TODO pass data in for DB entry
 			success: function(data) {
-				// Dispatcher.dispatch({
-				// 	type: ActionTypes.DONATE,
-				// 	pin: data.pin,
-				// 	amt: data.amt
-				// });
+				Dispatcher.dispatch({
+					type: ActionTypes.DONATE,
+					pin: data.pin,
+					amt: data.amt, 
+					pane: 'success'
+				});
 				// cb(data);
 			}.bind(this),
 			error: function() {

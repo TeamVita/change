@@ -17,12 +17,12 @@ var welcome = React.createClass({
 
   render: function() {
     var partial;
-    if (this.props.pane === 'success') {
-      NewPane = require('./success');
-      partial = <NewPane />;
-    } else {
-      console.log('requiring donate');
+     if (this.props.appState.pane === 'donate') {
       NewPane = require('./donate');
+      partial = <NewPane />;
+    }
+    else {
+      NewPane = require('./success');
       partial = <NewPane />;
     }
     return (
