@@ -11,12 +11,13 @@ var bodyParser = require('body-parser');
 // dev routers
 var routers = require('./routes/');
 var session = require('express-session');
+var create = require('./routes/newVendor');
 var sess = {
   secret: 'team vita',
   resave: false,
   saveUninitialized: true,
   cookie: { }
-}
+};
 
 var app = express();
 
@@ -28,7 +29,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('mysecret'));
 
 app.use('/', express.static(path.join(__dirname, './client')));
-app.get('/create', routes.create);
+app.use('/create', create);
+
+// For testing purposes only TODO refactor path for handling signup
 app.post('/signup', function (req, res) {
   var data = req.body;
   res.send(data);
