@@ -36,10 +36,5 @@ app.use('/donate', donate);
 app.use('/signup', signup);
 app.use('/login', login);
 
-// For testing purposes only TODO refactor path for handling signup
-app.post('/signup', function (req, res) {
-  var data = req.body;
-  res.send(data);
-});
 
 module.exports = app;
