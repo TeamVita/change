@@ -28,7 +28,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('mysecret'));
 
 app.use('/', express.static(path.join(__dirname, './client')));
-app.get('/create', routes.create);
+app.post('/create', function(req, res){
+  var data = req.body;
+  console.log('inside of /create');
+  res.send(data);
+});
 app.post('/signup', function (req, res) {
   var data = req.body;
   res.send(data);

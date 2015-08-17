@@ -7,12 +7,7 @@ var donate = React.createClass({
     event.preventDefault();
     var pin = this.refs.PIN.getDOMNode().value.trim();
     var amt = this.refs.amount.getDOMNode().value.trim();
-    var promise = new Promise(function (resolve, reject){
-      actions.donate({pin: pin, amt: amt}, resolve);
-    });
-    promise.then(function(resp) {
-      actions.switchPage('SUCCESS');
-    });
+    actions.donate({pin: pin, amt: amt});
   },
 
   render: function() {
