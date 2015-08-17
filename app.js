@@ -36,12 +36,7 @@ app.post('/signup', function (req, res) {
 
 // Router set-up
 var env = process.env.NODE_ENV || 'development';
-if (env === 'production') {
-  
-}
-
 if (env === 'development') {
-  // app.set('trust proxy 1');       // trust first proxy
   sess.cookie.secure = true;
   app.use(session(sess));
   app.use('/auth', routers.auth);
@@ -50,12 +45,4 @@ if (env === 'development') {
   app.use('/org', routers.organization);
 };
 
-// TODO: user registration
-// TODO: dummy transaction
-
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   res.send(err);
-// });
 module.exports = app;
