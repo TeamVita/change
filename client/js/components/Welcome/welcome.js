@@ -21,7 +21,7 @@ var welcome = React.createClass({
       NewPane = require('./donate');
       partial = <NewPane />;
     }
-    else {
+    else if (this.props.appState.pane === 'success'){
       NewPane = require('./success');
       partial = <NewPane />;
     }
