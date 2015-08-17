@@ -1,10 +1,10 @@
-var newVendor = require('./newVendor');
+var signup = require('./signup');
 var auth = require('./auth');
 var donor = require('./donor');
 var organization = require('./organization');
 var recipient = require('./recipient');
 
-module.exports.newVendor = newVendor;
+module.exports.signup = signup;
 module.exports.auth = auth;
 module.exports.donor = donor;
 module.exports.organization = organization;

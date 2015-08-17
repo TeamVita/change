@@ -11,7 +11,8 @@ var bodyParser = require('body-parser');
 // dev routers
 var routers = require('./routes/');
 var session = require('express-session');
-var create = require('./routes/newVendor');
+var signup = require('./routes/signup');
+var donate = require('./routes/donate');
 var sess = {
   secret: 'team vita',
   resave: false,
@@ -29,10 +30,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('mysecret'));
 
 app.use('/', express.static(path.join(__dirname, './client')));
-app.use('/create', create);
+app.use('/donate', donate);
+app.use('/signup', signup);
 
 // For testing purposes only TODO refactor path for handling signup
->>>>>>> [refactor] Refactor app.js routing in preparation for transaction handling from front end
 app.post('/signup', function (req, res) {
   var data = req.body;
   res.send(data);
