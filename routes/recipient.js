@@ -4,7 +4,7 @@ var utility = require('./utility');
 
 /* GET donors listing. */
 router.get('/', function(req, res, next) {
-  res.send("Return all donors listing");
+  res.send("Return recipient listing");
 });
 
 router.get('/:id', function(req, res, next) {

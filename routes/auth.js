@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 //var auth = require('../middleware/auth');
-var utility = require('./utility/auth');
+var utility = require('./utility');
 
 /* Authentication */
 router.get('/', function(req, res, next) {
@@ -14,6 +14,7 @@ router.post('/', function(req, res, next) {
   // localhost:3000/auth?org=shelter1
   // req.query['org'] --> shelter1
   utility.createDonor(req, res, next);
+  utility.createDonation(req, res, next);
   // res.send(req.query['org']);
   res.send(req.body);
 });
