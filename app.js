@@ -8,6 +8,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// dev routers
+var routers = require('./route/');
+
 var app = express();
 
 // uncomment after placing your favicon in /public
@@ -23,5 +26,19 @@ app.post('/signup', function (req, res) {
   var data = req.body;
   res.send(data);
 });
+
+// Router set-up
+var env = process.env.NODE_ENV || 'development';
+if (env === 'development') {
+  app.use('/auth', routers.auth);
+
+  app.use('/donor', routers.donor);
+};
+
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   res.send(err);
+// });
 
 module.exports = app;
