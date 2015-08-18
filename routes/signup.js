@@ -14,11 +14,11 @@ var createStripeAccount = require('../createStripeAccount');
 
 // Create stripe accounts for vendors/donors, add accounts to DB, redirect users
 router.post('/donor', function(req, res) {
-  createStripeAccount(req, res);
+  createAccount(req, res);
 });
 
 router.post('/vendor', function(req, res) {
-  createStripeAccount(req, res);
+  createAccount(req, res);
 });
 
 router.post('/shelter', function(req, res) {
