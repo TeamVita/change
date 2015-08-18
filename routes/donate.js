@@ -7,7 +7,8 @@ var payment = require('../payment');
 /*Changed  "/donate" to "/" otherwise route becomes /donate/donate -Adi */
 router.post('/', function(req, res) {
 	/*lines of code below are for testing the front end -Adi */
-	res.send(req.body);
+	var results = req.body;
+	res.send(results);
 });
 
 module.exports = router;

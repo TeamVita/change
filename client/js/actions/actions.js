@@ -10,6 +10,7 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
+				console.log(data);
 				Dispatcher.dispatch({
 					type: ActionTypes.SIGN_UP,
 					username: data.username,
@@ -25,6 +26,7 @@ module.exports = {
 	},
 
 	donate: function(info) {
+		console.log(info);
 		$.ajax({
 			url: '/donate',
 			type: 'POST',

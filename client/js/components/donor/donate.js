@@ -2,9 +2,9 @@ var DonorActions = require('../../actions/donorActions');
 var Constants = require('../../Constants/Constants.js');
 var StripeCheckout = require('react-stripe-checkout');
 var Keys = require('../../../../config.js');
-<<<<<<< HEAD
 
 var Donate = React.createClass({
+
 
   handleSubmit: function(event) {
   console.log('Here is the key:', Keys);
