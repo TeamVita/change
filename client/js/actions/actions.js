@@ -6,7 +6,7 @@ module.exports = {
 
 	signUp: function(info, cb) {
 		$.ajax({
-			url: '/signup/donor',
+			url: '/signup',
 			type: 'POST',
 			data: info,
 			success: function(data) {
@@ -28,8 +28,10 @@ module.exports = {
 		$.ajax({
 			url: '/donate',
 			type: 'POST',
-			// data: info, TODO pass data in for DB entry
+			data: info, 
 			success: function(data) {
+
+				console.log(data);
 				Dispatcher.dispatch({
 					type: ActionTypes.DONATE,
 					pin: data.pin,
