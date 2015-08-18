@@ -1,16 +1,15 @@
 var keys = require('./config');
 var CLIENT_ID = keys.CLIENT_ID;
-var SECRET_KEY = keys.SECRET_KEY;
+var API_KEY = keys.API_KEY;
 var TOKEN_URI = 'https://connect.stripe.com/oauth/token';
 var AUTHORIZE_URI = 'https://connect.stripe.com/oauth/authorize';
 
-var stripe = require("stripe")(SECRET_KEY);
+var qs = require('querystring');
+var request = require('request');
+var stripe = require("stripe")(API_KEY);
 
 // Creates Stripe account for vendors/donors
-exports.createAccount = function(req, res, callback){
-  /*
-  * TODO handle individual vs corporate accounts here
-  */
+var createAccount = function(req, res, callback){
 
   stripe.accounts.create({
     managed: true,
@@ -33,6 +32,7 @@ exports.createAccount = function(req, res, callback){
   }, function(err, account) {
     // Add account to DB here
     // then redirect usr to some other page
+    console.log('hell yeah!');
     if (callback) {
       callback();
     }
@@ -42,6 +42,4 @@ exports.createAccount = function(req, res, callback){
   });
 };
 
-exports.addBankAccount = function(req, res) {
-  
-};
+module.exports = createAccount;
