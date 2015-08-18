@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 //var auth = require('../middleware/auth');
-var utility = require('./utility');
+var utility = require('./subroutes/utility');
 
 /* Authentication */
 router.get('/', function(req, res, next) {
