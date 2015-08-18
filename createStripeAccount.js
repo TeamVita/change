@@ -15,6 +15,7 @@ exports.createAccount = function(req, res, callback){
   stripe.accounts.create({
     managed: true,
     country: 'US',
+    display_name: 'Wall-e-mart',
     legal_entity: {
       last_name: 'exampleman',
       first_name: 'bob',
@@ -40,5 +41,5 @@ exports.createAccount = function(req, res, callback){
 };
 
 exports.addBankAccount = function(req, res) {
-  
+
 };
