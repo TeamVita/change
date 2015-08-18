@@ -50,6 +50,6 @@ if (env === 'development') {
 
   app.use('/donor', routers.donor);
   app.use('/org', routers.organization);
-};
+}
 
 module.exports = app;
