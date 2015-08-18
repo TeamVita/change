@@ -1,5 +1,5 @@
 var Promise = require('bluebird');
-var models = require('../db');
+var models = require('../../db');
 // TODO: utility functions
 var utility = {
   setUserType: function(req, res, next) {

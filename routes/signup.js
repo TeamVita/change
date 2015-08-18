@@ -6,7 +6,8 @@ var AUTHORIZE_URI = 'https://connect.stripe.com/oauth/authorize';
 
 var qs = require('querystring');
 var request = require('request');
-var stripe = require("stripe")(API_KEY);
+// var stripe = require("stripe")(API_KEY);
+var stripe = require("stripe")(SECRET_KEY);
 var express = require('express');
 var router = express.Router();
 var createStripeAccount = require('../createStripeAccount');
