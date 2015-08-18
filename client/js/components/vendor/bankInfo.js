@@ -13,7 +13,7 @@ var Signup = React.createClass({
         actions.signUp({username: username, password: pass}, resolve);
       });
     promise.then(function(resp) {
-      // render bankInfo subcomponent
+      // render welcome
     });
   },
 
@@ -21,11 +21,9 @@ var Signup = React.createClass({
 
     return (
       <div id = 'form'>
-        <form onSubmit ={this.handleSubmit}><h1>Create your account</h1>
-          <div class ='input'><input placeholder='email' type ='text' ref ='email' /></div>
-          <div class ='input'><input placeholder='username' type = 'text' ref ='username' /></div>
-          <div class ='input'><input type = 'password' placeholder= 'password' ref = "pass" /></div>
-          <div class ='input'><input type = 'password' placeholder= 'Re-enter password' ref = "pass" /></div>
+        <form onSubmit ={this.handleSubmit}><h1>Enter your bank account info</h1>
+          <div class ='input'><input placeholder='routing' type ='text' ref ='routing' /></div>
+          <div class ='input'><input placeholder='account' type = 'text' ref ='account' /></div>
           <input type ="submit" />
         </form>
       </div>
@@ -33,4 +31,4 @@ var Signup = React.createClass({
   }
 });
 
-module.exports = Signup;
+module.exports = bankInfo;
