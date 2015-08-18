@@ -51,25 +51,25 @@ function bundle() {
     .bundle()
     .on('error', notify)
     .pipe(source('build.js'))
-    .pipe(gulp.dest('./client/build'))
+    .pipe(gulp.dest('./client/build'));
 }
 
 //listens for any updates and will rebuild the files
-bundler.on('update', bundle)
+bundler.on('update', bundle);
 
 //initially builds the files
 gulp.task('build', function() {
-  bundle()
+  bundle();
 });
 
 //starts the server
 gulp.task('start', function () {
   nodemon({
-    script: './bin/www'
-  , ext: 'js html'
-  , env: { 'NODE_ENV': 'development' }
-  })
-})
+    script: './bin/www',
+    ext: 'js html',
+    env: { 'NODE_ENV': 'development' }
+});
+});
 
 //for future sass folder
 // gulp.task('sass', function () {
