@@ -5,12 +5,12 @@ var Signup = React.createClass({
 
   render: function() {
     var partial;
-    if (this.props.appState.pane === 'donate') {
-      NewPane = require('./donate');
+    if (this.props.appState.pane === 'personal') {
+      NewPane = require('./personalInfo');
       partial = <NewPane />;
     }
-    else if (this.props.appState.pane === 'success'){
-      NewPane = require('./success');
+    else if (this.props.appState.pane === 'bank'){
+      NewPane = require('./bankInfo');
       partial = <NewPane />;
     }
 
