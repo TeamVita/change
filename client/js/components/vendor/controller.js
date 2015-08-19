@@ -13,7 +13,7 @@ var Signup = React.createClass({
 
     event.preventDefault();
     if (this.state.pane === 'personal'){
-      personalResponseHandler();
+      personalResponseHandler.bind(this)();
     } else {
       Stripe.bankAccount.createToken({
         country: 'US',
@@ -23,12 +23,11 @@ var Signup = React.createClass({
       }, bankResponseHandler).bind(this);
     }
 
-    var personalResponseHandler = function() {
+    function personalResponseHandler() {
       var accountData = {};
-      for (var field in this.refs) {
+      for (var field in this.children) {
         accountData[field] = field.getDOMNode().value.trim();
       }
-
       // save accountData to state and render bank collection form
       this.setState({
         pane: 'bank',
@@ -36,15 +35,17 @@ var Signup = React.createClass({
       });
     };
 
-    var bankResponseHandler = function(status, response) {
+    function bankResponseHandler(status, response) {
 
       if (response.error) {
         // TODO let the user know somehow
         // response.error.message might be useful
+        console.log('error in bankResponseHandler! | ' + error.message);
       } else {
         // response contains id and bank_account, which contains additional bank account details
         this.state.accountData.token = response.id;
         // TODO post accountData to server
+        console.log('hell yeah!', this.state.accountData.token);
       }
     };
 
