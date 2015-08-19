@@ -7,10 +7,13 @@ var Signup = React.createClass({
   handleSubmit: function(event) {
 
     event.preventDefault();
-    var username = this.refs.username.getDOMNode().value.trim();
-    var pass = this.refs.pass.getDOMNode().value.trim();
+    var signupData = {};
+    for (var field in this.refs) {
+      signupData[field] = field.getDOMNode().value.trim();
+    }
+
     var promise = new Promise(function (resolve, reject) {
-        actions.signUp({username: username, password: pass}, resolve);
+        actions.signUp(signupData, resolve);
       });
     promise.then(function(resp) {
       // render bankInfo subcomponent
