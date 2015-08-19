@@ -83,6 +83,6 @@ gulp.task('start', function () {
 gulp.task('default', ['build', 'start']);
 
 //will add back once we include a sass folder
-// gulp.task('watch', function () {
-//   gulp.watch('./sass/**/*.scss', ['sass']);
-// });
+gulp.task('watch', function () {
+  gulp.watch('./client/**/*.scss', ['sass']);
+});

@@ -5,13 +5,13 @@ var Pages = Constants.Pages;
 var getPageComponent = function(page) {
 	switch (page) {
 		case Pages.SIGNUP:
-		return require('./Signup/signup');
+		return require('./header');
 
 		// case Pages.SIGNIN:
 		// return require('./Signin/signin');
 
-		case Pages.WELCOME:
-		return require('./Welcome/welcome');
+		// case Pages.WELCOME:
+		// return require('./Welcome/welcome');
 	}
 };
 
