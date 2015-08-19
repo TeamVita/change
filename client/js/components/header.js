@@ -1,13 +1,6 @@
 var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
 
-// var Reflux = require('reflux');
-var SignUp = require('./signup/signup');
-
-var header = React.createClass({
-  
-  
+var header = React.createClass({  
   render: function() {
     return <nav className='navbar navbar-default header'>
       <div className='container-fluid'>
