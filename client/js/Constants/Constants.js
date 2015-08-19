@@ -11,9 +11,14 @@ module.exports = {
   }),
 
   Pages: keyMirror({
-  	SIGNUP: null,
-  	SIGNIN: null,
-  	WELCOME: null,
+  	VENDOR_SIGNUP: null,
+  	SHELTER_SIGNUP: null,
+  	DONOR_PASSWORD: null,
+  	VENDOR_SIGNIN: null,
+  	SHELTER_SIGNIN: null,
+  	VENDOR_WELCOME: null,
+  	SHELTER_WELCOME: null,
+  	DONOR_WELCOME: null,
   	SUCCESS: null
   })
 
