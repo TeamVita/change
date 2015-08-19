@@ -7,7 +7,7 @@ var AUTHORIZE_URI = 'https://connect.stripe.com/oauth/authorize';
 var stripe = require("stripe")(SECRET_KEY);
 
 // Creates Stripe account for vendors/donors
-exports.createAccount = function(req, res, callback){
+exports.createStripeAccount = function(req, res, callback){
   /*
   * TODO handle individual vs corporate accounts here
   */
