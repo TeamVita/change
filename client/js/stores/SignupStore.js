@@ -6,7 +6,6 @@ var ActionTypes = Constants.ActionTypes;
 
 var CHANGE_EVENT = 'submit';
 
-
 // var appState = {page: 'SIGNUP'};
 var appState = {page: 'DONOR', pane: 'donate'};      // Test only for Adi
 
@@ -66,7 +65,6 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 			SignupStore.emitChange();
 			break;
       
-	}
 });
 
 module.exports = SignupStore;

@@ -4,7 +4,6 @@ var Pages = Constants.Pages;
 
 var getPageComponent = function(page) {
 	switch (page) {
-		
 		case Pages.VENDOR:
 		return require('./vendor/controller');
 

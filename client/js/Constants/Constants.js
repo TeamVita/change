@@ -9,6 +9,7 @@ module.exports = {
     SWITCH_PAGE: null, 
     CHOOSE_AMOUNT: null, 
     DONOR_SIGNUP: null
+    SUCCESS: null
   }),
 
   Pages: keyMirror({

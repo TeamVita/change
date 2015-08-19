@@ -8,7 +8,7 @@ var payment = require('../payment');
 router.post('/', function(req, res) {
 	/*lines of code below are for testing the front end -Adi */
 	var results = req.body;
-	res.send(results);
+	res.send("hello");
 });
 
 module.exports = router;
