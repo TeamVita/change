@@ -4,14 +4,14 @@ var Pages = Constants.Pages;
 
 var getPageComponent = function(page) {
 	switch (page) {
-		case Pages.SIGNUP:
-		return require('./Signup/signup');
+		case Pages.VENDOR:
+		return require('./vendor/controller');
 
-		// case Pages.SIGNIN:
-		// return require('./Signin/signin');
+		case Pages.SHELTER:
+		return require('./shelter/controller');
 
-		case Pages.WELCOME:
-		return require('./Welcome/welcome');
+		case Pages.DONOR:
+		return require('./donor/controller');
 	}
 };
 
