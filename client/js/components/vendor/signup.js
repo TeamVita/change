@@ -1,22 +1,42 @@
 var actions = require('../../actions/actions');
 var Constants = require('../../Constants/Constants.js');
+var PersonalInfo = require('./personalInfo');
+var BankInfo = require('./bankInfo');
 
 var Signup = React.createClass({
 
+  handleSubmit: function(event) {
+
+    event.preventDefault();
+    var accountData = {};
+    for (var field in this.refs) {
+      accountData[field] = field.getDOMNode().value.trim();
+    }
+
+    var promise = new Promise(function (resolve, reject) {
+        actions.signUp(accountData, resolve);
+      });
+    promise.then(function(resp) {
+      // render bankInfo subcomponent
+      // OR render welcome component
+    });
+  },
+
   render: function() {
     var partial;
-    if (this.props.appState.pane === 'personal') {
-      NewPane = require('./personalInfo');
-      partial = <NewPane />;
+    if (this.state.pane === 'personal') {
+      partial = <PersonalInfo />;
     }
-    else if (this.props.appState.pane === 'bank'){
-      NewPane = require('./bankInfo');
-      partial = <NewPane />;
+    else if (this.state.pane === 'bank'){
+      partial = <BankInfo />;
     }
 
     return (
-      <div>
-        {partial}
+      <div id = 'form'>
+        <form onSubmit ={this.handleSubmit}>
+          <h1>Create your account</h1>
+          {partial}
+        </form>
       </div>
     );
   }

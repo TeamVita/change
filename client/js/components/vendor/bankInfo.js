@@ -2,7 +2,7 @@ var actions = require('../../actions/actions');
 var Constants = require('../../Constants/Constants.js');
 var Promise = require('promise');
 
-var Signup = React.createClass({
+var bankInfo = React.createClass({
 
   handleSubmit: function(event) {
 
@@ -11,6 +11,7 @@ var Signup = React.createClass({
     for (var field in this.refs) {
       bankData[field] = field.getDOMNode().value.trim();
     }
+
     var promise = new Promise(function (resolve, reject) {
         // TODO send bankData to server
         actions.signUp(bankData, resolve);
