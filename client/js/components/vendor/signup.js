@@ -5,6 +5,10 @@ var BankInfo = require('./bankInfo');
 
 var Signup = React.createClass({
 
+  getInitialState: function() {
+    return {pane: 'personal'};
+  },
+
   handleSubmit: function(event) {
 
     event.preventDefault();
@@ -16,7 +20,7 @@ var Signup = React.createClass({
         currency: 'USD',
         routing_number: this.refs.routing.getDOMNode().value.trim(),
         account_number: this.refs.account.getDOMNode().value.trim()
-      }, stripeResponseHandler);
+      }, bankResponseHandler).bind(this);
     }
 
     var personalResponseHandler = function() {
@@ -25,28 +29,22 @@ var Signup = React.createClass({
         accountData[field] = field.getDOMNode().value.trim();
       }
 
-      var promise = new Promise(function (resolve, reject) {
-          actions.signUp(accountData, resolve);
-        });
-      promise.then(function(resp) {
-        // TODO render welcome component
+      // save accountData to state and render bank collection form
+      this.setState({
+        pane: 'bank',
+        accountData: accountData
       });
     };
 
-    var stripeResponseHandler = function() {
-      var $form = $('#payment-form');
+    var bankResponseHandler = function(status, response) {
 
       if (response.error) {
-        // Show the errors on the form
-        $form.find('.bank-errors').text(response.error.message);
-        $form.find('button').prop('disabled', false);
+        // TODO let the user know somehow
+        // response.error.message might be useful
       } else {
         // response contains id and bank_account, which contains additional bank account details
-        var token = response.id;
-        // Insert the token into the form so it gets submitted to the server
-        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
-        // and submit
-        $form.get(0).submit();
+        this.state.accountData.token = response.id;
+        // TODO post accountData to server
       }
     };
 
@@ -62,7 +60,7 @@ var Signup = React.createClass({
     }
 
     return (
-      <div id = 'form'>
+      <div ref = 'form'>
         <form onSubmit ={this.handleSubmit}>
           {partial}
         </form>
