@@ -1,4 +1,4 @@
-var DonorActions = require('../../actions/donorActions');
+var DonorActions = require('../../actions/DonorActions');
 
 var Pass = React.createClass({
 	
@@ -7,7 +7,7 @@ var Pass = React.createClass({
 		var email = this.refs.email.getDOMNode().value.trim();
 		var name = this.refs.name.getDOMNode().value.trim();
 		var pass = this.refs.pass.getDOMNode().value.trim();
-		console.log("This is hitting in the hanlde submit password");
+
 		DonorActions.donorSignUp({email: email, name: name, password: pass});
 	},
 	render: function() {

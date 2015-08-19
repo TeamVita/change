@@ -62,6 +62,7 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 
 		case ActionTypes.DONOR_SIGNUP:
 			appState.pane = action.pane;
+			appState.email = action.email; 
 			SignupStore.emitChange();
 			break;
       

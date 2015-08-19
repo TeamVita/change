@@ -16,7 +16,6 @@ var Donate = React.createClass({
   },
 
   onToken: function(token) {
-
     DonorActions.sendToken(token);
   },
     
