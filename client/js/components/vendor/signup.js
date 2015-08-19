@@ -20,7 +20,7 @@ var Signup = React.createClass({
       if (this.state.pane === 'personal') {
         this.state.pane === 'bank';
       } else {
-        //render welcome component
+        // TODO render welcome component
       }
     });
   },
@@ -37,7 +37,6 @@ var Signup = React.createClass({
     return (
       <div id = 'form'>
         <form onSubmit ={this.handleSubmit}>
-          <h1>Create your account</h1>
           {partial}
         </form>
       </div>
