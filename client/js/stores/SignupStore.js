@@ -6,6 +6,7 @@ var ActionTypes = Constants.ActionTypes;
 
 var CHANGE_EVENT = 'submit';
 
+
 // var appState = {page: 'SIGNUP'};
 var appState = {page: 'DONOR', pane: 'donate'};      // Test only for Adi
 
@@ -36,6 +37,7 @@ var SignupStore = assign({}, EventEmitter.prototype, {
 });
 
 SignupStore.dispatchToken = Dispatcher.register(function(action){
+
 	switch(action.type) {
 
 		case ActionTypes.SIGN_UP:
@@ -60,7 +62,6 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 			break;
 
 		case ActionTypes.DONOR_SIGNUP:
-		console.log('Donor Signup store');
 			appState.pane = action.pane;
 			SignupStore.emitChange();
 			break;

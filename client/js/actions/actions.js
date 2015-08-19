@@ -10,7 +10,6 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
-				console.log(data);
 				Dispatcher.dispatch({
 					type: ActionTypes.SIGN_UP,
 					username: data.username,
@@ -21,28 +20,6 @@ module.exports = {
 			}.bind(this),
 			error: function(error) {
 			console.log(error);
-			}.bind(this)
-		});
-	},
-
-	donate: function(info) {
-		console.log(info);
-		$.ajax({
-			url: '/donate',
-			type: 'POST',
-			data: info, 
-			success: function(data) {
-
-				console.log(data);
-				Dispatcher.dispatch({
-					type: ActionTypes.DONATE,
-					pin: data.pin,
-					amt: data.amt,
-					pane: 'success'
-				});
-			}.bind(this),
-			error: function() {
-				console.log('Failed to execute donate ajax request.');
 			}.bind(this)
 		});
 	},

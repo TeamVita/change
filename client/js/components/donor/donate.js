@@ -3,11 +3,11 @@ var Constants = require('../../Constants/Constants.js');
 var StripeCheckout = require('react-stripe-checkout');
 var Keys = require('../../../../config.js');
 
+
 var Donate = React.createClass({
 
 
   handleSubmit: function(event) {
-  console.log('Here is the key:', Keys);
     event.preventDefault();
 
     var pin = this.refs.PIN.getDOMNode().value.trim();
@@ -20,6 +20,7 @@ var Donate = React.createClass({
     DonorActions.sendToken(token);
   },
     
+ 
   render: function() {
     var string_amount = parseInt(this.props.amount);
     var amount = (string_amount * 100)|| 100;

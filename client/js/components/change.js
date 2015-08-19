@@ -40,7 +40,6 @@ var Change = React.createClass({
 
 	render: function() {
 		var appState = this.state.appState;
-		console.log(appState, 'this is the appState');
 		var PageComponent = getPageComponent(appState.page);
 		return (<PageComponent appState = {appState} />);
 	}
