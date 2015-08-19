@@ -7,9 +7,8 @@ module.exports = {
     LOG_IN: null,
     DONATE: null,
     SWITCH_PAGE: null, 
-    CHOOSE_AMOUNT: null, 
-    DONOR_SIGNUP: null
-    SUCCESS: null
+    CHOOSE_AMOUNT: null,
+    Donor_SIGNUP: null
   }),
 
   Pages: keyMirror({
@@ -19,8 +18,7 @@ module.exports = {
   	SIGNUP: null,
   	SIGNIN: null,
   	WELCOME: null,
-  	SUCCESS: null, 
-    DONATE: null
+    DONOR: null
   })
 
 };

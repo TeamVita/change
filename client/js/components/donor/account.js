@@ -8,7 +8,5 @@ render: function() {
 			<button>This will be a button to show how donations could be spent</button>
 		</div>
 	);
-}
-});
 
 module.exports = Account;

@@ -49,7 +49,7 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 			break;
 
 		case ActionTypes.CHOOSE_AMOUNT:
-			appState.amount = action.amount;
+			appState.amount = action.amt;
 			appState.pin = action.pin;
 			SignupStore.emitChange();
 			break;
@@ -62,7 +62,6 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 
 		case ActionTypes.DONOR_SIGNUP:
 			appState.pane = action.pane;
-			appState.email = action.email; 
 			SignupStore.emitChange();
 			break;
       

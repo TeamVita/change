@@ -23,7 +23,7 @@ module.exports = {
 			}.bind(this)
 		});
 	},
-	
+
 	switchPage: function(page) {
 		Dispatcher.dispatch({
 			type: ActionTypes.SWITCH_PAGE,
