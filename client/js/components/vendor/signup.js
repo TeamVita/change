@@ -17,8 +17,11 @@ var Signup = React.createClass({
         actions.signUp(accountData, resolve);
       });
     promise.then(function(resp) {
-      // render bankInfo subcomponent
-      // OR render welcome component
+      if (this.state.pane === 'personal') {
+        this.state.pane === 'bank';
+      } else {
+        //render welcome component
+      }
     });
   },
 
