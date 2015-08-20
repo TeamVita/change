@@ -4,24 +4,24 @@ var ActionTypes = Constants.ActionTypes;
 
 module.exports = {
 
-  recipientSignUp: function(info, cb) {
+  shelterSignUp: function(info, cb) {
     $.ajax({
-      url: '/signup',
+      url: '/signup/shelter',
       type: 'POST',
       data: info,
       success: function(data) {
         Dispatcher.dispatch({
-          type: ActionTypes.SIGN_UP,
+          type: ActionTypes.SHELTER_SIGNUP,
           username: data.username,
           password: data.password,
-          pane: 'donate'
+          pane: 'orgInfo'
         });
         cb(data);
-      }.bind(this),
+      }.bind(this), 
       error: function(error) {
         console.log(error);
       }.bind(this)
     });
   }
-
+  
 }

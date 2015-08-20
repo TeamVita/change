@@ -4,22 +4,13 @@ var Constants = require('../../Constants/Constants.js');
 
 var Signup = React.createClass({
 
-  handleSubmit: function(event) {
-    event.preventDefault();
-    actions.switchPage(Constants.Pages.SIGNIN);
-    // fire up a request!
-    var info = { username: "Test Recipient", password: "1234" };
-    shelterActions.recipientSignUp(info, function(data) {
-      console.log("receive from server", data);
-    });
-  },
-
   render: function() {
     return (
       <div id = 'form'>
-        <form onSubmit={this.handleSubmit}><h1>Welcome to Organization Login Page</h1>
+          <h1>Welcome to Organization Login Page</h1>
+          <div class ='input'><input placeholder='email' type ='text' /></div>
+          <div class ='input'><input placeholder='first name' type = 'text' /></div>
           <input type ="submit" />
-        </form>
       </div>
     );
   }

@@ -8,7 +8,8 @@ module.exports = {
     DONATE: null,
     SWITCH_PAGE: null, 
     CHOOSE_AMOUNT: null,
-    DONOR_SIGNUP: null
+    DONOR_SIGNUP: null,
+    SHELTER_SIGNUP: null
   }),
 
   Pages: keyMirror({

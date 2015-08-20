@@ -1,5 +1,4 @@
 var Account = React.createClass({
-
 	render: function() {
 		return (
 			<div id = 'myaccount'>
