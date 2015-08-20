@@ -2,11 +2,18 @@ var actions = require('../../actions/vendorActions');
 var Constants = require('../../Constants/Constants.js');
 var PersonalInfo = require('./personalInfo');
 var BankInfo = require('./bankInfo');
+var Welcome = require('./welcome');
 
 var Signup = React.createClass({
 
   getInitialState: function() {
     return {pane: 'personal'};
+  },
+
+  changePane: function(pane) {
+    this.setState({
+      pane: pane
+    });
   },
 
   handleSubmit: function(event) {
@@ -21,7 +28,7 @@ var Signup = React.createClass({
         currency: 'USD',
         routing_number: bankAccount.routing,
         account_number: bankAccount.account
-      }, bankResponseHandler).bind(this);
+      }, bankResponseHandler.bind(this));
     }
 
     function personalResponseHandler() {
@@ -35,7 +42,6 @@ var Signup = React.createClass({
     }
 
     function bankResponseHandler(status, response) {
-
       if (response.error) {
         // TODO let the user know somehow
         // response.error.message might be useful
@@ -43,7 +49,7 @@ var Signup = React.createClass({
       } else {
         // response contains id and bank_account, which contains additional bank account details
         this.state.accountData.token = response.id;
-        actions.signUp(this.state.accountData);
+        actions.signUp(this.state.accountData, this.changePane.bind(this, 'welcome'));
       }
     }
 
