@@ -6,7 +6,8 @@ module.exports = {
     SIGN_UP: null,
     LOG_IN: null,
     DONATE: null,
-    SWITCH_PAGE: null
+    SWITCH_PAGE: null,
+    CREATE_SHELTER: null
   }),
 
   Pages: keyMirror({

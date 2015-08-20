@@ -10,7 +10,7 @@ var CHANGE_EVENT = 'submit';
 var appState = {page: 'SHELTER'};      // Test only
 
 // Vincent's testing: please delete this line if I forgot to
-var appState = {page: 'VENDOR'};
+// var appState = {page: 'VENDOR'};
 
 var reset = function() {
 	appState = {};
@@ -51,7 +51,12 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 			appState.pane = action.pane;
 			SignupStore.emitChange();
 			break;
-      
+
+    case ActionTypes.CREATE_SHELTER:
+      appState.pane = action.pane;
+      SignupStore.emitChange();
+      break;
+
 	}
 });
 

@@ -7,11 +7,6 @@ var Promise = require('promise');
 
 var CHANGE_EVENT = 'change';
 // helper functions
-// Get user data
-var createRecipient = function(recipientInfo) {
-  // return
-};
-
 
 var ShelterStore = assign({}, EventEmitter.prototype, {
 
@@ -30,17 +25,7 @@ var ShelterStore = assign({}, EventEmitter.prototype, {
   getState: function() {
     return appState;
   }
-});
 
-ShelterStore.dispatchToken = Dispatcher.register(function(payload){
-
-  switch(payload.type) {
-
-    case ActionTypes.GET_USER_DATA:
-      // appState.pane = action.pane;
-      break;
-
-  }
 });
 
 module.exports = ShelterStore;
