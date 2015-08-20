@@ -6,17 +6,13 @@ module.exports = {
     SIGN_UP: null,
     LOG_IN: null,
     DONATE: null,
-    SWITCH_PAGE: null,
-    // Shelter info
-    GET_USER_DATA: null
+    SWITCH_PAGE: null
   }),
 
   Pages: keyMirror({
-  	SIGNUP: null,
-  	SIGNIN: null,
-  	WELCOME: null,
-  	SUCCESS: null,
-    SHELTER_SIGNUP: null
+  	VENDOR: null,
+  	SHELTER: null,
+  	DONOR: null
   })
 
 };

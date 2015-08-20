@@ -4,12 +4,14 @@ var Pages = Constants.Pages;
 
 var getPageComponent = function(page) {
 	switch (page) {
-		
-		case Pages.SIGNUP:
-		return require('./shelter/signup');
+		// case Pages.VENDOR:
+		// return require('./vendor/controller');
 
-		case Pages.SIGNIN:
-		return require('./shelter/organizationInfo');
+		case Pages.SHELTER:
+		return require('./shelter/controller');
+		
+		// case Pages.DONOR:
+		// return require('./donor/controller');
 	}
 };
 
@@ -32,7 +34,6 @@ var Change = React.createClass({
 	},
 
 	_onSubmit: function() {
-		// console.log("After on submit", getStateFromStores());
 		this.setState(getStateFromStores());
 	},
 

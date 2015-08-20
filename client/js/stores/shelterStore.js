@@ -10,7 +10,6 @@ var CHANGE_EVENT = 'change';
 // Get user data
 var createRecipient = function(recipientInfo) {
   // return
-    
 };
 
 

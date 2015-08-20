@@ -3,7 +3,7 @@ var OrganizationInfo = React.createClass({
     return (
       <div id='organizationInfo'>
         <h1>This is organization information page </h1>
-        <h1>Talk to database at this time!</h1>
+        <h1>Talk to database now</h1>
       </div>
     );
   }
