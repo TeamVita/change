@@ -18,8 +18,8 @@ var Donate = React.createClass({
   onToken: function(token) {
     DonorActions.sendToken(token);
   },
-    
- 
+
+
   render: function() {
     var string_amount = parseInt(this.props.amount);
     var amount = (string_amount * 100)|| 100;
@@ -32,7 +32,7 @@ var Donate = React.createClass({
         </form>
       <StripeCheckout
               name="Change"
-              description= "Thanks for Change!" 
+              description= "Thanks for Change!"
               panelLabel="Donate"
               amount={amount}
               currency="USD"

@@ -1,7 +1,7 @@
-var DonorActions = require('../../actions/DonorActions');
+var DonorActions = require('../../actions/donorActions');
 
 var Pass = React.createClass({
-	
+
 	handleSubmit: function(event) {
 		event.preventDefault();
 		var email = this.refs.email.getDOMNode().value.trim();
