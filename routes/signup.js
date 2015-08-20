@@ -22,7 +22,7 @@ router.post('/vendor', function(req, res) {
 });
 
 router.post('/shelter', function(req, res) {
-
+  // console.log(req.body);
 });
 
 module.exports = router;

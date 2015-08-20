@@ -6,7 +6,8 @@ var ActionTypes = Constants.ActionTypes;
 
 var CHANGE_EVENT = 'submit';
 
-var appState = {page: 'SIGNUP'};
+// var appState = {page: 'SIGNUP'};
+var appState = {page: 'SHELTER'};      // Test only
 
 // Vincent's testing: please delete this line if I forgot to
 var appState = {page: 'VENDOR'};
@@ -20,6 +21,7 @@ var SignupStore = assign({}, EventEmitter.prototype, {
 	emitChange: function() {
     this.emit(CHANGE_EVENT);
   },
+
 	addChangeListener: function(callback) {
     this.on(CHANGE_EVENT, callback);
   },
@@ -34,7 +36,6 @@ var SignupStore = assign({}, EventEmitter.prototype, {
 });
 
 SignupStore.dispatchToken = Dispatcher.register(function(action){
-
 	switch(action.type) {
 
 		case ActionTypes.SIGN_UP:
@@ -50,6 +51,7 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 			appState.pane = action.pane;
 			SignupStore.emitChange();
 			break;
+      
 	}
 });
 
