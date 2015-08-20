@@ -4,6 +4,7 @@ var Pages = Constants.Pages;
 
 var getPageComponent = function(page) {
 	switch (page) {
+		
 		case Pages.VENDOR:
 		return require('./vendor/controller');
 
@@ -39,7 +40,6 @@ var Change = React.createClass({
 
 	render: function() {
 		var appState = this.state.appState;
-		console.log(appState, 'this is the appState');
 		var PageComponent = getPageComponent(appState.page);
 		return (<PageComponent appState = {appState} />);
 	}

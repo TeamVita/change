@@ -7,10 +7,10 @@ var ActionTypes = Constants.ActionTypes;
 var CHANGE_EVENT = 'submit';
 
 // var appState = {page: 'SIGNUP'};
-var appState = {page: 'SHELTER'};      // Test only
+var appState = {page: 'DONOR', pane: 'donate'};      // Test only for Adi
 
-// Vincent's testing: please delete this line if I forgot to
-var appState = {page: 'VENDOR'};
+// // Vincent's testing: please delete this line if I forgot to
+// var appState = {page: 'VENDOR'};
 
 var reset = function() {
 	appState = {};
@@ -36,6 +36,7 @@ var SignupStore = assign({}, EventEmitter.prototype, {
 });
 
 SignupStore.dispatchToken = Dispatcher.register(function(action){
+
 	switch(action.type) {
 
 		case ActionTypes.SIGN_UP:
@@ -47,7 +48,19 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 			SignupStore.emitChange();
 			break;
 
+		case ActionTypes.CHOOSE_AMOUNT:
+			appState.amount = action.amount;
+			appState.pin = action.pin;
+			SignupStore.emitChange();
+			break;
+
 		case ActionTypes.DONATE:
+			appState.pane = action.pane;
+			appState.email = action.email; 
+			SignupStore.emitChange();
+			break;
+
+		case ActionTypes.DONOR_SIGNUP:
 			appState.pane = action.pane;
 			SignupStore.emitChange();
 			break;
