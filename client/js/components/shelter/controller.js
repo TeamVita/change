@@ -14,11 +14,11 @@ var Signup = React.createClass({
     var info = { username: "Test Recipient", password: "1234" };
     var self = this;
     console.log("click event!");
-    // shelterActions.shelterSignUp(info, function(data) {
-    //   console.log("receive from server", data);
-    //   // TODO: refactor use bind later
-    //   self.setState({pane: 'orgInfo'});
-    // });
+    shelterActions.shelterSignUp(info, function(data) {
+      console.log("receive from server", data);
+      // TODO: refactor use bind later
+      self.setState({pane: 'orgInfo'});
+    });
   },
 
   render: function() {
