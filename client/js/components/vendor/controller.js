@@ -15,11 +15,12 @@ var Signup = React.createClass({
     if (this.state.pane === 'personal'){
       personalResponseHandler.bind(this)();
     } else {
+      var bankAccount = this.refs.partial.getFields();
       Stripe.bankAccount.createToken({
         country: 'US',
         currency: 'USD',
-        routing_number: this.refs.routing.getDOMNode().value.trim(),
-        account_number: this.refs.account.getDOMNode().value.trim()
+        routing_number: bankAccount.routing,
+        account_number: bankAccount.account
       }, bankResponseHandler).bind(this);
     }
 

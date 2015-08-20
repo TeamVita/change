@@ -23,7 +23,7 @@ var personalInfo = React.createClass({
         <div class ='input'><input placeholder='dob_day' type = 'text' ref ='dob_day' /></div>
         <div class ='input'><input placeholder='dob_month' type = 'text' ref ='dob_month' /></div>
         <div class ='input'><input placeholder='dob_year' type = 'text' ref ='dob_year' /></div>
-        <div class ='input'><input placeholder='company name' type = 'text' ref ='company_name' /></div>
+        <div class ='input'><input placeholder='company name' type = 'text' ref ='display_name' /></div>
         <input type ="submit" />
       </div>
     );
