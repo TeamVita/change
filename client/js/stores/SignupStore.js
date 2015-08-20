@@ -9,6 +9,9 @@ var CHANGE_EVENT = 'submit';
 // var appState = {page: 'SIGNUP'};
 var appState = {page: 'SHELTER'};      // Test only
 
+// Vincent's testing: please delete this line if I forgot to
+var appState = {page: 'VENDOR'};
+
 var reset = function() {
 	appState = {};
 };
