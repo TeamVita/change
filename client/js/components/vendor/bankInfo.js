@@ -1,6 +1,5 @@
 var actions = require('../../actions/actions');
 var Constants = require('../../Constants/Constants.js');
-var Promise = require('promise');
 
 var bankInfo = React.createClass({
 

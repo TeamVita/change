@@ -1,4 +1,4 @@
-var actions = require('../../actions/actions');
+var actions = require('../../actions/vendorActions');
 var Constants = require('../../Constants/Constants.js');
 var PersonalInfo = require('./personalInfo');
 var BankInfo = require('./bankInfo');
@@ -15,16 +15,18 @@ var Signup = React.createClass({
     if (this.state.pane === 'personal'){
       personalResponseHandler.bind(this)();
     } else {
+      var bankAccount = this.refs.partial.getFields();
       Stripe.bankAccount.createToken({
         country: 'US',
         currency: 'USD',
-        routing_number: this.refs.routing.getDOMNode().value.trim(),
-        account_number: this.refs.account.getDOMNode().value.trim()
+        routing_number: bankAccount.routing,
+        account_number: bankAccount.account
       }, bankResponseHandler).bind(this);
     }
 
     function personalResponseHandler() {
       var accountData = this.refs.partial.getFields();
+
       // save accountData to state and render bank collection form
       this.setState({
         pane: 'bank',
@@ -37,12 +39,11 @@ var Signup = React.createClass({
       if (response.error) {
         // TODO let the user know somehow
         // response.error.message might be useful
-        console.log('error in bankResponseHandler! | ' + error.message);
+        console.log('error in bankResponseHandler! | ' + response.error.message);
       } else {
         // response contains id and bank_account, which contains additional bank account details
         this.state.accountData.token = response.id;
-        // TODO post accountData to server
-        console.log('hell yeah!', this.state.accountData.token);
+        actions.signUp(this.state.accountData);
       }
     }
 
@@ -53,8 +54,10 @@ var Signup = React.createClass({
     if (this.state.pane === 'personal') {
       partial = <PersonalInfo ref='partial' />;
     }
-    else if (this.state.pane === 'bank'){
+    else if (this.state.pane === 'bank') {
       partial = <BankInfo ref='partial' />;
+    } else if (this.state.pane === 'welcome') {
+      partial = <Welcome ref='partial' />;
     }
 
     return (
