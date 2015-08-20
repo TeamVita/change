@@ -4,15 +4,16 @@ var Constants = require('../../Constants/Constants.js');
 var DonorController = React.createClass({
 
   render: function() {
-    console.log("This is the appstate pane: ", this.props.appState.pane);
+    var amount = this.props.appState.amount;
+    var email = this.props.appState.email; 
     var partial;
     if (this.props.appState.pane === 'donate') {
       NewPane = require('./donate');
-      partial = <NewPane />;
+      partial = <NewPane amount = {amount}  />;
     }
     else if (this.props.appState.pane === 'signup') {
       NewPane = require('./password');
-      partial = <NewPane />;
+      partial = <NewPane email = {email}/>;
     }
     else if (this.props.appState.pane === 'account') {
       NewPane = require('./account');
