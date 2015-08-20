@@ -10,6 +10,7 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
+				console.log(data);
 				welcome();
 			},
 			error: function(error) {
