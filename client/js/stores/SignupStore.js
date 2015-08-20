@@ -6,8 +6,8 @@ var ActionTypes = Constants.ActionTypes;
 
 var CHANGE_EVENT = 'submit';
 
-var appState = {page: 'SIGNUP'};
-// var appState = {page: 'SHELTER'};      // Test only
+// var appState = {page: 'SIGNUP'};
+var appState = {page: 'SHELTER'};      // Test only
 
 var reset = function() {
 	appState = {};
