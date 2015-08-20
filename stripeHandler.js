@@ -47,11 +47,9 @@ exports.createStripeAccount = function(req, res, callback){
     if (err) {
       console.log(err);
     } else {
-      // TODO Add account to DB here; include token
       if (callback) {
         callback(account);
       }
-      return account;
     }
   });
 
