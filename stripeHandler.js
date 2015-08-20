@@ -10,7 +10,6 @@ var stripe = require("stripe")(SECRET_KEY);
 exports.createStripeAccount = function(req, res, callback){
 
   var accountMapper = function(request){
-
     var vendorData = request.body;
     var result = {
       managed: true,
@@ -24,23 +23,25 @@ exports.createStripeAccount = function(req, res, callback){
     result.extend(vendorData);
     result.legal_entity.extend({type: 'corporation'});
     return result;
-
   };
 
   // Create data object for stripe account creation
   var vendorData = accountMapper(req);
 
-  // Strip token from data object
+  // Strip token from data object before handing off to Stripe
   var token = vendorData.token;
   delete vendorData.token;
 
   stripe.accounts.create(vendorData, function(err, account) {
-    // Add account to DB here; include token
-    // then redirect usr to some other page
+    // TODO Add account to DB here; include token
     if (callback) {
       callback();
     }
   });
+
+  // Re-attach token before returning
+  vendorData.token = token;
+  return vendorData;
 };
 
 /*
