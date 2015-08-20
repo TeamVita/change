@@ -6,12 +6,12 @@ module.exports = {
 
   shelterSignUp: function(info, cb) {
     $.ajax({
-      url: '/signup',
+      url: '/signup/shelter',
       type: 'POST',
       data: info,
       success: function(data) {
         Dispatcher.dispatch({
-          type: ActionTypes.CREATE_RECIPIENT,
+          type: ActionTypes.SHELTER_SIGNUP,
           username: data.username,
           password: data.password,
           pane: 'orgInfo'
