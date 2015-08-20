@@ -1,6 +1,3 @@
-var actions = require('../../actions/actions');
-var Constants = require('../../Constants/Constants.js');
-
 var DonorController = React.createClass({
 
   render: function() {
