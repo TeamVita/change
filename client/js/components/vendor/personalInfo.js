@@ -4,6 +4,14 @@ var Promise = require('promise');
 
 var personalInfo = React.createClass({
 
+  getFields: function() {
+    var fields = {};
+    for (var field in this.refs){
+      fields[field] = this.refs[field].getDOMNode().value.trim();
+    }
+    return fields;
+  },
+
   render: function() {
 
     return (

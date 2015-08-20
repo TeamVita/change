@@ -24,16 +24,13 @@ var Signup = React.createClass({
     }
 
     function personalResponseHandler() {
-      var accountData = {};
-      for (var field in this.children) {
-        accountData[field] = field.getDOMNode().value.trim();
-      }
+      var accountData = this.refs.partial.getFields();
       // save accountData to state and render bank collection form
       this.setState({
         pane: 'bank',
         accountData: accountData
       });
-    };
+    }
 
     function bankResponseHandler(status, response) {
 
@@ -47,17 +44,17 @@ var Signup = React.createClass({
         // TODO post accountData to server
         console.log('hell yeah!', this.state.accountData.token);
       }
-    };
+    }
 
   },
 
   render: function() {
     var partial;
     if (this.state.pane === 'personal') {
-      partial = <PersonalInfo />;
+      partial = <PersonalInfo ref='partial' />;
     }
     else if (this.state.pane === 'bank'){
-      partial = <BankInfo />;
+      partial = <BankInfo ref='partial' />;
     }
 
     return (
