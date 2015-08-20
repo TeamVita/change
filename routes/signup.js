@@ -23,8 +23,8 @@ router.post('/donor', function(req, res) {
 router.post('/vendor', function(req, res) {
   var newAccount = stripeHandler.createStripeAccount(req, res, function(newAccount){
     // TODO Add new record for newAccount to DB
-  // TODO Properly communicate success to client
-    // res.send(newAccount);
+    // TODO Properly communicate success to client
+    res.send('Success!');
   });
 });
 
