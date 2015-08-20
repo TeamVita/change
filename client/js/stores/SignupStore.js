@@ -8,9 +8,9 @@ var CHANGE_EVENT = 'submit';
 
 // var appState = {page: 'SIGNUP'};
 // var appState = {page: 'DONOR', pane: 'donate'};      // Test only for Adi
-var appState = {page: 'SHELTER', pane: 'orgSignup'};      // Test only for Ian
-// Vincent's testing: please delete this line if I forgot to
-// var appState = {page: 'VENDOR'};
+
+// // Vincent's testing: please delete this line if I forgot to
+var appState = {page: 'VENDOR'};
 
 var reset = function() {
 	appState = {};
@@ -56,7 +56,7 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 
 		case ActionTypes.DONATE:
 			appState.pane = action.pane;
-			appState.email = action.email; 
+			appState.email = action.email;
 			SignupStore.emitChange();
 			break;
 
