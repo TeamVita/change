@@ -8,5 +8,6 @@ var Account = React.createClass({
 			</div>
 		);
 	}
-})
+});
+
 module.exports = Account;

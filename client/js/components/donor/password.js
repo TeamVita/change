@@ -6,7 +6,7 @@ var Pass = React.createClass({
 		event.preventDefault();
 		var email = this.refs.email.getDOMNode().value.trim();
 		var name = this.refs.name.getDOMNode().value.trim();
-		var pass = this.refs.pass.getDOMNode().value.trim();
+		var pass = this.refs.signuppass.getDOMNode().value.trim();
 
 		DonorActions.donorSignUp({email: email, name: name, password: pass});
 	},
@@ -18,11 +18,14 @@ var Pass = React.createClass({
 			<img src= '../../Assets/checkmark.png'/>
 			<form onSubmit={this.handleSubmit}>
 				Email:
-				<div className='input'><input type = 'text' ref = 'email'id = 'email' value ={this.props.email} readOnly/></div>
+				<div class ='input'><input type = 'text' ref = 'email'id = 'email' value ={this.props.email} readOnly/></div>
+				<div class ='input'><input placeholder= 'Password'  type= 'password' ref ='loginpass'/></div>
+				<div><strong>Or</strong></div>
 				<p>Please fill out the following to Sign up:</p>
-				<div className='input'><input placeholder= 'Full Name' type = 'text'ref = 'name'/></div>
-				<div className='input'><input placeholder= 'Password'  type= 'password' ref ='pass'/></div>
-				<div className='input'><input type= 'submit'/></div>
+				<div class ='input'><input placeholder= 'Full Name' type = 'text'ref = 'name'/></div>
+				<div class ='input'><input placeholder= 'Password'  type= 'password' ref ='pass'/></div>
+				<div class ='input'><input placeholder= 'Re-enter Password'  type= 'password' ref ='signuppass'/></div>
+				<div class ='input'><input type= 'submit'/></div>
 			</form>
 		</div>
 		);
