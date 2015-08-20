@@ -15,8 +15,8 @@ module.exports = {
 					username: data.username,
 					password: data.password,
 					pane: 'donate'
-			});
-					cb(data);
+				});
+				cb(data);
 			}.bind(this),
 			error: function(error) {
 			console.log(error);
@@ -35,18 +35,18 @@ module.exports = {
 					pin: data.pin,
 					amt: data.amt,
 					pane: 'success'
-			});
+				});
 			}.bind(this),
 			error: function() {
-			console.log('Failed to execute donate ajax request.');
+				console.log('Failed to execute donate ajax request.');
 			}.bind(this)
-	});
-},
+		});
+	},
 
 	switchPage: function(page) {
-			Dispatcher.dispatch({
-				type: ActionTypes.SWITCH_PAGE,
-				page: page
+		Dispatcher.dispatch({
+			type: ActionTypes.SWITCH_PAGE,
+			page: page
 		});
 	}
 
