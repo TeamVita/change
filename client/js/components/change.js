@@ -1,4 +1,4 @@
-var Constants = require('../Constants/Constants');
+var Constants = require('../constants/Constants');
 var SignupStore = require('../stores/SignupStore');
 var Pages = Constants.Pages;
 

@@ -1,6 +1,6 @@
 var actions = require('../../actions/actions');
 var shelterActions = require('../../actions/shelterActions');
-var Constants = require('../../Constants/Constants.js');
+var Constants = require('../../constants/Constants.js');
 
 var Signup = React.createClass({
 

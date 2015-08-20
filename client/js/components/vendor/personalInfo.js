@@ -1,5 +1,5 @@
 var actions = require('../../actions/actions');
-var Constants = require('../../Constants/Constants.js');
+var Constants = require('../../constants/Constants.js');
 
 var personalInfo = React.createClass({
 

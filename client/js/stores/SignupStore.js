@@ -1,7 +1,7 @@
 var assign = require('object-assign');
 var EventEmitter = require('events').EventEmitter;
-var Dispatcher = require('../Dispatcher/Appdispatcher.js');
-var Constants = require('../Constants/Constants.js');
+var Dispatcher = require('../dispatcher/Appdispatcher.js');
+var Constants = require('../constants/Constants.js');
 var ActionTypes = Constants.ActionTypes;
 
 var CHANGE_EVENT = 'submit';
