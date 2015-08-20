@@ -9,6 +9,12 @@ var Signup = React.createClass({
     return {pane: 'personal'};
   },
 
+  changePane: function(pane) {
+    this.setState({
+      pane: pane
+    });
+  },
+
   handleSubmit: function(event) {
 
     event.preventDefault();
@@ -43,7 +49,7 @@ var Signup = React.createClass({
       } else {
         // response contains id and bank_account, which contains additional bank account details
         this.state.accountData.token = response.id;
-        actions.signUp(this.state.accountData);
+        actions.signUp(this.state.accountData, this.changePane.call(this, 'welcome'));
       }
     }
 

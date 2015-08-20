@@ -21,9 +21,10 @@ router.post('/donor', function(req, res) {
 
 // Create vendor stripe account and add record to DB
 router.post('/vendor', function(req, res) {
-  var newAccount = stripeHandler.createStripeAccount(req, res);
+  // var newAccount = stripeHandler.createStripeAccount(req, res);
   // Add new record for newAccount to DB
   // Communicate success to client
+  res.send(true);
 });
 
 // Add shelter record to DB
