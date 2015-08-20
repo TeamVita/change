@@ -14,7 +14,6 @@ module.exports = {
 					type: ActionTypes.SIGN_UP,
 					username: data.username,
 					password: data.password,
-					pane: 'donate'
 				});
 				cb(data);
 			}.bind(this),

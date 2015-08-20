@@ -65,6 +65,7 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 			SignupStore.emitChange();
 			break;
       
+	}
 });
 
 module.exports = SignupStore;
