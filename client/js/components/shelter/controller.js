@@ -1,5 +1,5 @@
 var shelterActions = require('../../actions/shelterActions');
-var Constants = require('../../Constants/Constants.js');
+var Constants = require('../../constants/Constants.js');
 var OrganizationInfo = require('./organizationInfo');
 var OrgSignup = require('./signup');
 

@@ -1,5 +1,5 @@
 var actions = require('../../actions/vendorActions');
-var Constants = require('../../Constants/Constants.js');
+var Constants = require('../../constants/Constants.js');
 var PersonalInfo = require('./personalInfo');
 var BankInfo = require('./bankInfo');
 var Welcome = require('./welcome');
