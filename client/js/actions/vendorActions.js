@@ -10,8 +10,8 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
-				console.log(data);
-				welcome();
+			
+				welcome('welcome', data.business_name);
 			},
 			error: function(error) {
 				console.log(error);

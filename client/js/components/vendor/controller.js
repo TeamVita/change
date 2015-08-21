@@ -10,15 +10,16 @@ var Signup = React.createClass({
     return {pane: 'personal'};
   },
 
-  changePane: function(pane) {
+  changePane: function(pane, business) {
     this.setState({
-      pane: pane
+      pane: pane, 
+      business: arguments[2]
     });
   },
 
   handleSubmit: function(event) {
-
     event.preventDefault();
+    
     if (this.state.pane === 'personal'){
       personalResponseHandler.bind(this)();
     } else {
@@ -63,7 +64,7 @@ var Signup = React.createClass({
     else if (this.state.pane === 'bank') {
       partial = <BankInfo ref='partial' />;
     } else if (this.state.pane === 'welcome') {
-      partial = <Welcome ref='partial' />;
+      partial = <Welcome business = {this.state.business} ref='partial' />;
     }
 
     return (
