@@ -8,7 +8,6 @@ router.post('/donor', function(req, res) {
 });
 
 router.post('/vendor', function(req, res, next) {
-  
 });
 
 router.post('/shelter', function(req, res) {
