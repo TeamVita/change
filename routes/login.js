@@ -3,14 +3,14 @@ var router = express.Router();
 var utility = require('./subroutes/utility');
 // var models = require('../db/index');
 
-// Login users
-router.post('/donor', function(req, res, next) {
+router.post('/vendor', function(req, res) {
+  // Check DB for req.body.email and password
+  // respond with result
 });
 
-router.post('/vendor', function(req, res, next) {
-});
-
-router.post('/shelter', function(req, res, next) {
+router.post('/shelter', function(req, res) {
+  // Check DB for req.body.email and password
+  // respond with result
 });
 
 module.exports = router;

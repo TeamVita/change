@@ -22,17 +22,24 @@ var Signup = React.createClass({
   // Save data from personal form to state, bundle with bank form, POST to server
   handleSubmit: function(event) {
     event.preventDefault();
-
-    if (this.state.pane === 'personal'){
-      personalResponseHandler.bind(this)();
+    if (this.state.pane === 'login') {
+      loginResponseHandler();
+    } else if (this.state.pane === 'personal'){
+        personalResponseHandler.bind(this)();
     } else {
-      var bankAccount = this.refs.partial.getFields();
-      Stripe.bankAccount.createToken({
-        country: 'US',
-        currency: 'USD',
-        routing_number: bankAccount.routing,
-        account_number: bankAccount.account
-      }, bankResponseHandler.bind(this));
+        var bankAccount = this.refs.partial.getFields();
+        Stripe.bankAccount.createToken({
+          country: 'US',
+          currency: 'USD',
+          routing_number: bankAccount.routing,
+          account_number: bankAccount.account
+        }, bankResponseHandler.bind(this));
+    }
+
+    function loginResponseHandler() {
+      // TODO submit login credentials to server and render welcome
+      var loginData = this.refs.partial.getFields();
+      actions.logIn(loginData, this.changePane.bind(this, 'welcome'));
     }
 
     // Save personal info to state for later bundling with bank info
