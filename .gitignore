@@ -6,3 +6,8 @@ build/
 dist/
 
 config.json
+config.js
+
+testServer.js
+
+client/js/stores/shelterStore.js

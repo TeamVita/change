@@ -38,4 +38,6 @@ shelter = {
     email || username:
     password:
 }
+
+userType: donor/organization
 ```

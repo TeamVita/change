@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+var signup = require('./signup');
+var login = require('./login');
+var donate = require('./donate');
+var auth = require('./auth');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-module.exports = router;
+module.exports.signup = signup;
+module.exports.login = login;
+module.exports.donate = donate;
+module.exports.auth = auth;
