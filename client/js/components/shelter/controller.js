@@ -16,15 +16,19 @@ var Shelter = React.createClass({
   },
 
   getInitialState: function() {
+    // state initialize
     return {pane: 'orgSignup'};
   },
 
   handleSubmit: function(event) {
     event.preventDefault();
     var info = { username: "Test Recipient", password: "1234" };
-
     var fields = this.refs.partial.getFields();
-    console.log("Prop", this.props);
+    // console.log("Prop", this.props);
+    if (fields !== undefined) {
+      console.log(fields);
+    }
+
     (function (self) {
       shelterActions.shelterSignUp(info, function(data) {
         console.log("receive from server", data);
