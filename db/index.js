@@ -15,10 +15,10 @@ var sequelize = new Sequelize(process.env.DATABASE_URL || connectionString);
 
 sequelize.authenticate()
   .then(function() {
-    console.log('Connection to db successful!');
+    console.log('Connection to DB!');
    })
   .catch(function(err) {
-    console.error('Connection to db failed: ', err);
+    console.error('Failed to connect to DB: ', err);
   })
   .done();
 
@@ -49,7 +49,7 @@ methods.forEach(function(method) {
   m.Donation.belongsTo(m.Donor);
   m.Recipient.hasMany(m.Donation, { as: 'donation' });
   m.Donation.belongsTo(m.Recipient);
-  m.Recipient.hasMany(m.Purchase, { as: 'purchase' });  
+  m.Recipient.hasMany(m.Purchase, { as: 'purchase' });
 })(module.exports);
 
 
