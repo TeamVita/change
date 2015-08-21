@@ -18,6 +18,19 @@ module.exports = {
 		});
 	},
 
+	getAmount: function(pin) {
+		$.ajax({
+			url: '/login/vendor',
+			type: 'POST',
+			data: pin,
+			success: function(data) {
+				console.log('This is the pin amount', data);
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		});
+	},
 	logIn: function(info, cb) {
 		$.ajax({
 			url: '/login/vendor',
@@ -25,12 +38,6 @@ module.exports = {
 			data: info,
 			success: function(data) {
 				cb('welcome', data.business_name);
-			},
-			error: function(error) {
-				console.log(error);
-			}
-		});
-	},
 
 	switchPage: function(page) {
 		Dispatcher.dispatch({
