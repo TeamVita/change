@@ -7,7 +7,6 @@ var Keys = require('../../../../config.js');
 var Donate = React.createClass({
 
   onToken: function(token) {
-    console.log('Yo dawg we pushed the button!');
     var pin = this.refs.PIN.getDOMNode().value.trim();
     var amt = this.refs.amount.getDOMNode().value.trim();
     DonorActions.donate({pin: pin, amt: amt, token: JSON.stringify(token)});
@@ -20,8 +19,8 @@ var Donate = React.createClass({
     return (
       <div id = 'form'>
         <form><h1>Make a Change!</h1>
-          <div class ='input'><input placeholder='PIN' type ='text' ref ='PIN' /></div>
-          <div class ='input'><input placeholder='amount' type = 'text' ref ='amount' /></div>
+          <div class ='input'><input placeholder='PIN' value='7777' type ='text' ref ='PIN' /></div>
+          <div class ='input'><input placeholder='amount' value='5' type = 'text' ref ='amount' /></div>
         </form>
       <StripeCheckout
               name="Change"
