@@ -6,7 +6,7 @@ var AUTHORIZE_URI = 'https://connect.stripe.com/oauth/authorize';
 
 var stripe = require("stripe")(SECRET_KEY);
 
-var makePayment = function(req, destination) {
+var makePayment = function(req) {
   var calculateFee = function(amt){
     var fee = (amt * 0.029) + 0.30;
     fee = fee.toString().slice(0, 4);
@@ -17,7 +17,8 @@ var makePayment = function(req, destination) {
 
   // Get the credit card details submitted by the form
   var stripeToken = JSON.parse(req.body.token);
-  var description = destination === 'food' ? 'Safeway payment'
+  var type = req.body.type;
+  var description = type === 'food' ? 'Safeway payment'
                                            : 'Salvation Army Payment';
   var fee = calculateFee(req.body.amt);
   // TODO query DB for destination ID and set destination value to this ID;
