@@ -16,8 +16,8 @@ var bankInfo = React.createClass({
     return (
       <div>
         <h1>Give us your bank account info.</h1>
-        <div className ='input'><input placeholder='routing number' type ='text' ref ='routing' value='111000025'/></div>
-        <div className ='input'><input placeholder='account number' type = 'text' ref ='account' value='000123456789'/></div>
+        <div class ='input'><input placeholder='routing number' type ='text' ref ='routing' value='110000000'/></div>
+        <div class ='input'><input placeholder='account number' type = 'text' ref ='account' value='000123456789'/></div>
         <input type ="submit" />
       </div>
     );
