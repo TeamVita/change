@@ -1,10 +1,11 @@
 var OrganizationInfo = React.createClass({
+  // Private handler now
+
   render: function(){
     return (
       <div id='organizationInfo'>
-        <h1>This is organization information page </h1>
-        <h1>Talk to database now</h1>
-        <input type ="submit" />
+          <h1>This is organization information page </h1>
+          <h1>Talk to database now</h1>
       </div>
     );
   }

@@ -9,13 +9,25 @@ var Shelter = React.createClass({
     return {pane: 'orgSignup'};
   },
 
+  // stateMachine
+  changeState: function() {
+    var partial;
+    if (this.state.pane === 'orgSignup') {
+      partial = <OrgSignup ref='partial'/>;
+    }
+    else if (this.state.pane === 'organizationInfo') {
+      partial = <OrgInfo ref='partial' />;
+    }
+    return partial;
+  },
+
   handleSubmit: function(event) {
     event.preventDefault();
     var info = { username: "Test Recipient", password: "1234" };
 
-    var fields = this.refs.partial.getFields();
-    console.log("fields", fields);
-
+    // var fields = this.refs.partial.getFields();
+    // console.log("fields", fields);
+    console.log("Prop", this.props);
     (function (self) {
       shelterActions.shelterSignUp(info, function(data) {
         console.log("receive from server", data);
@@ -26,12 +38,7 @@ var Shelter = React.createClass({
 
   render: function() {
     var partial;
-    if (this.state.pane === 'orgSignup') {
-      partial = <OrgSignup ref='partial'/>;
-    }
-    else if (this.state.pane === 'organizationInfo') {
-      partial = <OrgInfo ref='partial' />;
-    }
+    partial = this.changeState();
 
     // TODO: change form width to include wider title
     return (
