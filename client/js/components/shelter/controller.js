@@ -1,35 +1,36 @@
 var shelterActions = require('../../actions/shelterActions');
 var Constants = require('../../constants/Constants.js');
-var OrganizationInfo = require('./organizationInfo');
+var OrgInfo = require('./organizationInfo');
 var OrgSignup = require('./signup');
 
-var Signup = React.createClass({
+var Shelter = React.createClass({
 
   getInitialState: function() {
-    return {pane: 'orgSignUp'};
+    return {pane: 'orgSignup'};
   },
 
   handleSubmit: function(event) {
     event.preventDefault();
     var info = { username: "Test Recipient", password: "1234" };
-    var self = this;
-    console.log("click event!");
-    shelterActions.shelterSignUp(info, function(data) {
-      console.log("receive from server", data);
-      // TODO: refactor use bind later
-      self.setState({pane: 'orgInfo'});
-    });
+
+    (function (self) {
+      shelterActions.shelterSignUp(info, function(data) {
+        console.log("receive from server", data);
+        self.setState({pane: 'organizationInfo'});
+      }) ;      
+    }) (this);
   },
 
   render: function() {
     var partial;
-    if (this.state.pane === 'orgSignUp') {
+    if (this.state.pane === 'orgSignup') {
       partial = <OrgSignup ref='partial'/>;
     }
-    else if (this.state.pane === 'orgInfo') {
-      partial = <OrganizationInfo ref='partial' />;
+    else if (this.state.pane === 'organizationInfo') {
+      partial = <OrgInfo ref='partial' />;
     }
 
+    // TODO: change form width to include wider title
     return (
       <div id = 'form'>
         <form onSubmit={this.handleSubmit}>
@@ -40,4 +41,4 @@ var Signup = React.createClass({
   }
 });
 
-module.exports = Signup;
+module.exports = Shelter;

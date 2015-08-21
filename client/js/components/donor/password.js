@@ -18,11 +18,11 @@ var Pass = React.createClass({
 			<img src= '../../Assets/checkmark.png'/>
 			<form onSubmit={this.handleSubmit}>
 				Email:
-				<div class ='input'><input type = 'text' ref = 'email'id = 'email' value ={this.props.email} readOnly/></div>
+				<div className='input'><input type = 'text' ref = 'email'id = 'email' value ={this.props.email} readOnly/></div>
 				<p>Please fill out the following to Sign up:</p>
-				<div class ='input'><input placeholder= 'Full Name' type = 'text'ref = 'name'/></div>
-				<div class ='input'><input placeholder= 'Password'  type= 'password' ref ='pass'/></div>
-				<div class ='input'><input type= 'submit'/></div>
+				<div className='input'><input placeholder= 'Full Name' type = 'text'ref = 'name'/></div>
+				<div className='input'><input placeholder= 'Password'  type= 'password' ref ='pass'/></div>
+				<div className='input'><input type= 'submit'/></div>
 			</form>
 		</div>
 		);
