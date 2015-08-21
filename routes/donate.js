@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
-
-var payment = require('../payment');
+var makePayment = require('../payment');
 
 // Create vendor, add to DB, redirect user
 /*Changed  "/donate" to "/" otherwise route becomes /donate/donate -Adi */
 router.post('/', function(req, res) {
-	/*lines of code below are for testing the front end -Adi */
-	var results = req.body;
-	res.send(results);
+	var destination = req.body.destination || 'food'; // TODO remove boolean default once button is implemented client-side
+	makePayment(req, destination);
+
+	// TODO add payment to DB
+	res.send('Success!');
 });
 
 module.exports = router;
