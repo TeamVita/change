@@ -8,19 +8,16 @@
 // var DonorAccount = require('./donor/account');
 
 // module.exports = {
-<<<<<<< HEAD
 // 	<Router history={new HashHistory}>
 // 		<Route path = '/' component = {Change}>
 // 			<Route path = 'donate' component = {Donate}>
 // 				<Route path = 'signup' component = {Signup}>
 // 					<Route path = 'donoraccount' component = {DonorAccount} />
-=======
 // 	<Router>
 // 		<Route path = '/' handler = {Change}>
 // 			<Route name = 'donate' handler = {Donate}>
 // 				<Route name = 'signup' handler = {Signup}>
 // 					<Route name = 'donoraccount' handler = {DonorAccount} />
->>>>>>> [update] Added Login option after making a payment for donor
 // 				</Route>
 // 			</Route>
 // 		</Route>
