@@ -2,6 +2,8 @@ var Promise = require('bluebird');
 var models = require('../../db');
 // TODO: utility functions
 var utility = {
+  // db init
+
   setUserType: function(req, res, next) {
     // verification
     // 'donor' by default
@@ -49,21 +51,29 @@ var utility = {
   },
 
   // TODO: PIN generator
-  createRecipient: function(req, res, next) {
+  createRecipient: function(pin, firstName, lastName) {
     // verification
-    var firstName = req.body.firstName;
-    var lastName = req.body.lastName;
-    var pin = 1000;
+    var firstName = firstName;
+    var lastName = lastName;
+    var pin = pin || 1000;
     var recipient = {
       firstName: firstName,
       lastName: lastName,
       pin: pin
     };
 
-    models.recipient.create(recipient).then(function(obj) {
+    return models.recipient.create(recipient).then(function(obj) {
       console.log("Received created recipient from db", obj);
+      return obj;
     });
-  }
+  },
+
+  findRecipientByPin: function(pin) {
+    // TODO: guarding code
+    return models.recipient.findOneByPin(pin).then(function(recipient) {
+      return recipient.get();
+    });
+  },
 }
 
 module.exports = utility;
