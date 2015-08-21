@@ -3,6 +3,7 @@ var Constants = require('../../constants/Constants.js');
 var PersonalInfo = require('./personalInfo');
 var BankInfo = require('./bankInfo');
 var Welcome = require('./welcome');
+var Login = require('./login');
 
 var Signup = React.createClass({
 
@@ -69,6 +70,8 @@ var Signup = React.createClass({
       partial = <BankInfo ref='partial' />;
     } else if (this.state.pane === 'welcome') {
       partial = <Welcome business = {this.state.business} ref='partial' />;
+    } else if (this.state.pane === 'login') {
+      partial = <Login ref='partial' />;
     }
 
     return (
