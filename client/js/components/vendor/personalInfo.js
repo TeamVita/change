@@ -5,8 +5,8 @@ var personalInfo = React.createClass({
 
   getFields: function() {
     var fields = {};
-    for (var field in this.refs){
-      fields[field] = this.refs[field].getDOMNode().value.trim();
+    for (var key in this.refs){
+      fields[key] = this.refs[key].getDOMNode().value.trim();
     }
     return fields;
   },

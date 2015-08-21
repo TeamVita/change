@@ -13,11 +13,14 @@ var Shelter = React.createClass({
     event.preventDefault();
     var info = { username: "Test Recipient", password: "1234" };
 
+    var fields = this.refs.partial.getFields();
+    console.log("fields", fields);
+
     (function (self) {
       shelterActions.shelterSignUp(info, function(data) {
         console.log("receive from server", data);
         self.setState({pane: 'organizationInfo'});
-      }) ;      
+      })      
     }) (this);
   },
 
