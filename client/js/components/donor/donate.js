@@ -18,7 +18,7 @@ var Donate = React.createClass({
     var amount = (string_amount * 100)|| 100;
     return (
       <div id = 'form'>
-        <form onSubmit ={this.handleSubmit}><h1>Make a Change!</h1>
+        <form><h1>Make a Change!</h1>
           <div className='input'><input placeholder='PIN' type ='text' ref ='PIN' /></div>
           <div className='input'><input placeholder='amount' type = 'text' ref ='amount' /></div>
           <input type ="submit" />
