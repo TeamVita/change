@@ -21,8 +21,10 @@ var Donate = React.createClass({
         <form><h1>Make a Change!</h1>
           <div className='input'><input placeholder='PIN' type ='text' ref ='PIN' /></div>
           <div className='input'><input placeholder='amount' type = 'text' ref ='amount' /></div>
-         
         </form>
+        <button>Food</button>
+        <button>Clothing</button>
+        <br/>
       <StripeCheckout
               name="Change"
               description= "Thanks for Change!"
