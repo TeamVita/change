@@ -5,20 +5,22 @@ var OrgSignup = require('./signup');
 
 var Shelter = React.createClass({
 
+  // State machine
+  _states: {
+    orgSignup: (function() {
+      return <OrgSignup ref='partial'/>
+    })(),
+    organizationInfo: (function() {
+      return <OrgInfo ref='partial' />
+    })(),
+  },
+
   getInitialState: function() {
     return {pane: 'orgSignup'};
   },
 
-  // stateMachine
   changeState: function() {
-    var partial;
-    if (this.state.pane === 'orgSignup') {
-      partial = <OrgSignup ref='partial'/>;
-    }
-    else if (this.state.pane === 'organizationInfo') {
-      partial = <OrgInfo ref='partial' />;
-    }
-    return partial;
+    return this._states[this.state.pane];
   },
 
   handleSubmit: function(event) {
@@ -37,9 +39,7 @@ var Shelter = React.createClass({
   },
 
   render: function() {
-    var partial;
-    partial = this.changeState();
-
+    var partial = this.changeState();
     // TODO: change form width to include wider title
     return (
       <div id = 'form'>
