@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CHANGE</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" type="text/css" href="./styles/css/compiled/theme.css">
+    <link rel="stylesheet" type="text/css" href="./styles/css/vendor/animate.css"> -->
+  
+
+    <link rel = 'stylesheet' type = 'text/css' href ='./styles/main.css'>
+    <link rel = 'stylesheet' type = 'text/css' href ='./styles/header.css'>
+
+    <!-- // <script src="./styles/theme.js"></script> -->
+    <!-- // <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+<!--    // <script src="./styles/js/bootstrap/bootstrap.min.js"></script>
+    // <script src="./styles/js/theme.js"></script> -->
+
+  </head>
+  <body id="home">
+    <div id = "test"></div>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+      Stripe.setPublishableKey('pk_test_h0V01RoCS3sG6lsmr7aU9frs');
+    </script>
+    <script src="https://fb.me/react-with-addons-0.13.3.js"></script>
+    <!-- // <script src="./build/build.js"></script> -->
+
+      <header class="navbar navbar-inverse white" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">Change</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+           
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    About Us
+                    <i class="fa fa-chevron-down"></i>
+                  </a>
+                  <ul class="dropdown-menu">
+          
+              <li><a href="signup.html">Sign Up & Sign In</a></li>
+              <li><a href="signup-rotate.html">Sign Up Miscellaneous</a></li>
+              <li><a href="404.html">404 Page</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Blog 
+                    <i class="fa fa-chevron-down"></i>
+                  </a>
+                  <ul class="dropdown-menu">
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="blogpost.html">Blog Post</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Sign In
+                    <i class="fa fa-chevron-down"></i>
+                  </a>
+                  <ul class="dropdown-menu">
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="blogpost.html">Blog Post</a></li>
+                </ul>
+              </li>
+            </ul>
+        </nav>
+      </div>
+
+  </header>
+<div id="hero">
+  <div id="signup">
+        <div class="container">
+          <div class="row header">
+            <div class="col-md-12">
+          <h3 class="logo"></h3>
+          <h4>A Little Change Can Go a Long Way</h4>
+        <div class="header">
+        <div class="wrapper clearfix">
+        <div class="formy">
+        <div class="row">
+        <div class="col-md-12">
+        <form onSubmit ={this.handleSubmit} class="submit">
+          <div class ='form-group'>
+            <label for="PIN">PIN</label>
+            <input placeholder='PIN' type ='text' class="form-control" ref ='PIN' /></div>
+          <div class ='form-group'>
+            <label for="Amount">Amount</label>
+            <input placeholder='$$$' type ='text' class="form-control" ref ='Amount' /></div>
+          <div className="submit">
+                      <a href="index.html" class="button-clear colory">
+                        <span>Donate</span>
+                      </a>
+                    </div>
+        </form>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+
+      <div id="pricing">
+      <!-- <div id="first-option"> -->
+        <div class="container">
+            <div class="row header">
+                <h3>How Change Works</h3>
+            </div>
+            <div class="row charts">
+                <div class="col-md-4 ">
+                    <div class="chart first">
+                        <div class="quantity">
+                            <span class="price">Step 1</span>
+                        </div>
+                        <div class="plan-name">Get PIN</div>
+                        <div class="specs">
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIIII</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="chart featured">
+                        <div class="quantity">
+                            <span class="dollar"></span>
+                            <span class="price">Step 2</span>
+                        </div>
+                        <div class="plan-name">Enter Donation</div>
+                        <div class="specs">
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="chart last">
+                        <div class="quantity">
+                            <span class="price">Step 3</span>
+                        </div>
+                        <div class="plan-name">Make a Smile</div>
+                        <div class="specs">
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                            <div class="spec">
+                                <span class="variable">IIIIIIII</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+        </div>
+    </div>
+    </div>
+  </body>
+</html>
