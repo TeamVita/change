@@ -3,7 +3,7 @@ var Constants = require('../constants/Constants.js');
 var ActionTypes = Constants.ActionTypes;
 
 module.exports = {
-	//This code is for the user to specify the amount the user wishes to donate
+	// POST donation info to initiate Stripe payment
 	donate: function(info) {
 		$.ajax({
 			url: '/donate',
@@ -11,34 +11,10 @@ module.exports = {
 			data: info,
 			// dataType: "json",
 			success: function(data) {
-				Dispatcher.dispatch({
-					type: ActionTypes.CHOOSE_AMOUNT,
-					pin: data.pin,
-					amount: data.amt
-			});
-			}.bind(this),
+				// TODO ???
+			},
 			error: function() {
 			console.log('Failed to execute donate ajax request.');
-			}.bind(this)
-		});
-	},
-
-	//This function takes in the Stripe token as an input from checkout and sends it to the server
-	sendToken: function(token){
-		$.ajax({
-			url: '/donate',
-			type: 'POST',
-			data: token,
-			success: function(data){
-				Dispatcher.dispatch({
-					//some data to send - probably going to render a different
-					type: ActionTypes.DONATE,
-					pane: 'signup',
-					email: data.email
-				});
-			}.bind(this),
-			error: function(){
-				console.log('Failed to execute donate ajax request.');
 			}.bind(this)
 		});
 	},

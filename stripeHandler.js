@@ -7,9 +7,10 @@ var assign = require('object-assign');
 
 var stripe = require("stripe")(SECRET_KEY);
 
-// Creates Stripe account for vendors/donors
+// Creates Stripe account for vendors
 exports.createStripeAccount = function(req, res, callback){
 
+  // Package data object for Stripe API call
   var accountMapper = function(request){
     var body = request.body;
     var vendorData = {
@@ -41,7 +42,6 @@ exports.createStripeAccount = function(req, res, callback){
     return vendorData;
   };
 
-  // Create data objects for stripe account creation
   var vendorData = accountMapper(req);
   stripe.accounts.create(vendorData, function(err, account) {
     if (err) {

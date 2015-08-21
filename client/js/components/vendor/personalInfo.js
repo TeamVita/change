@@ -3,6 +3,7 @@ var Constants = require('../../constants/Constants.js');
 
 var personalInfo = React.createClass({
 
+  // Collect values from input fields
   getFields: function() {
     var fields = {};
     for (var key in this.refs){

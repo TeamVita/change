@@ -6,12 +6,14 @@ var Keys = require('../../../../config.js');
 
 var Donate = React.createClass({
 
+  // Upon token receipt, wrap data package and POST for payment creation
   onToken: function(token) {
     var pin = this.refs.PIN.getDOMNode().value.trim();
     var amt = this.refs.amount.getDOMNode().value.trim();
     DonorActions.donate({pin: pin, amt: amt, type: this.state.type, token: JSON.stringify(token)});
   },
 
+  // Handle selection of clothing or food donation
   handleClick: function(event) {
     event.preventDefault();
     var type = event.target.value;
