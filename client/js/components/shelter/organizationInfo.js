@@ -1,5 +1,4 @@
 var OrganizationInfo = React.createClass({
-  // Private handler now
 
   render: function(){
     return (
