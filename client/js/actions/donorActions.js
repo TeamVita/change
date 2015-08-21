@@ -8,7 +8,8 @@ module.exports = {
 		$.ajax({
 			url: '/donate',
 			type: 'POST',
-			data: info, 
+			data: info,
+			// dataType: "json",
 			success: function(data) {
 				Dispatcher.dispatch({
 					type: ActionTypes.CHOOSE_AMOUNT,
@@ -25,14 +26,14 @@ module.exports = {
 	//This function takes in the Stripe token as an input from checkout and sends it to the server
 	sendToken: function(token){
 		$.ajax({
-			url: '/donate', 
-			type: 'POST', 
+			url: '/donate',
+			type: 'POST',
 			data: token,
 			success: function(data){
 				Dispatcher.dispatch({
 					//some data to send - probably going to render a different
 					type: ActionTypes.DONATE,
-					pane: 'signup', 
+					pane: 'signup',
 					email: data.email
 				});
 			}.bind(this),
