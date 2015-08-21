@@ -9,9 +9,14 @@ var Donate = React.createClass({
   onToken: function(token) {
     var pin = this.refs.PIN.getDOMNode().value.trim();
     var amt = this.refs.amount.getDOMNode().value.trim();
-    DonorActions.donate({pin: pin, amt: amt, token: JSON.stringify(token)});
+    DonorActions.donate({pin: pin, amt: amt, type: this.state.type, token: JSON.stringify(token)});
   },
 
+  handleClick: function(event) {
+    event.preventDefault();
+    var type = event.target.value;
+    this.setState({type: type});
+  },
 
   render: function() {
     var string_amount = parseInt(this.props.amount);
@@ -22,8 +27,8 @@ var Donate = React.createClass({
           <div className='input'><input placeholder='PIN' type ='text' ref ='PIN' /></div>
           <div className='input'><input placeholder='amount' type = 'text' ref ='amount' /></div>
         </form>
-        <button>Food</button>
-        <button>Clothing</button>
+        <button onClick={this.handleClick} value='food'>Food</button>
+        <button onClick={this.handleClick} value='clothing'>Clothing</button>
         <br/>
       <StripeCheckout
               name="Change"
