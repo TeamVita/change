@@ -7,7 +7,6 @@ var Keys = require('../../../../config.js');
 var Donate = React.createClass({
 
   onToken: function(token) {
-    console.log('Yo dawg we pushed the button!');
     var pin = this.refs.PIN.getDOMNode().value.trim();
     var amt = this.refs.amount.getDOMNode().value.trim();
     DonorActions.donate({pin: pin, amt: amt, token: JSON.stringify(token)});
