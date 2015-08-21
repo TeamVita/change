@@ -6,10 +6,9 @@ var OrgSignup = React.createClass({
 
   getFields: function() {
     var fields = {};
-    for (var fields in this.refs) {
-      fields[fields] = this.refs[fields].getDOMNode().value.trim();
+    for (var keys in this.refs) {
+      fields[keys] = this.refs[keys].getDOMNode().value.trim();
     }
-    console.log(fields);
     return fields;
   },
 
