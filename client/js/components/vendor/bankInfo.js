@@ -3,6 +3,7 @@ var Constants = require('../../constants/Constants.js');
 
 var bankInfo = React.createClass({
 
+  // Collect values from input fields
   getFields: function() {
     var fields = {};
     for (var field in this.refs){

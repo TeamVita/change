@@ -10,16 +10,18 @@ var Signup = React.createClass({
     return {pane: 'personal'};
   },
 
+  // Render different form pane
   changePane: function(pane, business) {
     this.setState({
-      pane: pane, 
+      pane: pane,
       business: arguments[2]
     });
   },
 
+  // Save data from personal form to state, bundle with bank form, POST to server
   handleSubmit: function(event) {
     event.preventDefault();
-    
+
     if (this.state.pane === 'personal'){
       personalResponseHandler.bind(this)();
     } else {
@@ -32,16 +34,18 @@ var Signup = React.createClass({
       }, bankResponseHandler.bind(this));
     }
 
+    // Save personal info to state for later bundling with bank info
     function personalResponseHandler() {
       var accountData = this.refs.partial.getFields();
 
-      // save accountData to state and render bank collection form
+      // Render bank collection form
       this.setState({
         pane: 'bank',
         accountData: accountData
       });
     }
 
+    // Bundle bank info with personal info and POST to server
     function bankResponseHandler(status, response) {
       if (response.error) {
         // TODO let the user know somehow

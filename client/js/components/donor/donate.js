@@ -6,12 +6,19 @@ var Keys = require('../../../../config.js');
 
 var Donate = React.createClass({
 
+  // Upon token receipt, wrap data package and POST for payment creation
   onToken: function(token) {
     var pin = this.refs.PIN.getDOMNode().value.trim();
     var amt = this.refs.amount.getDOMNode().value.trim();
-    DonorActions.donate({pin: pin, amt: amt, token: JSON.stringify(token)});
+    DonorActions.donate({pin: pin, amt: amt, type: this.state.type, token: JSON.stringify(token)});
   },
 
+  // Handle selection of clothing or food donation
+  handleClick: function(event) {
+    event.preventDefault();
+    var type = event.target.value;
+    this.setState({type: type});
+  },
 
   render: function() {
     var string_amount = parseInt(this.props.amount);
@@ -22,8 +29,8 @@ var Donate = React.createClass({
           <div className='input'><input placeholder='PIN' type ='text' ref ='PIN' /></div>
           <div className='input'><input placeholder='amount' type = 'text' ref ='amount' /></div>
         </form>
-        <button>Food</button>
-        <button>Clothing</button>
+        <button onClick={this.handleClick} value='food'>Food</button>
+        <button onClick={this.handleClick} value='clothing'>Clothing</button>
         <br/>
       <StripeCheckout
               name="Change"
