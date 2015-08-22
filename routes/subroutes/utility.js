@@ -7,33 +7,19 @@ var utility = {
   initDB: function() {
     if (process.env.dev === 'development') {
       // Proceed with caution! DROP TABLES!
-      models.sequelize.sync({ force: true });  
+      return models.sequelize.sync({ force: true });  
     } else {
-      models.sequelize.sync()
+      return models.sequelize.sync()
     }
-  },
-
-  set: function(key, value) {
-    if (!this.get(key)) {
-      console.error("Can't find " + key + " in utility!");
-      return null;
-    }
-    this.key = value;
-  },
-
-  get: function(key) {
-    if (!this.key) {
-      console.error("Can't find " + key + " in utility!");
-      return null;
-    }
-    return this.key;
   },
 
   generatePin: function() {
-    if (this.get(key) === null) {
+    if (this.pin === undefined) {
       return null;
-    };
-    return this.get(key) += 1;
+    }
+    var pin = this.pin
+    this.pin += 1;
+    return pin;
   },
 
   setUserType: function(req, res, next) {
@@ -85,10 +71,11 @@ var utility = {
   createRecipient: function(password, pin) {
     // verification
     var pin = pin || this.generatePin();
-    if (pin <= this.get('pin') || pin > 9999) {
+    if (pin < this.pin || pin > 9999) {
       console.log("In utility createRecipient(), invalid PIN number! Call built-in pin generator.");
       pin = this.generatePin();
     };
+    console.log("createRecipient pin", pin);
     var recipient = {
       password: password,
       pin: pin

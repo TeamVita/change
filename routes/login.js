@@ -20,14 +20,26 @@ router.post('/shelter', function(req, res) {
   // utility.checkVendor(req.body.email, req.body.password).then(function(result){
   //  res.send(result);
 //   });
-  // TODO respond with result
 
-  utility.initDB();
-  res.send("success!!");
+  // TODO respond with result
 });
 
 router.post('/vendor/redeem', function(req, res) {
 	var results = req.body;
+  // utility.createRecipient("123", 1).then(function(recipient) {
+  //   return recipient;
+  // })
+  // .then(function(recipient) {
+  //   return utility.findRecipientByPin(1);
+  // })
+  utility.findRecipientByPin(1)
+  .then(function(recipient) {
+    if (recipient) {
+      res.send(recipient);
+    } else {
+      res.send("Error!!");
+    }
+  });
 	res.send(results);
 });
 

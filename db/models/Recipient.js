@@ -4,6 +4,8 @@ module.exports = function(sequelize, DataTypes) {
 
     cloth: DataTypes.DECIMAL(10, 2),
 
+    password: DataTypes.STRING,
+
     pin: DataTypes.INTEGER
   })
 }
