@@ -2,7 +2,6 @@ var Promise = require('bluebird');
 var models = require('../../db');
 // TODO: utility functions
 var utility = {
-  // db init
   pin: 0,
 
   set: function(key, value) {
@@ -26,6 +25,10 @@ var utility = {
       return null;
     };
     return this.get(key) += 1;
+  },
+
+  initDB: function() {
+    console.log("Logging models", models);
   },
 
   setUserType: function(req, res, next) {
