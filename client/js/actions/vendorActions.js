@@ -10,11 +10,7 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
-<<<<<<< HEAD
-				welcome('welcome', data.business_name);
-=======
 				welcome('welcome', data);
->>>>>>> [update] Working on Vendor checking pin/pass
 			},
 			error: function(error) {
 				console.log(error);
@@ -42,7 +38,13 @@ module.exports = {
 			data: info,
 			success: function(data) {
 				cb('welcome', data.business_name);
-
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		});
+	},
+	
 	switchPage: function(page) {
 		Dispatcher.dispatch({
 			type: ActionTypes.SWITCH_PAGE,
