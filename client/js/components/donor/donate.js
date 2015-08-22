@@ -6,6 +6,10 @@ var actions = require('../../actions/actions');
 
 var Donate = React.createClass({
 
+  getInitialState: function() {
+    return {amount: 100};
+  },
+
   // Upon token receipt, wrap data package and POST for payment creation
   onToken: function(token) {
     var pin = this.refs.PIN.getDOMNode().value.trim();
@@ -20,6 +24,14 @@ var Donate = React.createClass({
     this.setState({type: type});
   },
 
+  // Handle selection of donation amount
+  handleChange: function(event) {
+    event.preventDefault();
+    var string_amount = parseInt(event.target.value);
+    var amount = (string_amount * 100);
+    this.setState({amount: amount});
+  },
+
   vendorPage: function(){
     actions.switchPage('VENDOR');
   },
@@ -29,22 +41,26 @@ var Donate = React.createClass({
   },
 
   render: function() {
-    var string_amount = parseInt(this.props.amount);
-    var amount = (string_amount * 100)|| 100;
+    
     return (
       <div id = 'form'>
         <form><h1>Make a Change!</h1>
-          <div className='input'><input placeholder='PIN' type ='text' ref ='PIN' /></div>
-          <div className='input'><input placeholder='amount' type = 'text' ref ='amount' /></div>
+          <div className='input'>
+            <input placeholder='PIN' type ='text' ref ='PIN' /></div>
+          <div className='input'>
+            <input placeholder='amount' type = 'text' ref ='amount' onChange={this.handleChange} />
+          </div>
         </form>
-        <button onClick={this.handleClick} value='food'>Food</button>
-        <button onClick={this.handleClick} value='clothing'>Clothing</button>
+        <div>
+          <button onClick={this.handleClick} value='food'>Food</button>
+          <button onClick={this.handleClick} value='clothing'>Clothing</button>
+        </div>
         <br/>
       <StripeCheckout
               name="Change"
               description= "Thanks for Change!"
               panelLabel="Donate"
-              amount={amount}
+              amount={this.state.amount}
               currency="USD"
               stripeKey= {Keys.PUBLIC_KEY}
               token={this.onToken}>
@@ -52,7 +68,7 @@ var Donate = React.createClass({
                 <span>Take my money</span>
               </button>
         </StripeCheckout>
-
+        <br/>
         <button onClick= {this.vendorPage}>Vendor</button>
         <button onClick= {this.shelterPage}>Shelter</button>
       </div>
