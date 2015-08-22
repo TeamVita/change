@@ -38,13 +38,12 @@ module.exports = {
     });
   },
 
-  createPIN: function(showResults) {
+  createPIN: function() {
 		$.ajax({
 			url: '/vendor',
 			type: 'GET',
 			success: function(data) {
-        // TODO pass new PIN and p/w from server to client to showResults
-        showResults(data);
+
 			},
 			error: function(error) {
 				console.error(error);
