@@ -13,7 +13,7 @@ var Signup = React.createClass({
 
   // Render different form pane
   changePane: function(pane, business) {
-    var vendorAccount = arguments[2];
+    var vendorAccount = arguments[1];
     this.setState({
       pane: pane,
       business: vendorAccount.business_name
@@ -46,11 +46,9 @@ var Signup = React.createClass({
 
     function loginResponseHandler() {
       var loginData = this.refs.partial.getFields();
-      actions.logIn(loginData, function(result) {
-        if (result) {
-          this.changePane.bind(this, 'welcome');
-        }
-      });
+      actions.logIn(loginData, (function(pane, business) {
+        this.changePane.call(this, pane, business);
+      }).bind(this));
     }
 
     // Save personal info to state for later bundling with bank info

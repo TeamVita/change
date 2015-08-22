@@ -12,7 +12,7 @@ router.post('/vendor', function(req, res) {
   //  res.send(result);
 //   });
   // TODO respond with result
-	
+	res.send({business_name: 'salvation army'}); // test
 });
 
 router.post('/shelter', function(req, res) {

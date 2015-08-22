@@ -8,7 +8,7 @@ var welcome = React.createClass({
       return <div></div>
     },
     newPin: function() {
-      return <NewPin />
+      return <NewPin PIN={this.state.PIN} password={this.state.password}/>
     }
   },
 
