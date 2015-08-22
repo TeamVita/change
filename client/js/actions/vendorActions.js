@@ -10,7 +10,7 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
-				welcome('welcome', data.business_name);
+				welcome('welcome', data);
 			},
 			error: function(error) {
 				console.log(error);
@@ -18,6 +18,19 @@ module.exports = {
 		});
 	},
 
+	getAmount: function(pin) {
+		$.ajax({
+			url: '/login/vendor/redeem',
+			type: 'POST',
+			data: pin,
+			success: function(data) {
+				console.log('This is the pin amount', data);
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		});
+	},
 	logIn: function(info, cb) {
 		$.ajax({
 			url: '/login/vendor',
@@ -31,7 +44,7 @@ module.exports = {
 			}
 		});
 	},
-
+	
 	switchPage: function(page) {
 		Dispatcher.dispatch({
 			type: ActionTypes.SWITCH_PAGE,
