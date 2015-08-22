@@ -7,9 +7,7 @@ var ActionTypes = Constants.ActionTypes;
 var CHANGE_EVENT = 'submit';
 
 
-// var appState = {page: 'DONOR', pane: 'donate'};
-// var appState = {page: 'SHELTER', pane: 'orgSignup'}
-var appState = {page: 'VENDOR'};
+var appState = {page: 'DONOR', pane: 'donate'};
 
 var reset = function() {
 	appState = {};
