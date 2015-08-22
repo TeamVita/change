@@ -18,6 +18,20 @@ module.exports = {
 		});
 	},
 
+	logIn: function(info, welcome) {
+		$.ajax({
+			url: '/login/vendor',
+			type: 'POST',
+			data: info,
+			success: function(data) {
+				welcome('welcome', data.business_name);
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		});
+	},
+
 	switchPage: function(page) {
 		Dispatcher.dispatch({
 			type: ActionTypes.SWITCH_PAGE,
