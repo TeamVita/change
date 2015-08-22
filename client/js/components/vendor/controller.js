@@ -19,11 +19,17 @@ var Signup = React.createClass({
     });
   },
 
+  handleClick: function() {
+    this.setState({
+      pane: 'login'
+    });
+  },
+
   // Save data from personal form to state, bundle with bank form, POST to server
   handleSubmit: function(event) {
     event.preventDefault();
     if (this.state.pane === 'login') {
-      loginResponseHandler();
+      loginResponseHandler.bind(this)();
     } else if (this.state.pane === 'personal'){
         personalResponseHandler.bind(this)();
     } else {
@@ -37,7 +43,6 @@ var Signup = React.createClass({
     }
 
     function loginResponseHandler() {
-      // TODO submit login credentials to server and render welcome
       var loginData = this.refs.partial.getFields();
       actions.logIn(loginData, this.changePane.bind(this, 'welcome'));
     }
@@ -70,15 +75,15 @@ var Signup = React.createClass({
 
   render: function() {
     var partial;
-    if (this.state.pane === 'personal') {
-      partial = <PersonalInfo ref='partial' />;
-    }
-    else if (this.state.pane === 'bank') {
+    if (this.state.pane === 'login') {
+      partial = <Login ref='partial' />;
+    } else if (this.state.pane === 'bank') {
       partial = <BankInfo ref='partial' />;
     } else if (this.state.pane === 'welcome') {
       partial = <Welcome business = {this.state.business} ref='partial' />;
-    } else if (this.state.pane === 'login') {
-      partial = <Login ref='partial' />;
+    } else {
+      // default to signup page
+      partial = <PersonalInfo ref='partial' />;
     }
 
     return (
@@ -86,6 +91,7 @@ var Signup = React.createClass({
         <form onSubmit ={this.handleSubmit}>
           {partial}
         </form>
+        <a onClick={this.handleClick}>Already have an account? Log in here.</a>
       </div>
     );
   }

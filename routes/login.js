@@ -4,13 +4,15 @@ var utility = require('./subroutes/utility');
 // var models = require('../db/index');
 
 router.post('/vendor', function(req, res) {
-  // Check DB for req.body.email and password
-  // respond with result
+  // TODO Check DB for req.body.email and password
+  // TODO respond with result
+  console.log(req.body);
 });
 
 router.post('/shelter', function(req, res) {
-  // Check DB for req.body.email and password
-  // respond with result
+  // TODO Check DB for req.body.email and password
+  // TODO respond with result
+  console.log(req.body);
 });
 
 module.exports = router;

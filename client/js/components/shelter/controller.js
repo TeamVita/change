@@ -2,6 +2,7 @@ var shelterActions = require('../../actions/shelterActions');
 var Constants = require('../../constants/Constants.js');
 var OrgInfo = require('./organizationInfo');
 var OrgSignup = require('./signup');
+var Login = require('../login');
 
 var Shelter = React.createClass({
 
@@ -12,6 +13,12 @@ var Shelter = React.createClass({
     },
     organizationInfo: function() {
       return <OrgInfo ref='partial' />
+    },
+    login: function() {
+      return <Login ref='partial' />
+    },
+    welcome: function() {
+      return <Welcome ref='partial' />
     }
   },
 
@@ -20,21 +27,42 @@ var Shelter = React.createClass({
     return {pane: 'orgSignup'};
   },
 
+  handleClick: function() {
+    this.setState({
+      pane: 'login'
+    });
+  },
+
+  // Render different form pane
+  changePane: function(pane, business) {
+    this.setState({
+      pane: pane,
+      business: arguments[2]
+    });
+  },
+
   handleSubmit: function(event) {
     event.preventDefault();
     var info = { username: "Test Recipient", password: "1234" };
-    var fields = this.refs.partial.getFields();
-    // console.log("Prop", this.props);
-    if (fields !== undefined) {
-      console.log(fields);
+
+    if (this.state.pane === 'login') {
+      var loginData = this.refs.partial.getFields();
+      shelterActions.logIn(loginData, this.changePane.bind(this, 'welcome'));
+    } else {
+      var fields = this.refs.partial.getFields();
+      // console.log("Prop", this.props);
+      if (fields !== undefined) {
+        console.log(fields);
+      }
+
+      (function (self) {
+        shelterActions.shelterSignUp(info, function(data) {
+          console.log("receive from server", data);
+          self.setState({pane: 'organizationInfo'});
+        });
+      }) (this);
     }
 
-    (function (self) {
-      shelterActions.shelterSignUp(info, function(data) {
-        console.log("receive from server", data);
-        self.setState({pane: 'organizationInfo'});
-      })      
-    }) (this);
   },
 
   render: function() {
@@ -45,6 +73,7 @@ var Shelter = React.createClass({
         <form onSubmit={this.handleSubmit}>
           {partial}
         </form>
+        <a onClick={this.handleClick}>Already have an account? Log in here.</a>
       </div>
     );
   }

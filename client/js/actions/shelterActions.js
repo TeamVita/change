@@ -4,6 +4,20 @@ var ActionTypes = Constants.ActionTypes;
 
 module.exports = {
 
+  logIn: function(info, welcome) {
+    $.ajax({
+      url: '/login/shelter',
+      type: 'POST',
+      data: info,
+      success: function(data) {
+        welcome('welcome', data.business_name);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  },
+
   shelterSignUp: function(info, cb) {
     $.ajax({
       url: '/signup/shelter',
@@ -17,11 +31,11 @@ module.exports = {
           pane: 'orgInfo'
         });
         cb(data);
-      }.bind(this), 
+      }.bind(this),
       error: function(error) {
         console.log(error);
       }.bind(this)
     });
   }
-  
-}
+
+};
