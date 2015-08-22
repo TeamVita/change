@@ -4,6 +4,20 @@ var ActionTypes = Constants.ActionTypes;
 
 module.exports = {
 
+  logIn: function(info, welcome) {
+    $.ajax({
+      url: '/login/shelter',
+      type: 'POST',
+      data: info,
+      success: function(data) {
+        welcome('welcome', data.business_name);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  },
+
   shelterSignUp: function(info, cb) {
     $.ajax({
       url: '/signup/shelter',
@@ -17,11 +31,26 @@ module.exports = {
           pane: 'orgInfo'
         });
         cb(data);
-      }.bind(this), 
+      }.bind(this),
       error: function(error) {
         console.log(error);
       }.bind(this)
     });
-  }
-  
-}
+  },
+
+  createPIN: function(showResults) {
+		$.ajax({
+			url: '/vendor',
+			type: 'GET',
+			success: function(data) {
+        // TODO pass new PIN and p/w from server to client to showResults
+        showResults(data);
+			},
+			error: function(error) {
+				console.error(error);
+			}
+		});
+	}
+
+
+};

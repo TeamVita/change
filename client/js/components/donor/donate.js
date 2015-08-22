@@ -2,7 +2,7 @@ var DonorActions = require('../../actions/donorActions');
 var Constants = require('../../constants/Constants.js');
 var StripeCheckout = require('react-stripe-checkout');
 var Keys = require('../../../../config.js');
-
+var actions = require('../../actions/actions');
 
 var Donate = React.createClass({
 
@@ -18,6 +18,14 @@ var Donate = React.createClass({
     event.preventDefault();
     var type = event.target.value;
     this.setState({type: type});
+  },
+
+  vendorPage: function(){
+    actions.switchPage('VENDOR');
+  },
+
+  shelterPage: function (){
+    actions.switchPage('SHELTER');
   },
 
   render: function() {
@@ -44,6 +52,9 @@ var Donate = React.createClass({
                 <span>Take my money</span>
               </button>
         </StripeCheckout>
+
+        <button onClick= {this.vendorPage}>Vendor</button>
+        <button onClick= {this.shelterPage}>Shelter</button>
       </div>
     );
   }

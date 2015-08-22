@@ -1,9 +1,5 @@
-if (process.env.dev === 'development') {
-  var keys = require('./config');
-} else {
-  var keys;
-}
 
+var keys = require('./config');
 var CLIENT_ID = process.env.CLIENT_ID || keys.CLIENT_ID;
 var SECRET_KEY = process.env.SECRET_KEY || keys.SECRET_KEY;
 var TOKEN_URI = 'https://connect.stripe.com/oauth/token';

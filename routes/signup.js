@@ -22,7 +22,7 @@ router.post('/donor', function(req, res) {
 // Create vendor stripe account and add record to DB
 router.post('/vendor', function(req, res) {
   stripeHandler.createStripeAccount(req, res, function(newAccount){
-    res.send('Success!');
+    res.send(newAccount);
   });
 });
 
