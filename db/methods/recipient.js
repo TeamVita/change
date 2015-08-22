@@ -4,9 +4,9 @@ var recipient = {
   create: function(recipient) {
     return db.Recipient.findOrCreate({
       where: { 
-        firstName: recipient.firstName, 
-        lastName: recipient.lastName,
-        totalAmount: 0,
+        food: 0,
+        cloth: 0,
+        password: password,
         pin: recipient.pin
       },
       default: {
@@ -17,17 +17,6 @@ var recipient = {
     })
     .catch(function() {
         throw new Error('Unknown error at method recipient create()');
-    })
-  },
-
-  // TODO: Fix this one by only requiring one entry
-  findOneByName: function(firstName, lastName) {
-    return db.Recipient.findOne({ where: { firstName: firstName, lastName: lastName } }).then(function(recipient) {
-      // console.log("find a recipient", recipient);
-      return recipient;
-    })
-    .catch(function() {
-      throw new Error('Unknown error at method recipient findOneByEmail()');
     })
   },
 

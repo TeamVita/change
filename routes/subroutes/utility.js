@@ -4,6 +4,7 @@ var models = require('../../db');
 var utility = {
   // db init
 
+  // TODO: pin generator
   setUserType: function(req, res, next) {
     // verification
     // 'donor' by default
@@ -51,16 +52,18 @@ var utility = {
   },
 
   // TODO: PIN generator
-  createRecipient: function(pin, firstName, lastName) {
+  createRecipient: function(password) {
     // verification
-    var firstName = firstName;
-    var lastName = lastName;
     var pin = pin || 1000;
     var recipient = {
-      firstName: firstName,
-      lastName: lastName,
-      pin: pin
+      password: password
     };
+
+    return models.recipient.create(recipient).then(function(obj) {
+      console.log("Received created recipient from db", obj);
+      return obj;
+    });
+  },
 
     return models.recipient.create(recipient).then(function(obj) {
       console.log("Received created recipient from db", obj);
@@ -75,6 +78,7 @@ var utility = {
     });
   },
 
+  // Specific amountType: "food"/"cloth" to charge certain recipient with PIN tags
   chargeRecipientByPin: function(pin, chargedAmount, amountType) {
     if ( amountType !== 'food' || amountType !== 'cloth' ) {
       console.error('In updateByPin() amountType should either be "food" or "cloth" ');
