@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET donors listing. */
 router.get('/', function(req, res, next) {
-  res.send("Return all donors listing");
+  res.send("Return all vendors listing");
 });
 
 router.get('/:id', function(req, res, next) {
@@ -14,7 +14,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.put('/:id', function(req, res, next) {
-  res.send("Update donor!");
+  res.send("Update vendor!");
 });
 
 router.delete('/:id', function(req, res, next) {
