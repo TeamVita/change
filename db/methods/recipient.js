@@ -30,6 +30,7 @@ var recipient = {
     })
   },
 
+  // FIX ME
   findOneByPin: function(pin) {
     return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
       // console.log("find a recipient", recipient);
@@ -51,22 +52,16 @@ var recipient = {
   },
 
   // amountType: food/cloth
-  updateOneByPin: function(pin, newAmount, amountType){
-    if ( amountType !== 'food' || amountType !== 'cloth' ) {
-      console.error('In updateByPin() amountType should either be "food" or "cloth" ');
-      return null;
-    }
-
-    db.Recipient.update({ amountType: new_amount }, {
-      where: {
-        pin: pin
-      }
-    }).then(function(recipient){
-      return recipient;
-    })
-    .catch(function(){
-      throw new Error('Unknow errar at method recipient updateByPin');
-    })
+  updateOneByPin: function(pin, chargedAmount, amountType){
+    console.log("chargedAmount", chargedAmount);
+    // refactoring using increment
+    return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
+      console.log("updateOneByPin", recipient.get());
+      return recipient.decrement(amountType, {by: chargedAmount}).then(function(recipient) {
+        console.log("After decrementing", recipient.get());
+        return recipient.get();
+      });
+    })    
   }
 }
 

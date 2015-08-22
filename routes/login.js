@@ -43,7 +43,13 @@ router.post('/shelter', function(req, res) {
 
 router.post('/vendor/redeem', function(req, res) {
 	var results = req.body;
-	res.send(results);
+  utility.findRecipientByPin(1)
+  .then(function(recipient) {
+    return utility.chargeRecipientByPin(1, 100, "food");
+  })
+  .then(function(recipient) {
+    res.send(recipient);
+  })
 });
 
 module.exports = router;
