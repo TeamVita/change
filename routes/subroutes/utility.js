@@ -4,6 +4,15 @@ var models = require('../../db');
 var utility = {
   pin: 0,
 
+  initDB: function() {
+    if (process.env.dev === 'development') {
+      // Proceed with caution! DROP TABLES!
+      models.sequelize.sync({ force: true });  
+    } else {
+      models.sequelize.sync()
+    }
+  },
+
   set: function(key, value) {
     if (!this.get(key)) {
       console.error("Can't find " + key + " in utility!");
@@ -25,10 +34,6 @@ var utility = {
       return null;
     };
     return this.get(key) += 1;
-  },
-
-  initDB: function() {
-    console.log("Logging models", models);
   },
 
   setUserType: function(req, res, next) {
