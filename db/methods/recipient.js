@@ -59,7 +59,20 @@ var recipient = {
     .catch(function() {
       throw new Error('Unknown error at method recipient findAll()');
     })
-  }
+  },
+
+  updateByPin: function(pin, new_amount){
+    db.Recipient.update({amount: new_amount}, {
+     where: {
+       pin: pin
+     }
+    }).then(function(recipient){
+     return recipient;
+    })
+    .catch(function(){
+     throw new Error('Unknow errar at method recipient updateByPin');
+    })
+  },
 }
 
 module.exports = recipient;
