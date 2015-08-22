@@ -7,7 +7,8 @@ var welcome = React.createClass({
     event.preventDefault();
     var pin = this.refs.pin.getDOMNode().value.trim();
     var pass = this.refs.pass.getDOMNode().value.trim();
-    actions.getAmount({pin: pin, password: pass});
+    var bill = this.refs.bill.getDOMNode().value.trim();
+    actions.getAmount({pin: pin, password: pass, bill: bill});
   },
 
   render: function() {
@@ -15,9 +16,8 @@ var welcome = React.createClass({
       <div>
         <h1>WELCOME {this.props.business}</h1>
         <div><input type = 'text' placeholder = 'search for pin' ref = 'pin' size = '20'/></div>
-        <div><input type = 'text' placeholder = 'enter password' ref = 'pass'/> </div>
-        <div><input type = 'text' placeholder ='amount displayed from database'  /></div>
-        <div><input type = 'text' placeholder = 'Total amount from purchases'  /></div>
+        <div><input type = 'password' placeholder = 'enter password' ref = 'pass'/> </div>
+        <div><input type = 'text' placeholder = 'Bill amount' ref ='bill'  /></div>
         <button onClick = {this.requestAmount}>CHARGE</button>
       </div>
     );
