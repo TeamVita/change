@@ -29,7 +29,8 @@ var Donate = React.createClass({
   },
 
   render: function() {
-    var string_amount = parseInt(this.props.amount);
+    var string_amount = parseInt(this.refs.amount.getDOMNode().value.trim());
+    // var string_amount = parseInt(this.props.amount);
     var amount = (string_amount * 100)|| 100;
     return (
       <div id = 'form'>
