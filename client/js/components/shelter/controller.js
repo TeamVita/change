@@ -28,6 +28,7 @@ var Shelter = React.createClass({
   },
 
   handleClick: function() {
+    // TODO set login anchor class to 'hidden', or something
     this.setState({
       pane: 'login'
     });
