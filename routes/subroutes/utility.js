@@ -61,6 +61,7 @@ var utility = {
   },
 
   // Specific amountType: "food"/"cloth" to charge certain recipient with PIN tags
+  // chargedAmount is how much money will be reduced on recipient balance
   chargeRecipientByPin: function(pin, chargedAmount, amountType) {
     if ( amountType !== 'food' && amountType !== 'cloth' ) {
       console.error('In chargeRecipientByPin() amountType should either be "food" or "cloth" ');
