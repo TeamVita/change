@@ -3,8 +3,31 @@ var models = require('../../db');
 // TODO: utility functions
 var utility = {
   // db init
+  pin: 0,
 
-  // TODO: pin generator
+  set: function(key, value) {
+    if (!this.get(key)) {
+      console.error("Can't find " + key + " in utility!");
+      return null;
+    }
+    this.key = value;
+  },
+
+  get: function(key) {
+    if (!this.key) {
+      console.error("Can't find " + key + " in utility!");
+      return null;
+    }
+    return this.key;
+  },
+
+  generatePin: function() {
+    if (this.get(key) === null) {
+      return null;
+    };
+    return this.get(key) += 1;
+  },
+
   setUserType: function(req, res, next) {
     // verification
     // 'donor' by default
@@ -51,12 +74,16 @@ var utility = {
 
   },
 
-  // TODO: PIN generator
-  createRecipient: function(password) {
+  createRecipient: function(password, pin) {
     // verification
-    var pin = pin || 1000;
+    var pin = pin || this.generatePin();
+    if (pin <= this.get('pin') || pin > 9999) {
+      console.log("In utility createRecipient(), invalid PIN number! Call built-in pin generator.");
+      pin = this.generatePin();
+    };
     var recipient = {
-      password: password
+      password: password,
+      pin: pin
     };
 
     return models.recipient.create(recipient).then(function(obj) {
@@ -72,7 +99,11 @@ var utility = {
   },
 
   findRecipientByPin: function(pin) {
-    // TODO: guarding code
+    // Pin number out of range?
+    if (typeof pin !== 'number') {
+      console.error("In utility findRecipientByPin(), pin number has to be a javascript number!");
+      return null;
+    }
     return models.recipient.findOneByPin(pin).then(function(recipient) {
       return recipient.get();
     });
