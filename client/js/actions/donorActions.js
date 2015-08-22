@@ -2,6 +2,7 @@ var Dispatcher = require('../dispatcher/Appdispatcher');
 var Constants = require('../constants/Constants.js');
 var ActionTypes = Constants.ActionTypes;
 
+
 module.exports = {
 	// POST donation info to initiate Stripe payment
 	donate: function(info) {

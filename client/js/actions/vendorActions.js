@@ -10,7 +10,11 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
+<<<<<<< HEAD
 				welcome('welcome', data.business_name);
+=======
+				welcome('welcome', data);
+>>>>>>> [update] Working on Vendor checking pin/pass
 			},
 			error: function(error) {
 				console.log(error);
@@ -20,7 +24,7 @@ module.exports = {
 
 	getAmount: function(pin) {
 		$.ajax({
-			url: '/login/vendor',
+			url: '/login/vendor/redeem',
 			type: 'POST',
 			data: pin,
 			success: function(data) {

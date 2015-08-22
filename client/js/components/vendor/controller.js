@@ -13,9 +13,10 @@ var Signup = React.createClass({
 
   // Render different form pane
   changePane: function(pane, business) {
+    var vendorAccount = arguments[2];
     this.setState({
       pane: pane,
-      business: arguments[2]
+      business: vendorAccount.business_name
     });
   },
 
