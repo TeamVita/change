@@ -5,14 +5,18 @@ var utility = require('./subroutes/utility');
 
 router.post('/vendor', function(req, res) {
   // TODO Check DB for req.body.email and password
+  // utility.checkVendor(req.body.email, req.body.password).then(function(result){
+  //  res.send(result);
+//   });
   // TODO respond with result
-  console.log(req.body);
 });
 
 router.post('/shelter', function(req, res) {
   // TODO Check DB for req.body.email and password
+  // utility.checkVendor(req.body.email, req.body.password).then(function(result){
+  //  res.send(result);
+//   });
   // TODO respond with result
-  console.log(req.body);
 });
 
 module.exports = router;

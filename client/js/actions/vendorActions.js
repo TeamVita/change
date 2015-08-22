@@ -18,13 +18,13 @@ module.exports = {
 		});
 	},
 
-	logIn: function(info, welcome) {
+	logIn: function(info, cb) {
 		$.ajax({
 			url: '/login/vendor',
 			type: 'POST',
 			data: info,
 			success: function(data) {
-				welcome('welcome', data.business_name);
+				cb('welcome', data.business_name);
 			},
 			error: function(error) {
 				console.log(error);
