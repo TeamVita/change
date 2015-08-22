@@ -22,10 +22,8 @@ router.post('/shelter', function(req, res) {
 //   });
 
   // TODO respond with result
-});
 
-router.post('/vendor/redeem', function(req, res) {
-	var results = req.body;
+  // Test code for searching a recipient
   // utility.createRecipient("123", 1).then(function(recipient) {
   //   return recipient;
   // })
@@ -40,6 +38,11 @@ router.post('/vendor/redeem', function(req, res) {
       res.send("Error!!");
     }
   });
+
+});
+
+router.post('/vendor/redeem', function(req, res) {
+	var results = req.body;
 	res.send(results);
 });
 
