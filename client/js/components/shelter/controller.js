@@ -48,7 +48,11 @@ var Shelter = React.createClass({
 
     if (this.state.pane === 'login') {
       var loginData = this.refs.partial.getFields();
-      shelterActions.logIn(loginData, this.changePane.bind(this, 'welcome'));
+      shelterActions.logIn(loginData, function(result) {
+        if (result) {
+          this.changePane.bind(this, 'welcome');
+        }
+      });
     } else {
       var fields = this.refs.partial.getFields();
       // console.log("Prop", this.props);

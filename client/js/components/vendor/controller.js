@@ -45,7 +45,11 @@ var Signup = React.createClass({
 
     function loginResponseHandler() {
       var loginData = this.refs.partial.getFields();
-      actions.logIn(loginData, this.changePane.bind(this, 'welcome'));
+      actions.logIn(loginData, function(result) {
+        if (result) {
+          this.changePane.bind(this, 'welcome');
+        }
+      });
     }
 
     // Save personal info to state for later bundling with bank info
