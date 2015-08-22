@@ -6,7 +6,7 @@ var recipient = {
       where: { 
         food: 0,
         cloth: 0,
-        password: password,
+        password: recipient.password,
         pin: recipient.pin
       },
       default: {
@@ -16,7 +16,7 @@ var recipient = {
       return results[0].get({ plain: true });
     })
     .catch(function() {
-        throw new Error('Unknown error at method recipient create()');
+      throw new Error('Unknown error at method recipient create()');
     })
   },
 
@@ -36,7 +36,7 @@ var recipient = {
       return recipient;
     })
     .catch(function() {
-      throw new Error('Unknown error at method recipient findOneByEmail()');
+      throw new Error('Unknown error at method recipient findOneByPin()');
     })
   },
 

@@ -4,10 +4,8 @@ module.exports = function(sequelize, DataTypes) {
 
     cloth: DataTypes.DECIMAL(10, 2),
 
-    // pin: { 
-    //   DataTypes.INTEGER,
-    //   autoIncrement: true
-    // }
+    password: DataTypes.STRING,
+
     pin: DataTypes.INTEGER
   })
 }
