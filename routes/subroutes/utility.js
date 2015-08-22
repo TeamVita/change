@@ -95,12 +95,6 @@ var utility = {
     });
   },
 
-    return models.recipient.create(recipient).then(function(obj) {
-      console.log("Received created recipient from db", obj);
-      return obj;
-    });
-  },
-
   findRecipientByPin: function(pin) {
     // Pin number out of range?
     if (typeof pin !== 'number') {
