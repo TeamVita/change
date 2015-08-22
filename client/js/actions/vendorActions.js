@@ -10,6 +10,7 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
+				console.log(data, 'this is the data');
 				welcome('welcome', data);
 			},
 			error: function(error) {
@@ -18,7 +19,23 @@ module.exports = {
 		});
 	},
 
-	getAmount: function(pin) {
+	showAmount: function(pin) {
+		$.ajax({
+			url: '/login/vendor/retrieve',
+			type: 'POST',
+			data: pin,
+			success: function(data) {
+				console.log('success from show Amount');
+				var balance = data;
+				getData(balance);
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		});
+	},
+
+	charge: function(pin) {
 		$.ajax({
 			url: '/login/vendor/redeem',
 			type: 'POST',

@@ -67,12 +67,10 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 	      SignupStore.emitChange();
 	      break;
 
-	      case ActionTypes.DONOR_LOGIN:
-	      console.log('hitting in donor login');
+	    case ActionTypes.DONOR_LOGIN:
 			appState.pane = action.pane;
 			SignupStore.emitChange();
 			break;
-
 	}
 });
 
