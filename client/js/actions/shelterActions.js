@@ -36,6 +36,20 @@ module.exports = {
         console.log(error);
       }.bind(this)
     });
-  }
+  },
+
+  createPIN: function() {
+		$.ajax({
+			url: '/vendor',
+			type: 'GET',
+			success: function(data) {
+
+			},
+			error: function(error) {
+				console.error(error);
+			}
+		});
+	}
+
 
 };
