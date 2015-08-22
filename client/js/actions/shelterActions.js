@@ -38,12 +38,12 @@ module.exports = {
     });
   },
 
-  createPIN: function() {
+  createPIN: function(cb) {
 		$.ajax({
 			url: '/vendor',
 			type: 'GET',
 			success: function(data) {
-
+        cb(data);
 			},
 			error: function(error) {
 				console.error(error);
