@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prestart": "npm install",
     "start": "browserify -t reactify client/app.js -o client/build/build.js; node ./bin/www"
   },
   "dependencies": {

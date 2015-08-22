@@ -61,18 +61,24 @@ var recipient = {
     })
   },
 
-  updateByPin: function(pin, new_amount){
-    db.Recipient.update({amount: new_amount}, {
-     where: {
-       pin: pin
-     }
+  // amountType: food/cloth
+  updateOneByPin: function(pin, newAmount, amountType){
+    if ( amountType !== 'food' || amountType !== 'cloth' ) {
+      console.error('In updateByPin() amountType should either be "food" or "cloth" ');
+      return null;
+    }
+
+    db.Recipient.update({ amountType: new_amount }, {
+      where: {
+        pin: pin
+      }
     }).then(function(recipient){
-     return recipient;
+      return recipient;
     })
     .catch(function(){
-     throw new Error('Unknow errar at method recipient updateByPin');
+      throw new Error('Unknow errar at method recipient updateByPin');
     })
-  },
+  }
 }
 
 module.exports = recipient;

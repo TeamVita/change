@@ -4,7 +4,9 @@ module.exports = function(sequelize, DataTypes) {
 
     lastName: DataTypes.STRING,
 
-    totalAmount: DataTypes.DECIMAL(10, 2),
+    food: DataTypes.DECIMAL(10, 2),
+
+    cloth: DataTypes.DECIMAL(10, 2),
 
     pin: DataTypes.INTEGER
   })

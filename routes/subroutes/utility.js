@@ -74,6 +74,30 @@ var utility = {
       return recipient.get();
     });
   },
+
+  chargeRecipientByPin: function(pin, chargedAmount, amountType) {
+    if ( amountType !== 'food' || amountType !== 'cloth' ) {
+      console.error('In updateByPin() amountType should either be "food" or "cloth" ');
+      return null;
+    };
+
+    this.findRecipientByPin(pin).then(function(recipient) {
+      if (recipient) {
+        return recipient;
+      }
+      console.error("In utility chargedRecipientByPin(), cannot find recipient with PIN", pin);
+    })
+    .then(function(recipient) {
+      if (recipient) {
+        var newAmount = recipient.get().amountType - chargedAmount;
+        if (newAmount < 0) {
+          console.error("In utility chargedRecipientByPin(), insufficient fund! for recipient with PIN", pin);
+          return null;
+        }
+        return models.recipient.updateOneByPin(pin, newAmount, amountType);
+      };
+    });
+  }
 }
 
 module.exports = utility;
