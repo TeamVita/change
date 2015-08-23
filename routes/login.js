@@ -12,7 +12,17 @@ router.post('/vendor', function(req, res) {
   //  res.send(result);
 //   });
   // TODO respond with result
-	res.send({business_name: 'salvation army'}); // test
+
+
+
+  utility.findAccountByEmail(req.body.email, 'vendor')
+  .then(function(account) {
+    if (account) {
+      res.send(account);
+    } else {
+      res.send("Error!!");
+    }
+  });
 });
 
 router.post('/shelter', function(req, res) {

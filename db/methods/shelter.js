@@ -30,7 +30,6 @@ var Shelter = {
 
   findOneByEmail: function(email) {
     return db.Shelter.findOne({ where: { email: email } }).then(function(shelter) {
-      console.log(shelter);
       return shelter;
     })
     .catch(function() {
