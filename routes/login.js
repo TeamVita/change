@@ -30,6 +30,7 @@ router.post('/shelter', function(req, res) {
   // .then(function(recipient) {
   //   return utility.findRecipientByPin(1);
   // })
+
   utility.findRecipientByPin(1)
   .then(function(recipient) {
     if (recipient) {
@@ -42,8 +43,16 @@ router.post('/shelter', function(req, res) {
 });
 
 router.post('/vendor/redeem', function(req, res) {
+  utility.initDB();
+  
 	var results = req.body;
-	res.send(results);
+  utility.findRecipientByPin(1)
+  .then(function(recipient) {
+    return utility.chargeRecipientByPin(1, 100, "food");
+  })
+  .then(function(recipient) {
+    res.send(recipient);
+  })
 });
 
 module.exports = router;

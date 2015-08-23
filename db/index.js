@@ -15,7 +15,7 @@ var sequelize = new Sequelize(process.env.DATABASE_URL || connectionString);
 
 sequelize.authenticate()
   .then(function() {
-    console.log('Connection to DB!');
+    console.log('Successfully connecting to DB!');
    })
   .catch(function(err) {
     console.error('Failed to connect to DB: ', err);
@@ -23,17 +23,15 @@ sequelize.authenticate()
   .done();
 
 var models = [
-  'Donor',
-  'Donation',
   'Recipient',
-  'Purchase'
+  'Vendor',
+  'Shelter'
 ];
 
 var methods = [
-  'donor',
-  'donation',
   'recipient',
-  'purchase'
+  'vendor',
+  'shelter'
 ];
 
 models.forEach(function(model) {
@@ -45,11 +43,7 @@ methods.forEach(function(method) {
 });
 
 (function(m) {
-  m.Donor.hasMany(m.Donation, { as: "donation" });
-  m.Donation.belongsTo(m.Donor);
-  m.Recipient.hasMany(m.Donation, { as: 'donation' });
-  m.Donation.belongsTo(m.Recipient);
-  m.Recipient.hasMany(m.Purchase, { as: 'purchase' });
+  
 })(module.exports);
 
 
