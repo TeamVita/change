@@ -30,15 +30,16 @@ router.post('/shelter', function(req, res) {
   // .then(function(recipient) {
   //   return utility.findRecipientByPin(1);
   // })
-  utility.findRecipientByPin(1)
-  .then(function(recipient) {
-    if (recipient) {
-      res.send(recipient);
-    } else {
-      res.send("Error!!");
-    }
-  });
+  // utility.findRecipientByPin(1)
+  // .then(function(recipient) {
+  //   if (recipient) {
+  //     res.send(recipient);
+  //   } else {
+  //     res.send("Error!!");
+  //   }
+  // });
 
+	res.send({business_name: 'salvation army'}); // test
 });
 
 router.post('/vendor/redeem', function(req, res) {

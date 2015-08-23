@@ -15,6 +15,7 @@ var session = require('express-session');
 var signup = routers.signup;
 var login = routers.login;
 var donate = routers.donate;
+var pin = routers.pin;
 
 var sess = {
   secret: 'team vita',
@@ -36,5 +37,6 @@ app.use('/', express.static(path.join(__dirname, './client')));
 app.use('/donate', donate);
 app.use('/signup', signup);
 app.use('/login', login);
+app.use('/pin', pin);
 
 module.exports = app;
