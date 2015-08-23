@@ -7,11 +7,6 @@ router.post('/donor', function(req, res) {
 });
 
 router.post('/vendor', function(req, res) {
-  // TODO Check DB for req.body.email and password
-  // utility.checkVendor(req.body.email, req.body.password).then(function(result){
-  //  res.send(result);
-//   });
-  // TODO respond with result
 
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
@@ -22,26 +17,10 @@ router.post('/vendor', function(req, res) {
     }
   });
 
-  // Test code for updating request params
-  // res.send(process.env.dev);
 });
 
 router.post('/shelter', function(req, res) {
-  // TODO Check DB for req.body.email and password
-  // utility.checkVendor(req.body.email, req.body.password).then(function(result){
-  //  res.send(result);
-//   });
-
-  // TODO respond with result
-
-  // Test code for searching a recipient
-  // utility.createRecipient("123", 1).then(function(recipient) {
-  //   return recipient;
-  // })
-  // .then(function(recipient) {
-  //   return utility.findRecipientByPin(1);
-  // })
-
+  
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
     if (account) {
@@ -64,8 +43,7 @@ router.post('/vendor/:id/redeem/', function(req, res) {
   .then(function(recipient) {
     res.send(recipient);
   })
-
-  // res.send(req.params.id);
+  
 });
 
 module.exports = router;
