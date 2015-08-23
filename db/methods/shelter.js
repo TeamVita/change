@@ -16,7 +16,7 @@ var Shelter = {
     })
     .catch(function() {
       throw new Error('Unknown error at method shelter create()');
-    })
+    });
   },
 
   findOneById: function(id) {
@@ -25,16 +25,17 @@ var Shelter = {
     })
     .catch(function() {
       throw new Error('Unknown error at method shelter findOneById()');
-    })
+    });
   },
 
   findOneByEmail: function(email) {
     return db.Shelter.findOne({ where: { email: email } }).then(function(shelter) {
+      console.log(shelter);
       return shelter;
     })
     .catch(function() {
       throw new Error('Unknown error at method shelter findOneByEmail()');
-    })
+    });
   },
 
   findAll: function() {
@@ -44,8 +45,8 @@ var Shelter = {
     })
     .catch(function() {
       throw new Error('Unknown error at method shelter findAll()');
-    })
+    });
   }
-}
+};
 
 module.exports = Shelter;

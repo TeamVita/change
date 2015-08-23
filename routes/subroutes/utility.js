@@ -66,7 +66,7 @@ var utility = {
     if ( amountType !== 'food' && amountType !== 'cloth' ) {
       console.error('In chargeRecipientByPin() amountType should either be "food" or "cloth" ');
       return null;
-    };
+    }
 
     return models.recipient.updateOneByPin(pin, chargedAmount, amountType);
   },
@@ -81,6 +81,6 @@ var utility = {
     }
   }
 
-}
+};
 
 module.exports = utility;

@@ -31,16 +31,15 @@ router.post('/shelter', function(req, res) {
   //   return utility.findRecipientByPin(1);
   // })
 
-  utility.findRecipientByPin(1)
-  .then(function(recipient) {
-    if (recipient) {
-      res.send(recipient);
+  utility.findAccountByEmail(req.body.email)
+  .then(function(account) {
+    if (account) {
+      res.send(account);
     } else {
       res.send("Error!!");
     }
   });
 
-	res.send({business_name: 'salvation army'}); // test
 });
 
 router.post('/vendor/redeem', function(req, res) {
