@@ -13,8 +13,6 @@ router.post('/vendor', function(req, res) {
 //   });
   // TODO respond with result
 
-
-
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
     if (account) {
@@ -23,6 +21,9 @@ router.post('/vendor', function(req, res) {
       res.send("Error!!");
     }
   });
+
+  // Test code for updating request params
+  // res.send(process.env.dev);
 });
 
 router.post('/shelter', function(req, res) {
@@ -52,8 +53,8 @@ router.post('/shelter', function(req, res) {
 
 });
 
-router.post('/vendor/redeem', function(req, res) {
-  utility.initDB();
+router.post('/vendor/:id/redeem/', function(req, res) {
+ //  utility.initDB();
 
 	var results = req.body;
   utility.findRecipientByPin(1)
@@ -63,6 +64,8 @@ router.post('/vendor/redeem', function(req, res) {
   .then(function(recipient) {
     res.send(recipient);
   })
+
+  // res.send(req.params.id);
 });
 
 module.exports = router;

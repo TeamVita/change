@@ -9,7 +9,7 @@ var utility = {
       // Proceed with caution! DROP TABLES!
       return models.sequelize.sync({ force: true });
     } else {
-      return models.sequelize.sync()
+      return models.sequelize.sync();
     }
   },
 
@@ -37,15 +37,15 @@ var utility = {
       console.log("In utility createRecipient(), invalid PIN number! Call built-in pin generator.");
       pin = this.generatePin();
     };
-    console.log("createRecipient pin", pin);
+    // console.log("createRecipient pin", pin);
     var recipient = {
       password: password,
       pin: pin
     };
 
-    return models.recipient.create(recipient).then(function(obj) {
-      console.log("Received created recipient from db", obj);
-      return obj;
+    return models.recipient.create(recipient).then(function(recipient) {
+      console.log("Received created recipient from db", recipient);
+      return recipient;
     });
   },
 
@@ -63,12 +63,36 @@ var utility = {
   // Specific amountType: "food"/"cloth" to charge certain recipient with PIN tags
   // chargedAmount is how much money will be reduced on recipient balance
   chargeRecipientByPin: function(pin, chargedAmount, amountType) {
-    if ( amountType !== 'food' && amountType !== 'cloth' ) {
+    if (amountType !== 'food' && amountType !== 'cloth') {
       console.error('In chargeRecipientByPin() amountType should either be "food" or "cloth" ');
       return null;
     }
 
     return models.recipient.updateOneByPin(pin, chargedAmount, amountType);
+  },
+
+  createVendor: function(email, password, username, vendorType) {
+    if (email === undefined) {
+      console.error('In createVendor(), require email to create vendor');
+      return null;
+    }
+
+    if (vendorType !== 'food' && vendorType !== 'cloth') {
+      console.error('In chargeRecipientByPin() vendorType should either be "food" or "cloth" ');
+      return null;
+    }
+
+    var vendorInfo = {
+      email: email,
+      password: password,
+      username: username,
+      vendorType: vendorType
+    }
+
+    return models.vendor.create(vendorInfo).then(function(vendor) {
+      console.log("Received created vendor from db", vendor);
+      return vendor;
+    });
   },
 
   findAccountByEmail: function(email, organization) {
@@ -78,7 +102,7 @@ var utility = {
       return models.vendor.findOneByEmail(email);
     } else {
       console.error('Invalid organization type');
-    }
+    } 
   }
 
 };

@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
 
-    chargeType: DataTypes.STRING,           // food or cloth
+    vendorType: DataTypes.STRING,           // food or cloth
 
     password: DataTypes.STRING
   })
