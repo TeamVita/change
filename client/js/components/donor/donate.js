@@ -41,7 +41,7 @@ var Donate = React.createClass({
   },
 
   render: function() {
-    
+
     return (
       <div id = 'form'>
         <form><h1>Make a Change!</h1>
@@ -51,6 +51,7 @@ var Donate = React.createClass({
             <input placeholder='amount' type = 'text' ref ='amount' onChange={this.handleChange} />
           </div>
         </form>
+        <br/>
         <div>
           <button onClick={this.handleClick} value='food'>Food</button>
           <button onClick={this.handleClick} value='clothing'>Clothing</button>

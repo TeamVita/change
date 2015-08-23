@@ -24,7 +24,7 @@ var OrgSignup = React.createClass({
   render: function() {
     return (
       <div id = 'form'>
-        <h1>Welcome to Organization Login Page</h1>
+        <h1>Welcome to Shelter Signup Page</h1>
         <div className ='input'>
           <input placeholder='Organization Name' ref='email' type ='text'/>
         </div>

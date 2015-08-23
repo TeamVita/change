@@ -44,7 +44,7 @@ module.exports = {
 			}
 		});
 	},
-	
+
 	switchPage: function(page) {
 		Dispatcher.dispatch({
 			type: ActionTypes.SWITCH_PAGE,

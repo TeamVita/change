@@ -8,8 +8,8 @@ var NewPin = React.createClass({
     return (
       <div>
         <h1>Here is your new account info:</h1>
-        <h2>{this.state.PIN}</h2>
-        <h2>{this.state.password}</h2>
+        <h2>{this.props.PIN}</h2>
+        <h2>{this.props.password}</h2>
       </div>
     );
   }

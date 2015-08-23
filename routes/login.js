@@ -12,7 +12,7 @@ router.post('/vendor', function(req, res) {
   //  res.send(result);
 //   });
   // TODO respond with result
-	
+	res.send({business_name: 'salvation army'}); // test
 });
 
 router.post('/shelter', function(req, res) {
@@ -40,11 +40,12 @@ router.post('/shelter', function(req, res) {
     }
   });
 
+	res.send({business_name: 'salvation army'}); // test
 });
 
 router.post('/vendor/redeem', function(req, res) {
   utility.initDB();
-  
+
 	var results = req.body;
   utility.findRecipientByPin(1)
   .then(function(recipient) {
