@@ -17,7 +17,7 @@ var Vendor = {
     })
     .catch(function() {
       throw new Error('Unknown error at method Vendor create()');
-    })
+    });
   },
 
   findOneById: function(id) {
@@ -26,7 +26,7 @@ var Vendor = {
     })
     .catch(function() {
       throw new Error('Unknown error at method vendor findOneById()');
-    })
+    });
   },
 
   findOneByEmail: function(email) {
@@ -35,7 +35,7 @@ var Vendor = {
     })
     .catch(function() {
       throw new Error('Unknown error at method vendor findOneByEmail()');
-    })
+    });
   },
 
   findAll: function() {
@@ -45,8 +45,8 @@ var Vendor = {
     })
     .catch(function() {
       throw new Error('Unknown error at method vendor findAll()');
-    })
+    });
   }
-}
+};
 
 module.exports = Vendor;

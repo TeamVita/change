@@ -7,7 +7,7 @@ var utility = {
   initDB: function() {
     if (process.env.dev === 'development') {
       // Proceed with caution! DROP TABLES!
-      return models.sequelize.sync({ force: true });  
+      return models.sequelize.sync({ force: true });
     } else {
       return models.sequelize.sync()
     }
@@ -66,10 +66,21 @@ var utility = {
     if ( amountType !== 'food' && amountType !== 'cloth' ) {
       console.error('In chargeRecipientByPin() amountType should either be "food" or "cloth" ');
       return null;
-    };
+    }
 
     return models.recipient.updateOneByPin(pin, chargedAmount, amountType);
+  },
+
+  findAccountByEmail: function(email, organization) {
+    if (organization === 'shelter') {
+      return models.shelter.findOneByEmail(email);
+    } else if (organization === 'vendor') {
+      return models.vendor.findOneByEmail(email);
+    } else {
+      console.error('Invalid organization type');
+    }
   }
-}
+
+};
 
 module.exports = utility;
