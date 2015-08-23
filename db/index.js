@@ -23,12 +23,10 @@ sequelize.authenticate()
   .done();
 
 var models = [
-  'Donor',
   'Recipient'
 ];
 
 var methods = [
-  'donor',
   'recipient'
 ];
 
