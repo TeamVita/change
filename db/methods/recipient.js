@@ -53,12 +53,10 @@ var recipient = {
 
   // amountType: food/cloth
   updateOneByPin: function(pin, chargedAmount, amountType){
-    console.log("chargedAmount", chargedAmount);
-    // refactoring using increment
     return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
-      console.log("updateOneByPin", recipient.get());
+      // console.log("updateOneByPin", recipient.get());
       return recipient.decrement(amountType, {by: chargedAmount}).then(function(recipient) {
-        console.log("After decrementing", recipient.get());
+        // console.log("After decrementing", recipient.get());
         return recipient.get();
       });
     })    

@@ -30,6 +30,7 @@ router.post('/shelter', function(req, res) {
   // .then(function(recipient) {
   //   return utility.findRecipientByPin(1);
   // })
+
   utility.findRecipientByPin(1)
   .then(function(recipient) {
     if (recipient) {
@@ -42,6 +43,8 @@ router.post('/shelter', function(req, res) {
 });
 
 router.post('/vendor/redeem', function(req, res) {
+  utility.initDB();
+  
 	var results = req.body;
   utility.findRecipientByPin(1)
   .then(function(recipient) {
