@@ -84,7 +84,7 @@ var Signup = React.createClass({
     } else if (this.state.pane === 'bank') {
       partial = <BankInfo ref='partial' />;
     } else if (this.state.pane === 'welcome') {
-      partial = <Welcome business = {this.state.business} ref='partial' />;
+      partial = <Welcome business={this.state.business} ref='partial' />;
     } else {
       // default to signup page
       partial = <PersonalInfo ref='partial' />;

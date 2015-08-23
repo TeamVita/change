@@ -40,7 +40,7 @@ module.exports = {
 
   createPIN: function(cb) {
 		$.ajax({
-			url: '/vendor',
+			url: '/pin',
 			type: 'GET',
 			success: function(data) {
         cb(data);
