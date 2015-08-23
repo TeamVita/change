@@ -23,7 +23,9 @@ sequelize.authenticate()
   .done();
 
 var models = [
-  'Recipient'
+  'Recipient',
+  'Vendor',
+  'Shelter'
 ];
 
 var methods = [
