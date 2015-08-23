@@ -29,7 +29,9 @@ var models = [
 ];
 
 var methods = [
-  'recipient'
+  'recipient',
+  'vendor',
+  'shelter'
 ];
 
 models.forEach(function(model) {
