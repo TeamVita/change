@@ -12,6 +12,7 @@ var express = require('express');
 var router = express.Router();
 var stripeHandler = require('../stripeHandler');
 
+
 // Add donor record to DB
 router.post('/donor', function(req, res) {
 	res.send(req.body);
@@ -21,7 +22,13 @@ router.post('/donor', function(req, res) {
 
 // Create vendor stripe account and add record to DB
 router.post('/vendor', function(req, res) {
+	var type = req.body.type;
+  var password = req.body.pass;
   stripeHandler.createStripeAccount(req, res, function(newAccount){
+  	newAccount.type = type;
+    newAccount.password = password;
+    //call utility function to create a new vendor passing in  business name,email/password/type
+    //utility.createVendor(newAccount.business_name, newAccount.email, newAccount.password, newAccount.type);
     res.send(newAccount);
   });
 });
