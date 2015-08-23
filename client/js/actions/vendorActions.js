@@ -1,7 +1,6 @@
 var Dispatcher = require('../dispatcher/Appdispatcher');
 var Constants = require('../constants/Constants.js');
 var ActionTypes = Constants.ActionTypes;
-
 module.exports = {
 
 	signUp: function(info, welcome) {
@@ -10,7 +9,6 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
-				console.log(data, 'this is the data');
 				welcome('welcome', data);
 			},
 			error: function(error) {
@@ -25,9 +23,11 @@ module.exports = {
 			type: 'POST',
 			data: pin,
 			success: function(data) {
-				console.log('success from show Amount');
-				var balance = data;
-				getData(balance);
+				Dispatcher.dispatch({
+					pane: 'welcome', 
+					type: ActionTypes.SHOW_AMOUNT, 
+					balance: data.balance
+				});
 			},
 			error: function(error) {
 				console.log(error);
@@ -41,7 +41,11 @@ module.exports = {
 			type: 'POST',
 			data: pin,
 			success: function(data) {
-				console.log('This is the pin amount', data);
+				Dispatcher.dispatch({
+					pane: 'welcome', 
+					type: ActionTypes.CHARGE, 
+					balance: data.balance
+				});
 			},
 			error: function(error) {
 				console.log(error);

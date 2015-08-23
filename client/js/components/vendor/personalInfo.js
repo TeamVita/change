@@ -5,7 +5,6 @@ var personalInfo = React.createClass({
 
   // Collect values from input fields
   getFields: function() {
-    console.log("in getFiel");
     var fields = {};
     for (var key in this.refs){
       fields[key] = this.refs[key].getDOMNode().value.trim();

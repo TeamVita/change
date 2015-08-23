@@ -11,11 +11,11 @@ var Signup = React.createClass({
     return {pane: 'personal'};
   },
 
-  getBalance: function(balance) {
-    this.setState({ 
-      balance: balance
+  show: function(pane, data){
+    this.setState({
+      pane: pane,
+      balance: data.balance
     });
-    console.log('this is the balance', this.state.balance);
   },
 
   // Render different form pane
@@ -24,7 +24,7 @@ var Signup = React.createClass({
     this.setState({
       pane: pane,
       business: vendorAccount.business_name,
-      type: vendorAccount.type
+      type: vendorAccount.type, 
     });
   },
 
@@ -42,7 +42,7 @@ var Signup = React.createClass({
       loginResponseHandler.bind(this)();
     } else if (this.state.pane === 'personal'){
         personalResponseHandler.bind(this)();
-    } else {
+    } else if (this.state.pane === 'bank') {
         var bankAccount = this.refs.partial.getFields();
         Stripe.bankAccount.createToken({
           country: 'US',

@@ -71,6 +71,16 @@ SignupStore.dispatchToken = Dispatcher.register(function(action){
 			appState.pane = action.pane;
 			SignupStore.emitChange();
 			break;
+
+		case ActionTypes.SHOW_AMOUNT:
+			appState.pane = action.pane;
+			appState.balance = action.balance;
+			SignupStore.emitChange();
+
+		case ActionTypes.CHARGE:
+			appState.pane = action.pane;
+			appState.balance = action.balance;
+			SignupStore.emitChange();
 	}
 });
 
