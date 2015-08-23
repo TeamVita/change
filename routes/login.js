@@ -31,7 +31,7 @@ router.post('/shelter', function(req, res) {
   //   return utility.findRecipientByPin(1);
   // })
 
-  utility.findAccountByEmail(req.body.email)
+  utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
     if (account) {
       res.send(account);
