@@ -20,16 +20,16 @@ router.post('/vendor', function(req, res) {
 });
 
 router.post('/shelter', function(req, res) {
-  console.log('in login post shelter: ' + req.body.email);
-
-
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
-    console.log('in login post shelter: ' + account);
     if (account) {
       res.send(account);
     } else {
-      res.send("Error!!");
+      console.log('Login account not found');
+      var error = {
+        message: "We don't have any record of an account with this email and password combination."
+      };
+      res.send({error: error});
     }
   });
 
