@@ -5,9 +5,9 @@ var Vendor = {
     return db.Vendor.findOrCreate({
       where: {
         email: vendor.email,
-        name: vendor.username,
+        username: vendor.username,
         password: vendor.password,
-        chargeType: vendor.chargeType
+        vendorType: vendor.vendorType
       },
       default: {
       }
