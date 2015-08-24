@@ -15,11 +15,44 @@ var bankInfo = React.createClass({
   render: function() {
 
     return (
-      <div>
-        <h1>Give us your bank account info.</h1>
-        <div class ='input'><input placeholder='routing number' type ='text' ref ='routing' value='110000000'/></div>
-        <div class ='input'><input placeholder='account number' type = 'text' ref ='account' value='000123456789'/></div>
-        <input type ="submit" />
+      <div id="contact">
+        <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="formheader">Bank Account Information</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-8 col-lg-offset-2">
+              <form id="contactForm">
+                <div className="row control-group whitey">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Routing Number
+                      <input type="text" className="form-control" placeholder="" id="email" ref='routing'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Account Number
+                      <input type="text" className="form-control" placeholder="" id="name" ref='account'/>
+                  </div>
+                </div>
+                <div id="success" className="button"></div>
+                  <div className="row">
+                    <div className="form-group col-xs-12 text-center">
+                      <button type="submit" className="btn btn-success btn-lg">Send</button>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+         <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
       </div>
     );
   }

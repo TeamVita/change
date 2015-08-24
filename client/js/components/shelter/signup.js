@@ -22,18 +22,40 @@ var OrgSignup = React.createClass({
 
   render: function() {
     return (
-      <div id = 'form'>
-        <h1>Welcome to Shelter Signup Page</h1>
-        <div className ='input'>
-          <input placeholder='organization name' ref='name' type ='text'/>
+
+      <div id="contact">
+        <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="formheader">Organization Login</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-8 col-lg-offset-2">
+              <form id="contactForm">
+                <div className="row control-group whitey">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Organization Name
+                      <input type="text" className="form-control" placeholder="" id="email" ref='email'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Password
+                      <input type="password" onChange={this.onChange} className="form-control" placeholder="" id="name" ref='password' value={this.state.text}/>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
         </div>
-        <div className ='input'>
-          <input placeholder='email' ref='email' type ='text'/>
-        </div>
-        <div className ='input'>
-          <input placeholder="password" onChange={this.onChange} type='text' ref='password' value={this.state.text}/>
-        </div>
-        <input type ="submit" />
+         <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
       </div>
     );
   }

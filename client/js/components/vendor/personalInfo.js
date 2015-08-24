@@ -15,18 +15,63 @@ var personalInfo = React.createClass({
   render: function() {
 
     return (
-      <div>
-        <h1>Give us your personal info.</h1>
-        <div className ='input'><input placeholder='email' type ='text' ref ='email' value='vincent@awesome.com'/></div>
-        <div className ='input'><input placeholder='password' type ='password' ref ='pass'/></div>
-        <div className ='input'><input placeholder='first name' type = 'text' ref ='first_name' value='Vincent'/></div>
-        <div className ='input'><input placeholder='last name' type = 'text' ref ='last_name' value='Rupp'/></div>
-        <div className ='input'><input placeholder='dob_day' type = 'text' ref ='dob_day' value='21'/></div>
-        <div className ='input'><input placeholder='dob_month' type = 'text' ref ='dob_month' value='12'/></div>
-        <div className ='input'><input placeholder='dob_year' type = 'text' ref ='dob_year' value='1982'/></div>
-        <div className ='input'><input placeholder='business name' type = 'text' ref ='business_name' value='VITA'/></div>
-        <div className = 'input'><input placeholder='Enter "Food" or "Clothing"' type = 'text' ref = 'type'/></div> 
-        <input type ="submit" />
+      <div id="contact">
+        <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="formheader">Vendor Sign Up</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-8 col-lg-offset-2">
+              <form id="contactForm">
+                <div className="row control-group whitey">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Email
+                      <input type="text" className="form-control" placeholder="" id="email" ref='email'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    First Name
+                      <input type="text" className="form-control" placeholder="" id="name" ref='first_name'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Last Name
+                      <input type="text" className="form-control" placeholder="" id="name" ref='last_name'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                      Birthday
+                      <input type="date" className="form-control" placeholder="Birthday" id="birthday" ref='dob_day'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Business Name
+                      <input type="text" className="form-control" placeholder="" id="name" ref='business_name'/>
+                  </div>
+                </div>
+
+                <div id="success" className="button"></div>
+                  <div className="row">
+                    <div className="form-group col-xs-12 text-center">
+                      <button type="submit" className="btn btn-success btn-lg">Send</button>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+         <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
       </div>
     );
   }
