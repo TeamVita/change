@@ -4,9 +4,17 @@ var utility = require('./subroutes/utility');
 var auth = require('./subroutes/auth');
 // Login users
 router.post('/donor', function(req, res) {  
+  // Session test only
+  res.send(req.sessionID);
 });
 
 router.post('/vendor', function(req, res) {
+
+  // var email = req.body.email;
+  // var password = req.body.password;
+  // var username = req.body.username;
+  // var vendorType = req.body.vendorType;
+  // utility.createVendor(email, password, username, vendorType);
 
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
