@@ -15,6 +15,9 @@ module.exports = {
           console.log(error.message);
           // TODO display error.message to user;
         } else {
+          for (var prop in data){
+            console.log('in shelterActions login: ' + prop);
+          }
           welcome('welcome', data.business_name);
         }
       },

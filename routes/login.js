@@ -31,7 +31,7 @@ router.post('/shelter', function(req, res) {
       var error = {
         message: "We don't have an account on record with that username and password combination."
       };
-      res.send(error);
+      res.send({error: error});
     }
   });
 
