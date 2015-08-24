@@ -21,7 +21,6 @@ router.post('/vendor', function(req, res) {
   stripeHandler.createStripeAccount(req, res, function(newAccount){
   	newAccount.type = vendorType;
     newAccount.password = password;
-
     utility.createVendor(email, password, username, vendorType);
     res.send(newAccount);
   });
