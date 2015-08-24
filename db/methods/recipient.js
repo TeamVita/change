@@ -51,7 +51,7 @@ var recipient = {
     })
   },
 
-  // vendorType: food/cloth
+  // vendorType: food/clothing
   updateOneByPin: function(pin, chargedAmount, vendorType){
     return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
       // console.log("updateOneByPin", recipient.get());

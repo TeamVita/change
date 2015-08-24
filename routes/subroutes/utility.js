@@ -38,6 +38,11 @@ var utility = {
   },
 
   checkVendorType: function(vendorType) {
+    if (typeof vendorType !== 'string') {
+      return null;
+    }
+    vendorType = vendorType.toLowerCase();
+
     if (vendorType !== 'food' && vendorType !== 'clothing') {
       console.error('Invalid Vendor Type');
       return null;
