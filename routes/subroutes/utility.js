@@ -58,7 +58,7 @@ var utility = {
       return null;
     }
     return email;
-  }
+  },
 
   setUserType: function(req, res, next) {
     // verification
