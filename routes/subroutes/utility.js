@@ -1,5 +1,6 @@
 var Promise = require('bluebird');
 var models = require('../../db');
+var dictionary = require('../../dictionary');
 // TODO: utility functions
 var utility = {
   pin: 0,
@@ -22,6 +23,11 @@ var utility = {
     var pin = this.pin;
     this.pin += 1;
     return pin;
+  },
+
+  generatePassword: function() {
+    
+    return password;
   },
 
   checkPin: function(pin) {
