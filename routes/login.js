@@ -3,7 +3,7 @@ var router = express.Router();
 var utility = require('./subroutes/utility');
 var auth = require('./subroutes/auth');
 // Login users
-router.post('/donor', function(req, res) {  
+router.post('/donor', function(req, res) {
 });
 
 router.post('/vendor', function(req, res) {
@@ -22,13 +22,16 @@ res.send()
 
 router.post('/shelter', function(req, res) {
 
-  
+
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
     if (account) {
       res.send(account);
     } else {
-      res.send("Error!!");
+      var error = {
+        message: "We don't have an account on record with that username and password combination."
+      };
+      res.send(error);
     }
   });
 
@@ -42,7 +45,7 @@ router.post('/vendor/retrieve', function(req, res) {
   utility.findRecipientByPin(pin, 'food').then(function(recipient) {
     res.send(recipient);
   });
-  
+
 });
 
 router.post('/vendor/redeem', function(req, res) {
