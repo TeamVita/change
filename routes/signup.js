@@ -29,10 +29,10 @@ router.post('/vendor', function(req, res) {
   stripeHandler.createStripeAccount(req, res, function(newAccount){
   	newAccount.type = vendorType;
     newAccount.password = password;
-    //call utility function to create a new vendor passing in  business name,email/password/type
+
     utility.createVendor(email, password, username, vendorType).then(function(vendor) {
-      console.log(vendor);
-    })
+      // console.log(vendor);
+    });
     res.send(newAccount);
   });
 });

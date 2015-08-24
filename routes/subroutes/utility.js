@@ -32,7 +32,7 @@ var utility = {
   },
 
   checkVendorType: function(vendorType) {
-    if (vendorType !== 'food' && vendorType !== 'clothing') {
+    if (vendorType !== 'Food' && vendorType !== 'Clothing') {
       console.error('Invalid Vendor Type');
       return null;
     }
