@@ -40,13 +40,25 @@ var welcome = React.createClass({
       partial = <NewPin PIN={this.state.PIN} password={this.state.password}/>
     }
     return (
-      <div>
-        <h1>WELCOME {this.props.business}</h1>
-        <div>
+      <div id="contact">
+        <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="formheader">Welcome {this.props.business}</h2>
+            </div>
+          </div>
+          <div>
           <button onClick={this.createPIN}>Create a PIN!</button>
         </div>
         <br/>
         {partial}
+        </div>
+         <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
       </div>
     );
   }

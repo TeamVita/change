@@ -1,14 +1,4 @@
-#test {
-	background-color: white;
-	text-align: center;
-	border-radius: 5%;
-	width: 30%;
-	margin: auto;
-}
 
-body {
-	background-color: #B8B8B8;
-}
 
 .input {
 	padding: 1%;
@@ -19,6 +9,121 @@ body {
 	width: 15%;
 }
 
+.images {
+  max-width: 210px;
+  max-height: 180px;
+  height: auto;
+  width: auto;
+}
+
+.img .steps {
+   max-width: px;
+  max-height: 980px;
+  height: auto;
+  width: auto;
+}
+
+.vendor {
+  color: #133F5F;
+}
+
+.middle {
+  text-align: center;
+  margin: auto;
+}
+
+.button {
+  padding-top: 0px;
+  padding-left: 45px;
+  padding-right: 50px;
+  /*padding-bottom: 30px;*/
+}
+
+.fullwidth {
+  min-height: 130px;
+  vertical-align: middle;
+  padding-top: 19px;
+}
+
+.formheader {
+  padding-bottom: 30px;
+  padding-top: 40px;
+  color: #133F5F;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.formheader2 {
+  padding-bottom: 30px;
+  padding-top: 10px;
+  color: #133F5F;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+  padding: 10px 100px;
+}
+
+
+.clothes {
+  /*padding: 15px 25px;*/
+  /*font-size: 33px;*/
+  padding: 10px 50px;
+  background-color: white;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.food {
+  padding: 10px 50px;
+  background-color: purple;
+}
+
+.random {
+  padding: 10px 50px;
+  /*background-color: purple;*/
+}
 
 
 
+.booga2 {
+  padding-bottom: 35px;
+  padding-top: 45px;
+}
+
+.booga ::-webkit-input-placeholder {
+ font-size: 14px;
+ color: #d0cdfa;
+ /*text-transform: uppercase;*/
+ /*text-transform: uppercase;*/
+ text-align: center;
+ font-weight: bold;
+}
+
+input.booga::-webkit-input-placeholder {
+   /* Your style here e.g. font size, color etc */
+   font-size: 25px;
+
+}
+
+.fonty {
+  color: #133F5F;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.space {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+input[type=text], name {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+}
+/*dark blue: 133F5F
+yellow: FFD07F*/
+/*green #5cb85c*/

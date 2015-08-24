@@ -24,6 +24,7 @@
     "jade": "~1.11.0",
     "keymirror": "~0.1.0",
     "morgan": "~1.6.1",
+    "node-notifier": "^4.2.3",
     "notifier": "^0.1.7",
     "object-assign": "^3.0.0",
     "paypal-rest-sdk": "^1.6.0",

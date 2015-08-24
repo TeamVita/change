@@ -41,22 +41,50 @@ var Donate = React.createClass({
   },
 
   render: function() {
-
+        console.log('hello');
+      
     return (
-      <div id = 'form'>
-        <form><h1>Make a Change!</h1>
-          <div className='input'>
-            <input placeholder='PIN' type ='text' ref ='PIN' /></div>
-          <div className='input'>
-            <input placeholder='amount' type = 'text' ref ='amount' onChange={this.handleChange} />
-          </div>
-        </form>
-        <br/>
-        <div>
-          <button onClick={this.handleClick} value='food'>Food</button>
-          <button onClick={this.handleClick} value='clothing'>Clothing</button>
-        </div>
-        <br/>
+      <div id="contact">
+        <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
+        <div className="container">
+              <h2 className="text-center formheader2">Make a Donation</h2>
+
+               <div className="row">
+                  <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
+                    <span className="fonty">Pin Tag #</span>
+
+                      <input type="text" className="text-center" placeholder="####" id="name" ref='account'/>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
+                    <span className="fonty">Amount</span>
+                      <input type="text" className="text-center" placeholder="$0.00" id="name" ref='account'/>
+                  </div>
+                </div>
+             
+            <div className="col-lg-12 text-center">
+              <h4 className="formheader">Where do you want the money to go?</h4>   
+               <div className="space">
+                <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes">      
+                  <input type ='image' src={"./styles/images/Clothes_Icon.png"}ref ='PIN' />
+                </button>
+                 <button type="submit" onClick={this.handleClick} value='food' className="btn btn-lg clothes">
+                  <input type ='image' src={"./styles/images/Food_Icon.png"}ref ='PIN' />
+                </button>
+              </div>
+            </div>
+              <div id="success" className="button"></div>
+                  <div className="row boo">
+                    <div className="form-group col-xs-12 text-center booga2">
+                      <button type="submit" className="btn btn-success btn-lg">Send</button>
+                    </div>
+                  </div>
+              </div>
+
+              <br/>
       <StripeCheckout
               name="Change"
               description= "Thanks for Change!"
@@ -72,6 +100,10 @@ var Donate = React.createClass({
         <br/>
         <button onClick= {this.vendorPage}>Vendor</button>
         <button onClick= {this.shelterPage}>Shelter</button>
+
+         <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
       </div>
     );
   }
