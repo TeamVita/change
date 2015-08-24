@@ -24,4 +24,4 @@ var auth = {
   }
 }
 
-module.exports.auth = auth;
+module.exports = auth;

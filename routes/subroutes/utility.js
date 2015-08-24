@@ -32,7 +32,7 @@ var utility = {
   },
 
   checkVendorType: function(vendorType) {
-    if (vendorType !== 'food' && vendorType !== 'cloth') {
+    if (vendorType !== 'food' && vendorType !== 'clothing') {
       console.error('Invalid Vendor Type');
       return null;
     }
@@ -112,6 +112,24 @@ var utility = {
     return models.vendor.create(vendorInfo).then(function(vendor) {
       console.log("Received created vendor from db", vendor);
       return vendor;
+    });
+  },
+
+  createShelter: function(email, password, username) {
+    if (email === undefined) {
+      console.error('In createShelter, require email to create shelter');
+      return null;
+    }
+
+    var shelterInfo = {
+      email: email,
+      password: password,
+      username: username
+    };
+
+    return models.vendor.create(shelterInfo).then(function(shelter) {
+      console.log("Received created shelter from db", shelter);
+      return shelter;
     });
   },
 
