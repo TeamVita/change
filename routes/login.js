@@ -5,14 +5,16 @@ var auth = require('./subroutes/auth');
 
 router.post('/vendor', function(req, res) {
 
-  utility.findAccountByEmail(req.body.email, 'vendor')
-  .then(function(account) {
-    if (account) {
-      res.send(account);
-    } else {
-      res.send("Error!!");
-    }
-  });
+  // utility.findAccountByEmail(req.body.email, 'vendor')
+  // .then(function(account) {
+  //   if (account) {
+  //     res.send(account);
+  //   } else {
+  //     res.send("Error!!");
+  //   }
+  // });
+console.log(req.body, 'this is teh request');
+res.send()
 
 });
 
