@@ -24,23 +24,17 @@ module.exports = {
     });
   },
 
-  shelterSignUp: function(info, cb) {
+  shelterSignUp: function(info, welcome) {
     $.ajax({
       url: '/signup/shelter',
       type: 'POST',
       data: info,
       success: function(data) {
-        Dispatcher.dispatch({
-          type: ActionTypes.SHELTER_SIGNUP,
-          username: data.username,
-          password: data.password,
-          pane: 'orgInfo'
-        });
-        cb(data);
-      }.bind(this),
+        welcome('welcome', data.username);
+      },
       error: function(error) {
         console.log(error);
-      }.bind(this)
+      }
     });
   },
 

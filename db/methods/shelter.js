@@ -5,7 +5,7 @@ var Shelter = {
     return db.Shelter.findOrCreate({
       where: {
         email: shelter.email,
-        name: shelter.username,
+        username: shelter.name,
         password: shelter.password
       },
       default: {

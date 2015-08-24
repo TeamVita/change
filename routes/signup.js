@@ -6,19 +6,11 @@ var AUTHORIZE_URI = 'https://connect.stripe.com/oauth/authorize';
 
 var qs = require('querystring');
 var request = require('request');
-// var stripe = require("stripe")(API_KEY);
 var stripe = require("stripe")(API_KEY);
 var express = require('express');
 var router = express.Router();
 var stripeHandler = require('../stripeHandler');
 var utility = require("./subroutes/utility");
-
-// Add donor record to DB
-router.post('/donor', function(req, res) {
-	res.send(req.body);
-	//for testing purposes - Adi
-  // createAccount(req, res);
-});
 
 // Create vendor stripe account and add record to DB
 router.post('/vendor', function(req, res) {
@@ -29,7 +21,6 @@ router.post('/vendor', function(req, res) {
   stripeHandler.createStripeAccount(req, res, function(newAccount){
   	newAccount.type = vendorType;
     newAccount.password = password;
-
     utility.createVendor(email, password, username, vendorType);
     res.send(newAccount);
   });
@@ -37,9 +28,11 @@ router.post('/vendor', function(req, res) {
 
 // Add shelter record to DB
 router.post('/shelter', function(req, res) {
-  // console.log(req.body);
-  // Touch point for test only -- Ian
-  res.send(req.body);
+	var shelter = req.body;
+	var addShelter = utility.createShelter(shelter.email, shelter.password, shelter.name);
+	addShelter.then(function(newShelter) {
+		res.send(newShelter);
+	});
 });
 
 module.exports = router;

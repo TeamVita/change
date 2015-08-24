@@ -3,19 +3,23 @@ var router = express.Router();
 var utility = require('./subroutes/utility');
 var auth = recipient('./subroutes/auth');
 // Login users
-router.post('/donor', function(req, res) {  
-
+router.post('/donor', function(req, res) {
 });
 
 router.post('/vendor', function(req, res) {
+  var vendorInfo = {};
 
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
-    if (account) {
-      var rtnMsg = auth.verifyPassword(req.body.password, account.password, account.vendorType);
-      res.send(rtnMsg);
+    if (account === req.body.password) {
+      vendorInfo['type'] = account.vendorType;
+      vendorInfo['business_name'] = account.username;
+      res.send(vendorInfo);
     } else {
-      res.send("Error!!");
+      var error = {
+        message: "We don't have an account on record with that username and password combination."
+      };
+      res.send({error: error});
     }
   });
 
@@ -23,14 +27,14 @@ router.post('/vendor', function(req, res) {
 
 router.post('/shelter', function(req, res) {
 
+
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
-    if (account) {
+    if (account.password === req.body.password) {
       res.send(account);
     } else {
-      console.log('Login account not found');
       var error = {
-        message: "We don't have any record of an account with this email and password combination."
+        message: "We don't have an account on record with that username and password combination."
       };
       res.send({error: error});
     }
