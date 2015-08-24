@@ -30,9 +30,7 @@ router.post('/vendor', function(req, res) {
   	newAccount.type = vendorType;
     newAccount.password = password;
 
-    utility.createVendor(email, password, username, vendorType).then(function(vendor) {
-      // console.log(vendor);
-    });
+    utility.createVendor(email, password, username, vendorType);
     res.send(newAccount);
   });
 });
