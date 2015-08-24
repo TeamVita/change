@@ -10,10 +10,13 @@ router.post('/vendor', function(req, res) {
 
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
-    if (account) {
+    if (account === req.body.password) {
       res.send(account);
     } else {
-      res.send("Error!!");
+      var error = {
+        message: "We don't have an account on record with that username and password combination."
+      };
+      res.send({error: error});
     }
   });
 res.send()
@@ -25,7 +28,7 @@ router.post('/shelter', function(req, res) {
 
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
-    if (account) {
+    if (account.password === req.body.password) {
       res.send(account);
     } else {
       var error = {
