@@ -6,7 +6,6 @@ var AUTHORIZE_URI = 'https://connect.stripe.com/oauth/authorize';
 
 var qs = require('querystring');
 var request = require('request');
-// var stripe = require("stripe")(API_KEY);
 var stripe = require("stripe")(API_KEY);
 var express = require('express');
 var router = express.Router();
@@ -30,7 +29,12 @@ router.post('/vendor', function(req, res) {
 
 // Add shelter record to DB
 router.post('/shelter', function(req, res) {
-	
+	var shelter = req.body;
+	var addShelter = utility.createShelter(shelter.email, shelter.password, shelter.username);
+	addShelter.then(function(newShelter) {
+		console.log(newShelter);
+		res.send(newShelter);
+	});
 });
 
 module.exports = router;

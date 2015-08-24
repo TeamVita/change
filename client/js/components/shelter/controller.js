@@ -38,7 +38,7 @@ var Shelter = React.createClass({
 
   handleSubmit: function(event) {
     event.preventDefault();
-    var info = { username: "Test Recipient", password: "1234" };
+    var info = this.refs.partial.getFields();
 
     // Log in OR Sign up now
     if (this.state.pane === 'login') {
@@ -46,7 +46,7 @@ var Shelter = React.createClass({
       shelterActions.logIn(loginData, (function(pane, business) {
         this.changePane.call(this, pane, business);
       }).bind(this));
-    } else {
+    } else if (this.state.pane === 'orgSignup') {
       var fields = this.refs.partial.getFields();
       (function (self) {
         shelterActions.shelterSignUp(info, function(data) {
