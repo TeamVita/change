@@ -23,8 +23,12 @@ var utility = {
     return pin;
   },
 
-  checkPin: function() {
-
+  checkPin: function(pin) {
+    if (typeof pin !== 'number' || pin < this.pin || pin > 9999) {
+      console.error("Invalid PIN number");
+      return null;
+    }
+    return pin;
   },
 
   checkVendorType: function(vendorType) {
@@ -45,12 +49,10 @@ var utility = {
 
   createRecipient: function(password, pin) {
     // verification
-    var pin = pin || this.generatePin();
-    if (pin < this.pin || pin > 9999) {
-      console.log("Invalid PIN number");
-      pin = this.generatePin();
-    };
-    // console.log("createRecipient pin", pin);
+    if(!this.checkPin(pin)) {
+      var pin = this.generatePin();
+    }
+
     var recipient = {
       password: password,
       pin: pin
@@ -63,9 +65,7 @@ var utility = {
   },
 
   findRecipientByPin: function(pin, vendorType) {
-    // Pin number out of range?
-    if (typeof pin !== 'number') {
-      console.error("In utility findRecipientByPin(), pin number has to be a javascript number!");
+    if(!this.checkPin(pin)) {
       return null;
     }
 
@@ -81,6 +81,10 @@ var utility = {
   // Specific vendorType: "food"/"cloth" to charge certain recipient with PIN tags
   // chargedAmount is how much money will be reduced on recipient balance
   chargeRecipientByPin: function(pin, chargedAmount, vendorType) {
+    if(!this.checkPin(pin)) {
+      return null;
+    };
+
     if(!this.checkVendorType(vendorType)) {
       return null;
     }
