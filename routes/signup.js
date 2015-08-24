@@ -29,9 +29,8 @@ router.post('/vendor', function(req, res) {
 // Add shelter record to DB
 router.post('/shelter', function(req, res) {
 	var shelter = req.body;
-	var addShelter = utility.createShelter(shelter.email, shelter.password, shelter.username);
+	var addShelter = utility.createShelter(shelter.email, shelter.password, shelter.name);
 	addShelter.then(function(newShelter) {
-		console.log(newShelter);
 		res.send(newShelter);
 	});
 });
