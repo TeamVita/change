@@ -1,6 +1,5 @@
 var shelterActions = require('../../actions/shelterActions');
 var Constants = require('../../constants/Constants.js');
-var OrgInfo = require('./organizationInfo');
 var OrgSignup = require('./signup');
 var Welcome = require('./welcome');
 var Login = require('../login');
@@ -11,9 +10,6 @@ var Shelter = React.createClass({
   _states: {
     orgSignup: function() {
       return <OrgSignup ref='partial'/>
-    },
-    organizationInfo: function() {
-      return <OrgInfo ref='partial' />
     },
     login: function() {
       return <Login ref='partial' />
@@ -44,6 +40,7 @@ var Shelter = React.createClass({
     event.preventDefault();
     var info = { username: "Test Recipient", password: "1234" };
 
+    // Log in OR Sign up now
     if (this.state.pane === 'login') {
       var loginData = this.refs.partial.getFields();
       shelterActions.logIn(loginData, (function(pane, business) {
@@ -51,15 +48,10 @@ var Shelter = React.createClass({
       }).bind(this));
     } else {
       var fields = this.refs.partial.getFields();
-      // console.log("Prop", this.props);
-      if (fields !== undefined) {
-        console.log(fields);
-      }
-
       (function (self) {
         shelterActions.shelterSignUp(info, function(data) {
           console.log("receive from server", data);
-          self.setState({pane: 'organizationInfo'});
+          self.setState({pane: 'welcome'});
         });
       }) (this);
     }
