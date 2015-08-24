@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var utility = require('./subroutes/utility');
-// var models = require('../db/index');
+var auth = require('./subroutes/auth');
 // Login users
 router.post('/donor', function(req, res) {
 });
@@ -33,18 +33,26 @@ router.post('/shelter', function(req, res) {
 });
 
 router.post('/vendor/retrieve', function(req, res) {
-  var results = req.body;
+  var request = req.body;
   var pin = Number(req.body.pin);
 
+  // check vendor type
+
   utility.findRecipientByPin(pin, 'food').then(function(recipient) {
-    res.send(recipient);
+    // res.send(recipient);
+    res.send(auth);
   });
   
 });
 
 router.post('/vendor/redeem', function(req, res) {
-  var results = req.body;
-  results.balance = 3;
+  var request = req.body;
+  var pin = Number(req.body.pin);
+
+  // Verify password and vendor type
+  utility.findRecipientByPin(pin, 'food').then(function(recipient) {
+
+  })
 
   //var recipient = utility.findRecipientByPin(results.pin).then(function(recipient){
     
