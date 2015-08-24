@@ -52,6 +52,7 @@ module.exports = {
 			}
 		});
 	},
+	
 	logIn: function(info, cb) {
 		$.ajax({
 			url: '/login/vendor',
