@@ -1,16 +1,22 @@
 var Promise = require('bluebird');
-var models = require('../../db');
 var utility = require('./utility');
-
-
+// var session = require('express-session');
 
 var auth = {
-  // organization: {
-  //   organization:   
-  // },
+  Session: function() {
+    var session;
+    return session = {
+      sessionID: "",
+      isLoggedIn: function() {
+        return (session.sessionID != null);
+      }
+    };
+  },
 
-  verifyOrgType: function(organization, id) {
-
+  verifyOrgType: function(email, organization, id) {
+    utility.findAccountByEmail(email, organization).then(function(organization) {
+      
+    })
   },
 
   verifyPassword: function(password, organizationId) {
@@ -18,4 +24,4 @@ var auth = {
   }
 }
 
-module.exports = auth;
+module.exports.auth = auth;

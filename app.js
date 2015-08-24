@@ -33,6 +33,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('mysecret'));
 
+// auth
+app.use(session(sess));
+
 app.use('/', express.static(path.join(__dirname, './client')));
 app.use('/donate', donate);
 app.use('/signup', signup);
