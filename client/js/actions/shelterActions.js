@@ -10,7 +10,13 @@ module.exports = {
       type: 'POST',
       data: info,
       success: function(data) {
-        welcome('welcome', data.business_name);
+        if (data.error) {
+          var error = data.error;
+          console.log(error.message);
+          // TODO display error.message to user;
+        } else {
+          welcome('welcome', data.business_name);
+        }
       },
       error: function(error) {
         console.log(error);

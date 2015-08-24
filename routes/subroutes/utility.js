@@ -18,7 +18,7 @@ var utility = {
     if (this.pin === undefined) {
       return null;
     }
-    var pin = this.pin
+    var pin = this.pin;
     this.pin += 1;
     return pin;
   },
@@ -50,7 +50,7 @@ var utility = {
   createRecipient: function(password, pin) {
     // verification
     if(!this.checkPin(pin)) {
-      var pin = this.generatePin();
+      pin = this.generatePin();
     }
 
     var recipient = {
@@ -74,7 +74,7 @@ var utility = {
     }
 
     return models.recipient.findOneByPin(pin).then(function(recipient) {
-      return recipient.get().vendorType
+      return recipient.get().vendorType;
     });
   },
 
@@ -83,7 +83,7 @@ var utility = {
   chargeRecipientByPin: function(pin, chargedAmount, vendorType) {
     if(!this.checkPin(pin)) {
       return null;
-    };
+    }
 
     if(!this.checkVendorType(vendorType)) {
       return null;
@@ -107,7 +107,7 @@ var utility = {
       password: password,
       username: username,
       vendorType: vendorType
-    }
+    };
 
     return models.vendor.create(vendorInfo).then(function(vendor) {
       console.log("Received created vendor from db", vendor);
@@ -122,7 +122,7 @@ var utility = {
       return models.vendor.findOneByEmail(email);
     } else {
       console.error('Invalid organization type');
-    } 
+    }
   }
 
 };

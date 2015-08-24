@@ -4,17 +4,10 @@ var utility = require('./subroutes/utility');
 var auth = require('./subroutes/auth');
 // Login users
 router.post('/donor', function(req, res) {  
-  // Session test only
-  res.send(req.sessionID);
+
 });
 
 router.post('/vendor', function(req, res) {
-
-  // var email = req.body.email;
-  // var password = req.body.password;
-  // var username = req.body.username;
-  // var vendorType = req.body.vendorType;
-  // utility.createVendor(email, password, username, vendorType);
 
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
@@ -28,13 +21,16 @@ router.post('/vendor', function(req, res) {
 });
 
 router.post('/shelter', function(req, res) {
-  
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
     if (account) {
       res.send(account);
     } else {
-      res.send("Error!!");
+      console.log('Login account not found');
+      var error = {
+        message: "We don't have any record of an account with this email and password combination."
+      };
+      res.send({error: error});
     }
   });
 
@@ -48,7 +44,7 @@ router.post('/vendor/retrieve', function(req, res) {
   utility.findRecipientByPin(pin, 'food').then(function(recipient) {
     res.send(recipient);
   });
-  
+
 });
 
 router.post('/vendor/redeem', function(req, res) {
