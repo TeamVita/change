@@ -20,7 +20,6 @@ var OrgSignup = React.createClass({
     this.setState({text: e.target.value});
   },
 
-// <div className ='input'><input placeholder='Password' ref='password' type='text'/></div>
   render: function() {
     return (
       <div id = 'form'>

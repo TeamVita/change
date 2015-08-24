@@ -13,13 +13,6 @@ var router = express.Router();
 var stripeHandler = require('../stripeHandler');
 var utility = require("./subroutes/utility");
 
-// Add donor record to DB
-router.post('/donor', function(req, res) {
-	res.send(req.body);
-	//for testing purposes - Adi
-  // createAccount(req, res);
-});
-
 // Create vendor stripe account and add record to DB
 router.post('/vendor', function(req, res) {
 	var vendorType = req.body.type;
