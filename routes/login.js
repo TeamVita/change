@@ -35,13 +35,20 @@ router.post('/shelter', function(req, res) {
 router.post('/vendor/retrieve', function(req, res) {
   var results = req.body;
   results.balance = '8';
+
+  utility.findRecipientByPin(req.body.pin).then(function(recipient) {
+    // recipient.
+  });
+
   //check if pin exists
   //var recipient = utility.findRecipientByPin(results.pin).then(function(recipient){
     //sends back balance based on type given (food or clothes)
     // res.send(recipient.balance[results.type])
   // }));
 
-      //hardcoding for testing purposes - server responds with a balance amount based on type
+
+
+  //hardcoding for testing purposes - server responds with a balance amount based on type
   res.send(results);
 });
 
@@ -67,7 +74,5 @@ router.post('/vendor/redeem', function(req, res) {
   //hardcoding response for testing purpose
   res.send(results);
 });
-
-
 
 module.exports = router;
