@@ -46,11 +46,12 @@ router.post('/vendor/retrieve', function(req, res) {
   var pin = Number(req.body.pin);
 
   // check vendor type
+
   utility.findRecipientByPin(pin, 'food').then(function(recipient) {
     res.send(recipient);
   });
 
-});
+
 
 router.post('/vendor/redeem', function(req, res) {
   var request = req.body;
