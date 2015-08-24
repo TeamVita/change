@@ -32,7 +32,7 @@ var utility = {
   },
 
   checkVendorType: function(vendorType) {
-    if (vendorType !== 'food' && vendorType !== 'clothing') {
+    if (vendorType !== 'Food' && vendorType !== 'Clothing') {
       console.error('Invalid Vendor Type');
       return null;
     }
@@ -127,7 +127,7 @@ var utility = {
       username: username
     };
 
-    return models.vendor.create(shelterInfo).then(function(shelter) {
+    return models.shelter.create(shelterInfo).then(function(shelter) {
       console.log("Received created shelter from db", shelter);
       return shelter;
     });

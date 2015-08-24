@@ -11,7 +11,7 @@ var stripe = require("stripe")(API_KEY);
 var express = require('express');
 var router = express.Router();
 var stripeHandler = require('../stripeHandler');
-
+var utility = require("./subroutes/utility");
 
 // Add donor record to DB
 router.post('/donor', function(req, res) {
@@ -27,10 +27,10 @@ router.post('/vendor', function(req, res) {
   var username = req.body.business_name;
   var password = req.body.pass;
   stripeHandler.createStripeAccount(req, res, function(newAccount){
-  	newAccount.type = type;
+  	newAccount.type = vendorType;
     newAccount.password = password;
-    //call utility function to create a new vendor passing in  business name,email/password/type
-    utility.createVendor(username, email, newAccount.password, newAccount.type);
+
+    utility.createVendor(email, password, username, vendorType);
     res.send(newAccount);
   });
 });

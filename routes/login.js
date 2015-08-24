@@ -21,6 +21,7 @@ router.post('/vendor', function(req, res) {
 });
 
 router.post('/shelter', function(req, res) {
+
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
     if (account) {
