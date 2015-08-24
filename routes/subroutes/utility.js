@@ -4,6 +4,11 @@ var models = require('../../db');
 var utility = {
   pin: 0,
 
+  organizationType: {
+    shelter: "shelter",
+    vendor: "vendor"
+  },
+
   initDB: function() {
     if (process.env.dev === 'development') {
       // Proceed with caution! DROP TABLES!
@@ -38,6 +43,21 @@ var utility = {
     }
     return vendorType;
   },
+
+  checkOrgType: function(organization) {
+    if (organizationType[organizationType]) {
+      return organization;
+    };
+    return null;
+  },
+
+  checkEmail: function(email) {
+    if (email === undefined) {
+      console.error('In createVendor(), require email to create vendor');
+      return null;
+    }
+    return email;
+  }
 
   setUserType: function(req, res, next) {
     // verification

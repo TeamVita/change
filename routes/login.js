@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var utility = require('./subroutes/utility');
-var auth = require('./subroutes/auth');
+var auth = recipient('./subroutes/auth');
 // Login users
 router.post('/donor', function(req, res) {  
 
@@ -12,7 +12,8 @@ router.post('/vendor', function(req, res) {
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
     if (account) {
-      res.send(account);
+      var rtnMsg = auth.verifyPassword(req.body.password, account.password, account.vendorType);
+      res.send(rtnMsg);
     } else {
       res.send("Error!!");
     }
