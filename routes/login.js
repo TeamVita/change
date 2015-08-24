@@ -3,7 +3,7 @@ var router = express.Router();
 var utility = require('./subroutes/utility');
 var auth = require('./subroutes/auth');
 // Login users
-router.post('/donor', function(req, res) {
+router.post('/donor', function(req, res) {  
 });
 
 router.post('/vendor', function(req, res) {
@@ -37,7 +37,6 @@ router.post('/vendor/retrieve', function(req, res) {
   var pin = Number(req.body.pin);
 
   // check vendor type
-
   utility.findRecipientByPin(pin, 'food').then(function(recipient) {
     res.send(recipient);
   });
