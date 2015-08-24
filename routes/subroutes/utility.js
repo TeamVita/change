@@ -7,7 +7,8 @@ var utility = {
   initDB: function() {
     if (process.env.dev === 'development') {
       // Proceed with caution! DROP TABLES!
-      return models.sequelize.sync({ force: true });
+      return models.sequelize.sync();
+      // return models.sequelize.sync({ force: true });
     } else {
       return models.sequelize.sync();
     }
@@ -22,8 +23,12 @@ var utility = {
     return pin;
   },
 
+  checkPin: function() {
+
+  },
+
   checkVendorType: function(vendorType) {
-    if (amountType !== 'food' && amountType !== 'cloth') {
+    if (vendorType !== 'food' && vendorType !== 'cloth') {
       console.error('Invalid Vendor Type');
       return null;
     }
@@ -42,7 +47,7 @@ var utility = {
     // verification
     var pin = pin || this.generatePin();
     if (pin < this.pin || pin > 9999) {
-      console.log("In utility createRecipient(), invalid PIN number! Call built-in pin generator.");
+      console.log("Invalid PIN number");
       pin = this.generatePin();
     };
     // console.log("createRecipient pin", pin);

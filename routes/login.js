@@ -34,22 +34,12 @@ router.post('/shelter', function(req, res) {
 
 router.post('/vendor/retrieve', function(req, res) {
   var results = req.body;
-  results.balance = '8';
+  var pin = Number(req.body.pin);
 
-  utility.findRecipientByPin(req.body.pin).then(function(recipient) {
-    // recipient.
+  utility.findRecipientByPin(pin, 'food').then(function(recipient) {
+    res.send(recipient);
   });
-
-  //check if pin exists
-  //var recipient = utility.findRecipientByPin(results.pin).then(function(recipient){
-    //sends back balance based on type given (food or clothes)
-    // res.send(recipient.balance[results.type])
-  // }));
-
-
-
-  //hardcoding for testing purposes - server responds with a balance amount based on type
-  res.send(results);
+  
 });
 
 router.post('/vendor/redeem', function(req, res) {
