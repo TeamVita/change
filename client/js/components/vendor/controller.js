@@ -11,12 +11,20 @@ var Signup = React.createClass({
     return {pane: 'personal'};
   },
 
+  show: function(pane, data){
+    this.setState({
+      pane: pane,
+      balance: data.balance
+    });
+  },
+
   // Render different form pane
   changePane: function(pane, business) {
     var vendorAccount = arguments[1];
     this.setState({
       pane: pane,
-      business: vendorAccount.business_name
+      business: vendorAccount.business_name,
+      type: vendorAccount.type, 
     });
   },
 
@@ -34,7 +42,7 @@ var Signup = React.createClass({
       loginResponseHandler.bind(this)();
     } else if (this.state.pane === 'personal'){
         personalResponseHandler.bind(this)();
-    } else {
+    } else if (this.state.pane === 'bank') {
         var bankAccount = this.refs.partial.getFields();
         Stripe.bankAccount.createToken({
           country: 'US',
@@ -77,14 +85,14 @@ var Signup = React.createClass({
 
   },
 
-  render: function() {
+render: function() {
     var partial;
     if (this.state.pane === 'login') {
       partial = <Login ref='partial' />;
     } else if (this.state.pane === 'bank') {
       partial = <BankInfo ref='partial' />;
     } else if (this.state.pane === 'welcome') {
-      partial = <Welcome business={this.state.business} ref='partial' />;
+      partial = <Welcome business = {this.state.business} type = {this.state.type} balance = {this.props.appState.balance} ref='partial' />;
     } else {
       // default to signup page
       partial = <PersonalInfo ref='partial' />;
