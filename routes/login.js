@@ -3,7 +3,7 @@ var router = express.Router();
 var utility = require('./subroutes/utility');
 var auth = require('./subroutes/auth');
 // Login users
-router.post('/donor', function(req, res) {  
+router.post('/donor', function(req, res) {
 });
 
 router.post('/vendor', function(req, res) {
@@ -20,9 +20,12 @@ router.post('/vendor', function(req, res) {
 });
 
 router.post('/shelter', function(req, res) {
-  
+  console.log('in login post shelter: ' + req.body.email);
+
+
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
+    console.log('in login post shelter: ' + account);
     if (account) {
       res.send(account);
     } else {
@@ -40,7 +43,7 @@ router.post('/vendor/retrieve', function(req, res) {
   utility.findRecipientByPin(pin, 'food').then(function(recipient) {
     res.send(recipient);
   });
-  
+
 });
 
 router.post('/vendor/redeem', function(req, res) {
