@@ -19,13 +19,50 @@ var welcome = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <h1>WELCOME {this.props.business}</h1>
-        <div><input onChange={this.showBalance} type = 'text' placeholder = 'search for pin' ref = 'pin' /></div>
-        <div><input type = 'password' placeholder = 'enter password' ref = 'pass'/> </div>
-        <div><input type = 'text' placeholder = 'Bill amount' ref ='bill'  /></div>
-        <button onClick = {this.charge}>CHARGE</button>
-        <div>Amount: ${this.props.balance}</div>
+      <div id="contact">
+        <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="formheader">Welcome {this.props.business}</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-8 col-lg-offset-2">
+              <form id="contactForm">
+                <div className="row control-group whitey">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Pin Tag Search
+                      <input type="number" className="form-control" placeholder="" id="email" ref='pin'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Enter Password
+                      <input type="number" className="form-control" placeholder="" id="name" ref='account'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Total Purchase Amount
+                      <input type="number" className="form-control" placeholder="" id="name" ref='account'/>
+                  </div>
+                </div>
+                <div id="success" className="button"></div>
+                  <div className="row">
+                    <div className="form-group col-xs-12 text-center">
+                      <button type="submit" className="btn btn-success btn-lg">Send</button>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+         <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
       </div>
     );
   }
