@@ -7,7 +7,8 @@ var utility = {
   initDB: function() {
     if (process.env.dev === 'development') {
       // Proceed with caution! DROP TABLES!
-      return models.sequelize.sync({ force: true });
+      return models.sequelize.sync();
+      // return models.sequelize.sync({ force: true });
     } else {
       return models.sequelize.sync();
     }
@@ -22,6 +23,22 @@ var utility = {
     return pin;
   },
 
+  checkPin: function(pin) {
+    if (typeof pin !== 'number' || pin < this.pin || pin > 9999) {
+      console.error("Invalid PIN number");
+      return null;
+    }
+    return pin;
+  },
+
+  checkVendorType: function(vendorType) {
+    if (vendorType !== 'food' && vendorType !== 'cloth') {
+      console.error('Invalid Vendor Type');
+      return null;
+    }
+    return vendorType;
+  },
+
   setUserType: function(req, res, next) {
     // verification
     // 'donor' by default
@@ -32,12 +49,10 @@ var utility = {
 
   createRecipient: function(password, pin) {
     // verification
-    var pin = pin || this.generatePin();
-    if (pin < this.pin || pin > 9999) {
-      console.log("In utility createRecipient(), invalid PIN number! Call built-in pin generator.");
-      pin = this.generatePin();
-    };
-    // console.log("createRecipient pin", pin);
+    if(!this.checkPin(pin)) {
+      var pin = this.generatePin();
+    }
+
     var recipient = {
       password: password,
       pin: pin
@@ -49,26 +64,32 @@ var utility = {
     });
   },
 
-  findRecipientByPin: function(pin) {
-    // Pin number out of range?
-    if (typeof pin !== 'number') {
-      console.error("In utility findRecipientByPin(), pin number has to be a javascript number!");
+  findRecipientByPin: function(pin, vendorType) {
+    if(!this.checkPin(pin)) {
       return null;
     }
+
+    if(!this.checkVendorType(vendorType)) {
+      return null;
+    }
+
     return models.recipient.findOneByPin(pin).then(function(recipient) {
-      return recipient.get();
+      return recipient.get().vendorType
     });
   },
 
-  // Specific amountType: "food"/"cloth" to charge certain recipient with PIN tags
+  // Specific vendorType: "food"/"cloth" to charge certain recipient with PIN tags
   // chargedAmount is how much money will be reduced on recipient balance
-  chargeRecipientByPin: function(pin, chargedAmount, amountType) {
-    if (amountType !== 'food' && amountType !== 'cloth') {
-      console.error('In chargeRecipientByPin() amountType should either be "food" or "cloth" ');
+  chargeRecipientByPin: function(pin, chargedAmount, vendorType) {
+    if(!this.checkPin(pin)) {
+      return null;
+    };
+
+    if(!this.checkVendorType(vendorType)) {
       return null;
     }
 
-    return models.recipient.updateOneByPin(pin, chargedAmount, amountType);
+    return models.recipient.updateOneByPin(pin, chargedAmount, vendorType);
   },
 
   createVendor: function(email, password, username, vendorType) {
@@ -77,8 +98,7 @@ var utility = {
       return null;
     }
 
-    if (vendorType !== 'food' && vendorType !== 'cloth') {
-      console.error('In chargeRecipientByPin() vendorType should either be "food" or "cloth" ');
+    if(!this.checkVendorType(vendorType)) {
       return null;
     }
 

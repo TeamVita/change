@@ -51,11 +51,11 @@ var recipient = {
     })
   },
 
-  // amountType: food/cloth
-  updateOneByPin: function(pin, chargedAmount, amountType){
+  // vendorType: food/cloth
+  updateOneByPin: function(pin, chargedAmount, vendorType){
     return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
       // console.log("updateOneByPin", recipient.get());
-      return recipient.decrement(amountType, {by: chargedAmount}).then(function(recipient) {
+      return recipient.decrement(vendorType, {by: chargedAmount}).then(function(recipient) {
         // console.log("After decrementing", recipient.get());
         return recipient.get();
       });
