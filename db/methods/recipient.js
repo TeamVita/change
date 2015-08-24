@@ -5,7 +5,7 @@ var recipient = {
     return db.Recipient.findOrCreate({
       where: { 
         food: 0,
-        cloth: 0,
+        clothing: 0,
         password: recipient.password,
         pin: recipient.pin
       },

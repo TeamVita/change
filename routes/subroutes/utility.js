@@ -38,7 +38,7 @@ var utility = {
   },
 
   checkVendorType: function(vendorType) {
-    if (vendorType !== 'Food' && vendorType !== 'Clothing') {
+    if (vendorType !== 'food' && vendorType !== 'clothing') {
       console.error('Invalid Vendor Type');
       return null;
     }
@@ -99,7 +99,7 @@ var utility = {
     });
   },
 
-  // Specific vendorType: "food"/"cloth" to charge certain recipient with PIN tags
+  // Specific vendorType: "food"/"clothing" to charge certain recipient with PIN tags
   // chargedAmount is how much money will be reduced on recipient balance
   chargeRecipientByPin: function(pin, chargedAmount, vendorType) {
     if(!this.checkPin(pin)) {
