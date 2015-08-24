@@ -2,6 +2,12 @@ var express = require('express');
 var router = express.Router();
 var utility = require('./subroutes/utility');
 var auth = require('./subroutes/auth');
+<<<<<<< HEAD
+=======
+// Login users
+router.post('/donor', function(req, res) {  
+});
+>>>>>>> [cleanup] Waiting for a rebase to fix vendorType
 
 router.post('/vendor', function(req, res) {
 
@@ -19,17 +25,17 @@ res.send()
 });
 
 router.post('/shelter', function(req, res) {
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> [cleanup] Waiting for a rebase to fix vendorType
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
     if (account) {
       res.send(account);
     } else {
-      console.log('Login account not found');
-      var error = {
-        message: "We don't have any record of an account with this email and password combination."
-      };
-      res.send({error: error});
+      res.send("Error!!");
     }
   });
 
@@ -43,7 +49,7 @@ router.post('/vendor/retrieve', function(req, res) {
   utility.findRecipientByPin(pin, 'food').then(function(recipient) {
     res.send(recipient);
   });
-
+  
 });
 
 router.post('/vendor/redeem', function(req, res) {
