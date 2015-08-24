@@ -2,34 +2,27 @@ var express = require('express');
 var router = express.Router();
 var utility = require('./subroutes/utility');
 var auth = require('./subroutes/auth');
-<<<<<<< HEAD
-=======
 // Login users
 router.post('/donor', function(req, res) {  
 });
->>>>>>> [cleanup] Waiting for a rebase to fix vendorType
 
 router.post('/vendor', function(req, res) {
 
-  // utility.findAccountByEmail(req.body.email, 'vendor')
-  // .then(function(account) {
-  //   if (account) {
-  //     res.send(account);
-  //   } else {
-  //     res.send("Error!!");
-  //   }
-  // });
-console.log(req.body, 'this is teh request');
+  utility.findAccountByEmail(req.body.email, 'vendor')
+  .then(function(account) {
+    if (account) {
+      res.send(account);
+    } else {
+      res.send("Error!!");
+    }
+  });
 res.send()
 
 });
 
 router.post('/shelter', function(req, res) {
-<<<<<<< HEAD
 
-=======
   
->>>>>>> [cleanup] Waiting for a rebase to fix vendorType
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
     if (account) {

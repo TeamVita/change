@@ -20,13 +20,14 @@ var Signup = React.createClass({
   },
 
   // Render different form pane
-  changePane: function(pane, business) {
-    var vendorAccount = arguments[1];
+  changePane: function(pane, data) {
+    var vendorAccount = data;
     this.setState({
       pane: pane,
       business: vendorAccount.business_name,
       type: vendorAccount.type, 
     });
+    console.log(this.state.type, "is the type");
   },
 
   handleClick: function() {
@@ -80,7 +81,6 @@ var Signup = React.createClass({
       } else {
         // response contains id and bank_account, which contains additional bank account details
         this.state.accountData.token = response.id;
-        // actions.signUp(this.state.accountData, this.changePane.bind(this, 'welcome'));
         actions.signUp(this.state.accountData, this.changePane);
       }
     }
