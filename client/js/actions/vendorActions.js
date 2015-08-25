@@ -9,6 +9,7 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
+				console.log("This is the data received", data);
 				welcome('welcome', data);
 			},
 			error: function(error) {

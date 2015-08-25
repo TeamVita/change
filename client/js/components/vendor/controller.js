@@ -44,6 +44,7 @@ var Signup = React.createClass({
         personalResponseHandler.bind(this)();
     } else if (this.state.pane === 'bank') {
         var bankAccount = this.refs.partial.getFields();
+      console.log("This is the account info", bankAccount);
         Stripe.bankAccount.createToken({
           country: 'US',
           currency: 'USD',
@@ -54,6 +55,7 @@ var Signup = React.createClass({
 
     function loginResponseHandler() {
       var loginData = this.refs.partial.getFields();
+      console.log("login data", loginData);
       actions.logIn(loginData, this.changePane);
     }
 
