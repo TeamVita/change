@@ -51,7 +51,7 @@ router.post('/vendor/retrieve', function(req, res) {
     res.send(recipient);
   });
 
-
+});
 
 router.post('/vendor/redeem', function(req, res) {
   var request = req.body;

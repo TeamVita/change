@@ -14,16 +14,17 @@ var utility = require("./subroutes/utility");
 
 // Create vendor stripe account and add record to DB
 router.post('/vendor', function(req, res) {
+  console.log(req.body.dob_day, 'this is the bday');
 	var vendorType = req.body.type;
   var email = req.body.email;
   var username = req.body.business_name;
   var password = req.body.pass;
-  stripeHandler.createStripeAccount(req, res, function(newAccount){
-  	newAccount.type = vendorType;
-    newAccount.password = password;
-    utility.createVendor(email, password, username, vendorType);
-    res.send(newAccount);
-  });
+  // stripeHandler.createStripeAccount(req, res, function(newAccount){
+  // 	newAccount.type = vendorType;
+  //   newAccount.password = password;
+    // utility.createVendor(email, password, username, vendorType);
+    // res.send(newAccount);
+  // });
 });
 
 // Add shelter record to DB

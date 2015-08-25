@@ -27,7 +27,7 @@ var personalInfo = React.createClass({
           </div>
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2">
-              <form id="contactForm">
+              
                 <div className="row control-group whitey">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
                     Email
@@ -65,7 +65,6 @@ var personalInfo = React.createClass({
                       <button type="submit" className="btn btn-success btn-lg">Send</button>
                     </div>
                   </div>
-              </form>
             </div>
           </div>
         </div>

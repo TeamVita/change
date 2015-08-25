@@ -12,7 +12,6 @@ var Signup = React.createClass({
   },
 
   show: function(pane, data){
-    console.log
     this.setState({
       pane: pane,
       balance: data.balance
@@ -27,7 +26,6 @@ var Signup = React.createClass({
       business: vendorAccount.business_name,
       type: vendorAccount.type, 
     });
-    console.log(this.state.type, "is the type");
   },
 
   handleClick: function() {
@@ -100,7 +98,7 @@ render: function() {
 
     return (
       <div ref = 'form'>
-        <form onSubmit ={this.handleSubmit}>
+        <form id ="contactForm"onSubmit ={this.handleSubmit}>
           {partial}
         </form>
         <a onClick={this.handleClick}>Already have an account? Log in here.</a>
