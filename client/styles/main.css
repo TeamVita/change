@@ -58,6 +58,14 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.formheader3 {
+  padding-bottom: 40px;
+  padding-top: 40px;
+
+  color: #133F5F;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 .btn-group-lg>.btn, .btn-lg {
   padding: 10px 100px;
 }
@@ -109,9 +117,23 @@ input.booga::-webkit-input-placeholder {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.fonty2 {
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding-top: 20px;
+}
+
 .space {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.space2 {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #133F5F;
+  font-size: 1.5em;
 }
 
 input[type=text], name {
@@ -123,6 +145,22 @@ input[type=text], name {
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
   border: 1px solid #DDDDDD;
+}
+
+.img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+/*    min-height: 360px;
+    min-width: 360px;*/
+    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.caption {
+  padding-top: 20px;
+  font-size: 1.3em;
+
 }
 /*dark blue: 133F5F
 yellow: FFD07F*/

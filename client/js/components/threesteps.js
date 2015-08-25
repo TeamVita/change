@@ -1,21 +1,4 @@
-var actions = require('../../actions/actions');
-var Constants = require('../../constants/Constants.js');
-
-var personalInfo = React.createClass({
-
-  // Collect values from input fields
-  getFields: function() {
-    var fields = {};
-    for (var key in this.refs){
-      fields[key] = this.refs[key].getDOMNode().value.trim();
-    }
-    return fields;
-  },
-
-  render: function() {
-
-    return (
-      <div>
+    <div>
         <h2 className="formheader3 text-center">How Does Change Work</h2>
 
         <div className="container">
@@ -43,8 +26,3 @@ var personalInfo = React.createClass({
             </div>
         </div>
     </div>
-    );
-  }
-});
-
-module.exports = personalInfo;
