@@ -26,8 +26,8 @@ var utility = {
   },
 
   generatePassword: function() {
-    
-    return password;
+    var index = Math.random() * 386;
+    return dictionary.words[index];
   },
 
   checkPin: function(pin) {
