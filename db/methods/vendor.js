@@ -31,7 +31,7 @@ var Vendor = {
 
   findOneByEmail: function(email) {
     return db.Vendor.findOne({ where: { email: email } }).then(function(vendor) {
-      return vendor;
+      return vendor.get();
     })
     .catch(function() {
       throw new Error('Unknown error at method vendor findOneByEmail()');

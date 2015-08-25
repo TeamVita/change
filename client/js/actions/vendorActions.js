@@ -59,7 +59,8 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
-				cb('welcome', data.business_name);
+				// cb('welcome', data.business_name);
+				cb('welcome', data);
 			},
 			error: function(error) {
 				console.log(error);

@@ -5,24 +5,43 @@ var dictionary = require('../../dictionary');
 var utility = {
   pin: 0,
 
+  organizationType: {
+    shelter: "shelter",
+    vendor: "vendor"
+  },
+
   initDB: function() {
     if (process.env.dev === 'development') {
       // Proceed with caution! DROP TABLES!
-      return models.sequelize.sync();
-      // return models.sequelize.sync({ force: true });
-    } else {
-      return models.sequelize.sync({ force: true });
       // return models.sequelize.sync();
+      return models.sequelize.sync({ force: true });
+    } else {
+      // return models.sequelize.sync({ force: true });
+      return models.sequelize.sync();
     }
   },
 
-  generatePin: function() {
-    if (this.pin === undefined) {
+  toFourDigitsString: function(num) {
+    if (typeof num !== 'number') {
       return null;
     }
-    var pin = this.pin;
-    this.pin += 1;
-    return pin;
+
+    var fourDigits = num.toString();
+    var _requiredLen = 4;
+    var paddingLen = _requiredLen - fourDigits.length;
+    for (var i = 0; i < paddingLen; i++) {
+      fourDigits = "0" + fourDigits;
+    }
+
+    return fourDigits;
+  },
+
+  generatePin: function() {
+    var self = this;
+    return models.recipient.findMaxId().then(function(maxId) {
+      // transfer id to four digits string  
+      return self.toFourDigitsString(maxId);
+    });
   },
 
   generatePassword: function() {
@@ -39,11 +58,32 @@ var utility = {
   },
 
   checkVendorType: function(vendorType) {
-    if (vendorType !== 'Food' && vendorType !== 'Clothing') {
+    if (typeof vendorType !== 'string') {
+      return null;
+    }
+    
+    vendorType = vendorType.toLowerCase();
+
+    if (vendorType !== 'food' && vendorType !== 'clothing') {
       console.error('Invalid Vendor Type');
       return null;
     }
     return vendorType;
+  },
+
+  checkOrgType: function(organization) {
+    if (organizationType[organizationType]) {
+      return organization;
+    };
+    return null;
+  },
+
+  checkEmail: function(email) {
+    if (email === undefined) {
+      console.error('In createVendor(), require email to create vendor');
+      return null;
+    }
+    return email;
   },
 
   setUserType: function(req, res, next) {
@@ -55,9 +95,8 @@ var utility = {
   },
 
   createRecipient: function(password, pin) {
-    // verification
     if(!this.checkPin(pin)) {
-      pin = this.generatePin();
+      return null
     }
 
     var recipient = {
@@ -85,7 +124,7 @@ var utility = {
     });
   },
 
-  // Specific vendorType: "food"/"cloth" to charge certain recipient with PIN tags
+  // Specific vendorType: "food"/"clothing" to charge certain recipient with PIN tags
   // chargedAmount is how much money will be reduced on recipient balance
   chargeRecipientByPin: function(pin, chargedAmount, vendorType) {
     if(!this.checkPin(pin)) {

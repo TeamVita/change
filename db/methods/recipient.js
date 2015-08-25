@@ -5,7 +5,7 @@ var recipient = {
     return db.Recipient.findOrCreate({
       where: { 
         food: 0,
-        cloth: 0,
+        clothing: 0,
         password: recipient.password,
         pin: recipient.pin
       },
@@ -51,15 +51,29 @@ var recipient = {
     })
   },
 
-  // vendorType: food/cloth
+  // vendorType: food/clothing
   updateOneByPin: function(pin, chargedAmount, vendorType){
     return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
       // console.log("updateOneByPin", recipient.get());
       return recipient.decrement(vendorType, {by: chargedAmount}).then(function(recipient) {
         // console.log("After decrementing", recipient.get());
         return recipient.get();
-      });
-    })    
+      })
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method recipient updateOneByPin()');
+    })  
+  },
+
+  // Get currently maximum id from database
+  findMaxId: function() {
+    // query maximum id
+    return db.Recipient.max('id').then(function(maxId) {
+      return maxId;
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method recipient findMaxId()');
+    })
   }
 }
 

@@ -7,11 +7,14 @@ router.post('/donor', function(req, res) {
 });
 
 router.post('/vendor', function(req, res) {
+  var vendorInfo = {};
 
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
     if (account === req.body.password) {
-      res.send(account);
+      vendorInfo['type'] = account.vendorType;
+      vendorInfo['business_name'] = account.username;
+      res.send(vendorInfo);
     } else {
       var error = {
         message: "We don't have an account on record with that username and password combination."
@@ -19,12 +22,10 @@ router.post('/vendor', function(req, res) {
       res.send({error: error});
     }
   });
-res.send()
 
 });
 
 router.post('/shelter', function(req, res) {
-
 
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
