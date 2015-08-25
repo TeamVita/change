@@ -1,42 +1,28 @@
-<section id="portfolio">
+    <div>
+        <h2 className="formheader3 text-center">How Does Change Work</h2>
+
         <div className="container">
-            <div className="row">
+            <div className="">
                 <div className="col-lg-12 text-center">
-                    <h2>How It Works</h2>
-                    <hr className="star-primary">
                 </div>
             </div>
             <div className="row">
-                <div className="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" className="portfolio-link" data-toggle="modal">
-                        <div className="caption">
-                            <div className="caption-content">
-                                <i className="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src={"style/images/Step_1_Illustration.png"} className="img-responsive center-block" />
-                    </a>
-                </div>
-                <div className="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" className="portfolio-link" data-toggle="modal">
-                        <div className="caption">
-                            <div className="caption-content">
-                                <i className="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src={"style/images/Step_2_Illustration.png"} className="img-responsive"/>
-                    </a>
-                </div>
-                <div className="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" className="portfolio-link" data-toggle="modal">
-                        <div className="caption">
-                            <div className="caption-content">
-                                <i className="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src={"style/images/Step_3_Illustration.png"} className="img-responsive"/>
-                    </a>
-                </div>
+              <div className="col-xs-6 col-sm-4">
+                <img src={"styles/images/Step_1_Illustration.png"} className="img-responsive center-block" />
+                <h4 className="text-center space2">1) Find Someone In Need</h4>
+                <p className="text-center caption">If they're wearing a yellow button you can give them Change, so take not of their 4-digit PIN Tag. Some people also write their PIN on a sign.</p>
+              </div>
+              <div className="col-xs-6 col-sm-4">
+                <img src={"styles/images/Step_2_Illustration.png"} className="img-responsive center-block" />
+                <h4 className="text-center space2">2) Show That You Care</h4>
+                <p className="text-center caption">Open the Change app and enter the PIN Tag #, the amount you'd like to give, and choose to give either food or clothing.</p>
+              </div>
+              <div className="clearfix visible-xs-block"></div>
+              <div className="col-xs-6 col-sm-4">
+                <img src={"styles/images/Step_3_Illustration.png"} className="img-responsive center-block" />
+                     <h4 className="text-center space2">3) Make A Difference</h4>
+                     <p className="text-center caption">Our partner vendors will give credit for your donations to every Change recipient, so they can be fed, warm and happy.</p>
+              </div>
             </div>
         </div>
-    </section>
+    </div>
