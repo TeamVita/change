@@ -4,11 +4,6 @@ var utility = require('./subroutes/utility');
 var auth = require('./subroutes/auth');
 // Login users
 router.post('/donor', function(req, res) {
-  // test only
-  utility.generatePin().then(function(maxId) {
-    res.send({maxId: maxId});
-  })
-
 });
 
 router.post('/vendor', function(req, res) {
