@@ -9,7 +9,6 @@ var getPageComponent = function(page) {
 		return require('./vendor/controller');
 
 		case Pages.SHELTER:
-		console.log('In shelter');
 		return require('./shelter/controller');
 
 		case Pages.DONOR:

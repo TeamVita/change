@@ -5,7 +5,6 @@ var utility = require('./subroutes/utility');
 router.get('/', function(req, res) {
   var newPin = utility.generatePin();
   var newPassword = utility.generatePassword();
-  // TODO add new recipient record to DB here;
   newPin.then(function(newPin) {
     var recipient = utility.createRecipient(newPassword, newPin);
     recipient.then( function(account) {
