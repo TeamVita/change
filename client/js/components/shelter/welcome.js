@@ -20,7 +20,7 @@ var welcome = React.createClass({
   // Save results of PIN generation to state and display NewPin component
   showResults: function(account) {
     this.setState({
-      PIN: account.PIN,
+      pin: account.pin,
       password: account.password,
       pane: 'newPin'
     });
