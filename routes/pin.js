@@ -6,7 +6,8 @@ router.get('/', function(req, res) {
   var newPin = utilities.generatePin();
   var newPassword = utilities.generatePassword();
   // TODO add new recipient record to DB here;
-  res.send({PIN: newPin, password: newPassword});
+  var recipient = utility.createRecipient(newPassword, newPin);
+  res.send({pin: newPin, password: newPassword});
 });
 
 module.exports = router;

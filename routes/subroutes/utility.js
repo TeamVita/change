@@ -26,7 +26,7 @@ var utility = {
   },
 
   generatePassword: function() {
-    var index = Math.random() * 386;
+    var index = Math.random() * dictionary.words.length;
     return dictionary.words[index];
   },
 
