@@ -37,9 +37,10 @@ var utility = {
   },
 
   generatePin: function() {
+    var self = this;
     return models.recipient.findMaxId().then(function(maxId) {
       // transfer id to four digits string  
-      return this.toFourDigitsString(maxId);
+      return self.toFourDigitsString(maxId);
     });
   },
 
