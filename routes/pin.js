@@ -3,11 +3,19 @@ var router = express.Router();
 var utility = require('./subroutes/utility');
 
 router.get('/', function(req, res) {
-  var newPin = utilities.generatePin();
-  var newPassword = utilities.generatePassword();
+  utility.initDB();
+  var newPin = utility.generatePin();
+  var newPassword = utility.generatePassword();
   // TODO add new recipient record to DB here;
-  var recipient = utility.createRecipient(newPassword, newPin);
-  res.send({pin: newPin, password: newPassword});
+  newPin.then(function(newPin) {
+    var recipient = utility.createRecipient(newPassword, newPin);
+    recipient.then( function(account) {
+      res.send({
+        pin: account.pin,
+        password: account.password
+      });
+    });
+  });
 });
 
 module.exports = router;
