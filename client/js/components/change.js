@@ -13,7 +13,7 @@ var getPageComponent = function(page) {
 		return require('./shelter/controller');
 
 		case Pages.DONOR:
-		return require('./vendor/controller');
+		return require('./donor/controller');
 	}
 };
 
