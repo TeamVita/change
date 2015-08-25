@@ -2,8 +2,9 @@ var db = require('../index.js');
 
 var recipient = {
   create: function(recipient) {
+
     return db.Recipient.findOrCreate({
-      where: { 
+      where: {
         food: 0,
         clothing: 0,
         password: recipient.password,
@@ -62,14 +63,14 @@ var recipient = {
     })
     .catch(function() {
       throw new Error('Unknown error at method recipient updateOneByPin()');
-    })  
+    })
   },
 
   // Get currently maximum id from database
   findMaxId: function() {
     // query maximum id
     return db.Recipient.max('id').then(function(maxId) {
-      return maxId;
+      return maxId || 0;
     })
     .catch(function() {
       throw new Error('Unknown error at method recipient findMaxId()');
