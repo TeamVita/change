@@ -15,34 +15,64 @@ var personalInfo = React.createClass({
   render: function() {
 
     return (
-      <div>
-        <h2 className="formheader3 text-center">How Does Change Work</h2>
-
+      <div id="contact">
+        <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
         <div className="container">
-            <div className="">
-                <div className="col-lg-12 text-center">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="formheader">Vendor Sign Up</h2>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-8 col-lg-offset-2">
+              <form id="contactForm">
+                <div className="row control-group whitey">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Email
+                      <input type="text" className="form-control" placeholder="" id="email" ref='email'/>
+                  </div>
                 </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    First Name
+                      <input type="text" className="form-control" placeholder="" id="name" ref='first_name'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Last Name
+                      <input type="text" className="form-control" placeholder="" id="name" ref='last_name'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                      Birthday
+                      <input type="date" className="form-control" placeholder="Birthday" id="birthday" ref='dob_day'/>
+                  </div>
+                </div>
+                <div className="row control-group">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    Business Name
+                      <input type="text" className="form-control" placeholder="" id="name" ref='business_name'/>
+                  </div>
+                </div>
+
+                <div id="success" className="button"></div>
+                  <div className="row">
+                    <div className="form-group col-xs-12 text-center">
+                      <button type="submit" className="btn btn-success btn-lg">Send</button>
+                    </div>
+                  </div>
+              </form>
             </div>
-            <div className="row">
-              <div className="col-xs-6 col-sm-4">
-                <img src={"styles/images/Step_1_Illustration.png"} className="img-responsive center-block" />
-                <h4 className="text-center space2">1) Find Someone In Need</h4>
-                <p className="text-center caption">If they're wearing a yellow button you can give them Change, so take not of their 4-digit PIN Tag. Some people also write their PIN on a sign.</p>
-              </div>
-              <div className="col-xs-6 col-sm-4">
-                <img src={"styles/images/Step_2_Illustration.png"} className="img-responsive center-block" />
-                <h4 className="text-center space2">2) Show That You Care</h4>
-                <p className="text-center caption">Open the Change app and enter the PIN Tag #, the amount you'd like to give, and choose to give either food or clothing.</p>
-              </div>
-              <div className="clearfix visible-xs-block"></div>
-              <div className="col-xs-6 col-sm-4">
-                <img src={"styles/images/Step_3_Illustration.png"} className="img-responsive center-block" />
-                     <h4 className="text-center space2">3) Make A Difference</h4>
-                     <p className="text-center caption">Our partner vendors will give credit for your donations to every Change recipient, so they can be fed, warm and happy.</p>
-              </div>
-            </div>
+          </div>
         </div>
-    </div>
+         <header className="fullwidth">
+            <img src={"./styles/images/Change_logo.png"}/>
+          </header>
+      </div>
     );
   }
 });
