@@ -21,12 +21,13 @@ var utility = {
   },
 
   toFourDigitsString: function(num) {
+
     if (typeof num !== 'number') {
       return null;
     }
 
     var fourDigits = num.toString();
-    
+
     var _requiredLen = 4;
     var paddingLen = _requiredLen - fourDigits.length;
     for (var i = 0; i < paddingLen; i++) {
