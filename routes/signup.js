@@ -18,10 +18,13 @@ router.post('/vendor', function(req, res) {
   var email = req.body.email;
   var username = req.body.business_name;
   var password = req.body.pass;
+  req.body.dob_year = req.body.dob_day.slice(0,4);
+  req.body.dob_month = req.body.dob_day.slice(5,7);
+  req.body.dob_day = req.body.dob_day.slice(8,10);
   stripeHandler.createStripeAccount(req, res, function(newAccount){
   	newAccount.type = vendorType;
     newAccount.password = password;
-    utility.createVendor(email, password, username, vendorType);
+    // utility.createVendor(email, password, username, vendorType);
     res.send(newAccount);
   });
 });

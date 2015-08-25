@@ -27,17 +27,16 @@ var bankInfo = React.createClass({
           </div>
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2">
-
-                <div className="row control-group">
+                <div className="row control-group whitey">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
                     Routing Number
-                      <input type="text" className="form-control" placeholder="" id="email" ref='routing'/>
+                      <input type="text" value = "110000000"className="form-control" placeholder="" id="email" ref='routing'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
                     Account Number
-                      <input type="text" className="form-control" placeholder="" id="name" value='110000000' ref='account'/>
+                      <input type="text" value= "000123456789" className="form-control" placeholder="" id="name" ref='account'/>
                   </div>
                 </div>
                 <div id="success" className="button"></div>
@@ -46,7 +45,6 @@ var bankInfo = React.createClass({
                       <button type="submit" className="btn btn-success btn-lg">Send</button>
                     </div>
                   </div>
-
             </div>
           </div>
         </div>

@@ -12,7 +12,6 @@ var Signup = React.createClass({
   },
 
   show: function(pane, data){
-    console.log
     this.setState({
       pane: pane,
       balance: data.balance
@@ -27,7 +26,6 @@ var Signup = React.createClass({
       business: vendorAccount.business_name,
       type: vendorAccount.type, 
     });
-    console.log(this.state.type, "is the type");
   },
 
   handleClick: function() {
@@ -46,6 +44,7 @@ var Signup = React.createClass({
         personalResponseHandler.bind(this)();
     } else if (this.state.pane === 'bank') {
         var bankAccount = this.refs.partial.getFields();
+      console.log("This is the account info", bankAccount);
         Stripe.bankAccount.createToken({
           country: 'US',
           currency: 'USD',
@@ -56,9 +55,7 @@ var Signup = React.createClass({
 
     function loginResponseHandler() {
       var loginData = this.refs.partial.getFields();
-      // actions.logIn(loginData, (function(pane, business) {
-      //   this.changePane.call(this, pane, business);
-      // }).bind(this));
+      console.log("login data", loginData);
       actions.logIn(loginData, this.changePane);
     }
 
@@ -103,7 +100,7 @@ render: function() {
 
     return (
       <div ref = 'form'>
-        <form onSubmit ={this.handleSubmit}>
+        <form id ="contactForm"onSubmit ={this.handleSubmit}>
           {partial}
         </form>
         <a onClick={this.handleClick}>Already have an account? Log in here.</a>

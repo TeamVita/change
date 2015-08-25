@@ -9,6 +9,8 @@ var CHANGE_EVENT = 'submit';
 
 var appState = {page: 'DONOR', pane: 'donate'};
 
+// var appState = {page: 'VENDOR'};
+
 var reset = function() {
 	appState = {};
 };

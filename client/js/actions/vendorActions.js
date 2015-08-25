@@ -9,6 +9,7 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
+				console.log("This is the data received", data);
 				welcome('welcome', data);
 			},
 			error: function(error) {
@@ -59,7 +60,6 @@ module.exports = {
 			type: 'POST',
 			data: info,
 			success: function(data) {
-				// cb('welcome', data.business_name);
 				cb('welcome', data);
 			},
 			error: function(error) {
