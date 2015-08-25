@@ -46,7 +46,7 @@ var utility = {
   },
 
   generatePassword: function() {
-    var index = Math.random() * dictionary.words.length;
+    var index = Math.floor(Math.random() * (dictionary.words.length - 1));
     return dictionary.words[index];
   },
 
