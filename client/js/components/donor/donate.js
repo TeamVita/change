@@ -66,7 +66,7 @@ var Donate = React.createClass({
                 </div>
              
             <div className="col-lg-12 text-center">
-              <h4 className="formheader">Where do you want the money to go?</h4>   
+              <h4 className="formheader">Where do you want the money to gooo?</h4>   
                <div className="space">
                 <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes">      
                   <input type ='image' src={"./styles/images/Clothes_Icon.png"}ref ='PIN' />
@@ -79,13 +79,11 @@ var Donate = React.createClass({
               <div id="success" className="button"></div>
                   <div className="row boo">
                     <div className="form-group col-xs-12 text-center booga2">
-                      <button type="submit" className="btn btn-success btn-lg">Send</button>
-                    </div>
-                  </div>
-              </div>
+                   
+              
 
               <br/>
-      <StripeCheckout
+              <StripeCheckout
               name="Change"
               description= "Thanks for Change!"
               panelLabel="Donate"
@@ -93,11 +91,14 @@ var Donate = React.createClass({
               currency="USD"
               stripeKey= {Keys.PUBLIC_KEY}
               token={this.onToken}>
-              <button className="myOwnButton">
+              <button className="text-center btn btn-success btn-lg boo button">
                 <span>Take my money</span>
               </button>
         </StripeCheckout>
         <br/>
+         </div>
+                  </div>
+        </div>
         <button onClick= {this.vendorPage}>Vendor</button>
         <button onClick= {this.shelterPage}>Shelter</button>
 
