@@ -12,21 +12,34 @@ var utility = {
   initDB: function() {
     if (process.env.dev === 'development') {
       // Proceed with caution! DROP TABLES!
-      return models.sequelize.sync();
-      // return models.sequelize.sync({ force: true });
-    } else {
-      return models.sequelize.sync({ force: true });
       // return models.sequelize.sync();
+      return models.sequelize.sync({ force: true });
+    } else {
+      // return models.sequelize.sync({ force: true });
+      return models.sequelize.sync();
     }
   },
 
-  generatePin: function() {
-    if (this.pin === undefined) {
+  toFourDigitsString: function(num) {
+    if (typeof num !== 'number') {
       return null;
     }
-    var pin = this.pin;
-    this.pin += 1;
-    return pin;
+
+    var fourDigits = num.toString();
+    var _requiredLen = 4;
+    var paddingLen = _requiredLen - fourDigits.length;
+    for (var i = 0; i < paddingLen; i++) {
+      fourDigits = "0" + fourDigits;
+    }
+
+    return fourDigits;
+  },
+
+  generatePin: function() {
+    return models.recipient.findMaxId().then(function(maxId) {
+      // transfer id to four digits string  
+      return this.toFourDigitsString(maxId);
+    });
   },
 
   checkPin: function(pin) {
@@ -41,6 +54,7 @@ var utility = {
     if (typeof vendorType !== 'string') {
       return null;
     }
+    
     vendorType = vendorType.toLowerCase();
 
     if (vendorType !== 'food' && vendorType !== 'clothing') {
@@ -74,9 +88,8 @@ var utility = {
   },
 
   createRecipient: function(password, pin) {
-    // verification
     if(!this.checkPin(pin)) {
-      pin = this.generatePin();
+      return null
     }
 
     var recipient = {

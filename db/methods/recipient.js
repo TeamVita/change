@@ -58,8 +58,22 @@ var recipient = {
       return recipient.decrement(vendorType, {by: chargedAmount}).then(function(recipient) {
         // console.log("After decrementing", recipient.get());
         return recipient.get();
-      });
-    })    
+      })
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method recipient updateOneByPin()');
+    })  
+  },
+
+  // Get currently maximum id from database
+  findMaxId: function() {
+    // query maximum id
+    return db.Recipient.max('id').then(function(maxId) {
+      return maxId;
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method recipient findMaxId()');
+    })
   }
 }
 
