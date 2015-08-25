@@ -19,53 +19,53 @@ var personalInfo = React.createClass({
         <header className="fullwidth">
             <img src={"./styles/images/Change_logo.png"}/>
           </header>
-        <div className="container">
+        <div className="container fonty">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="formheader">Vendor Sign Up</h2>
+              <h2 className="formheader">Vendor Sign Upppp</h2>
             </div>
           </div>
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2">
-              <form id="contactForm">
+
                 <div className="row control-group whitey">
-                  <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Email
-                      <input type="text" className="form-control" placeholder="" id="email" ref='email'/>
+                  <div className="form-group col-md-12 floating-label-form-group controls">
+                    <span className='fonty'>Email: </span>
+                      <input type="text" className="" placeholder="" id="" ref='email'/>
                   </div>
                 </div>
                 <div className="row control-group">
-                  <div className="form-group col-xs-12 floating-label-form-group controls">
-                    First Name
+                  <div className="form-group col-xs-12  controls">
+                    <span className='fonty'>First Name </span>
                       <input type="text" className="form-control" placeholder="" id="name" ref='first_name'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Last Name
+                    <span className='fonty'>Last Name</span>
                       <input type="text" className="form-control" placeholder="" id="name" ref='last_name'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                      Birthday
+                    <span className='fonty'>Birthday</span>
                       <input type="date" className="form-control" placeholder="Birthday" id="birthday" ref='dob_day'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Business Name
+                    <span className='fonty'>Business Name</span>
                       <input type="text" className="form-control" placeholder="" id="name" ref='business_name'/>
                   </div>
                 </div>
 
                 <div id="success" className="button"></div>
-                  <div className="row">
-                    <div className="form-group col-xs-12 text-center">
-                      <button type="submit" className="btn btn-success btn-lg">Send</button>
+                  <div className="row boo">
+                    <div className="form-group col-xs-12 text-center booga2">
+                      <button type="submit" className="btn btn-success btn-lg">Submit</button>
                     </div>
                   </div>
-              </form>
+
             </div>
           </div>
         </div>

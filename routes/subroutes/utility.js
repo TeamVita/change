@@ -1,5 +1,6 @@
 var Promise = require('bluebird');
 var models = require('../../db');
+var dictionary = require('../../dictionary');
 // TODO: utility functions
 var utility = {
   pin: 0,
@@ -40,6 +41,11 @@ var utility = {
       // transfer id to four digits string  
       return this.toFourDigitsString(maxId);
     });
+  },
+
+  generatePassword: function() {
+    var index = Math.random() * dictionary.words.length;
+    return dictionary.words[index];
   },
 
   checkPin: function(pin) {

@@ -30,7 +30,7 @@ router.post('/shelter', function(req, res) {
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
     if (account.password === req.body.password) {
-      res.send(account);
+      res.send(account.business_name);
     } else {
       var error = {
         message: "We don't have an account on record with that username and password combination."
