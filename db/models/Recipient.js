@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
 
     password: DataTypes.STRING,
 
-    pin: DataTypes.INTEGER
+    // pin: DataTypes.INTEGER
+    pin: DataTypes.STRING
   })
 }
