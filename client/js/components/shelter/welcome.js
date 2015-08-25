@@ -37,7 +37,7 @@ var welcome = React.createClass({
     if (this.state.pane === 'blank') {
       partial = <div></div>
     } else if (this.state.pane === 'newPin') {
-      partial = <NewPin PIN={this.state.PIN} password={this.state.password}/>
+      partial = <NewPin PIN={this.state.pin} password={this.state.password}/>
     }
     return (
       <div id="contact">
