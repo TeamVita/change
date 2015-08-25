@@ -3,7 +3,6 @@ var models = require('../../db');
 var dictionary = require('../../dictionary');
 // TODO: utility functions
 var utility = {
-  pin: 0,
 
   organizationType: {
     shelter: "shelter",
@@ -16,7 +15,7 @@ var utility = {
       // return models.sequelize.sync();
       return models.sequelize.sync({ force: true });
     } else {
-      // return models.sequelize.sync({ force: true });
+      return models.sequelize.sync({ force: true });
       return models.sequelize.sync();
     }
   },
@@ -39,7 +38,7 @@ var utility = {
   generatePin: function() {
     var self = this;
     return models.recipient.findMaxId().then(function(maxId) {
-      // transfer id to four digits string  
+      // transfer id to four digits string
       return self.toFourDigitsString(maxId);
     });
   },
@@ -50,7 +49,8 @@ var utility = {
   },
 
   checkPin: function(pin) {
-    if (typeof pin !== 'number' || pin < this.pin || pin > 9999) {
+    numPin = parseInt(pin);
+    if (typeof numPin !== 'number' || numPin > 9999) {
       console.error("Invalid PIN number");
       return null;
     }
@@ -61,7 +61,7 @@ var utility = {
     if (typeof vendorType !== 'string') {
       return null;
     }
-    
+
     vendorType = vendorType.toLowerCase();
 
     if (vendorType !== 'food' && vendorType !== 'clothing') {
@@ -96,9 +96,8 @@ var utility = {
 
   createRecipient: function(password, pin) {
     if(!this.checkPin(pin)) {
-      return null
+      return null;
     }
-
     var recipient = {
       password: password,
       pin: pin
