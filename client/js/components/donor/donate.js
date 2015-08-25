@@ -42,7 +42,7 @@ var Donate = React.createClass({
 
   render: function() {
         console.log('hello');
-      
+
     return (
       <div id="contact">
         <header className="fullwidth">
@@ -61,14 +61,14 @@ var Donate = React.createClass({
                 <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
                     <span className="fonty">Amount</span>
-                      <input type="text" className="text-center" placeholder="$0.00" id="name" ref='account'/>
+                      <input type="text" onChange={this.handleChange} className="text-center" placeholder="$0.00" id="name" ref='account'/>
                   </div>
                 </div>
-             
+
             <div className="col-lg-12 text-center">
-              <h4 className="formheader">Where do you want the money to gooo?</h4>   
+              <h4 className="formheader">What would you like to give?</h4>
                <div className="space">
-                <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes">      
+                <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes">
                   <input type ='image' src={"./styles/images/Clothes_Icon.png"}ref ='PIN' />
                 </button>
                  <button type="submit" onClick={this.handleClick} value='food' className="btn btn-lg clothes">
@@ -79,8 +79,8 @@ var Donate = React.createClass({
               <div id="success" className="button"></div>
                   <div className="row boo">
                     <div className="form-group col-xs-12 text-center booga2">
-                   
-              
+
+
 
               <br/>
               <StripeCheckout
