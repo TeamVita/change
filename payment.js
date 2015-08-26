@@ -16,6 +16,8 @@ var makePayment = function(req) {
     fee = fee.toString().slice(0, 4);
     fee = parseFloat(fee);
     fee *= 100;
+    fee = fee.toString().slice(0, 4);
+    fee = parseFloat(fee);
     return fee;
   };
 
@@ -51,7 +53,7 @@ var makePayment = function(req) {
       }
     });
   });
-  
+
   return charge;
   // return charge.then(function(newCharge) {
   //   for (var prop in newCharge) {
