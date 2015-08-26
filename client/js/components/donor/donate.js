@@ -14,8 +14,6 @@ var Donate = React.createClass({
   onToken: function(token) {
     var pin = React.findDOMNode(this.refs.PIN).value.trim();
     var amt = React.findDOMNode(this.refs.amount).value.trim();
-    // var pin = this.refs.PIN.getDOMNode().value.trim();
-    // var amt = this.refs.amount.getDOMNode().value.trim();
     DonorActions.donate({pin: pin, amt: amt, type: this.state.type, token: JSON.stringify(token)});
   },
 
@@ -70,10 +68,10 @@ var Donate = React.createClass({
               <h4 className="formheader">What would you like to give?</h4>
                <div className="space">
                 <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes">
-                  <input type ='image' src={"./styles/images/Clothes_Icon.png"} />
+                  <input type ='image' onClick={this.handleClick} value='clothing' src={"./styles/images/Clothes_Icon.png"} />
                 </button>
                  <button type="submit" onClick={this.handleClick} value='food' className="btn btn-lg clothes">
-                  <input type ='image' src={"./styles/images/Food_Icon.png"} />
+                  <input type ='image' onClick={this.handleClick} value='food' src={"./styles/images/Food_Icon.png"} />
                 </button>
               </div>
             </div>
