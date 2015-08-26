@@ -8,7 +8,10 @@ var Login = require('../login');
 var Signup = React.createClass({
 
   getInitialState: function() {
-    return {pane: 'personal'};
+    return {
+      pane: 'personal',
+      showLoginLink: true
+    };
   },
 
   show: function(pane, data){
@@ -24,14 +27,15 @@ var Signup = React.createClass({
     this.setState({
       pane: pane,
       business: vendorAccount.business_name,
-      type: vendorAccount.type, 
+      type: vendorAccount.type,
     });
   },
 
   handleClick: function() {
     // TODO set login anchor class to 'hidden', or something
     this.setState({
-      pane: 'login'
+      pane: 'login',
+      showLoginLink: false
     });
   },
 
@@ -86,6 +90,7 @@ var Signup = React.createClass({
   },
 
 render: function() {
+    var loginLink = <a onClick={this.handleClick}>Already have an account? Log in here.</a>
     var partial;
     if (this.state.pane === 'login') {
       partial = <Login ref='partial' />;
@@ -103,7 +108,7 @@ render: function() {
         <form id ="contactForm"onSubmit ={this.handleSubmit}>
           {partial}
         </form>
-        <a onClick={this.handleClick}>Already have an account? Log in here.</a>
+        {this.state.showLoginLink ? loginLink : null}
       </div>
     );
   }
