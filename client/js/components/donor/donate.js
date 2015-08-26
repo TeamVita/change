@@ -51,7 +51,7 @@ var Donate = React.createClass({
             <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
-              <h2 className="text-center formheader2">Make a Donationn</h2>
+              <h2 className="text-center formheader2">Make a Donation</h2>
 
                <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
