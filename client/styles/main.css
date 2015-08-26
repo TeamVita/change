@@ -1,12 +1,16 @@
 
 
 .input {
-	padding: 1%;
+  padding: 1%;
 }
 
 #success img {
-	height: 15%;
-	width: 15%;
+  height: 15%;
+  width: 15%;
+}
+
+.btn-success2 {
+  background-color: blue;
 }
 
 .images {
@@ -37,6 +41,19 @@
   padding-left: 45px;
   padding-right: 50px;
   /*padding-bottom: 30px;*/
+}
+
+.button2 {
+  padding-top: 25px;
+  padding-left: 45px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+}
+.button4 {
+  padding-top: 195px;
+  padding-left: 45px;
+  padding-right: 50px;
+  padding-bottom: 40px;
 }
 
 .fullwidth {
@@ -143,6 +160,10 @@ input.booga::-webkit-input-placeholder {
   font-size: 1.5em;
 }
 
+.spacey {
+  padding-right: 10px;
+}
+
 input[type=text], name {
   -webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
@@ -161,15 +182,12 @@ input[type=text], name {
     min-width: 360px;*/
     height: auto;
     padding-left: 20px;
-    padding-right: 40px;
+    padding-right: 20px;
 }
 
 .caption {
   padding-top: 20px;
   font-size: 1.3em;
-  padding-bottom: 20px;
-  padding-right: 20px;
-  padding-left: 20px; 
 
 }
 /*dark blue: 133F5F
