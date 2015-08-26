@@ -68,10 +68,10 @@ var Donate = React.createClass({
             <div className="col-lg-12 text-center">
               <h4 className="formheader">Where do you want the money to gooo?</h4>   
                <div className="space">
-                <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes">      
+                <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes btn-success2">      
                   <input type ='image' src={"./styles/images/Clothes_Icon.png"}ref ='PIN' />
                 </button>
-                 <button type="submit" onClick={this.handleClick} value='food' className="btn btn-lg clothes">
+                 <button type="submit" onClick={this.handleClick} value='food' className="btn btn-lg clothes btn-success2">
                   <input type ='image' src={"./styles/images/Food_Icon.png"}ref ='PIN' />
                 </button>
               </div>

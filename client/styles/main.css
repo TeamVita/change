@@ -9,6 +9,10 @@
 	width: 15%;
 }
 
+.btn-success2 {
+  background-color: blue;
+}
+
 .images {
   max-width: 210px;
   max-height: 180px;
@@ -37,6 +41,13 @@
   padding-left: 45px;
   padding-right: 50px;
   /*padding-bottom: 30px;*/
+}
+
+.button2 {
+  padding-top: 25px;
+  padding-left: 45px;
+  padding-right: 50px;
+  padding-bottom: 40px;
 }
 
 .fullwidth {
@@ -141,6 +152,10 @@ input.booga::-webkit-input-placeholder {
   padding-right: 10px;
   color: #133F5F;
   font-size: 1.5em;
+}
+
+.spacey {
+  padding-right: 10px;
 }
 
 input[type=text], name {
