@@ -47,9 +47,11 @@ router.post('/vendor/retrieve', function(req, res) {
   var pin = req.body.pin;
   // check vendor type
 
-  utility.findRecipientByPin(pin, 'food').then(function(recipient) {
+  var vendorType = 'food';
+  utility.findRecipientByPin(pin, vendorType).then(function(recipient) {
     // password verification
-    res.send(recipient);
+    console.log("recipient", recipient);
+    res.send({ type: vendorType, balance: recipient[vendorType] });
   });
 
 });
@@ -63,10 +65,6 @@ router.post('/vendor/redeem', function(req, res) {
   var password = req.body.password;
 
   console.log("pin received from front end!", pin);
-  // create a recipient
-  // utility.createRecipient("1234", pin).then(function() {
-  //   res.send("Success!");
-  // });
 
   // utility.findRecipientByPin(pin, vendorType).then(function(recipient) {
   //   return recipient;

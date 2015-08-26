@@ -123,7 +123,8 @@ var utility = {
     console.log("In findRecipientByPin typeof ", typeof pin);
     return models.recipient.findOneByPin(pin).then(function(recipient) {
       // console.log("Before return", recipient.get().vendorType);
-      return recipient.get()[vendorType];
+      // return recipient.get()[vendorType];
+      return recipient.get();
     });
   },
 
@@ -138,7 +139,21 @@ var utility = {
       return null;
     }
 
-    return models.recipient.updateOneByPin(pin, chargedAmount, vendorType);
+    return models.recipient.decrementOneByPin(pin, chargedAmount, vendorType);
+  },
+
+  // Specific vendorType: "food"/"clothing" to charge certain recipient with PIN tags
+  // chargedAmount is how much money will be reduced on recipient balance
+  donateToRecipientByPin: function(pin, donateAmount, vendorType) {
+    if(!this.checkPin(pin)) {
+      return null;
+    }
+
+    if(!this.checkVendorType(vendorType)) {
+      return null;
+    }
+
+    return models.recipient.incrementOneByPin(pin, donateAmount, vendorType);
   },
 
   createVendor: function(email, password, username, vendorType) {
