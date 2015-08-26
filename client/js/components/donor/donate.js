@@ -12,8 +12,10 @@ var Donate = React.createClass({
 
   // Upon token receipt, wrap data package and POST for payment creation
   onToken: function(token) {
-    var pin = this.refs.PIN.getDOMNode().value.trim();
-    var amt = this.refs.amount.getDOMNode().value.trim();
+    var pin = React.findDOMNode(this.refs.PIN).value.trim();
+    var amt = React.findDOMNode(this.refs.amount).value.trim();
+    // var pin = this.refs.PIN.getDOMNode().value.trim();
+    // var amt = this.refs.amount.getDOMNode().value.trim();
     DonorActions.donate({pin: pin, amt: amt, type: this.state.type, token: JSON.stringify(token)});
   },
 
@@ -41,7 +43,6 @@ var Donate = React.createClass({
   },
 
   render: function() {
-        console.log('hello');
 
     return (
       <div id="contact">
@@ -55,13 +56,13 @@ var Donate = React.createClass({
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
                     <span className="fonty">Pin Tag #</span>
 
-                      <input type="text" className="text-center" placeholder="####" id="name" ref='account'/>
+                      <input type="text" className="text-center" placeholder="####" id="name" ref='PIN'/>
                   </div>
                 </div>
                 <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
                     <span className="fonty">Amount</span>
-                      <input type="text" onChange={this.handleChange} className="text-center" placeholder="$0.00" id="name" ref='account'/>
+                      <input type="text" onChange={this.handleChange} className="text-center" placeholder="$0.00" id="name" ref='amount'/>
                   </div>
                 </div>
 
@@ -69,10 +70,10 @@ var Donate = React.createClass({
               <h4 className="formheader">What would you like to give?</h4>
                <div className="space">
                 <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes">
-                  <input type ='image' src={"./styles/images/Clothes_Icon.png"}ref ='PIN' />
+                  <input type ='image' src={"./styles/images/Clothes_Icon.png"} />
                 </button>
                  <button type="submit" onClick={this.handleClick} value='food' className="btn btn-lg clothes">
-                  <input type ='image' src={"./styles/images/Food_Icon.png"}ref ='PIN' />
+                  <input type ='image' src={"./styles/images/Food_Icon.png"} />
                 </button>
               </div>
             </div>
@@ -92,7 +93,7 @@ var Donate = React.createClass({
               stripeKey= {Keys.PUBLIC_KEY}
               token={this.onToken}>
               <button className="text-center btn btn-success btn-lg boo button">
-                <span>Take my money</span>
+                <span>Make a change</span>
               </button>
         </StripeCheckout>
         <br/>
