@@ -40,11 +40,15 @@ var Donate = React.createClass({
     actions.switchPage('SHELTER');
   },
 
+  donorPage: function (){
+    actions.switchPage('DONOR');
+  },
+
   render: function() {
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
               <h2 className="text-center formheader2">Make a Donation</h2>
@@ -52,7 +56,7 @@ var Donate = React.createClass({
                <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
                     <span className="fonty">Pin Tag #</span>
-                      <input type="text" className="text-center" placeholder="####" id="name" ref='PIN'/>
+                      <input type="text" maxLength='4' className="text-center" placeholder="####" id="name" ref='PIN'/>
                   </div>
                 </div>
                 <div className="row">
@@ -100,7 +104,7 @@ var Donate = React.createClass({
         <button onClick= {this.shelterPage}>Shelter</button>
 
          <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
     );

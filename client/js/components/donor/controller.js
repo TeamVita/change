@@ -1,10 +1,14 @@
 var DonorController = React.createClass({
 
+  getInitialState: function() {
+    return {pane: 'donate'};
+  },
+
   render: function() {
     var amount = this.props.appState.amount;
-    var email = this.props.appState.email; 
+    var email = this.props.appState.email;
     var partial;
-    if (this.props.appState.pane === 'donate') {
+    if (this.state.pane === 'donate') {
       NewPane = require('./donate');
       partial = <NewPane amount = {amount}  />;
     }

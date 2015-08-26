@@ -1,6 +1,7 @@
 var actions = require('../../actions/actions');
 var shelterActions = require('../../actions/shelterActions');
 var Constants = require('../../constants/Constants.js');
+var actions = require('../../actions/actions');
 
 var OrgSignup = React.createClass({
 
@@ -20,17 +21,21 @@ var OrgSignup = React.createClass({
     this.setState({text: e.target.value});
   },
 
+  donorPage: function (){
+    actions.switchPage('DONOR');
+  },
+
   render: function() {
     return (
 
       <div id="contact">
         <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="formheader">Shelter Login</h2>
+              <h2 className="formheader">Shelter Signup</h2>
             </div>
           </div>
             <div className="row">
@@ -44,8 +49,8 @@ var OrgSignup = React.createClass({
                     <span className="fonty">Password</span>
                       <input type="password" onChange={this.onChange} className="text-center" placeholder="" id="name" ref='password' value={this.state.text}/>
                   </div>
-                </div>    
-     
+                </div>
+
           <div id="success" className="button"></div>
                   <div className="row boo">
                     <div className="form-group col-xs-12 text-center booga2">
@@ -56,7 +61,7 @@ var OrgSignup = React.createClass({
 
         </div>
          <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
     );
