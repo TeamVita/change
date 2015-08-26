@@ -34,7 +34,6 @@ var recipient = {
   // FIX ME
   findOneByPin: function(pin) {
     return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
-      // console.log("find a recipient", recipient);
       return recipient;
     })
     .catch(function() {

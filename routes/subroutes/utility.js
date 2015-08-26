@@ -119,9 +119,11 @@ var utility = {
     if(!this.checkVendorType(vendorType)) {
       return null;
     }
-
+    console.log("In findRecipientByPin", pin);
+    console.log("In findRecipientByPin typeof ", typeof pin);
     return models.recipient.findOneByPin(pin).then(function(recipient) {
-      return recipient.get().vendorType;
+      // console.log("Before return", recipient.get().vendorType);
+      return recipient.get()[vendorType];
     });
   },
 
