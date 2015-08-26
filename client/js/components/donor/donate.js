@@ -104,7 +104,7 @@ var Donate = React.createClass({
         <button onClick= {this.shelterPage}>Shelter</button>
 
          <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
     );
