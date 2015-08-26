@@ -3,12 +3,12 @@ var router = express.Router();
 var makePayment = require('../payment');
 
 // Create vendor, add to DB, redirect user
-/*Changed  "/donate" to "/" otherwise route becomes /donate/donate -Adi */
 router.post('/', function(req, res) {
-	makePayment(req);
-
-	// TODO add payment to DB
-	res.send('Success!');
+	var newCharge = makePayment(req);
+	newCharge.then(function(charge) {
+		// TODO add payment to DB
+		res.send(charge);
+	});
 });
 
 module.exports = router;
