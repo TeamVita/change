@@ -7,7 +7,11 @@ var actions = require('../../actions/actions');
 var Donate = React.createClass({
 
   getInitialState: function() {
-    return {amount: 100};
+    return {
+      amount: 100,
+      foodColor: 'btn btn-lg kind',
+      clothingColor: 'btn btn-lg kind'
+    };
   },
 
   // Upon token receipt, wrap data package and POST for payment creation
@@ -21,7 +25,19 @@ var Donate = React.createClass({
   handleClick: function(event) {
     event.preventDefault();
     var type = event.target.value;
-    this.setState({type: type});
+    var newFoodColor, newClothingColor;
+    if (type === 'food') {
+      newFoodColor = 'btn btn-lg highlighted';
+      newClothingColor = 'btn btn-lg kind';
+    } else {
+      newFoodColor = 'btn btn-lg kind';
+      newClothingColor = 'btn btn-lg highlighted';
+    }
+    this.setState({
+      type: type,
+      foodColor: newFoodColor,
+      clothingColor: newClothingColor
+    });
   },
 
   // Handle selection of donation amount
@@ -51,7 +67,7 @@ var Donate = React.createClass({
             <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
-              <h2 className="text-center formheader2">Make a Donationn</h2>
+              <h2 className="text-center formheader2">Make a Donation</h2>
 
                <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
@@ -71,10 +87,10 @@ var Donate = React.createClass({
             <div className="col-lg-12 text-center">
               <h4 className="formheader">What would you like to give?</h4>
                <div className="space">
-                <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes">
+                <button type="submit" onClick={this.handleClick} value='clothing' className={this.state.clothingColor}>
                   <input type ='image' onClick={this.handleClick} value='clothing' src={"./styles/images/Clothes_Icon.png"} />
                 </button>
-                 <button type="submit" onClick={this.handleClick} value='food' className="btn btn-lg clothes">
+                 <button type="submit" onClick={this.handleClick} value='food' className={this.state.foodColor}>
                   <input type ='image' onClick={this.handleClick} value='food' src={"./styles/images/Food_Icon.png"} />
                 </button>
               </div>
