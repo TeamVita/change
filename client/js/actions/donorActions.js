@@ -10,9 +10,8 @@ module.exports = {
 			url: '/donate',
 			type: 'POST',
 			data: info,
-			// dataType: "json",
 			success: function(data) {
-				// TODO ???
+				console.log('Payment: ' + data.status);
 			},
 			error: function() {
 			console.log('Failed to execute donate ajax request.');
