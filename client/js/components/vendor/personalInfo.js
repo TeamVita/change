@@ -20,8 +20,8 @@ var personalInfo = React.createClass({
   render: function() {
 
     return (
-      <div id="contact">
-        <header className="fullwidth">
+    <div id="contact">
+      <header className="fullwidth">
             <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
@@ -95,3 +95,6 @@ var personalInfo = React.createClass({
 });
 
 module.exports = personalInfo;
+
+
+

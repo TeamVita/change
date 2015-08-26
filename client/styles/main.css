@@ -162,6 +162,8 @@ input.booga::-webkit-input-placeholder {
 
 .spacey {
   padding-right: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #133F5F;
 }
 
 input[type=text], name {

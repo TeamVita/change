@@ -27,24 +27,27 @@ var bankInfo = React.createClass({
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="formheader">Bank Account Information</h2>
+              <h2 className="formheader">Banking Information</h2>
             </div>
           </div>
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2">
-                <div className="row control-group whitey">
+
+                <div className="row whitey">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Routing Number
-                      <input type="text" value = "110000000"className="form-control" placeholder="" id="email" ref='routing'/>
+                    <span className="spacey">Routing Number:</span>
+                      <input type="text" value = "110000000"className="" placeholder="" id="email" ref='routing'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Account Number
-                      <input type="text" value= "000123456789" className="form-control" placeholder="" id="name" ref='account'/>
+                    <span className="spacey">Account Number:</span>
+                      <input type="text" value= "000123456789" className="" placeholder="" id="name" ref='account'/>
                   </div>
                 </div>
-                <div id="success" className="button"></div>
+               
+
+                <div id="success" className="button2"></div>
                   <div className="row">
                     <div className="form-group col-xs-12 text-center">
                       <button type="submit" className="btn btn-success btn-lg">Send</button>
