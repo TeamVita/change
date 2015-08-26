@@ -1,6 +1,8 @@
 var shelterActions = require('../../actions/shelterActions');
 var Constants = require('../../constants/Constants.js');
 var NewPin = require('./newpin.js');
+var actions = require('../../actions/actions');
+
 
 var welcome = React.createClass({
 
@@ -31,6 +33,10 @@ var welcome = React.createClass({
     shelterActions.createPIN(this.showResults.bind(this));
   },
 
+  donorPage: function (){
+    actions.switchPage('DONOR');
+  },
+
   render: function() {
     // var partial = this._states[this.state.pane]();
     var partial;
@@ -42,7 +48,7 @@ var welcome = React.createClass({
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
           <div className="row">

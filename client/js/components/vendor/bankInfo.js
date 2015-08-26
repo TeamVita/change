@@ -1,5 +1,6 @@
 var actions = require('../../actions/actions');
 var Constants = require('../../constants/Constants.js');
+var actions = require('../../actions/actions');
 
 var bankInfo = React.createClass({
 
@@ -12,12 +13,16 @@ var bankInfo = React.createClass({
     return fields;
   },
 
+  donorPage: function (){
+    actions.switchPage('DONOR');
+  },
+
   render: function() {
 
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
           <div className="row">
