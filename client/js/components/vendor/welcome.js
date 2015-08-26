@@ -14,6 +14,8 @@ var welcome = React.createClass({
     var pin = this.refs.pin.getDOMNode().value.trim();
     var bill = this.refs.bill.getDOMNode().value.trim();
     var pass = this.refs.pass.getDOMNode().value.trim();
+
+    // console.log("Data in charge()", pin, bill, pass);
     actions.charge({pin: pin, password: pass, bill: bill, type: this.props.type});
   },
 
@@ -35,25 +37,25 @@ var welcome = React.createClass({
                 <div className="row control-group whitey">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
                     Pin Tag Search
-                      <input type="number" className="form-control" placeholder="" id="email" ref='pin'/>
+                      <input type="number" onChange={this.showBalance} className="form-control" placeholder="" ref='pin'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
                     Enter Password
-                      <input type="number" className="form-control" placeholder="" id="name" ref='account'/>
+                      <input type="number" className="form-control" placeholder="" ref='pass'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
                     Total Purchase Amount
-                      <input type="number" className="form-control" placeholder="" id="name" ref='account'/>
+                      <input type="number" className="form-control" placeholder="" ref='bill'/>
                   </div>
                 </div>
                 <div id="success" className="button"></div>
                   <div className="row">
                     <div className="form-group col-xs-12 text-center">
-                      <button type="submit" className="btn btn-success btn-lg">Send</button>
+                      <button type="submit" onClick={this.charge} className="btn btn-success btn-lg">Send</button>
                     </div>
                   </div>
               </form>
