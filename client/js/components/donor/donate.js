@@ -56,7 +56,9 @@ var Donate = React.createClass({
                <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
                     <span className="fonty">Pin Tag #</span>
+
                       <input type="text" maxLength='4' className="text-center" placeholder="####" id="name" ref='PIN'/>
+
                   </div>
                 </div>
                 <div className="row">
