@@ -30,22 +30,35 @@ var makePayment = function(req) {
   destination = 'acct_16c3n1LJ0pbcCi52'; // testing only
 
   // Create and execute payment
-  var charge = stripe.charges.create({
+  var charge = new Promise(function(resolve, reject) {
+    stripe.charges.create({
     amount: 1000, // amount in cents, again
     currency: "usd",
     source: stripeToken.id,
     description: description,
     destination: destination,
     application_fee: fee
-  }, function(err, charge) {
-    // if (err && err.type === 'StripeCardError') {
-    if (err){
-      // The card has been declined
-      console.log(err.message);
-    } else {
-      console.log('CHARGE: ' + charge.id);
-    }
+    },
+
+    function(err, charge) {
+      // if (err && err.type === 'StripeCardError')
+      if (err){
+        // The card has been declined
+        console.log(err.message);
+      } else {
+        console.log('CHARGE: ' + charge.id);
+        resolve(charge);
+      }
+    });
   });
+  
+  return charge;
+  // return charge.then(function(newCharge) {
+  //   for (var prop in newCharge) {
+  //     console.log('PROMISE NEWCHARGE: ' + prop + ' ' + newCharge[prop]);
+  //   }
+  //   return newCharge;
+  // });
 };
 
 module.exports = makePayment;
