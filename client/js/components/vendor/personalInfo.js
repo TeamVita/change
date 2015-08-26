@@ -1,5 +1,6 @@
 var actions = require('../../actions/actions');
 var Constants = require('../../constants/Constants.js');
+var actions = require('../../actions/actions');
 
 var personalInfo = React.createClass({
 
@@ -12,12 +13,16 @@ var personalInfo = React.createClass({
     return fields;
   },
 
+  donorPage: function (){
+    actions.switchPage('DONOR');
+  },
+
   render: function() {
 
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
           <div className="row">
@@ -27,7 +32,7 @@ var personalInfo = React.createClass({
           </div>
           <div className="row">
             <div className="col-lg-8 col-lg-offset-2">
-              
+
                 <div className="row control-group whitey">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
                     Email

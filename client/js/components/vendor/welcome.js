@@ -1,5 +1,7 @@
 var actions = require('../../actions/vendorActions');
 var Constants = require('../../constants/Constants.js');
+var actions = require('../../actions/actions');
+
 var welcome = React.createClass({
 
   showBalance: function() {
@@ -18,11 +20,15 @@ var welcome = React.createClass({
     actions.charge({pin: pin, password: pass, bill: bill, type: this.props.type});
   },
 
+  donorPage: function (){
+    actions.switchPage('DONOR');
+  },
+
   render: function() {
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
           <div className="row">

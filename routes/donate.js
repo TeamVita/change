@@ -7,6 +7,7 @@ router.post('/', function(req, res) {
 	var newCharge = makePayment(req);
 	newCharge.then(function(charge) {
 		// TODO add payment to DB
+
 		res.send(charge);
 	});
 });
