@@ -27,6 +27,7 @@ module.exports = {
 				Dispatcher.dispatch({
 					pane: 'welcome', 
 					type: ActionTypes.SHOW_AMOUNT, 
+					vendorType: data.type,
 					balance: data.balance
 				});
 			},
