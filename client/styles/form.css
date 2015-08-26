@@ -674,20 +674,21 @@ footer .footer-below {
         #home #testimonials .testimonial .author {
           margin-left: 6%; } }
       #home #testimonials .testimonial .author .pic {
-        width: 71px;
-        height: 71px;
+        width: 155px;
+        height: 155px;
         border-radius: 50px;
         float: left;
         position: relative;
         top: -12px;
-        margin-right: 18px;
+        /*margin-right: 18px;*/
         border: 1px solid #ccc; }
       #home #testimonials .testimonial .author .name {
         color: #3C92C5;
         line-height: 23px;
-        font-weight: 500; }
+        font-weight: 500;
+        font-size: 25px; }
       #home #testimonials .testimonial .author .company {
-        font-size: 14px;
+        font-size: 20px;
         color: #909090;
         line-height: 23px;
         font-weight: 400; }

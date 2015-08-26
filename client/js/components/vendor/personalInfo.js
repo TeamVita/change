@@ -20,8 +20,8 @@ var personalInfo = React.createClass({
   render: function() {
 
     return (
-      <div id="contact">
-        <header className="fullwidth">
+    <div id="contact">
+      <header className="fullwidth">
             <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
@@ -35,36 +35,49 @@ var personalInfo = React.createClass({
 
                 <div className="row control-group whitey">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Email
-                      <input type="text" className="form-control" placeholder="" id="email" ref='email'/>
+                    <span className="spacey">Email:</span>
+                      <input type="text" className="" placeholder="" id="email" ref='email'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                    First Name
-                      <input type="text" className="form-control" placeholder="" id="name" ref='first_name'/>
+                    <span className="spacey">First Name:</span>
+                      <input type="text" className="" placeholder="" id="name" ref='first_name'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Last Name
-                      <input type="text" className="form-control" placeholder="" id="name" ref='last_name'/>
+                    <span className="spacey">Last Name:</span>
+                      <input type="text" className="" placeholder="" id="name" ref='last_name'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                      Birthday
-                      <input type="date" className="form-control" placeholder="Birthday" id="birthday" ref='dob_day'/>
+                    <span className="spacey">Birthday:</span>
+                      <input type="date" className="" placeholder="Birthday" id="birthday" ref='dob_day'/>
                   </div>
                 </div>
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Business Name
-                      <input type="text" className="form-control" placeholder="" id="name" ref='business_name'/>
+                    <span className="spacey">Business Name:</span>
+                      <input type="text" className="" placeholder="" id="name" ref='business_name'/>
                   </div>
                 </div>
+               
 
-                <div id="success" className="button"></div>
+                <div className="col-lg-12 text-center">
+              <h4 className="formheader">What type of Vendor are you?</h4>
+               <div className="space">
+                <button type="submit" onClick={this.handleClick} value='clothing' className="btn btn-lg clothes">
+                  <input type ='image' onClick={this.handleClick} value='clothing' src={"./styles/images/Clothes_Icon.png"} />
+                </button>
+                 <button type="submit" onClick={this.handleClick} value='food' className="btn btn-lg clothes">
+                  <input type ='image' onClick={this.handleClick} value='food' src={"./styles/images/Food_Icon.png"} />
+                </button>
+              </div>
+            </div>
+
+                <div id="success" className="button4"></div>
                   <div className="row">
                     <div className="form-group col-xs-12 text-center">
                       <button type="submit" className="btn btn-success btn-lg">Send</button>
@@ -82,3 +95,6 @@ var personalInfo = React.createClass({
 });
 
 module.exports = personalInfo;
+
+
+

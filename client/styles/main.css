@@ -1,12 +1,16 @@
 
 
 .input {
-	padding: 1%;
+  padding: 1%;
 }
 
 #success img {
-	height: 15%;
-	width: 15%;
+  height: 15%;
+  width: 15%;
+}
+
+.btn-success2 {
+  background-color: blue;
 }
 
 .images {
@@ -37,6 +41,19 @@
   padding-left: 45px;
   padding-right: 50px;
   /*padding-bottom: 30px;*/
+}
+
+.button2 {
+  padding-top: 25px;
+  padding-left: 45px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+}
+.button4 {
+  padding-top: 195px;
+  padding-left: 45px;
+  padding-right: 50px;
+  padding-bottom: 40px;
 }
 
 .fullwidth {
@@ -141,6 +158,12 @@ input.booga::-webkit-input-placeholder {
   padding-right: 10px;
   color: #133F5F;
   font-size: 1.5em;
+}
+
+.spacey {
+  padding-right: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #133F5F;
 }
 
 input[type=text], name {

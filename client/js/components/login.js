@@ -11,14 +11,46 @@ var login = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <h1>Log in to make a CHANGE</h1>
-        <div><input type = 'text' placeholder = 'email address' ref='email' /></div>
-        <div><input type = 'password' placeholder ='password' ref='password' /></div>
-        <input type='submit' />
+      <div id="contact">
+        <header className="fullwidth">
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+          </header>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h2 className="formheader">Log in to make a CHANGE</h2>
+            </div>
+          </div>
+            <div className="row">
+                  <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
+                    <span className="fonty">Username</span>
+                      <input type="text" className="text-center" placeholder="abc@abc.com" id="email" ref='email'/>
+                  </div>
+                </div>
+            <div className="row">
+                  <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
+                    <span className="fonty">Password</span>
+                      <input type="password" className="text-center" placeholder="" id="name" ref='password' />
+                  </div>
+                </div>
+
+          <div id="success" className="button"></div>
+                  <div className="row boo">
+                    <div className="form-group col-xs-12 text-center booga2">
+                      <button type="submit" className="btn btn-success btn-lg">Login</button>
+                    </div>
+                  </div>
+
+
+        </div>
+         <header className="fullwidth">
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+          </header>
       </div>
     );
   }
 });
 
 module.exports = login;
+
+
