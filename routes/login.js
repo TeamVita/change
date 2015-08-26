@@ -43,11 +43,12 @@ router.post('/shelter', function(req, res) {
 
 router.post('/vendor/retrieve', function(req, res) {
   var request = req.body;
-  var pin = Number(req.body.pin);
-
+  // var pin = Number(req.body.pin);
+  var pin = req.body.pin;
   // check vendor type
 
   utility.findRecipientByPin(pin, 'food').then(function(recipient) {
+    // password verification
     res.send(recipient);
   });
 
@@ -55,19 +56,27 @@ router.post('/vendor/retrieve', function(req, res) {
 
 router.post('/vendor/redeem', function(req, res) {
   var request = req.body;
-  var pin = Number(req.body.pin);
+  // var pin = Number(req.body.pin);
+  var pin = req.body.pin;
   var chargedAmount = request.amount;
   var vendorType = 'food';
+  var password = req.body.password;
 
-  utility.findRecipientByPin(pin, vendorType).then(function(recipient) {
-    return recipient;
-  })
-  .then(function(recipient) {
-    return utility.chargeRecipientByPin(pin, vendorType);
-  })
-  .then(function(recipient) {
-    res.send(recipient);
-  });
+  console.log("pin received from front end!", pin);
+  // create a recipient
+  // utility.createRecipient("1234", pin).then(function() {
+  //   res.send("Success!");
+  // });
+
+  // utility.findRecipientByPin(pin, vendorType).then(function(recipient) {
+  //   return recipient;
+  // })
+  // .then(function(recipient) {
+  //   return utility.chargeRecipientByPin(pin, vendorType);
+  // })
+  // .then(function(recipient) {
+  //   res.send(recipient);
+  // });
 });
 
 module.exports = router;
