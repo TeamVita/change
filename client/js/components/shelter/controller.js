@@ -18,13 +18,17 @@ var Shelter = React.createClass({
 
   getInitialState: function() {
     // state initialize
-    return {pane: 'orgSignup'};
+    return {
+      pane: 'orgSignup',
+      showLoginLink: true
+    };
   },
 
   handleClick: function() {
     // TODO set login anchor class to 'hidden', or something
     this.setState({
-      pane: 'login'
+      pane: 'login',
+      showLoginLink: false
     });
   },
 
@@ -60,6 +64,7 @@ var Shelter = React.createClass({
 
   render: function() {
     // TODO: change form width to include wider title
+    var loginLink = <a onClick={this.handleClick}>Already have an account? Log in here.</a>
     if (this.state.pane === 'welcome') {
       var partial = <Welcome business={this.state.business} ref='partial' />;
     } else {
@@ -70,7 +75,7 @@ var Shelter = React.createClass({
         <form onSubmit={this.handleSubmit}>
           {partial}
         </form>
-        <a onClick={this.handleClick}>Already have an account? Log in here.</a>
+        {this.state.showLoginLink ? loginLink : null}
       </div>
     );
   }
