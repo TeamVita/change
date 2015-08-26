@@ -74,7 +74,7 @@ var welcome = React.createClass({
           </div>
         </div>
          <header className="fullwidth">
-            <img src={"./styles/images/Change_logo.png"}/>
+            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
     );
