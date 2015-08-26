@@ -14,7 +14,7 @@ var login = React.createClass({
       <div>
         <h1>Log in to make a CHANGE</h1>
         <div><input type = 'text' placeholder = 'email address' ref='email' /></div>
-        <div><input type = 'text' placeholder ='password' ref='password' /></div>
+        <div><input type = 'password' placeholder ='password' ref='password' /></div>
         <input type='submit' />
       </div>
     );
