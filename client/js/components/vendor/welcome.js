@@ -14,7 +14,6 @@ var welcome = React.createClass({
     var pin = this.refs.pin.getDOMNode().value.trim();
     var bill = this.refs.bill.getDOMNode().value.trim();
     var pass = this.refs.pass.getDOMNode().value.trim();
-
     // console.log("Data in charge()", pin, bill, pass);
     actions.charge({pin: pin, password: pass, bill: bill, type: this.props.type});
   },
@@ -58,6 +57,12 @@ var welcome = React.createClass({
                       <button type="submit" onClick={this.charge} className="btn btn-success btn-lg">Send</button>
                     </div>
                   </div>
+
+                <div>
+                  <div>
+                    Recipient Current Balance: ${this.props.balance}
+                  </div>
+                </div>
               </form>
             </div>
           </div>

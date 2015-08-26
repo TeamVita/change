@@ -52,11 +52,25 @@ var recipient = {
   },
 
   // vendorType: food/clothing
-  updateOneByPin: function(pin, chargedAmount, vendorType){
+  decrementOneByPin: function(pin, chargedAmount, vendorType){
     return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
       // console.log("updateOneByPin", recipient.get());
       return recipient.decrement(vendorType, {by: chargedAmount}).then(function(recipient) {
         // console.log("After decrementing", recipient.get());
+        return recipient.get();
+      })
+    })
+    .catch(function() {
+      throw new Error('Unknown error at method recipient updateOneByPin()');
+    })
+  },
+
+  // vendorType: food/clothing
+  incrementOneByPin: function(pin, donateAmount, vendorType){
+    return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
+      // console.log("updateOneByPin", recipient.get());
+      return recipient.increment(vendorType, {by: donateAmount}).then(function(recipient) {
+        // console.log("After incrementing", recipient.get());
         return recipient.get();
       })
     })
