@@ -3,6 +3,8 @@ var Constants = require('../../constants/Constants.js');
 
 var welcome = React.createClass({
 
+  /* function will check once the user has entered in a 4 digit pin then will (on change listener)
+  it will then fire off the pin & balance type to the server */
   showBalance: function() {
     var pin = this.refs.pin.getDOMNode().value.trim();
     var password = this.refs.pass.getDOMNode().value.trim();
@@ -16,6 +18,8 @@ var welcome = React.createClass({
     }
   },
 
+  /* This function will pass the bill amount, the pin, password and the type to the server when the
+  charge button is clicked */
   charge: function (event) {
     var pin = this.refs.pin.getDOMNode().value.trim();
     var bill = this.refs.bill.getDOMNode().value.trim();
