@@ -18,11 +18,11 @@ module.exports = {
 		});
 	},
 
-	showAmount: function(pin) {
+	showAmount: function(recipientInfo) {
 		$.ajax({
 			url: '/login/vendor/retrieve',
 			type: 'POST',
-			data: pin,
+			data: recipientInfo,
 			success: function(data) {
 				Dispatcher.dispatch({
 					pane: 'welcome', 

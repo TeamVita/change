@@ -1,6 +1,5 @@
 var actions = require('../../actions/vendorActions');
 var Constants = require('../../constants/Constants.js');
-var actions = require('../../actions/actions');
 
 var welcome = React.createClass({
 

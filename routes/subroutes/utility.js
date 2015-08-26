@@ -15,7 +15,7 @@ var utility = {
       // return models.sequelize.sync();
       return models.sequelize.sync({ force: true });
     } else {
-      return models.sequelize.sync({ force: true });
+      // return models.sequelize.sync({ force: true });
       return models.sequelize.sync();
     }
   },
