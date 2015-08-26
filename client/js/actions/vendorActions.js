@@ -36,11 +36,11 @@ module.exports = {
 		});
 	},
 
-	charge: function(pin) {
+	charge: function(recipientInfo) {
 		$.ajax({
 			url: '/login/vendor/redeem',
 			type: 'POST',
-			data: pin,
+			data: recipientInfo,
 			success: function(data) {
 				Dispatcher.dispatch({
 					pane: 'welcome', 

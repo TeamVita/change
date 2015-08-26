@@ -59,6 +59,8 @@ router.post('/vendor/redeem', function(req, res) {
   var chargedAmount = request.amount;
   var vendorType = 'food';
 
+  console.log("pin received from front end!", pin);
+
   utility.findRecipientByPin(pin, vendorType).then(function(recipient) {
     return recipient;
   })
