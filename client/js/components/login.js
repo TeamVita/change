@@ -1,3 +1,5 @@
+var actions = require('../actions/actions');
+
 var login = React.createClass({
 
   // Collect values from input fields
@@ -7,6 +9,10 @@ var login = React.createClass({
       fields[key] = this.refs[key].getDOMNode().value.trim();
     }
     return fields;
+  },
+
+  donorPage: function (){
+    actions.switchPage('DONOR');
   },
 
   render: function() {
@@ -52,5 +58,3 @@ var login = React.createClass({
 });
 
 module.exports = login;
-
-
