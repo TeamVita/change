@@ -153,7 +153,15 @@ var utility = {
       return null;
     }
 
-    return models.recipient.incrementOneByPin(pin, donateAmount, vendorType);
+    var wasFound = this.findRecipientByPin(pin, vendorType);
+    return wasFound.then(function(recipient) {
+      if (recipient) {
+        return models.recipient.incrementOneByPin(pin, donateAmount, vendorType);
+      } else {
+        return recipient;
+      }
+    });
+
   },
 
   createVendor: function(email, password, username, vendorType) {
