@@ -43,6 +43,7 @@ module.exports = {
 			type: 'POST',
 			data: recipientInfo,
 			success: function(data) {
+				console.log('BALANCE', data.balance);
 				Dispatcher.dispatch({
 					pane: 'welcome', 
 					type: ActionTypes.CHARGE, 

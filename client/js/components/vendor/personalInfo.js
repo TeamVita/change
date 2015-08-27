@@ -78,10 +78,10 @@ var personalInfo = React.createClass({
             <div className="col-lg-12 text-center">
               <h4 className="formheader">What type of Vendor are you?</h4>
                <div className="space">
-                <button type="submit" onClick={this.handleClick} value='clothing' ref="vendorType" className="btn btn-lg clothes">
+                <button type="submit" onClick={this.handleClick} value='clothing' ref="food" className="btn btn-lg clothes">
                   <input type ='image' onClick={this.handleClick} value='clothing' src={"./styles/images/Clothes_Icon.png"} />
                 </button>
-                <button type="submit" onClick={this.handleClick} value='food' ref="vendorType" className="btn btn-lg clothes">
+                <button type="submit" onClick={this.handleClick} value='food' ref="clothing" className="btn btn-lg clothes">
                   <input type ='image' onClick={this.handleClick} value='food' src={"./styles/images/Food_Icon.png"} />
                 </button>
               </div>

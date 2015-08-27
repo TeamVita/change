@@ -69,9 +69,8 @@ var Signup = React.createClass({
     // Save personal info to state for later bundling with bank info
     function personalResponseHandler() {
       var accountData = this.refs.partial.getFields();
-
       // Listen to which type of button
-
+      
       // Render bank collection form
       this.setState({
         pane: 'bank',

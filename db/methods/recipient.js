@@ -54,10 +54,8 @@ var recipient = {
   // vendorType: food/clothing
   decrementOneByPin: function(pin, chargedAmount, vendorType){
     return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
-      // console.log("updateOneByPin", recipient.get());
       return recipient.decrement(vendorType, {by: chargedAmount}).then(function(recipient) {
-        // console.log("After decrementing", recipient.get());
-        return recipient.get();
+        return recipient.reload();
       })
     })
     .catch(function() {
@@ -68,10 +66,8 @@ var recipient = {
   // vendorType: food/clothing
   incrementOneByPin: function(pin, donateAmount, vendorType){
     return db.Recipient.findOne({ where: { pin: pin } }).then(function(recipient) {
-      // console.log("updateOneByPin", recipient.get());
       return recipient.increment(vendorType, {by: donateAmount}).then(function(recipient) {
-        // console.log("After incrementing", recipient.get());
-        return recipient.get();
+        return recipient.reload();
       })
     })
     .catch(function() {

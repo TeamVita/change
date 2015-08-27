@@ -15,7 +15,7 @@ var utility = {
       // return models.sequelize.sync();
       return models.sequelize.sync({ force: true });
     } else {
-      // return models.sequelize.sync({ force: true });
+      return models.sequelize.sync({ force: true });
       return models.sequelize.sync();
     }
   },
@@ -41,7 +41,7 @@ var utility = {
     var self = this;
     return models.recipient.findMaxId().then(function(maxId) {
       // transfer id to four digits string
-      return self.toFourDigitsString(maxId);
+      return self.toFourDigitsString(maxId  + 1);
     });
   },
 

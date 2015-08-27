@@ -29,7 +29,7 @@ router.post('/shelter', function(req, res) {
 
   utility.findAccountByEmail(req.body.email, 'shelter')
   .then(function(account) {
-    if (account.password === req.body.password) {
+    if (account && (account.password === req.body.password)) {
       res.send(account.business_name);
     } else {
       var error = {
@@ -44,8 +44,7 @@ router.post('/shelter', function(req, res) {
 router.post('/vendor/retrieve', function(req, res) {
   var pin = req.body.pin;
   var vendorType = req.body.type;
-
-  console.log("AAAAAAAAAAARecieve Request from clientAAAAAAAAAAAAA", vendorType);
+  vendorType = 'food';
 
   utility.findRecipientByPin(pin, vendorType).then(function(recipient) {
     // password verification
@@ -61,15 +60,13 @@ router.post('/vendor/redeem', function(req, res) {
   var vendorType = req.body.type;
   var password = req.body.password;
 
-  utility.findRecipientByPin(pin, vendorType).then(function(recipient) {
-    return recipient;
-  })
+  vendorType = 'food';
+  console.log("REQUEST AMOUNT", req.body.bill);
+  utility.chargeRecipientByPin(pin, chargeAmount, vendorType)
   .then(function(recipient) {
-    return utility.chargeRecipientByPin(pin, chargeAmount, vendorType);
-  })
-  .then(function(recipient) {
+    console.log("RECIPIENT", recipient);
     res.send({ balance: recipient[vendorType] });
-  });
+  })
   
 });
 
