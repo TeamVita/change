@@ -70,7 +70,7 @@ var Signup = React.createClass({
     function personalResponseHandler() {
       var accountData = this.refs.partial.getFields();
       // Listen to which type of button
-      
+      console.log('ACCOUNTDATA: ' + accountData.type);
       // Render bank collection form
       this.setState({
         pane: 'bank',

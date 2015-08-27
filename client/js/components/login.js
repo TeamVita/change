@@ -1,3 +1,5 @@
+var actions = require('../actions/actions');
+
 var login = React.createClass({
 
   // Collect values from input fields
@@ -9,11 +11,15 @@ var login = React.createClass({
     return fields;
   },
 
+  donorPage: function (){
+    actions.switchPage('DONOR');
+  },
+
   render: function() {
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
           <div className="row">
@@ -44,7 +50,7 @@ var login = React.createClass({
 
         </div>
          <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
     );
@@ -52,5 +58,3 @@ var login = React.createClass({
 });
 
 module.exports = login;
-
-

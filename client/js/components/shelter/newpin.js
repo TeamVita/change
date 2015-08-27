@@ -8,7 +8,7 @@ var NewPin = React.createClass({
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
           <div className="row">
@@ -17,7 +17,7 @@ var NewPin = React.createClass({
             </div>
           </div>
           <div>
-        
+
           <div id="success" className=""></div>
               <div className="row">
                 <div className="form-group col-xs-12 text-center">
@@ -43,5 +43,3 @@ var NewPin = React.createClass({
 });
 
 module.exports = NewPin;
-
-

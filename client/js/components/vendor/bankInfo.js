@@ -22,7 +22,7 @@ var bankInfo = React.createClass({
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
           <div className="row">
@@ -45,7 +45,7 @@ var bankInfo = React.createClass({
                       <input type="text" value= "000123456789" className="" placeholder="" id="name" ref='account'/>
                   </div>
                 </div>
-               
+
 
                 <div id="success" className="button2"></div>
                   <div className="row">
@@ -57,7 +57,7 @@ var bankInfo = React.createClass({
           </div>
         </div>
          <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
     );

@@ -27,7 +27,7 @@ var welcome = React.createClass({
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
           <div className="row">
@@ -73,7 +73,7 @@ var welcome = React.createClass({
           </div>
         </div>
          <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
     );
