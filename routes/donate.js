@@ -9,8 +9,18 @@ router.post('/', function(req, res) {
 	newCharge.then(function(charge) {
 		var donation = utility.donateToRecipientByPin(req.body.pin, req.body.amt, req.body.type);
 		donation.then(function(recipient) {
-			console.log(recipient);
-			res.send(recipient);
+			var response = {};
+			if (recipient) {
+				response.message = "Donation succeeded.";
+				response.status = 'success';
+				console.log('Donation: ' + response.status);
+				res.send(response);
+			} else {
+				response.message = "That PIN doesn't exist anywhere but your own mind.";
+				response.status = 'error';
+				console.log('Donation: ' + response.status);
+				res.send(response);
+			}
 		});
 	});
 });

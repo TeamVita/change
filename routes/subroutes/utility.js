@@ -120,14 +120,14 @@ var utility = {
       return null;
     }
 
-    console.log("In findRecipientByPin", pin);
-    console.log("In findRecipientByPin typeof ", typeof pin);
     var wasFound = models.recipient.findOneByPin(pin);
-    wasFound.then(function(recipient) {
+    return wasFound.then(function(recipient) {
       // console.log("Before return", recipient.get().vendorType);
       // return recipient.get()[vendorType];
       if (recipient) {
         return recipient.get();
+      } else {
+        return recipient;
       }
     });
   },
@@ -158,11 +158,11 @@ var utility = {
     }
 
     var wasFound = this.findRecipientByPin(pin, vendorType);
-    wasFound.then(function(recipient) {
+    return wasFound.then(function(recipient) {
       if (recipient) {
         return models.recipient.incrementOneByPin(pin, donateAmount, vendorType);
       } else {
-        return null;
+        return recipient;
       }
     });
 
