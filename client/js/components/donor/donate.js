@@ -14,11 +14,23 @@ var Donate = React.createClass({
     };
   },
 
+  requestStatus: function(response) {
+    if (response === 'error') {
+      this.setState({
+        failure: true
+      });
+    } else {
+      this.setState({
+        failure: false
+      });
+    }
+  },
+
   // Upon token receipt, wrap data package and POST for payment creation
   onToken: function(token) {
     var pin = React.findDOMNode(this.refs.PIN).value.trim();
     var amt = React.findDOMNode(this.refs.amount).value.trim();
-    DonorActions.donate({pin: pin, amt: amt, type: this.state.type, token: JSON.stringify(token)});
+    DonorActions.donate({pin: pin, amt: amt, type: this.state.type, token: JSON.stringify(token)}, this.requestStatus.bind(this));
   },
 
   // Handle selection of clothing or food donation
@@ -114,6 +126,7 @@ var Donate = React.createClass({
                 <span>Make a change</span>
               </button>
         </StripeCheckout>
+        {this.state.failure ? <p>No record was found for that PIN. Please try your donation again with a different PIN.</p> : null}
         <br/>
          </div>
                   </div>
