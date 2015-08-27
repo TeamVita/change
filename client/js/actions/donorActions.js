@@ -5,13 +5,14 @@ var ActionTypes = Constants.ActionTypes;
 
 module.exports = {
 	// POST donation info to initiate Stripe payment
-	donate: function(info) {
+	donate: function(info, cb) {
 		$.ajax({
 			url: '/donate',
 			type: 'POST',
 			data: info,
 			success: function(data) {
 				console.log('Payment: ' + data.status);
+				cb(data.status);
 			},
 			error: function() {
 			console.log('Failed to execute donate ajax request.');
