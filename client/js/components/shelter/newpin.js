@@ -9,32 +9,32 @@ var NewPin = React.createClass({
       <div id="contact">
         <header className="fullwidth">
             <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
-          </header>
+        </header>
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
               <h2 className="formheader">Here is your new account info:</h2>
             </div>
           </div>
-          <div>
+        <div>
 
-          <div id="success" className=""></div>
-              <div className="row">
-                <div className="form-group col-xs-12 text-center">
-                   <h2>{this.props.PIN}</h2>
-                </div>
+        <div id="success" className=""></div>
+          <div className="row">
+            <div className="form-group col-xs-12 text-center">
+              <h2>{this.props.PIN}</h2>
             </div>
+          </div>
         </div>
 
         <div id="success" className=""></div>
-              <div className="row">
-                <div className="form-group col-xs-12 text-center">
-                   <h2>{this.props.password}</h2>
-                </div>
+          <div className="row">
+            <div className="form-group col-xs-12 text-center">
+              <h2>{this.props.password}</h2>
             </div>
+          </div>
         </div>
 
-         <header className="fullwidth">
+          <header className="fullwidth">
             <h2>{this.props.password}</h2>
           </header>
       </div>

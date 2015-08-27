@@ -22,12 +22,14 @@ router.post('/vendor', function(req, res) {
   req.body.dob_month = req.body.dob_day.slice(5,7);
   req.body.dob_day = req.body.dob_day.slice(8,10);
   // debugger;
-  console.log("VENDOR TYPE", req.body);
   stripeHandler.createStripeAccount(req, res, function(newAccount){
   	newAccount.type = vendorType;
     newAccount.password = password;
     // debugger;
     res.send(newAccount);
+    utility.createVendor(email, password, username, vendorType).then(function(vendor) {
+      console.log("vendor created", vendor);
+    })
   });
 });
 
