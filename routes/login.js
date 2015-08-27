@@ -12,8 +12,8 @@ router.post('/vendor', function(req, res) {
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
     if (account === req.body.password) {
-      vendorInfo['type'] = account.vendorType;
-      vendorInfo['business_name'] = account.username;
+      vendorInfo.type = account.vendorType;
+      vendorInfo.business_name = account.username;
       res.send(vendorInfo);
     } else {
       var error = {
@@ -42,32 +42,50 @@ router.post('/shelter', function(req, res) {
 });
 
 router.post('/vendor/retrieve', function(req, res) {
-  var pin = req.body.pin;
-  var vendorType = req.body.type;
-  vendorType = 'food';
+  var credentials = {
+    pin: req.body.pin,
+    vendorType: req.body.type
+  };
 
-  utility.findRecipientByPin(pin, vendorType).then(function(recipient) {
-    // password verification
-    console.log("recipient", recipient);
-    res.send({ type: vendorType, balance: recipient[vendorType] });
+  utility.findRecipientByPin(credentials.pin, credentials.vendorType).then(function(recipient) {
+    res.send({ type: credentials.vendorType, balance: recipient[credentials.vendorType] });
   });
 
 });
 
 router.post('/vendor/redeem', function(req, res) {
-  var pin = req.body.pin;
+  var credentials = {
+    pin: req.body.pin,
+    password: req.body.password,
+    vendorType: req.body.type
+  };
   var chargeAmount = parseInt(req.body.bill);
-  var vendorType = req.body.type;
-  var password = req.body.password;
 
-  vendorType = 'food';
-  console.log("REQUEST AMOUNT", req.body.bill);
-  utility.chargeRecipientByPin(pin, chargeAmount, vendorType)
-  .then(function(recipient) {
-    console.log("RECIPIENT", recipient);
-    res.send({ balance: recipient[vendorType] });
-  })
-  
+  var wasFound = utility.findRecipientByPin(credentials.pin, credentials.vendorType);
+  if (wasFound) {
+    wasFound.then(function(account) {
+      if (account && (account.password.toUpperCase() === credentials.password.toUpperCase())) {
+        utility.chargeRecipientByPin(credentials.pin, chargeAmount, credentials.vendorType)
+        .then(function(recipient) {
+          res.send({ balance: recipient[credentials.vendorType] });
+        });
+      } else {
+        var error = {
+          message: "We don't have an account on record with that PIN and password combination.",
+          status: 'error'
+        };
+        res.send({error: error});
+      }
+    });
+  } else {
+    var error = {
+      message: "We don't have an account on record with that PIN.",
+      status: 'error'
+    };
+    res.send({error: error});
+  }
+
+
 });
 
 module.exports = router;

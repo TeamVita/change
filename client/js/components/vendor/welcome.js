@@ -5,9 +5,14 @@ var welcome = React.createClass({
 
   showBalance: function() {
     var pin = this.refs.pin.getDOMNode().value.trim();
+    var password = this.refs.pass.getDOMNode().value.trim();
     var type = this.props.type;
     if (pin.length === 4) {
-      actions.showAmount({pin: pin, type: type});
+      actions.showAmount({
+        pin: pin,
+        type: type,
+        password: password
+      });
     }
   },
 
@@ -47,7 +52,7 @@ var welcome = React.createClass({
                 <div className="row control-group">
                   <div className="form-group col-xs-12 floating-label-form-group controls">
                     Enter Password
-                      <input type="number" className="form-control" placeholder="" ref='pass'/>
+                      <input type="text" className="form-control" placeholder="" ref='pass'/>
                   </div>
                 </div>
                 <div className="row control-group">
