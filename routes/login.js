@@ -11,7 +11,7 @@ router.post('/vendor', function(req, res) {
 
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
-    if (account === req.body.password) {
+    if (account && (account.password === req.body.password)) {
       vendorInfo.type = account.vendorType;
       vendorInfo.business_name = account.username;
       res.send(vendorInfo);

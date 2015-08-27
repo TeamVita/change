@@ -13,7 +13,7 @@ var personalInfo = React.createClass({
 
   getButton: function() {
     // return this.refs['vendorType'].getDOMNode().value.trim();
-    return this.refs['vendorType'];
+    return this.refs.vendorType;
   },
 
   // Collect values from input fields
@@ -69,6 +69,13 @@ var personalInfo = React.createClass({
               <div className="form-group col-xs-12 floating-label-form-group controls">
                 <span className="spacey">Email:</span>
                 <input type="text" className="" placeholder="" id="email" ref='email'/>
+              </div>
+            </div>
+
+            <div className="row control-group">
+              <div className="form-group col-xs-12 floating-label-form-group controls">
+                <span className="spacey">Password:</span>
+                  <input type="text" className="" placeholder="" id="password" ref='password'/>
               </div>
             </div>
 
