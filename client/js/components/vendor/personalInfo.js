@@ -27,7 +27,7 @@ var personalInfo = React.createClass({
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="formheader">Vendor Sign Up</h2>
+              <h2 className="formheader">Vendor Sign Uppp</h2>
             </div>
           </div>
           <div className="row">
