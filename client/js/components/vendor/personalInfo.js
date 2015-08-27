@@ -4,6 +4,13 @@ var actions = require('../../actions/actions');
 
 var personalInfo = React.createClass({
 
+  getInitialState: function() {
+    return {
+      foodColor: 'btn btn-lg kind',
+      clothingColor: 'btn btn-lg kind'
+    };
+  },
+
   getButton: function() {
     // return this.refs['vendorType'].getDOMNode().value.trim();
     return this.refs['vendorType'];
@@ -15,7 +22,26 @@ var personalInfo = React.createClass({
     for (var key in this.refs){
       fields[key] = this.refs[key].getDOMNode().value.trim();
     }
+    fields.type = this.state.type;
     return fields;
+  },
+
+  handleClick: function(event) {
+    event.preventDefault();
+    var type = event.target.value;
+    var newFoodColor, newClothingColor;
+    if (type === 'food') {
+      newFoodColor = 'btn btn-lg highlighted';
+      newClothingColor = 'btn btn-lg kind';
+    } else {
+      newFoodColor = 'btn btn-lg kind';
+      newClothingColor = 'btn btn-lg highlighted';
+    }
+    this.setState({
+      type: type,
+      foodColor: newFoodColor,
+      clothingColor: newClothingColor
+    });
   },
 
   donorPage: function (){
@@ -78,10 +104,10 @@ var personalInfo = React.createClass({
             <div className="col-lg-12 text-center">
               <h4 className="formheader">What type of Vendor are you?</h4>
                <div className="space">
-                <button type="submit" onClick={this.handleClick} value='clothing' ref="food" className="btn btn-lg clothes">
+                <button type="submit" onClick={this.handleClick} value='clothing' ref="clothing" className={this.state.clothingColor}>
                   <input type ='image' onClick={this.handleClick} value='clothing' src={"./styles/images/Clothes_Icon.png"} />
                 </button>
-                <button type="submit" onClick={this.handleClick} value='food' ref="clothing" className="btn btn-lg clothes">
+                <button type="submit" onClick={this.handleClick} value='food' ref="food" className={this.state.foodColor}>
                   <input type ='image' onClick={this.handleClick} value='food' src={"./styles/images/Food_Icon.png"} />
                 </button>
               </div>
