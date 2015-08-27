@@ -33,6 +33,8 @@ var Signup = React.createClass({
 
   handleClick: function() {
     // TODO set login anchor class to 'hidden', or something
+    console.log("In VENDOR handle Click", this.refs.partial.getButton());
+    // this.setState()
     this.setState({
       pane: 'login',
       showLoginLink: false
@@ -45,16 +47,17 @@ var Signup = React.createClass({
     if (this.state.pane === 'login') {
       loginResponseHandler.bind(this)();
     } else if (this.state.pane === 'personal'){
-        personalResponseHandler.bind(this)();
+      // check which button is clicked
+      personalResponseHandler.bind(this)();
     } else if (this.state.pane === 'bank') {
-        var bankAccount = this.refs.partial.getFields();
+      var bankAccount = this.refs.partial.getFields();
       console.log("This is the account info", bankAccount);
-        Stripe.bankAccount.createToken({
-          country: 'US',
-          currency: 'USD',
-          routing_number: bankAccount.routing,
-          account_number: bankAccount.account
-        }, bankResponseHandler.bind(this));
+      Stripe.bankAccount.createToken({
+        country: 'US',
+        currency: 'USD',
+        routing_number: bankAccount.routing,
+        account_number: bankAccount.account
+      }, bankResponseHandler.bind(this));
     }
 
     function loginResponseHandler() {
@@ -66,7 +69,8 @@ var Signup = React.createClass({
     // Save personal info to state for later bundling with bank info
     function personalResponseHandler() {
       var accountData = this.refs.partial.getFields();
-
+      // Listen to which type of button
+      
       // Render bank collection form
       this.setState({
         pane: 'bank',

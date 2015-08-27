@@ -15,7 +15,7 @@ var utility = {
       // return models.sequelize.sync();
       return models.sequelize.sync({ force: true });
     } else {
-      return models.sequelize.sync({ force: true });
+      // return models.sequelize.sync({ force: true });
       return models.sequelize.sync();
     }
   },
@@ -41,7 +41,7 @@ var utility = {
     var self = this;
     return models.recipient.findMaxId().then(function(maxId) {
       // transfer id to four digits string
-      return self.toFourDigitsString(maxId  + 1);
+      return self.toFourDigitsString(maxId + 1);
     });
   },
 
@@ -119,16 +119,12 @@ var utility = {
     if(!this.checkVendorType(vendorType)) {
       return null;
     }
-
-    var wasFound = models.recipient.findOneByPin(pin);
-    return wasFound.then(function(recipient) {
+    console.log("In findRecipientByPin", pin);
+    console.log("In findRecipientByPin typeof ", typeof pin);
+    return models.recipient.findOneByPin(pin).then(function(recipient) {
       // console.log("Before return", recipient.get().vendorType);
       // return recipient.get()[vendorType];
-      if (recipient) {
-        return recipient.get();
-      } else {
-        return recipient;
-      }
+      return recipient.get();
     });
   },
 
@@ -157,15 +153,7 @@ var utility = {
       return null;
     }
 
-    var wasFound = this.findRecipientByPin(pin, vendorType);
-    return wasFound.then(function(recipient) {
-      if (recipient) {
-        return models.recipient.incrementOneByPin(pin, donateAmount, vendorType);
-      } else {
-        return recipient;
-      }
-    });
-
+    return models.recipient.incrementOneByPin(pin, donateAmount, vendorType);
   },
 
   createVendor: function(email, password, username, vendorType) {

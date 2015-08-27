@@ -1,6 +1,5 @@
 var actions = require('../../actions/vendorActions');
 var Constants = require('../../constants/Constants.js');
-var actions = require('../../actions/actions');
 
 var welcome = React.createClass({
 
@@ -80,6 +79,5 @@ var welcome = React.createClass({
     );
   }
 });
-        // <button onClick = {this.requestAmount}>Get Amount</button></div>
 
 module.exports = welcome;
