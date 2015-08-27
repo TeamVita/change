@@ -62,7 +62,6 @@ var Signup = React.createClass({
 
     function loginResponseHandler() {
       var loginData = this.refs.partial.getFields();
-      console.log("login data", loginData);
       actions.logIn(loginData, this.changePane);
     }
 
@@ -86,6 +85,7 @@ var Signup = React.createClass({
         console.log('error in bankResponseHandler! | ' + response.error.message);
       } else {
         // response contains id and bank_account, which contains additional bank account details
+        console.log(this.state.accountData, "this is the data from bank");
         this.state.accountData.token = response.id;
         actions.signUp(this.state.accountData, this.changePane);
       }

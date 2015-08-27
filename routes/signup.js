@@ -14,7 +14,9 @@ var utility = require("./subroutes/utility");
 
 // Create vendor stripe account and add record to DB
 router.post('/vendor', function(req, res) {
-	var vendorType = req.body.type;
+  console.log(req.body.food, req.body.clothing);
+	var vendorType = req.body.food ? req.body.food : req.body.clothing;
+  console.log("this is the vendor type", vendorType);
   var email = req.body.email;
   var username = req.body.business_name;
   var password = req.body.password;
