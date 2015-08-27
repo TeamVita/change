@@ -42,12 +42,11 @@ router.post('/shelter', function(req, res) {
 });
 
 router.post('/vendor/retrieve', function(req, res) {
-  var request = req.body;
-  // var pin = Number(req.body.pin);
   var pin = req.body.pin;
-  // check vendor type
+  var vendorType = req.body.type;
 
-  var vendorType = 'food';
+  console.log("AAAAAAAAAAARecieve Request from clientAAAAAAAAAAAAA", vendorType);
+
   utility.findRecipientByPin(pin, vendorType).then(function(recipient) {
     // password verification
     console.log("recipient", recipient);
@@ -57,10 +56,9 @@ router.post('/vendor/retrieve', function(req, res) {
 });
 
 router.post('/vendor/redeem', function(req, res) {
-  // var pin = Number(req.body.pin);
   var pin = req.body.pin;
   var chargeAmount = parseInt(req.body.bill);
-  var vendorType = 'food';
+  var vendorType = req.body.type;
   var password = req.body.password;
 
   utility.findRecipientByPin(pin, vendorType).then(function(recipient) {

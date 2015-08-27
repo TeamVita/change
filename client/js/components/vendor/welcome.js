@@ -79,6 +79,5 @@ var welcome = React.createClass({
     );
   }
 });
-        // <button onClick = {this.requestAmount}>Get Amount</button></div>
 
 module.exports = welcome;

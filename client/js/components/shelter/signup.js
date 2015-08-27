@@ -38,29 +38,28 @@ var OrgSignup = React.createClass({
               <h2 className="formheader">Shelter Signup</h2>
             </div>
           </div>
-            <div className="row">
-                  <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
-                    <span className="fonty">Organization Name</span>
-                      <input type="text" className="text-center" placeholder="abc@abc.com" id="email" ref='email'/>
-                  </div>
-                </div>
-            <div className="row">
-                  <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
-                    <span className="fonty">Password</span>
-                      <input type="password" onChange={this.onChange} className="text-center" placeholder="" id="name" ref='password' value={this.state.text}/>
-                  </div>
-                </div>
+
+          <div className="row">
+            <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
+              <span className="fonty">Organization Name</span>
+                <input type="text" className="text-center" placeholder="abc@abc.com" id="email" ref='email'/>
+            </div>
+          </div>
+          <div className="row">
+            <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
+              <span className="fonty">Password</span>
+                <input type="password" onChange={this.onChange} className="text-center" placeholder="" id="name" ref='password' value={this.state.text}/>
+            </div>
+          </div>
 
           <div id="success" className="button"></div>
-                  <div className="row boo">
-                    <div className="form-group col-xs-12 text-center booga2">
-                      <button type="submit" className="btn btn-success btn-lg">Login</button>
-                    </div>
-                  </div>
-
-
+          <div className="row boo">
+            <div className="form-group col-xs-12 text-center booga2">
+              <button type="submit" className="btn btn-success btn-lg">Login</button>
+            </div>
+          </div>
         </div>
-         <header className="fullwidth">
+          <header className="fullwidth">
             <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
