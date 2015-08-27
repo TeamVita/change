@@ -33,7 +33,6 @@ var Signup = React.createClass({
 
   handleClick: function() {
     // TODO set login anchor class to 'hidden', or something
-    console.log("In VENDOR handle Click", this.refs.partial.getButton());
     // this.setState()
     this.setState({
       pane: 'login',
