@@ -57,10 +57,16 @@ var welcome = React.createClass({
             </div>
           </div>
           <div>
-          <button onClick={this.createPIN}>Create a PIN!</button>
+        
+          <div id="success" className="button4"></div>
+              <div className="row">
+                <div className="form-group col-xs-12 text-center">
+                  <button onClick={this.createPIN} type="submit" className="btn btn-success btn-lg">Create a PIN!</button>
+                </div>
+            </div>
         </div>
         <br/>
-        {partial}
+            {partial}
         </div>
          <header className="fullwidth">
             <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
