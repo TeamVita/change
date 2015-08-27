@@ -27,7 +27,7 @@ var personalInfo = React.createClass({
     return (
     <div id="contact">
       <header className="fullwidth">
-        <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+        <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
       </header>
 
       <div className="container">
@@ -73,7 +73,7 @@ var personalInfo = React.createClass({
                   <input type="text" className="" placeholder="" id="name" ref='business_name'/>
               </div>
             </div>
-               
+
 
             <div className="col-lg-12 text-center">
               <h4 className="formheader">What type of Vendor are you?</h4>
@@ -99,7 +99,7 @@ var personalInfo = React.createClass({
         </div>
 
          <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
     );
@@ -107,6 +107,3 @@ var personalInfo = React.createClass({
 });
 
 module.exports = personalInfo;
-
-
-

@@ -76,7 +76,7 @@ var Donate = React.createClass({
     return (
       <div id="contact">
         <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
         <div className="container">
               <h2 className="text-center formheader2">Make a Donation</h2>
@@ -135,7 +135,7 @@ var Donate = React.createClass({
         <button onClick= {this.shelterPage}>Shelter</button>
 
          <header className="fullwidth">
-            <img onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
           </header>
       </div>
     );

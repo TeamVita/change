@@ -94,6 +94,9 @@
   padding: 10px 100px;
 }
 
+.logo {
+  cursor: pointer
+}
 
 .kind {
   /*padding: 15px 25px;*/
