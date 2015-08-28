@@ -64,18 +64,43 @@ var Shelter = React.createClass({
 
   render: function() {
     // TODO: change form width to include wider title
+<<<<<<< HEAD
     var loginLink = <a className="loginLink" onClick={this.handleClick}>Already have an account? Log in here.</a>
+=======
+    var loginLink = <a className="space4" onClick={this.handleClick}>Already have an account? Log in here.</a>
+>>>>>>> [refactor] Add footer to all pages
     if (this.state.pane === 'welcome') {
-      var partial = <Welcome business={this.state.business} ref='partial' />;
+      var partial = <Welcomee business={this.state.business} ref='partial' />;
     } else {
       var partial = this._states[this.state.pane]();
     }
     return (
       <div id='form'>
-        <form onSubmit={this.handleSubmit}>
+      <header className="fullwidth">
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <div className="formheader5 text-center fullwidth">
+               {this.state.showLoginLink ? loginLink : null}
+               </div>
+          </header>
+            
+            <form onSubmit={this.handleSubmit}>
+            
           {partial}
         </form>
-        {this.state.showLoginLink ? loginLink : null}
+        <header className="fullwidth">
+                <div className="row footersize">
+                    <div className="col-md-4 logo">
+                        <p onClick={this.donorPage}>About Us</p>
+                    </div>
+                    <div className="col-md-4 logo">
+                        <p onClick= {this.vendorPage}>Vendors</p>
+                    </div>
+                    <div className="col-md-4 logo">
+                        <p onClick= {this.shelterPage}>Shelters</p>
+                    </div>
+            </div>
+          </header>
+        
       </div>
     );
   }

@@ -21,13 +21,10 @@ var bankInfo = React.createClass({
 
     return (
       <div id="contact">
-        <header className="fullwidth">
-            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
-          </header>
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="formheader">Banking Information</h2>
+              <h2 className="formheader2">Banking Information</h2>
             </div>
           </div>
           <div className="row">
@@ -46,7 +43,6 @@ var bankInfo = React.createClass({
                   </div>
                 </div>
 
-
                 <div id="success" className="button2"></div>
                   <div className="row">
                     <div className="form-group col-xs-12 text-center">
@@ -56,9 +52,7 @@ var bankInfo = React.createClass({
             </div>
           </div>
         </div>
-         <header className="fullwidth">
-            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
-          </header>
+   
       </div>
     );
   }
