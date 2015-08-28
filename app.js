@@ -8,6 +8,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var db = require('./db/index').sequelize;
+var utility = require('./routes/subroutes/utility');
 
 // dev routers
 var routers = require('./routes/');
