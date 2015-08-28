@@ -47,7 +47,15 @@ router.post('/vendor/retrieve', function(req, res) {
   };
 
   utility.findRecipientByPin(credentials.pin, credentials.vendorType).then(function(recipient) {
-    res.send({ type: credentials.vendorType, balance: recipient[credentials.vendorType] });
+    if (recipient) {
+      res.send({ type: credentials.vendorType, balance: recipient[credentials.vendorType] });
+    } else {
+      var error = {
+        status: 'error',
+        message: "We don't have an account on record with that PIN." 
+      };
+      return error;
+    }
   });
 
 });
