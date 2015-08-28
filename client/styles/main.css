@@ -99,6 +99,10 @@
   cursor: pointer
 }
 
+.loginLink {
+  cursor: pointer
+}
+
 .kind {
   /*padding: 15px 25px;*/
   /*font-size: 33px;*/
