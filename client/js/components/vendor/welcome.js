@@ -26,49 +26,52 @@ var welcome = React.createClass({
   render: function() {
     return (
       <div id="contact">
-        <header className="fullwidth">
-            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
-          </header>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 text-center">
-              <h2 className="formheader">Welcome {this.props.business}</h2>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-8 col-lg-offset-2">
-              <form id="contactForm">
-                <div className="row control-group whitey">
-                  <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Pin Tag Search
-                      <input type="number" onChange={this.showBalance} className="form-control" placeholder="" ref='pin'/>
-                  </div>
-                </div>
-                <div className="row control-group">
-                  <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Enter Password
-                      <input type="number" className="form-control" placeholder="" ref='pass'/>
-                  </div>
-                </div>
-                <div className="row control-group">
-                  <div className="form-group col-xs-12 floating-label-form-group controls">
-                    Total Purchase Amount
-                      <input type="number" className="form-control" placeholder="" ref='bill'/>
-                  </div>
-                </div>
-                <div id="success" className="button"></div>
-                  <div className="row">
-                    <div className="form-group col-xs-12 text-center">
-                      <button type="submit" onClick={this.charge} className="btn btn-success btn-lg">Send</button>
-                    </div>
-                  </div>
+      <header className="fullwidth">
+        <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+      </header>
 
-                <div>
-                  <div>
-                    Recipient Current Balance: ${this.props.balance}
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 text-center">
+            <h2 className="formheader">Welcome {this.props.business}</h2>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-lg-8 col-lg-offset-2">
+            <div className="row control-group whitey">
+              <div className="form-group col-xs-12 floating-label-form-group">
+                <span className="spacey">Pin Tag Search:</span>
+                <input type="number" onChange={this.showBalance} className="" placeholder="" ref='pin'/>
+              </div>
+            </div>
+
+            <div className="row control-group">
+              <div className="form-group col-xs-12 floating-label-form-group controls">
+                <span className="spacey">Enter Password:</span>
+                  <input type="text" className="" placeholder="" ref='pass'/>
+              </div>
+            </div>
+
+            <div className="row control-group">
+              <div className="form-group col-xs-12 floating-label-form-group controls">
+                <span className="spacey">Total Purchase Amount:</span>
+                   <input type="number" className="" placeholder="" ref='bill'/>
+              </div>
+            </div>
+
+              <div id="success" className="button2"></div>
+                <div className="row">
+                  <div className="form-group col-xs-12 text-center">
+                    <button type="submit" onClick={this.charge} className="btn btn-success btn-lg">Charge</button>
                   </div>
                 </div>
-              </form>
+
+                <div className="row control-group space3 text-center">
+                  <div className="form-group col-xs-12 floating-label-form-group controls">
+                    <span className="space3">Recipient Current Balance: ${this.props.balance}</span>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
