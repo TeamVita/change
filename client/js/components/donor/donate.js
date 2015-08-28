@@ -92,7 +92,7 @@ var Donate = React.createClass({
                 <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
                     <span className="fonty">Amount</span>
-                      <input type="text" onChange={this.handleChange} className="text-center" placeholder="$0.00" id="name" ref='amount'/>
+                    <input type="text" onChange={this.handleChange} className="text-center" placeholder="$0.00" id="name" ref='amount'/>
                   </div>
                 </div>
 
