@@ -94,7 +94,7 @@ var Signup = React.createClass({
   },
 
 render: function() {
-    var loginLink = <a onClick={this.handleClick}>Already have an account? Log in here.</a>
+    var loginLink = <a className="loginLink" onClick={this.handleClick}>Already have an account? Log in here.</a>
     var partial;
     if (this.state.pane === 'login') {
       partial = <Login ref='partial' />;
