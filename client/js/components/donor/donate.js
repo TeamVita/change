@@ -91,7 +91,7 @@ var Donate = React.createClass({
                 </div>
                 <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
-                    <span className="fonty">Amount</span>
+                    <span className="fonty" >Amount:</span>
                       <input type="text" onChange={this.handleChange} className="text-center" placeholder="$0.00" id="name" ref='amount'/>
                   </div>
                 </div>
@@ -131,13 +131,27 @@ var Donate = React.createClass({
          </div>
                   </div>
         </div>
-        <button onClick= {this.vendorPage}>Vendor</button>
-        <button onClick= {this.shelterPage}>Shelter</button>
+   
 
          <header className="fullwidth">
-            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <div className="container text-center">
+                <div className="row">
+                    <div className="footer-col col-md-4 logo">
+                        <h3 onClick={this.donorPage}>About Us</h3>
+                    </div>
+                    <div className="footer-col col-md-4 logo">
+                        <h3 onClick= {this.vendorPage}>Vendors</h3>
+                    </div>
+                    <div className="footer-col col-md-4 logo">
+                        <h3 onClick= {this.shelterPage}>Shelters</h3>
+                    </div>
+                </div>
+            </div>
           </header>
+
+        
       </div>
+
     );
   }
 });
