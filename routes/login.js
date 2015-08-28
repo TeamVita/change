@@ -8,7 +8,6 @@ router.post('/donor', function(req, res) {
 
 router.post('/vendor', function(req, res) {
   var vendorInfo = {};
-
   utility.findAccountByEmail(req.body.email, 'vendor')
   .then(function(account) {
     if (account && (account.password === req.body.password)) {
