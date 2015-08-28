@@ -21,7 +21,8 @@ module.exports = {
   	SIGNUP: null,
   	SIGNIN: null,
   	WELCOME: null,
-    DONOR: null
+    DONOR: null, 
+    ABOUT: null
   })
 
 };

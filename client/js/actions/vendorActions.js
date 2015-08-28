@@ -83,18 +83,4 @@ module.exports = {
 		});
 	},
 
-	requestAmount: function(pinInfo) {
-		$.ajax({
-			url: 'login/vendor',
-			type: 'POST',
-			data: pinInfo,
-			success: function(data) {
-				console.log("Update db entry successfully", data);
-			},
-			error: function(error) {
-				console.error(error);
-			}
-		});
-	}
-
 };

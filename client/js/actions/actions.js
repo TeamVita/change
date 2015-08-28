@@ -5,6 +5,7 @@ var ActionTypes = Constants.ActionTypes;
 module.exports = {
 	
 	switchPage: function(page) {
+			console.log('this is teh page', page);
 		Dispatcher.dispatch({
 			type: ActionTypes.SWITCH_PAGE,
 			page: page

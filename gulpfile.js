@@ -71,6 +71,12 @@ gulp.task('start', function () {
 });
 });
 
+gulp.task('mocha', function(){
+  return gulp
+  .src.('./test/*.js', {read: false})
+  .pipe(mocha());
+});
+
 //for future sass folder
 // gulp.task('sass', function () {
 //   gulp.src('./sass/**/*.scss')

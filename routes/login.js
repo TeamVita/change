@@ -41,6 +41,7 @@ router.post('/shelter', function(req, res) {
 });
 
 router.post('/vendor/retrieve', function(req, res) {
+  console.log(req.body, 'the body of the request');
   var credentials = {
     pin: req.body.pin,
     vendorType: req.body.type
