@@ -25,8 +25,8 @@ module.exports = {
 			data: recipientInfo,
 			success: function(data) {
 				Dispatcher.dispatch({
-					pane: 'welcome', 
-					type: ActionTypes.SHOW_AMOUNT, 
+					pane: 'welcome',
+					type: ActionTypes.SHOW_AMOUNT,
 					vendorType: data.type,
 					balance: data.balance
 				});
@@ -45,8 +45,8 @@ module.exports = {
 			success: function(data) {
 				console.log('BALANCE', data.balance);
 				Dispatcher.dispatch({
-					pane: 'welcome', 
-					type: ActionTypes.CHARGE, 
+					pane: 'welcome',
+					type: ActionTypes.CHARGE,
 					balance: data.balance
 				});
 			},
@@ -55,20 +55,26 @@ module.exports = {
 			}
 		});
 	},
-	
+
 	logIn: function(info, cb) {
 		$.ajax({
 			url: '/login/vendor',
 			type: 'POST',
 			data: info,
 			success: function(data) {
-				cb('welcome', data);
-			},
-			error: function(error) {
-				console.log(error);
-			}
-		});
-	},
+        if (data.error) {
+          var error = data.error;
+          console.log(error.message);
+          // TODO display error.message to user;
+        } else {
+          cb('welcome', data);
+        }
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  },
 
 	switchPage: function(page) {
 		Dispatcher.dispatch({

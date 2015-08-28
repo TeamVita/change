@@ -10,5 +10,5 @@ module.exports = function(sequelize, DataTypes) {
     vendorType: DataTypes.STRING,           // food or cloth
 
     password: DataTypes.STRING
-  })
-}
+  });
+};
