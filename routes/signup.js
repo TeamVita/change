@@ -23,7 +23,7 @@ router.post('/vendor', function(req, res) {
   req.body.dob_year = req.body.dob_day.slice(0,4);
   req.body.dob_month = req.body.dob_day.slice(5,7);
   req.body.dob_day = req.body.dob_day.slice(8,10);
-  // debugger;
+
 	var newVendor = utility.createVendor(email, password, username, vendorType);
 	newVendor.then(function(thing) {
 		stripeHandler.createStripeAccount(req, res, function(newAccount){
@@ -33,6 +33,7 @@ router.post('/vendor', function(req, res) {
 	    res.send(newAccount);
 	  });
 	});
+
 });
 
 // Add shelter record to DB
