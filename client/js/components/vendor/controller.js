@@ -94,7 +94,7 @@ var Signup = React.createClass({
   },
 
 render: function() {
-    var loginLink = <a onClick={this.handleClick}>Already have an account? Log in here.</a>
+    var loginLink = <a className="space4" onClick={this.handleClick}>Already have an account? Log in here.</a>
     var partial;
     if (this.state.pane === 'login') {
       partial = <Login ref='partial' />;
@@ -109,10 +109,28 @@ render: function() {
 
     return (
       <div ref = 'form'>
+      <header className="fullwidth">
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <div className="formheader5 text-center fullwidth">
+               {this.state.showLoginLink ? loginLink : null}
+               </div>
+          </header>
         <form id ="contactForm"onSubmit ={this.handleSubmit}>
           {partial}
         </form>
-        {this.state.showLoginLink ? loginLink : null}
+       <header className="fullwidth">
+                <div className="row footersize">
+                    <div className="col-md-4 logo">
+                        <p onClick={this.donorPage}>About Us</p>
+                    </div>
+                    <div className="col-md-4 logo">
+                        <p onClick= {this.vendorPage}>Vendors</p>
+                    </div>
+                    <div className="col-md-4 logo">
+                        <p onClick= {this.shelterPage}>Shelters</p>
+                    </div>
+            </div>
+          </header>
       </div>
     );
   }

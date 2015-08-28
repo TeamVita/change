@@ -29,25 +29,22 @@ var OrgSignup = React.createClass({
     return (
 
       <div id="contact">
-        <header className="fullwidth">
-            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
-          </header>
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="formheader">Shelter Signup</h2>
+              <h2 className="formheader2">Shelter Signup</h2>
             </div>
           </div>
 
           <div className="row">
             <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
-              <span className="fonty">Organization Name</span>
+              <span className="fonty">Organization Name:</span>
                 <input type="text" className="text-center" placeholder="abc@abc.com" id="email" ref='email'/>
             </div>
           </div>
           <div className="row">
             <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
-              <span className="fonty">Password</span>
+              <span className="fonty">Password:</span>
                 <input type="password" onChange={this.onChange} className="text-center" placeholder="" id="name" ref='password' value={this.state.text}/>
             </div>
           </div>
@@ -57,11 +54,9 @@ var OrgSignup = React.createClass({
             <div className="form-group col-xs-12 text-center booga2">
               <button type="submit" className="btn btn-success btn-lg">Login</button>
             </div>
+          
           </div>
         </div>
-          <header className="fullwidth">
-            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
-          </header>
       </div>
     );
   }
