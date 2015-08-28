@@ -164,8 +164,12 @@ var Donate = React.createClass({
           </header>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
+>>>>>>> [feat] Create footer for all pages
+=======
+
 >>>>>>> [feat] Create footer for all pages
       </div>
 
