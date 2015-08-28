@@ -21,7 +21,7 @@
                         <a href="#portfolio"></a>
                     </li>
                     <li className="page-scroll">
-                        <a href="#about"></a>
+                        <a href="../../practice.html"></a>
                     </li>
                     <li className="page-scroll">
                         <a href="#contact">About</a>

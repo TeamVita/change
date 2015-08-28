@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <div class="footer-col col-md-4">
-                        <h3>About Us</h3>
+                        <h3><a href = '../../practice.html'> WHATEVER About Us</a></h3>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Vendors</h3>

@@ -13,6 +13,10 @@ var getPageComponent = function(page) {
 
 		case Pages.DONOR:
 		return require('./donor/donate');
+
+		case Pages.ABOUT:
+		console.log('in about');
+		return require('./threesteps');
 	}
 };
 

@@ -72,6 +72,11 @@ var Donate = React.createClass({
     actions.switchPage('DONOR');
   },
 
+  aboutPage: function() {
+    console.log('hits about function');
+    actions.switchPage('ABOUT');
+  },
+
   render: function() {
     return (
       <div id="contact">
@@ -135,7 +140,7 @@ var Donate = React.createClass({
             <div className="container text-center">
                 <div className="row">
                     <div className="footer-col col-md-4 logo">
-                        <h3 onClick={this.donorPage}>About Us</h3>
+                        <h3><a href='../../../practice.html'>About Us</a></h3>
                     </div>
                     <div className="footer-col col-md-4 logo">
                         <h3 onClick= {this.vendorPage}>Vendors</h3>
