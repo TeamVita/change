@@ -84,14 +84,13 @@ var Donate = React.createClass({
                <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
                     <span className="fonty">Pin Tag #</span>
-
                       <input type="text" maxLength='4' className="text-center" placeholder="####" id="name" ref='PIN'/>
-
                   </div>
                 </div>
+
                 <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
-                    <span className="fonty" >Amount:</span>
+                    <span className="fonty">Amount:</span>
                       <input type="text" onChange={this.handleChange} className="text-center" placeholder="$0.00" id="name" ref='amount'/>
                   </div>
                 </div>
@@ -107,11 +106,10 @@ var Donate = React.createClass({
                 </button>
               </div>
             </div>
+
               <div id="success" className="button"></div>
                   <div className="row boo">
                     <div className="form-group col-xs-12 text-center booga2">
-
-
 
               <br/>
               <StripeCheckout
@@ -128,11 +126,11 @@ var Donate = React.createClass({
         </StripeCheckout>
         {this.state.failure ? <p>No record was found for that PIN. Please try your donation again with a different PIN.</p> : null}
         <br/>
-         </div>
-                  </div>
+
+            </div>
+          </div>
         </div>
    
-
          <header className="fullwidth">
             <div className="container text-center">
                 <div className="row">
@@ -149,9 +147,7 @@ var Donate = React.createClass({
             </div>
           </header>
 
-        
       </div>
-
     );
   }
 });
