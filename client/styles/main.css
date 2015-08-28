@@ -14,10 +14,11 @@
 }
 
 .images {
-  max-width: 210px;
+  max-width: 300px;
   max-height: 180px;
   height: auto;
   width: auto;
+  margin-bottom: 25px;
 }
 
 .img .steps {
@@ -165,6 +166,15 @@ input.booga::-webkit-input-placeholder {
   font-size: 1.5em;
 }
 
+.space3 {
+  padding-top: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #133F5F;
+  font-size: 1.3em;
+  padding-bottom: 25px;
+}
+
 .spacey {
   padding-right: 10px;
   font-family: 'Source Sans Pro', sans-serif;
@@ -196,6 +206,11 @@ input[type=text], name {
   padding-top: 20px;
   font-size: 1.3em;
   padding-bottom: 30px;
+}
+
+footer-above2 {
+  color: #133F5F;
+  background-color: #133F5F;
 
 }
 /*dark blue: 133F5F

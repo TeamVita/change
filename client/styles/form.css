@@ -347,6 +347,7 @@ footer h3 {
 }
 
 footer .footer-above {
+    margin-top: 30px;
     padding-top: 30px;
     background-color: #133F5F;
 }
