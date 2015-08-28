@@ -30,10 +30,16 @@ var Vendor = {
   },
 
   findOneByEmail: function(email) {
+    console.log('EMAIL: ' + email);
     return db.Vendor.findOne({ where: { email: email } }).then(function(vendor) {
-      return vendor.get();
+      if (vendor) {
+        return vendor.get();
+      } else {
+        return vendor;
+      }
     })
-    .catch(function() {
+    .catch(function(error) {
+      console.log('ERROR: ' + error);
       throw new Error('Unknown error at method vendor findOneByEmail()');
     });
   },

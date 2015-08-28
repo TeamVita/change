@@ -17,20 +17,21 @@ router.post('/vendor', function(req, res) {
 	var vendorType = req.body.type;
   var email = req.body.email;
   var username = req.body.business_name;
-  var password = req.body.pass;
+  var password = req.body.password;
   req.body.dob_year = req.body.dob_day.slice(0,4);
   req.body.dob_month = req.body.dob_day.slice(5,7);
   req.body.dob_day = req.body.dob_day.slice(8,10);
-  // debugger;
-  stripeHandler.createStripeAccount(req, res, function(newAccount){
-  	newAccount.type = vendorType;
-    newAccount.password = password;
-    // debugger;
-    res.send(newAccount);
-    utility.createVendor(email, password, username, vendorType).then(function(vendor) {
-      console.log("vendor created", vendor);
-    })
-  });
+
+	var newVendor = utility.createVendor(email, password, username, vendorType);
+	newVendor.then(function(thing) {
+		stripeHandler.createStripeAccount(req, res, function(newAccount){
+	  	newAccount.type = vendorType;
+	    newAccount.password = password;
+	    // debugger;
+	    res.send(newAccount);
+	  });
+	});
+
 });
 
 // Add shelter record to DB
