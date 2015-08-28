@@ -95,11 +95,7 @@ var Donate = React.createClass({
 
                 <div className="row">
                   <div className="form-group col-sm-6 col-sm-4 col-sm-offset-4 text-center floating-label-form-group controls">
-<<<<<<< HEAD
                     <span className="fonty">Amount:</span>
-=======
-                    <span className="fonty" >Amount:</span>
->>>>>>> [feat] Create footer for all pages
                       <input type="text" onChange={this.handleChange} className="text-center" placeholder="$0.00" id="name" ref='amount'/>
                   </div>
                 </div>
@@ -135,13 +131,7 @@ var Donate = React.createClass({
         </StripeCheckout>
         {this.state.failure ? <p>No record was found for that PIN. Please try your donation again with a different PIN.</p> : null}
         <br/>
-<<<<<<< HEAD
-=======
-         </div>
-                  </div>
-        </div>
-   
->>>>>>> [feat] Create footer for all pages
+
 
             </div>
           </div>
@@ -162,17 +152,8 @@ var Donate = React.createClass({
                 </div>
             </div>
           </header>
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> [feat] Create footer for all pages
-=======
-
->>>>>>> [feat] Create footer for all pages
+          
       </div>
-
     );
   }
 });
