@@ -120,7 +120,7 @@ var personalInfo = React.createClass({
             <div id="success" className="button"></div>
               <div className="row gap">
                 <div className=" col-xs-12 text-center">
-                  <button type="submit" className="btn btn-success btn-lg button">Send</button>
+                  <button type="submit" className="btn btn-success btn-lg button">Sign Up</button>
                 </div>
               </div>
             </div>
