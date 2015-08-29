@@ -1,3 +1,4 @@
+var React = require('react');
 var shelterActions = require('../../actions/shelterActions');
 var Constants = require('../../constants/Constants.js');
 var NewPin = require('./newpin.js');

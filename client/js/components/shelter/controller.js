@@ -1,3 +1,4 @@
+var React = require('react');
 var shelterActions = require('../../actions/shelterActions');
 var Constants = require('../../constants/Constants.js');
 var OrgSignup = require('./signup');
@@ -77,13 +78,9 @@ var Shelter = React.createClass({
 
   render: function() {
     // TODO: change form width to include wider title
-<<<<<<< HEAD
-    var loginLink = <a className="loginLink" onClick={this.handleClick}>Already have an account? Log in here.</a>
-=======
     var loginLink = <a className="space4" onClick={this.handleClick}>Already have an account? Log in here.</a>
->>>>>>> [refactor] Add footer to all pages
     if (this.state.pane === 'welcome') {
-      var partial = <Welcomee business={this.state.business} ref='partial' />;
+      var partial = <Welcome business={this.state.business} ref='partial' />;
     } else {
       var partial = this._states[this.state.pane]();
     }

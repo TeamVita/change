@@ -1,3 +1,4 @@
+var React = require('react');
 var Constants = require('../constants/Constants');
 var SignupStore = require('../stores/SignupStore');
 var Pages = Constants.Pages;

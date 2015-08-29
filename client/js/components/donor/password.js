@@ -1,3 +1,4 @@
+var React = require('react');
 var DonorActions = require('../../actions/donorActions');
 
 var Pass = React.createClass({
