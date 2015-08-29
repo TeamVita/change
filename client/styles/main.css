@@ -271,6 +271,27 @@ footer-above2 {
   padding-bottom: 40px;
   padding-top: 250px; 
 }
+
+.lefty {
+  left: 900px;
+}
+
+.righty {
+  margin-right: 100px;
+}
+
+.input-group .input-group-addon + .form-control {
+    border:none;
+}
+
+.input-group-addon {
+    background-color:#FFD07F;
+    border:none;
+}
+
+.noshow {
+  color: #FFD07F;
+}
 /*dark blue: 133F5F
 yellow: FFD07F*/
 /*green #5cb85c*/
