@@ -3,6 +3,7 @@ var Constants = require('../../constants/Constants.js');
 var OrgSignup = require('./signup');
 var Welcome = require('./welcome');
 var Login = require('../login');
+var mainAction = require('../../actions/actions');
 
 var Shelter = React.createClass({
 
@@ -22,6 +23,18 @@ var Shelter = React.createClass({
       pane: 'orgSignup',
       showLoginLink: true
     };
+  },
+
+  donorPage: function() {
+    mainAction.switchPage('DONOR');
+  },
+
+  shelterPage: function() {
+    mainAction.switchPage("SHELTER");
+  },
+
+  vendorPage: function() {
+    mainAction.switchPage("VENDOR");
   },
 
   handleClick: function() {
@@ -90,7 +103,7 @@ var Shelter = React.createClass({
         <header className="fullwidth">
                 <div className="row footersize">
                     <div className="col-md-4 logo">
-                        <p onClick={this.donorPage}>About Us</p>
+                        <p><a href="../../../practice.html">About Us</a></p>
                     </div>
                     <div className="col-md-4 logo">
                         <p onClick= {this.vendorPage}>Vendors</p>

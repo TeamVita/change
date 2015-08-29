@@ -4,6 +4,7 @@ var PersonalInfo = require('./personalInfo');
 var BankInfo = require('./bankInfo');
 var Welcome = require('./welcome');
 var Login = require('../login');
+var mainAction = require('../../actions/actions');
 
 var Signup = React.createClass({
 
@@ -29,6 +30,18 @@ var Signup = React.createClass({
       business: vendorAccount.business_name,
       type: vendorAccount.type,
     });
+  },
+
+  donorPage: function() {
+    mainAction.switchPage('DONOR');
+  },
+
+  shelterPage: function() {
+    mainAction.switchPage("SHELTER");
+  },
+
+  vendorPage: function() {
+    mainAction.switchPage("VENDOR");
   },
 
   handleClick: function() {
@@ -121,7 +134,7 @@ render: function() {
        <header className="fullwidth">
                 <div className="row footersize">
                     <div className="col-md-4 logo">
-                        <p onClick={this.donorPage}>About Us</p>
+                        <p><a href="../../../practice.html">About Us</a></p>
                     </div>
                     <div className="col-md-4 logo">
                         <p onClick= {this.vendorPage}>Vendors</p>

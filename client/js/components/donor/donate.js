@@ -138,16 +138,10 @@ var Donate = React.createClass({
         </div>
    
          <header className="fullwidth">
-<<<<<<< HEAD
-            <div className="container text-center">
-                <div className="row">
-                    <div className="footer-col col-md-4 logo">
-                        <h3><a href='../../../practice.html'>About Us</a></h3>
-=======
+
                 <div className="row footersize">
                     <div className="col-md-4 logo">
-                        <p onClick={this.donorPage}>About Us</p>
->>>>>>> [refactor] Add footer to all pages
+                        <p><a href="../../../practice.html">About Us</a></p>
                     </div>
                     <div className="col-md-4 logo">
                         <p onClick= {this.vendorPage}>Vendors</p>
