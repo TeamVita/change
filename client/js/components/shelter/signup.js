@@ -51,10 +51,10 @@ var OrgSignup = React.createClass({
           </div>
 
           <div id="success" className="button"></div>
-          <div className="row boo">
-            <div className="form-group col-xs-12 text-center booga2">
-              <button type="submit" className="btn btn-success btn-lg">Login</button>
-            </div>
+            <div className="row boo">
+              <div className="form-group col-xs-12 text-center booga2">
+                <button type="submit" className="btn btn-success btn-lg">Sign Up</button>
+              </div>
           
           </div>
         </div>

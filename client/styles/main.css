@@ -14,8 +14,8 @@
 }
 
 .images {
-  max-width: 300px;
-  max-height: 180px;
+  max-width: 350px;
+  max-height: 229px;
   height: auto;
   width: auto;
   margin-bottom: 25px;
@@ -102,6 +102,7 @@
   padding-top: 40px;
   color: #133F5F;
   font-family: 'Source Sans Pro', sans-serif;
+  font-size: 43px;
 }
 
 .formheader4 {
@@ -186,8 +187,8 @@ input.booga::-webkit-input-placeholder {
 .fonty2 {
   color: white;
   font-family: 'Source Sans Pro', sans-serif;
-  padding-top: 20px;
-  font-size: 30px;
+  padding-top: 30px;
+  font-size: 42px;
 }
 
 .space {
@@ -196,7 +197,7 @@ input.booga::-webkit-input-placeholder {
 }
 
 .space2 {
-  padding-top: 20px;
+  padding-top: 25px;
   padding-left: 10px;
   padding-right: 10px;
   color: #133F5F;
@@ -248,14 +249,21 @@ input[type=text], name {
 }
 
 .caption {
+  padding-top: 1px;
+  font-size: 1.3em;
+  padding-bottom: 80px;
+}
+
+.caption2 {
   padding-top: 20px;
   font-size: 1.3em;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
 }
 
 footer-above2 {
   color: #133F5F;
   background-color: #133F5F;
+  font-family: 'Source Sans Pro', sans-serif;
   margin-top: 40px;
 }
 

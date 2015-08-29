@@ -36,7 +36,7 @@ var welcome = React.createClass({
       <div className="container">
         <div className="row">
           <div className="col-lg-12 text-center">
-            <h2 className="formheader">Welcome {this.props.business}</h2>
+            <h2 className="formheader2">Welcome {this.props.business}</h2>
           </div>
         </div>
 
