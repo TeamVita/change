@@ -18,13 +18,11 @@ var login = React.createClass({
   render: function() {
     return (
       <div id="contact">
-        <header className="fullwidth">
-            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
-          </header>
+     
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
-              <h2 className="formheader">Log in to make a CHANGE</h2>
+              <h2 className="formheader2">Log in to make a CHANGE</h2>
             </div>
           </div>
             <div className="row">
@@ -47,12 +45,8 @@ var login = React.createClass({
                     </div>
                   </div>
 
-
+          </div>
         </div>
-         <header className="fullwidth">
-            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
-          </header>
-      </div>
     );
   }
 });

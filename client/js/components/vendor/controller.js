@@ -4,6 +4,7 @@ var PersonalInfo = require('./personalInfo');
 var BankInfo = require('./bankInfo');
 var Welcome = require('./welcome');
 var Login = require('../login');
+var mainAction = require('../../actions/actions');
 
 var Signup = React.createClass({
 
@@ -29,6 +30,18 @@ var Signup = React.createClass({
       business: vendorAccount.business_name,
       type: vendorAccount.type,
     });
+  },
+
+  donorPage: function() {
+    mainAction.switchPage('DONOR');
+  },
+
+  shelterPage: function() {
+    mainAction.switchPage("SHELTER");
+  },
+
+  vendorPage: function() {
+    mainAction.switchPage("VENDOR");
   },
 
   handleClick: function() {
@@ -93,7 +106,8 @@ var Signup = React.createClass({
   },
 
 render: function() {
-    var loginLink = <a className="loginLink" onClick={this.handleClick}>Already have an account? Log in here.</a>
+
+    var loginLink = <a className="space4" onClick={this.handleClick}>Already have an account? Log in here.</a>
     var partial;
     if (this.state.pane === 'login') {
       partial = <Login ref='partial' />;
@@ -108,10 +122,28 @@ render: function() {
 
     return (
       <div ref = 'form'>
+      <header className="fullwidth">
+            <img className="logo" onClick={this.donorPage} src={"./styles/images/Change_logo.png"}/>
+            <div className="formheader5 text-center fullwidth">
+               {this.state.showLoginLink ? loginLink : null}
+               </div>
+          </header>
         <form id ="contactForm"onSubmit ={this.handleSubmit}>
           {partial}
         </form>
-        {this.state.showLoginLink ? loginLink : null}
+       <header className="fullwidth">
+                <div className="row footersize">
+                    <div className="col-md-4 logo">
+                        <p><a href="../../../practice.html">About Us</a></p>
+                    </div>
+                    <div className="col-md-4 logo">
+                        <p onClick= {this.vendorPage}>Vendors</p>
+                    </div>
+                    <div className="col-md-4 logo">
+                        <p onClick= {this.shelterPage}>Shelters</p>
+                    </div>
+            </div>
+          </header>
       </div>
     );
   }
