@@ -3,6 +3,7 @@ var CLIENT_ID = keys.CLIENT_ID;
 var SECRET_KEY = keys.SECRET_KEY;
 var TOKEN_URI = 'https://connect.stripe.com/oauth/token';
 var AUTHORIZE_URI = 'https://connect.stripe.com/oauth/authorize';
+var Promise = require('q');
 
 var stripe = require("stripe")(SECRET_KEY);
 

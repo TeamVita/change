@@ -1,3 +1,5 @@
+var React = require('react');
+var require = require('react');
 var DonorController = React.createClass({
 
   getInitialState: function() {

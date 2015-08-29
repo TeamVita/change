@@ -1,4 +1,4 @@
-var actions = require('../../actions/actions');
+var React = require('react');
 var Constants = require('../../constants/Constants.js');
 var actions = require('../../actions/actions');
 

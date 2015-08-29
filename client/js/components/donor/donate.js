@@ -1,3 +1,4 @@
+var React = require('react');
 var DonorActions = require('../../actions/donorActions');
 var Constants = require('../../constants/Constants.js');
 var StripeCheckout = require('react-stripe-checkout');

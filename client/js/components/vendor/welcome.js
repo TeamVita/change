@@ -1,3 +1,4 @@
+var React = require('react');
 var actions = require('../../actions/vendorActions');
 var Constants = require('../../constants/Constants.js');
 
