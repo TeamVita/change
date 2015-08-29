@@ -91,8 +91,7 @@ var Donate = React.createClass({
             <div className="row">
             <div className="control-group">
               <div className="form-group col-md-4 col-md-offset-4 floating-label-form-group input-group">
-                <span className="fonty input-group-addon text-center noshow">4 Digit Pil</span>
-                  <input type="" maxLength='4' className="" placeholder=""/>
+                <span className="fonty input-group-addon text-center noshow">Hello this is a placeholder only do</span>
               </div>
             </div>
 
