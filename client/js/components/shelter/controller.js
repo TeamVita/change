@@ -80,7 +80,7 @@ var Shelter = React.createClass({
     // TODO: change form width to include wider title
     var loginLink = <a className="space4" onClick={this.handleClick}>Already have an account? Log in here.</a>
     if (this.state.pane === 'welcome') {
-      var partial = <Welcomee business={this.state.business} ref='partial' />;
+      var partial = <Welcome business={this.state.business} ref='partial' />;
     } else {
       var partial = this._states[this.state.pane]();
     }
