@@ -8,7 +8,7 @@ Every donation recipient has a 4-digit PIN. When donors start CHANGE, they can e
 
 
 ## Run the app ##
-  >$ npm start
+  >$ gulp
   
   >Then navigate to http://localhost:3000/ in your browser. You will see the "Welcome to Express" text.
 
