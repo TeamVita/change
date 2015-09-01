@@ -1,5 +1,5 @@
 #CHANGE#
-[changis.life](changeis.life)
+[changeis.life](changeis.life)
 
 Have you ever wanted to help someone in need, but didn’t have any spare change on hand? CHANGE lets you to make anonymous payments anytime you want, allowing recipients to visit partner vendors to purchase clothes and food with your donation. 
 
@@ -12,7 +12,7 @@ Every donation recipient has a 4-digit PIN. When donors start CHANGE, they can e
   
   >Then navigate to http://localhost:3000/ in your browser. You will see the "Welcome to Express" text.
 
-Proposed donar/shelter objects expected during sign up and sign in
+Proposed donor/shelter objects expected during sign up and sign in
 Format: JSON string
 ```
 donor/signup
