@@ -1,3 +1,13 @@
+#CHANGE#
+
+#URL:# [changis.life](changeis.life)
+
+Have you ever wanted to help someone in need, but didn’t have any spare change on hand? CHANGE lets you to make anonymous payments anytime you want, allowing recipients to visit partner vendors to purchase clothes and food with your donation. 
+
+##How it works##
+Every donation recipient has a 4-digit PIN. When donors start CHANGE, they can enter the PIN, the type of donation they’d like to make (food or clothing), and the amount they wish to donate. Recipients can visit partner vendors to redeem their donations and purchase goods. Once a vendor signs in, they can search for a PIN to determine the account balance and make charges.
+
+
 ## Run the app ##
   >$ npm start
   
