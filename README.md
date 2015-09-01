@@ -1,6 +1,5 @@
 #CHANGE#
-
-#URL:# [changis.life](changeis.life)
+[changis.life](changeis.life)
 
 Have you ever wanted to help someone in need, but didn’t have any spare change on hand? CHANGE lets you to make anonymous payments anytime you want, allowing recipients to visit partner vendors to purchase clothes and food with your donation. 
 
